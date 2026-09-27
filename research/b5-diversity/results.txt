@@ -1,0 +1,14 @@
+APIGraph  width 1159  pool 30533 rows  T=10 S=25 L=64 LF=10  3 seeds
+
+clauses   bank              n    med size    mean Jacc   dup >0.9   random Jacc
+20        positive         10          68        0.082       0.0%         0.014
+RESULT clauses=20 bank=positive n=10 med_size=68 mean_jaccard=0.0824 dup_frac=0.00 random_jaccard=0.0139
+20        negative         10          68        0.102       0.0%         0.014
+RESULT clauses=20 bank=negative n=10 med_size=68 mean_jaccard=0.1017 dup_frac=0.00 random_jaccard=0.0140
+200       positive        100          68        0.034       0.0%         0.013
+RESULT clauses=200 bank=positive n=100 med_size=68 mean_jaccard=0.0338 dup_frac=0.00 random_jaccard=0.0135
+200       negative        100          67        0.038       0.0%         0.013
+RESULT clauses=200 bank=negative n=100 med_size=67 mean_jaccard=0.0377 dup_frac=0.00 random_jaccard=0.0131
+
+SATURATED if trained similarity greatly exceeds the size-matched random baseline and
+rises with the budget. The random column is what sparsity alone produces.

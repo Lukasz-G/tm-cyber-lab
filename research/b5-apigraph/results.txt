@@ -1,0 +1,34 @@
+tm-lab pin 43dba5f  threads 16  parallel none
+APIGraph: width 1159 (2318 literals)  train 30533 rows, 3061 malware (10.0%)
+s = width/S:  S=25 -> s=46.4 (matched to the LAMDA run)   S=100 -> s=11.6
+
+  2013: 48568 rows, 4854 malware (10.0%)
+  2014: 58485 rows, 5809 malware (9.9%)
+  2015: 57452 rows, 5508 malware (9.6%)
+  2016: 56036 rows, 5324 malware (9.5%)
+  2017: 27312 rows, 2465 malware (9.0%)
+  2018: 41929 rows, 3783 malware (9.0%)
+
+S=25 (s=46.4)  2013 82.95±2.40  2014 64.92±4.76  2015 60.28±3.81  2016 59.23±4.32  2017 63.52±6.63  2018 64.70±5.09
+
+S=100 (s=11.6)  2013 84.24±2.01  2014 66.76±3.07  2015 61.25±2.24  2016 59.65±3.56  2017 64.55±4.56  2018 65.28±4.12
+
+=== FPTM vs gradient boosting on identical rows ===
+year          FPTM S=25       FPTM S=100   LightGBM    XGBoost    vs LGB
+2013      82.95±2.40       84.24±2.01         84.32      83.29     -1.37
+2014      64.92±4.76       66.76±3.07         65.31      69.88     -0.39
+2015      60.28±3.81       61.25±2.24         61.75      66.13     -1.47
+2016      59.23±4.32       59.65±3.56         61.88      68.39     -2.65
+2017      63.52±6.63       64.55±4.56         67.76      72.13     -4.24
+2018      64.70±5.09       65.28±4.12         60.59      72.30     +4.11
+
+first test year gap to LightGBM: -1.37  (criterion: within 5)
+later years where FPTM is ahead: 1 of 5  (criterion: majority)
+median literals/clause: S=25 69  S=100 72  (LF/literals 14.5% and 13.9%)
+RESULT fptm_s25_2013=82.95 fptm_s100_2013=84.24
+RESULT fptm_s25_2014=64.92 fptm_s100_2014=66.76
+RESULT fptm_s25_2015=60.28 fptm_s100_2015=61.25
+RESULT fptm_s25_2016=59.23 fptm_s100_2016=59.65
+RESULT fptm_s25_2017=63.52 fptm_s100_2017=64.55
+RESULT fptm_s25_2018=64.70 fptm_s100_2018=65.28
+RESULT b5_apigraph=DOES_NOT_REPLICATE

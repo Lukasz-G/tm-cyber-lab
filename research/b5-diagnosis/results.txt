@@ -1,0 +1,37 @@
+APIGraph width 1159, train 30533 rows (10.0% malware), 5 seeds
+
+=== gradient boosting, for the trade-off it sits at ===
+  (from research/b5-apigraph/baselines.txt: precision 80-90%, recall 55-75%)
+
+=== 20 clauses, T=10  [the gate] ===
+year           F1   precision    recall      LGB F1      XGB F1
+2013        82.21       96.01     71.99       84.32       83.29
+2014        65.18       91.32     51.01       65.31       69.88
+2015        60.07       89.16     45.53       61.75       66.13
+2016        58.55       82.76     45.62       61.88       68.39
+2017        63.40       79.67     53.19       67.76       72.13
+2018        63.09       81.78     51.61       60.59       72.30
+  median literals/clause 69   mean gap to best booster -6.77   worst -9.85
+RESULT arm="20 clauses, T=10  [the gate]" mean_gap=-6.77 worst_gap=-9.85 median_literals=69
+
+=== 200 clauses, T=10 [clauses only] ===
+year           F1   precision    recall      LGB F1      XGB F1
+2013        83.39       93.41     75.54       84.32       83.29
+2014        65.01       81.18     54.87       65.31       69.88
+2015        60.62       79.14     49.55       61.75       66.13
+2016        60.25       75.17     50.83       61.88       68.39
+2017        63.41       72.40     57.14       67.76       72.13
+2018        64.35       74.28     57.40       60.59       72.30
+  median literals/clause 68   mean gap to best booster -6.02   worst -8.72
+RESULT arm="200 clauses, T=10 [clauses only]" mean_gap=-6.02 worst_gap=-8.72 median_literals=68
+
+=== 200 clauses, T=32 [T rescaled] ===
+year           F1   precision    recall      LGB F1      XGB F1
+2013        83.46       94.72     74.67       84.32       83.29
+2014        64.53       85.10     52.06       65.31       69.88
+2015        60.79       83.24     47.94       61.75       66.13
+2016        58.66       79.06     46.75       61.88       68.39
+2017        64.22       76.69     55.37       67.76       72.13
+2018        65.14       78.06     55.99       60.59       72.30
+  median literals/clause 70   mean gap to best booster -6.06   worst -9.73
+RESULT arm="200 clauses, T=32 [T rescaled]" mean_gap=-6.06 worst_gap=-9.73 median_literals=70

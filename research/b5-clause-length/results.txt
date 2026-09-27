@@ -1,0 +1,15 @@
+APIGraph width 1159  20 clauses  T=10 S=25 LF=10  5 seeds  L in (8, 16, 32, 64)
+judged on the swept frontier, not the default threshold
+
+L     literals    bestF1  dom by LGB  dom by XGB meanF1 vs LGB meanF1 vs XGB
+8           12     75.64         6/6         6/6         +8.70         +3.62
+RESULT L=8 median_literals=12 mean_best_f1=75.64 dom_lgb=6 dom_xgb=6
+16          19     76.14         5/6         5/6         +9.20         +4.12
+RESULT L=16 median_literals=19 mean_best_f1=76.14 dom_lgb=5 dom_xgb=5
+32          37     75.79         6/6         6/6         +8.85         +3.77
+RESULT L=32 median_literals=37 mean_best_f1=75.79 dom_lgb=6 dom_xgb=6
+64          69     74.01         5/6         4/6         +7.07         +1.99
+RESULT L=64 median_literals=69 mean_best_f1=74.01 dom_lgb=5 dom_xgb=4
+
+dominance is the verdict; the F1 columns compare a SWEPT FPTM against UNSWEPT boosters
+and therefore flatter us — they are shown for shape, not as a claim.

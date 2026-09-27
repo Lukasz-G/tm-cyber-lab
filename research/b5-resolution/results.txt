@@ -1,0 +1,16 @@
+APIGraph 2016: 56036 rows, 5324 malware (9.5%), width 1159, 3 seeds
+
+20 clauses/class:
+  distinct margin values        118  (of 56036 examples)
+  top bucket: size 1, purity 100.0%  (base rate 9.5%)
+  buckets to reach 10% recall   32.3, precision there 96.0%
+RESULT clauses=20 cardinality=118 top_size=1 top_purity=100.0 buckets_for_10pct_recall=32.3 precision_there=96.0
+
+200 clauses/class:
+  distinct margin values        283  (of 56036 examples)
+  top bucket: size 1, purity 100.0%  (base rate 9.5%)
+  buckets to reach 10% recall   62.0, precision there 94.8%
+RESULT clauses=200 cardinality=283 top_size=1 top_purity=100.0 buckets_for_10pct_recall=62.0 precision_there=94.8
+
+reference: a gradient booster emits a distinct float per example, so its score
+cardinality equals the number of examples and its top bucket has size 1.

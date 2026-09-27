@@ -1,0 +1,27 @@
+train: (30533, 1159) malware 3,061 (10.0%)
+  2013: 48,568 rows, 4,854 malware
+  2014: 58,485 rows, 5,809 malware
+  2015: 57,452 rows, 5,508 malware
+  2016: 56,036 rows, 5,324 malware
+  2017: 27,312 rows, 2,465 malware
+  2018: 41,929 rows, 3,783 malware
+
+=== lightgbm ===
+  2013  F1  84.32  precision  97.28  recall  74.41  n=48,568
+  2014  F1  65.31  precision  96.18  recall  49.44  n=58,485
+  2015  F1  61.75  precision  96.09  recall  45.50  n=57,452
+  2016  F1  61.88  precision  94.13  recall  46.09  n=56,036
+  2017  F1  67.76  precision  91.27  recall  53.87  n=27,312
+  2018  F1  60.59  precision  88.86  recall  45.97  n=41,929
+RESULT lightgbm 2013=84.32 2014=65.31 2015=61.75 2016=61.88 2017=67.76 2018=60.59
+
+=== xgboost ===
+  2013  F1  83.29  precision  95.37  recall  73.92  n=48,568
+  2014  F1  69.88  precision  90.15  recall  57.05  n=58,485
+  2015  F1  66.13  precision  88.27  recall  52.87  n=57,452
+  2016  F1  68.39  precision  82.79  recall  58.26  n=56,036
+  2017  F1  72.13  precision  80.16  recall  65.56  n=27,312
+  2018  F1  72.30  precision  84.65  recall  63.10  n=41,929
+RESULT xgboost 2013=83.29 2014=69.88 2015=66.13 2016=68.39 2017=72.13 2018=72.30
+
+wrote research/b5-apigraph/baselines.json

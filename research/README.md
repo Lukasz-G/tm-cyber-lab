@@ -1,5 +1,8 @@
 # research/
 
+**[INDEX.md](INDEX.md) lists every experiment with its verdict** and flags which earn their place.
+Start there.
+
 Experiments. **Not a package** — scripts here may depend on anything, and are not held to the API
 stability or test coverage expected of library code.
 

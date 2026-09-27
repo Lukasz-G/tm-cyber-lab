@@ -1,0 +1,15 @@
+train: (45489, 16978) malware 4,542 (10.0%)
+  2020: 38,904 rows, 3,983 malware
+  2021: 15,661 rows, 1,676 malware
+
+=== lightgbm ===
+  2020  F1  60.93  precision  96.31  recall  44.56  n=38,904
+  2021  F1  50.17  precision  91.61  recall  34.55  n=15,661
+RESULT lightgbm 2020=60.93 2021=50.17
+
+=== xgboost ===
+  2020  F1  64.52  precision  96.74  recall  48.41  n=38,904
+  2021  F1  50.35  precision  94.12  recall  34.37  n=15,661
+RESULT xgboost 2020=64.52 2021=50.35
+
+wrote research/b5-androzoo/baselines.json

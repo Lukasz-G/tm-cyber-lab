@@ -1,0 +1,23 @@
+tm-lab pin 43dba5f  threads 16  parallel none
+AndroZoo: width 16978 (33956 literals)  train 45489 rows, 4542 malware (10.0%)  density 0.141
+s = width/S:  S=372 -> s=45.6 (matched to LAMDA)   S=100 -> s=169.8
+
+  2020: 38904 rows, 3983 malware (10.2%)
+  2021: 15661 rows, 1676 malware (10.7%)
+
+S=372 (s=45.6)  2020 58.81±3.62  2021 45.89±1.12
+
+S=100 (s=169.8)  2020 59.07±3.48  2021 46.12±0.70
+
+=== FPTM vs gradient boosting on identical rows ===
+year     FPTM s-matched       FPTM S=100   LightGBM    XGBoost      vs best
+2020      58.81±3.62       59.07±3.48         60.93      64.52        -5.45
+2021      45.89±1.12       46.12±0.70         50.17      50.35        -4.23
+
+gap to the best booster: -5.45, -4.23  (criterion: within 5 on both years)
+S=372  median literals/clause 71  (LF/literals 14.1%)  negated 64.6%
+S=100  median literals/clause 68  (LF/literals 14.6%)  negated 67.1%
+  for contrast: LAMDA at 3% density gave 69 literals, 14.5%, 83.8% negated
+RESULT fptm_smatched_2020=58.81 fptm_s100_2020=59.07
+RESULT fptm_smatched_2021=45.89 fptm_s100_2021=46.12
+RESULT b5_androzoo=NARROWS

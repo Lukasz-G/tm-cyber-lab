@@ -1,0 +1,21 @@
+APIGraph width 1159  pool 30533 rows, 10.0% malware  20 clauses T=10 S=25 L=64 LF=10  5 seeds
+evaluation always on the unchanged ~10% malware test distribution
+
+scheme    trainrows     mal%    bestF1  dom by LGB  dom by XGB      meanP      meanR
+asis          30533     10.0     74.69       6.0/6       5.2/6       85.2       55.7
+RESULT scheme=asis train_rows=30533 mal_pct=10.0 best_f1=74.69 dom_lgb=6.00 dom_xgb=5.20 default_p=85.2 default_r=55.7
+under          6122     50.0     74.09       6.0/6       5.6/6       70.0       75.5
+RESULT scheme=under train_rows=6122 mal_pct=50.0 best_f1=74.09 dom_lgb=6.00 dom_xgb=5.60 default_p=70.0 default_r=75.5
+over          54944     50.0     75.06       6.0/6       6.0/6       72.6       75.7
+RESULT scheme=over train_rows=54944 mal_pct=50.0 best_f1=75.06 dom_lgb=6.00 dom_xgb=6.00 default_p=72.6 default_r=75.7
+volume         6122     10.0     75.04       5.8/6       5.0/6       86.0       58.5
+RESULT scheme=volume train_rows=6122 mal_pct=10.0 best_f1=75.04 dom_lgb=5.80 dom_xgb=5.00 default_p=86.0 default_r=58.5
+
+per-year best swept F1, against the boosters at their default threshold
+scheme        2013    2014    2015    2016    2017    2018    LGB mean    XGB mean
+  (the F1 columns compare a swept FPTM against unswept boosters and so flatter us;
+   the dominance columns above are the threshold-free verdict)
+
+balancing effect on dominance (lower is better):
+  as-is 6.0 -> undersampled 6.0, oversampled 6.0, volume control 5.8  (vs LightGBM)
+RESULT imbalance_is_the_cause=NOT_SUPPORTED
