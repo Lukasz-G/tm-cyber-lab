@@ -1,0 +1,39 @@
+tm-lab pin 43dba5f   threads 16   parallel none   ceiling LiteralCapped
+CLAUSES 20 (per class, both polarities)  T 10  S 100  L 64  LF 10  epochs 30  seeds (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+train 150090 rows   eval sets: IID(37524) NEAR(208337) 2018(104292) 2019(91050) 2020(102073) 2021(81155) 2022(86416)
+
+seed 1  trained 134s  IID 95.55  NEAR 71.76  2018 26.30  2019 74.37  2020 71.27  2021 63.80  2022 71.11  
+seed 2  trained 131s  IID 95.51  NEAR 71.40  2018 27.72  2019 75.33  2020 72.44  2021 61.41  2022 71.92  
+seed 3  trained 137s  IID 95.76  NEAR 73.91  2018 29.88  2019 80.00  2020 80.82  2021 74.43  2022 79.93  
+seed 4  trained 135s  IID 95.83  NEAR 69.89  2018 22.05  2019 76.19  2020 74.27  2021 67.54  2022 73.05  
+seed 5  trained 149s  IID 95.62  NEAR 72.84  2018 31.32  2019 78.80  2020 78.66  2021 72.87  2022 77.22  
+seed 6  trained 120s  IID 95.93  NEAR 73.28  2018 29.52  2019 77.27  2020 76.07  2021 67.19  2022 75.43  
+seed 7  trained 114s  IID 95.53  NEAR 73.59  2018 33.68  2019 78.33  2020 77.20  2021 69.91  2022 79.13  
+seed 8  trained 117s  IID 95.71  NEAR 72.95  2018 27.89  2019 73.78  2020 68.32  2021 48.01  2022 70.38  
+seed 9  trained 135s  IID 95.64  NEAR 72.39  2018 26.24  2019 75.40  2020 74.20  2021 67.53  2022 73.61  
+seed 10  trained 120s  IID 95.56  NEAR 71.49  2018 26.42  2019 74.53  2020 71.86  2021 63.44  2022 71.65  
+
+=== flat FPTM vs our own gradient boosting, identical row sets ===
+set    FPTM (mean±sd)   LightGBM    XGBoost     vs LGB     vs XGB
+IID       95.67±0.14       97.49      97.18      -1.82      -1.51
+NEAR      72.35±1.22       72.12      71.46      +0.23      +0.89
+2018      28.10±3.21       28.32      25.31      -0.22      +2.79
+2019      76.40±2.11       72.22      70.73      +4.18      +5.67
+2020      74.51±3.76       67.77      65.89      +6.74      +8.62
+2021      65.61±7.41       53.87      56.25     +11.74      +9.36
+2022      74.34±3.42       64.90      62.22      +9.44     +12.12
+
+IID gap to our LightGBM: 1.82  (criterion: <= 3)
+mean |gap| across NEAR + 5 FAR years: 5.43  (criterion: <= 10)
+
+diagnostics: median literals/clause 69  LF/literals 14.49%  negated 83.8%
+RESULT fptm_iid=95.67
+RESULT fptm_near=72.35
+RESULT fptm_2018=28.10
+RESULT fptm_2019=76.40
+RESULT fptm_2020=74.51
+RESULT fptm_2021=65.61
+RESULT fptm_2022=74.34
+RESULT iid_gap=1.82 drift_gap=5.43 median_literals=69
+RESULT b1_gate=PASS

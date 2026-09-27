@@ -1,0 +1,40 @@
+# Python side of TM-Cyber: datasets, splits, baselines, statistics.
+# The Julia side trains and inspects the Tsetlin machine; the boundary is the
+# binarized feature matrix (docs/matrix-format.md).
+#
+#   python -m venv .venv --system-site-packages     # inherits an already-installed torch
+#   PYTHONIOENCODING=utf-8 .venv/Scripts/python -m pip install --progress-bar off -r requirements.txt
+#
+# Two Windows gotchas on this machine, both already paid for:
+#   * PYTHONIOENCODING=utf-8 is required -- pip's progress bar cannot print the non-Latin-1
+#     character in the user's home path under the console's cp1252 codepage, and the install dies
+#     with UnicodeEncodeError partway through.
+#   * wittgenstein needs SETUPTOOLS_USE_DISTUTILS=stdlib when the venv uses --system-site-packages,
+#     or its build fails in _distutils_hack with an AssertionError on core.__file__. Because pip
+#     installs a requirements file as a unit, that one failure aborts everything else too -- install
+#     it separately if it breaks again.
+#
+# Pinned loosely on purpose: none of these is load-bearing for a result, and the
+# reproducibility that matters lives in the .tmx matrices and the pinned tm-lab commit.
+
+# data
+numpy>=1.26
+pandas>=2.1
+pyarrow>=15.0
+huggingface_hub>=0.23      # LAMDA: IQSeC-Lab/LAMDA, DOI 10.57967/hf/5563
+
+# baselines (CLAUDE.md section 11 -- all four are required, not optional)
+scikit-learn>=1.4          # SVM, MLP, decision tree, metrics
+lightgbm>=4.3              # published LAMDA baseline: 97.49 / 59.48 / 47.24 F1
+xgboost>=2.0               # published LAMDA baseline: 97.05 / 55.84 / 42.75 F1
+wittgenstein>=0.3.4        # RIPPER -- the honest comparison for an interpretable model
+
+# the foil for the explanation-drift contribution
+shap>=0.45                 # LAMDA Appendix I uses KernelExplainer, 100 background / 100 test
+
+# the reference explanation-drift pipeline trains a small MLP in PyTorch; replicating it is how the
+# noise floor gets measured. Already present system-wide here, hence --system-site-packages above.
+torch>=2.0
+
+# reporting
+matplotlib>=3.8

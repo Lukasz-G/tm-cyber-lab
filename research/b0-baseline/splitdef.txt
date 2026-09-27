@@ -1,0 +1,28 @@
+trained in 226s
+
+year  portion       F1      rows   malware
+2016  all        84.83   109,193    45,134
+2016  test       84.58    21,839     9,027
+2017  all        33.36    99,144    21,359
+2017  test       33.79    19,829     4,272
+2018  all        28.32   104,292    39,350
+2018  test       28.36    20,859     7,870
+2019  all        72.22    91,050    41,585
+2019  test       72.15    18,210     8,317
+2020  all        67.77   102,073    46,355
+2020  test       68.03    20,415     9,271
+2021  all        53.87    81,155    35,627
+2021  test       53.87    16,231     7,125
+2022  all        64.90    86,416    41,648
+2022  test       64.97    17,284     8,330
+
+definition                                     NEAR   vs pub      FAR   vs pub
+pooled rows, all                              72.12   +12.64    59.59   +12.35
+mean of per-year F1, all                      59.09    -0.39    57.42   +10.18
+pooled rows, test                             71.99   +12.51    59.67   +12.43
+mean of per-year F1, test                     59.19    -0.29    57.48   +10.24
+mean per-year F1, FAR 2018-2025, all              —        —    42.87    -4.37
+mean per-year F1, FAR 2018-2025, test             —        —    43.02    -4.22
+
+closest definition: mean of per-year F1, test  (NEAR 59.19, FAR 57.48)
+RESULT split_definition=NOT_RECONSTRUCTIBLE

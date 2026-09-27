@@ -1,0 +1,12 @@
+n = 13 features, brute-forcing all 8192 coalitions per case
+
+arm                                max |closed-bf|    verdict
+additive, g = fuzzy                      5.35e-14      MATCH
+additive, g = conjunction                1.69e-14      MATCH
+additive, g = threshold                  4.06e-14      MATCH
+additive, g = arbitrary                  2.15e-13      MATCH
+ORDERED list (expected to fail)          1.06e-01 FAILS (as predicted)
+
+RESULT additive_count_symmetric=EXACT
+RESULT ordered_list_error=1.062e-01
+RESULT b2_generality=PASS

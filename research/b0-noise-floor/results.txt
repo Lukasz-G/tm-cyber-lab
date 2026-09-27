@@ -1,0 +1,23 @@
+device cuda   months [(2016, 2), (2016, 3), (2016, 4), (2016, 5), (2016, 6), (2016, 7), (2016, 8), (2016, 9), (2016, 10), (2016, 11)]   runs/month 3   topk 100   nsamples 100
+  2016-02: train  12158 test   3079   3 runs + 2 fixed-model re-explains in 254s
+  2016-03: train  22100 test   5541   3 runs + 2 fixed-model re-explains in 372s
+  2016-04: train  44381 test  11116   3 runs + 2 fixed-model re-explains in 543s
+  2016-05: train   2471 test    607   3 runs + 2 fixed-model re-explains in 219s
+  2016-06: train   1126 test    280   3 runs + 2 fixed-model re-explains in 197s
+  2016-07: train   1277 test    313   3 runs + 2 fixed-model re-explains in 209s
+  2016-08: train   2317 test    543   3 runs + 2 fixed-model re-explains in 201s
+  2016-09: train    585 test    144   3 runs + 2 fixed-model re-explains in 217s
+  2016-10: train    806 test    188   3 runs + 2 fixed-model re-explains in 197s
+  2016-11: SKIP (train 105, test 24; needs 100 of each)
+
+arm                                               mean      sd     min     max    n
+(a) same month, between runs, model refit        0.926   0.024   0.876   0.969   27
+(b) same month, same model, explainer re-run     0.926   0.021   0.883   0.964   18
+(c) consecutive months, within a run [THEIRS]    0.958   0.012   0.930   0.974   24
+
+Kendall distance: (a) 0.723   (c) 0.753
+
+published reference: Jaccard 'close to 0.9' between consecutive months, top-100
+noise floor as a fraction of their signal: 0.97
+
+RESULT noise_floor_jaccard=0.9259 explainer_only_jaccard=0.9262 consecutive_month_jaccard=0.9577 noise_kendall=0.7234 month_kendall=0.7528 months=9 runs=3 topk=100

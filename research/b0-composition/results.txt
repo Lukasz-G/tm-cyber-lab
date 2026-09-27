@@ -1,0 +1,48 @@
+years on disk: [2013, 2014, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+
+=== composition vs published ===
+quantity            ours   published     delta
+total          1,008,381   1,008,381        +0
+malware          369,906     369,906        +0
+benign           638,475     638,475        +0
+families           1,380       1,380        +0
+singletons       150,604     150,604        +0
+
+named families holding exactly one sample: 471 (distinct family strings in total: 151,985)
+
+2015 present: False (expected False)
+
+=== per year ===
+year  split            rows   malware    benign    mw %
+2013  train          86,431    44,383    42,048   51.4%
+2014  train         101,183    45,756    55,427   45.2%
+2016  near          109,193    45,134    64,059   41.3%
+2017  near           99,144    21,359    77,785   21.5%
+2018  far           104,292    39,350    64,942   37.7%
+2019  far            91,050    41,585    49,465   45.7%
+2020  far           102,073    46,355    55,718   45.4%
+2021  far            81,155    35,627    45,528   43.9%
+2022  far            86,416    41,648    44,768   48.2%
+2023  label_lag      54,354     7,892    46,462   14.5%
+2024  label_lag      48,427       794    47,633    1.6%
+2025  label_lag      44,663        23    44,640    0.1%
+
+=== months too thin for 100+100 attribution ===
+months total: 120   under 200 rows: 6
+  2016-11: 129
+  2016-12: 32
+  2017-05: 34
+  2017-07: 2
+  2017-08: 8
+  2017-09: 4
+month row counts: min 2  median 4,294  max 55,497
+
+=== label-lag years, the reason FAR is never a single mean ===
+  2023: 7,892 malware vs 46,462 benign
+  2024: 794 malware vs 47,633 benign
+  2025: 23 malware vs 44,640 benign
+
+feature columns: 4561 (expected 4,561 → 9122 literals)
+
+RESULT composition=PASS
+RESULT total=1008381 malware=369906 benign=638475 families=1380 singletons=150604 features=4561 months=120

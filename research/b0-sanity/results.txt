@@ -1,0 +1,27 @@
+tm-lab pin 43dba5f   threads 1   parallel none   ceiling LiteralCapped
+train 150090 (malware 72111)   IID test 37524 (malware 18028)   width 4561
+
+CLAUSES 20 (per class, both polarities)  T 10  S 100  L 64  LF 10  epochs 10
+  epoch  1    7.0s   IID F1  94.52  precision  95.28  recall  93.78  FNR  6.22  FPR  4.30
+  epoch  2    7.4s   IID F1  95.10  precision  95.59  recall  94.61  FNR  5.39  FPR  4.03
+  epoch  3    6.9s   IID F1  95.04  precision  95.83  recall  94.26  FNR  5.74  FPR  3.80
+  epoch  4    6.5s   IID F1  95.31  precision  95.54  recall  95.09  FNR  4.91  FPR  4.11
+  epoch  5    7.5s   IID F1  93.04  precision  88.09  recall  98.59  FNR  1.41  FPR 12.33
+  epoch  6    7.9s   IID F1  95.04  precision  96.52  recall  93.60  FNR  6.40  FPR  3.12
+  epoch  7    7.2s   IID F1  95.53  precision  95.75  recall  95.31  FNR  4.69  FPR  3.91
+  epoch  8    7.0s   IID F1  95.43  precision  95.89  recall  94.98  FNR  5.02  FPR  3.76
+  epoch  9    6.6s   IID F1  95.39  precision  95.65  recall  95.12  FNR  4.88  FPR  4.00
+  epoch 10    6.8s   IID F1  95.11  precision  96.51  recall  93.76  FNR  6.24  FPR  3.14
+
+=== diagnostic 1: readability ratio (prediction 2) ===
+included literals per clause: min 1  median 69  max 144  (L = 64, so clauses run 2.2x over it)
+LF / median included literals = 10 / 69 = 14.49%
+  reference points: MNIST 21% decomposes into readable rules; published IMDb 1.7% does not
+
+=== diagnostic 2: sign composition (prediction 1) ===
+literals: 236 positive (feature present), 1186 negated (feature absent) — 83.4% negated
+per-clause positive fraction: min 0.049  median 0.167  max 1.000
+clauses with NO positive literal (pure blacklist): 0 of 20
+
+RESULT iid_f1=95.11 fnr=6.24 fpr=3.14 median_literals=69 lf_ratio=0.1449 neg_frac=0.8340 pure_blacklist=0/20
+RESULT b0_sanity=PASS

@@ -1,0 +1,25 @@
+seed 0  trained 182s  IID 97.49  NEAR 72.12  2018 28.32  2019 72.22  2020 67.77  2021 53.87  2022 64.90  
+seed 1  trained 226s  IID 97.49  NEAR 72.12  2018 28.32  2019 72.22  2020 67.77  2021 53.87  2022 64.90  
+seed 2  trained 250s  IID 97.49  NEAR 72.12  2018 28.32  2019 72.22  2020 67.77  2021 53.87  2022 64.90  
+seed 3  trained 255s  IID 97.49  NEAR 72.12  2018 28.32  2019 72.22  2020 67.77  2021 53.87  2022 64.90  
+seed 4  trained 246s  IID 97.49  NEAR 72.12  2018 28.32  2019 72.22  2020 67.77  2021 53.87  2022 64.90  
+
+all seeds produced bit-identical predictions: True
+
+set        mean      sd      min      max
+IID       97.49  0.0000    97.49    97.49
+NEAR      72.12  0.0000    72.12    72.12
+2018      28.32  0.0000    28.32    28.32
+2019      72.22  0.0000    72.22    72.22
+2020      67.77  0.0000    67.77    67.77
+2021      53.87  0.0000    53.87    53.87
+2022      64.90  0.0000    64.90    64.90
+
+RESULT lightgbm_deterministic=True
+RESULT lgb_iid_mean=97.49 lgb_iid_sd=0.0000
+RESULT lgb_near_mean=72.12 lgb_near_sd=0.0000
+RESULT lgb_2018_mean=28.32 lgb_2018_sd=0.0000
+RESULT lgb_2019_mean=72.22 lgb_2019_sd=0.0000
+RESULT lgb_2020_mean=67.77 lgb_2020_sd=0.0000
+RESULT lgb_2021_mean=53.87 lgb_2021_sd=0.0000
+RESULT lgb_2022_mean=64.90 lgb_2022_sd=0.0000

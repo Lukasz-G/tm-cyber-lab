@@ -1,0 +1,18 @@
+feature names: 4561 (first feat_0, last feat_4560)
+2013 rows   86431 ok  popcount ok  malware ok  full 0.08s  month 9 ( 5052 rows) 0.173s ok
+2014 rows  101183 ok  popcount ok  malware ok  full 0.36s  month 2 ( 6981 rows) 0.186s ok
+2016 rows  109193 ok  popcount ok  malware ok  full 0.24s  month 3 (27641 rows) 0.530s ok
+2017 rows   99144 ok  popcount ok  malware ok  full 0.23s  month 2 (24622 rows) 0.552s ok
+2018 rows  104292 ok  popcount ok  malware ok  full 0.24s  month 2 ( 1866 rows) 0.076s ok
+2019 rows   91050 ok  popcount ok  malware ok  full 0.33s  month 2 ( 4543 rows) 0.171s ok
+2020 rows  102073 ok  popcount ok  malware ok  full 0.39s  month 2 ( 1554 rows) 0.056s ok
+2021 rows   81155 ok  popcount ok  malware ok  full 0.15s  month 2 ( 2701 rows) 0.089s ok
+2022 rows   86416 ok  popcount ok  malware ok  full 0.31s  month 2 ( 3638 rows) 0.121s ok
+2023 rows   54354 ok  popcount ok  malware ok  full 0.28s  month 2 ( 5175 rows) 0.121s ok
+2024 rows   48427 ok  popcount ok  malware ok  full 0.08s  month 2 ( 1946 rows) 0.066s ok
+2025 rows   44663 ok  popcount ok  malware ok  full 0.10s  month 1 (44663 rows) 0.101s ok
+
+total rows 1008381 (expected 1008381)
+month slice: max 0.552s, median 0.121s
+
+RESULT boundary_at_scale=PASS
