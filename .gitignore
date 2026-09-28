@@ -1,6 +1,5 @@
-# Claude Code and local design notes — never committed
-.claude/
-CLAUDE.md
+# Local design notes are listed in .git/info/exclude rather than here, so that this file stays a
+# statement about the project rather than about whatever tooling happens to be in use.
 
 # Local research background — never committed.
 #   papers/    third-party PDFs, not ours to redistribute

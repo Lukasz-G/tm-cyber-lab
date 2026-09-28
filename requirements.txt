@@ -23,7 +23,9 @@ pandas>=2.1
 pyarrow>=15.0
 huggingface_hub>=0.23      # LAMDA: IQSeC-Lab/LAMDA, DOI 10.57967/hf/5563
 
-# baselines (CLAUDE.md section 11 -- all four are required, not optional)
+# baselines -- all four are required, not optional. A gradient booster gives the honest performance
+# comparison, a rule learner the honest comparison for an INTERPRETABLE model, and the MLP is needed
+# because the published explanation-drift result this project tests is measured against an MLP.
 scikit-learn>=1.4          # SVM, MLP, decision tree, metrics
 lightgbm>=4.3              # published LAMDA baseline: 97.49 / 59.48 / 47.24 F1
 xgboost>=2.0               # published LAMDA baseline: 97.05 / 55.84 / 42.75 F1
