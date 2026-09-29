@@ -51,6 +51,40 @@ using TMCore: TMClassifier, ClauseBank, TMInput, CeilingPolicy, LiteralCapped, F
 
 export clause_literals, shapley, shapley_mean
 
+# Log-factorial table, so the binomials below need no big integers.
+#
+# The first version of `_unit_value` computed its binomial ratio in exact rational arithmetic via
+# `binomial(big(n), big(k))`. That is correct and it is what the brute-force test was first passed
+# against, but it allocates a BigInt per term, and the term count grows quadratically in the clause
+# size. Measured on a real attribution pass over LAMDA it produced 4.6 billion allocations and
+# crashed the garbage collector inside a threaded region (EXCEPTION_ACCESS_VIOLATION in `ijl_gc_collect`
+# reached from `BigFloat`). Attribution is the one part of this project that has to run at scale and
+# has to thread, so the allocation is not acceptable even setting the crash aside.
+#
+# Every binomial here therefore goes through `log Γ` in Float64. The summed terms are hypergeometric
+# probabilities, all strictly positive, so there is no cancellation and the relative error stays at
+# the 1e-14 level -- five orders inside the 1e-9 the brute-force check enforces, and that check is run
+# against this implementation rather than the previous one.
+const _LOGFACT_N = 1 << 17
+
+const _LOGFACT = let v = Vector{Float64}(undef, _LOGFACT_N + 1)
+    v[1] = 0.0
+    @inbounds for n in 1:_LOGFACT_N
+        v[n + 1] = v[n] + log(n)
+    end
+    v
+end
+
+@inline function _logfact(n::Int)
+    n <= _LOGFACT_N || error("log-factorial table too small for n = $n; raise _LOGFACT_N")
+    return @inbounds _LOGFACT[n + 1]
+end
+
+@inline function _logbinom(n::Int, k::Int)
+    (n < 0 || k < 0 || k > n) && return -Inf
+    return _logfact(n) - _logfact(k) - _logfact(n - k)
+end
+
 "Included literals of clause `j` as `(feature, is_negated)` pairs."
 function clause_literals(b::ClauseBank, j::Integer)
     out = Tuple{Int,Bool}[]
@@ -78,11 +112,11 @@ function _unit_value(beta::Int, g::Int, d::Int, ceil::Int, from_c::Bool)
     nd = from_c ? d : d - 1                 # other D members
     acc = 0.0
     for r in 0:(tot - 1)
-        denom = binomial(big(tot - 1), big(r))
+        ldenom = _logbinom(tot - 1, r)
         s = 0.0
         for k in max(0, r - nd):min(r, nc)
             beta + g + r - 2k <= limit || continue
-            s += Float64(binomial(big(nc), big(k)) * binomial(big(nd), big(r - k)) / denom)
+            s += exp(_logbinom(nc, k) + _logbinom(nd, r - k) - ldenom)
         end
         acc += s
     end
