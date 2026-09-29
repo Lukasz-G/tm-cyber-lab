@@ -14,7 +14,7 @@
 # anything above a few tens of megabytes.
 set -euo pipefail
 
-REPO="${TMCYBER_REPO:-https://github.com/Lukasz-G/TM-Cyber.git}"
+REPO="${TMCYBER_REPO:-https://github.com/Lukasz-G/tm-cyber-lab.git}"
 JULIA_VERSION="${JULIA_VERSION:-1.11.9}"
 WORK="${WORK:-/workspace}"
 

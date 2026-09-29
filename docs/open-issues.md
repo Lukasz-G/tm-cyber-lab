@@ -62,8 +62,9 @@ frequency ranking of the raw features produces the same feature list — has not
 algorithm project that control **retracted** the equivalent result. Until it runs, no claim of readable
 rules may appear anywhere.
 
-## 6. `tools/vast_setup.sh` points at a repository that does not exist
+## 6. ~~`tools/vast_setup.sh` points at a repository that does not exist~~ — fixed 2026-09-29
 
-Its default `TMCYBER_REPO` is `https://github.com/Lukasz-G/TM-Cyber.git`, which is a 404 — no GitHub
-repository has been created for this project yet. The script would fail on a rented box today. Fix when
-the repository name is settled.
+Its default `TMCYBER_REPO` was `https://github.com/Lukasz-G/TM-Cyber.git`, a 404. The repository now
+exists as `https://github.com/Lukasz-G/tm-cyber-lab.git` (public, default branch `master`) and the
+script points at it. Verified to resolve. Kept here rather than deleted so the entry does not read as
+still open.
