@@ -64,6 +64,7 @@ zeros and must not be read.
 |---|---|---|
 | [b1-gate](b1-gate/) | **PASS.** LAMDA, 10 seeds, 20 clauses/class: IID −1.82 vs LightGBM, **+4 to +12 on four of five drifted years** at 5–9 standard errors. | keep, but it must be read beside the cross-checks |
 | [b5-apigraph](b5-apigraph/) | **DOES NOT REPLICATE.** Ahead on 1 of 5 later years; behind XGBoost on all six. The `s` control ruled itself out. | **core** — this is the honest centre of the detection story |
+| [calibration-check](calibration-check/) | **Withdraws the threshold-transfer claim.** Platt and isotonic are monotone, so calibration cannot change a ranking — raw/Platt/isotonic agree **to the decimal** across 6 model-corpus combinations, which answers that objection structurally. But **rate matching** repairs the boosters (LightGBM on LAMDA 18.97 → **1.78** oracle gap) and they lead on mean F1 on both corpora. The advantage was the threshold rule, not the model. | **core** — it is the reason no detection advantage is claimed |
 | [b1-threshold-transfer](b1-threshold-transfer/) | **The APIGraph threshold-transfer result REPLICATES on LAMDA**, at a 48% base rate instead of 10%, with a larger effect: +3.43 AP against us; honest thresholding costs FPTM **6.19 F1** against **16.60 / 15.31** for the boosters; FPTM leads the deployable-threshold F1 on **7 of 8** periods, losing only IID. | **core** — the only claim in the project that holds on two corpora |
 | [b5-fairness](b5-fairness/) | **Fixes all three recorded unfairnesses at once** — both sides swept, threshold chosen on held-out data, dominance on every seed. Boosters keep +3.77 AP on 6/6; FPTM wins the deployable-threshold F1 on 5/6. Caught a split bug that would have selected a threshold on a slice containing **0% malware**. | **core** — it is the honest basis for every comparison |
 | [b5-androzoo](b5-androzoo/) | **NARROWS.** Fails the ±5 criterion on 2020 by 0.45. Dense regime (39% vs 1.75%). Found that **clause sign composition tracks input density** — 83.8% negated at 3% density vs 64.6% at 39%. | keep — the density/sign finding is mechanistic and independent of the verdict |
@@ -85,26 +86,25 @@ These six directories are one investigation. Prune aggressively; the conclusion 
 | [b5-resolution](b5-resolution/) | margin too coarse to rank | **no** — top bucket size 1, purity 100%, 96% precision @ 10% recall |
 | [b5-diversity](b5-diversity/) | extra clauses are duplicates; feedback rule saturated | **no** — zero pairs >0.9 Jaccard; diversity *rises* with budget |
 
-**Standing conclusion, revised 2026-09-30 by [b5-fairness](b5-fairness/).** Two statements, and
-neither may be quoted without the other:
+**Standing conclusion, revised again 2026-09-30 by [calibration-check](calibration-check/). There is now
+no detection advantage claimed.**
 
-- **Threshold-free, the boosters' frontier is better** — +3.77 average precision, ahead on 6 of 6
-  years, with both sides swept. The original conclusion survives on this metric: a small number of
-  large tolerant conjunctions does rank worse in the mid-range than thousands of shallow splits, and
-  nine explanations for it were eliminated.
-- **At a threshold chosen without seeing the future, FPTM wins on 5 of 6 years.** Because choosing the
-  threshold honestly costs FPTM **1.7 F1** and costs the boosters **6–9**. Their operating point does
-  not survive the drift; FPTM's does.
+- **Threshold-free, the boosters' frontier is better** — +3.77 average precision on APIGraph and +3.43 on
+  LAMDA, ahead on every year, with both sides swept. The original conclusion survives on this metric.
+- **The operating-point advantage does not survive a better threshold rule.** Under a max-F1-on-validation
+  rule FPTM transfers far better (giving up 1.73 and 6.19 F1 against the boosters' 6–9 and 15–17). But
+  **matching the predicted positive rate** instead — deployable, uses only unlabelled test features —
+  repairs the boosters almost entirely (LightGBM on LAMDA: 18.97 → **1.78**) and they then lead on mean F1
+  on **both** corpora. The advantage was a property of the threshold rule, not of the model.
+- **Calibration proper is a no-op**, and provably so: Platt and isotonic are monotone, so they cannot
+  change a ranking. Raw, Platt and isotonic arms agree *to the decimal* in all six model-corpus
+  combinations.
 
-Under temporal drift, threshold transfer *is* the deployment problem, so the second statement is the
-operationally relevant one. **Replicated on LAMDA** ([b1-threshold-transfer](b1-threshold-transfer/)):
-same direction on all three components, with a larger effect (+3.43 AP against us; honest thresholding
-costs FPTM 6.19 F1 against the boosters' 16.60 and 15.31; FPTM leads 7 of 8 periods). This is the only
-claim in the project that holds on both corpora. Every F1 elsewhere in this repo is an oracle value; the
-correction is measured.
-
-**The operating point that survives:** 96% precision at 10% recall — low alert volume, high purity. A
-different product from a recall-tuned booster, and a defensible one.
+What is left to say about detection: FPTM is competitive at 20 clauses per class, lies inside the
+gradient-boosting frontier, and its margin is **more robust to a naive threshold rule** — a real,
+twice-measured difference that is not a performance advantage. The deployable recommendation is to match
+the predicted positive rate, which is advice about thresholding and improves every model including ours.
+Every F1 elsewhere in this repo is an oracle value; the correction is measured.
 
 ## Not yet run
 
@@ -119,8 +119,9 @@ different product from a recall-tuned booster, and a defensible one.
   hypothesis was the obvious candidate and is **refuted in sign**
   ([prune-vs-fragility](prune-vs-fragility/)), so pruning stays a candidate intervention with an
   uncharacterised precondition.
-- **Whether calibrating the boosters closes the threshold-transfer gap.** The strongest claim in the
-  project compares FPTM against two boosters at *their* default settings; Platt scaling or isotonic
-  regression fitted on the validation slice is the obvious reviewer objection and has not been run.
-- **Bibliography metadata.** `paper/refs.bib` entries are missing publishers, pages and addresses —
-  bibtex emits warnings for most of them. These must be filled from the actual sources, not invented.
+- ~~Bibliography metadata~~ — **done 2026-09-30.** Every entry verified against the publisher's record,
+  and every arXiv entry additionally against the first page of the PDF. Three carried substantive errors,
+  not merely gaps: `lamda2025` had the lab name in place of seven authors, the "Graph Tsetlin Machine"
+  entry was titled after the model rather than the paper, and the TESSERACT follow-up was retitled in its
+  version 2. The 15 remaining bibtex warnings are structural — arXiv preprints have no volume or pages,
+  and NDSS is unpaginated. PDFs are in the gitignored `papers/`.

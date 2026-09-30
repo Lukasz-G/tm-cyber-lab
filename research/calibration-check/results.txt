@@ -1,0 +1,95 @@
+Calibration cannot change a ranking: Platt and isotonic are both monotone, so average
+precision is invariant and an F1-maximising threshold chosen on the validation slice is the
+same decision rule however the scores are relabelled. Arms 1-3 are expected to agree; that
+they do is the answer to the objection, and arms 4-5 are where anything can actually move.
+
+  trained lightgbm
+  trained xgboost
+
+==============================================================================
+APIGraph
+==============================================================================
+model      arm                 2013    2014    2015    2016    2017    2018    mean  vs oracle
+------------------------------------------------------------------------------
+fptm       raw-valF1          87.96   74.02   69.10   66.99   69.06   67.92   72.51       2.55
+RESULT corpus=APIGraph model=fptm arm=raw-valF1 mean_f1=72.51 oracle_gap=2.55
+fptm       platt-valF1        87.96   74.02   69.10   66.99   69.06   67.92   72.51       2.55
+RESULT corpus=APIGraph model=fptm arm=platt-valF1 mean_f1=72.51 oracle_gap=2.55
+fptm       isotonic-valF1     87.96   74.02   69.10   66.99   69.06   67.92   72.51       2.55
+RESULT corpus=APIGraph model=fptm arm=isotonic-valF1 mean_f1=72.51 oracle_gap=2.55
+fptm       platt-p50          87.49   71.59   67.32   65.41   68.39   68.64   71.47       3.58
+RESULT corpus=APIGraph model=fptm arm=platt-p50 mean_f1=71.47 oracle_gap=3.58
+fptm       quantile           88.01   73.22   70.08   67.31   74.98   71.79   74.23       0.82
+RESULT corpus=APIGraph model=fptm arm=quantile mean_f1=74.23 oracle_gap=0.82
+
+lightgbm   raw-valF1          85.33   66.88   63.68   64.30   71.19   58.23   68.27       8.96
+RESULT corpus=APIGraph model=lightgbm arm=raw-valF1 mean_f1=68.27 oracle_gap=8.96
+lightgbm   platt-valF1        85.33   66.88   63.68   64.30   71.19   58.23   68.27       8.96
+RESULT corpus=APIGraph model=lightgbm arm=platt-valF1 mean_f1=68.27 oracle_gap=8.96
+lightgbm   isotonic-valF1     85.33   66.88   63.68   64.30   71.19   58.23   68.27       8.96
+RESULT corpus=APIGraph model=lightgbm arm=isotonic-valF1 mean_f1=68.27 oracle_gap=8.96
+lightgbm   platt-p50          84.37   65.71   62.60   63.22   69.21   57.19   67.05      10.18
+RESULT corpus=APIGraph model=lightgbm arm=platt-p50 mean_f1=67.05 oracle_gap=10.18
+lightgbm   quantile           88.73   74.16   68.85   72.20   74.28   71.63   74.98       2.26
+RESULT corpus=APIGraph model=lightgbm arm=quantile mean_f1=74.98 oracle_gap=2.26
+
+xgboost    raw-valF1          83.47   67.75   64.23   67.07   71.58   70.07   70.69       6.14
+RESULT corpus=APIGraph model=xgboost arm=raw-valF1 mean_f1=70.69 oracle_gap=6.14
+xgboost    platt-valF1        83.47   67.75   64.23   67.07   71.58   70.07   70.69       6.14
+RESULT corpus=APIGraph model=xgboost arm=platt-valF1 mean_f1=70.69 oracle_gap=6.14
+xgboost    isotonic-valF1     83.47   67.75   64.23   67.07   71.58   70.07   70.69       6.14
+RESULT corpus=APIGraph model=xgboost arm=isotonic-valF1 mean_f1=70.69 oracle_gap=6.14
+xgboost    platt-p50          83.55   68.12   64.37   67.12   71.54   70.09   70.80       6.04
+RESULT corpus=APIGraph model=xgboost arm=platt-p50 mean_f1=70.80 oracle_gap=6.04
+xgboost    quantile           88.04   75.84   74.30   71.30   75.54   72.39   76.23       0.60
+RESULT corpus=APIGraph model=xgboost arm=quantile mean_f1=76.23 oracle_gap=0.60
+
+  smallest oracle gap -- FPTM 0.82; lightgbm 2.26 (quantile); xgboost 0.60 (quantile)
+RESULT corpus=APIGraph best_gap_fptm=0.82 best_gap_lightgbm=2.26:quantile best_gap_xgboost=0.60:quantile
+  FAILS: a calibrated booster arm matches or beats FPTM. The claim must be rewritten.
+  trained lightgbm
+  trained xgboost
+
+==============================================================================
+LAMDA
+==============================================================================
+model      arm                 2016    2017    2018    2019    2020    2021    2022    mean  vs oracle
+------------------------------------------------------------------------------
+fptm       raw-valF1          86.66   38.10   34.01   83.95   86.01   83.05   84.76   70.93       5.82
+RESULT corpus=LAMDA model=fptm arm=raw-valF1 mean_f1=70.93 oracle_gap=5.82
+fptm       platt-valF1        86.66   38.10   34.01   83.95   86.01   83.05   84.76   70.93       5.82
+RESULT corpus=LAMDA model=fptm arm=platt-valF1 mean_f1=70.93 oracle_gap=5.82
+fptm       isotonic-valF1     86.66   38.10   34.01   83.95   86.01   83.05   84.76   70.93       5.82
+RESULT corpus=LAMDA model=fptm arm=isotonic-valF1 mean_f1=70.93 oracle_gap=5.82
+fptm       platt-p50          85.45   35.33   30.85   82.00   83.86   79.33   81.93   68.39       8.36
+RESULT corpus=LAMDA model=fptm arm=platt-p50 mean_f1=68.39 oracle_gap=8.36
+fptm       quantile           85.75   29.37   48.07   86.77   88.46   86.57   88.81   73.40       3.35
+RESULT corpus=LAMDA model=fptm arm=quantile mean_f1=73.40 oracle_gap=3.35
+
+lightgbm   raw-valF1          85.58   34.46   28.24   72.57   67.87   52.97   65.68   58.20      18.97
+RESULT corpus=LAMDA model=lightgbm arm=raw-valF1 mean_f1=58.20 oracle_gap=18.97
+lightgbm   platt-valF1        85.58   34.46   28.24   72.57   67.87   52.97   65.68   58.20      18.97
+RESULT corpus=LAMDA model=lightgbm arm=platt-valF1 mean_f1=58.20 oracle_gap=18.97
+lightgbm   isotonic-valF1     85.58   34.46   28.24   72.57   67.87   52.97   65.68   58.20      18.97
+RESULT corpus=LAMDA model=lightgbm arm=isotonic-valF1 mean_f1=58.20 oracle_gap=18.97
+lightgbm   platt-p50          84.85   32.21   27.00   71.18   66.12   49.94   63.74   56.43      20.73
+RESULT corpus=LAMDA model=lightgbm arm=platt-p50 mean_f1=56.43 oracle_gap=20.73
+lightgbm   quantile           86.31   39.08   59.63   85.94   86.09   82.73   87.90   75.38       1.78
+RESULT corpus=LAMDA model=lightgbm arm=quantile mean_f1=75.38 oracle_gap=1.78
+
+xgboost    raw-valF1          85.27   28.67   25.82   75.78   73.34   64.54   68.45   60.27      17.50
+RESULT corpus=LAMDA model=xgboost arm=raw-valF1 mean_f1=60.27 oracle_gap=17.50
+xgboost    platt-valF1        85.27   28.67   25.82   75.78   73.34   64.54   68.45   60.27      17.50
+RESULT corpus=LAMDA model=xgboost arm=platt-valF1 mean_f1=60.27 oracle_gap=17.50
+xgboost    isotonic-valF1     85.27   28.67   25.82   75.78   73.34   64.54   68.45   60.27      17.50
+RESULT corpus=LAMDA model=xgboost arm=isotonic-valF1 mean_f1=60.27 oracle_gap=17.50
+xgboost    platt-p50          84.64   27.88   25.02   74.52   71.57   62.48   66.83   58.99      18.77
+RESULT corpus=LAMDA model=xgboost arm=platt-p50 mean_f1=58.99 oracle_gap=18.77
+xgboost    quantile           87.23   29.43   49.23   88.39   88.56   85.91   90.88   74.23       3.53
+RESULT corpus=LAMDA model=xgboost arm=quantile mean_f1=74.23 oracle_gap=3.53
+
+  smallest oracle gap -- FPTM 3.35; lightgbm 1.78 (quantile); xgboost 3.53 (quantile)
+RESULT corpus=LAMDA best_gap_fptm=3.35 best_gap_lightgbm=1.78:quantile best_gap_xgboost=3.53:quantile
+  FAILS: a calibrated booster arm matches or beats FPTM. The claim must be rewritten.
+
+Per-period figures only; no mean across LAMDA's late years is reported anywhere.
