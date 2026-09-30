@@ -1,0 +1,52 @@
+INFLATION FROM AN ORACLE THRESHOLD -- F1 points, by period
+An oracle threshold is chosen to maximise F1 on the period being scored; the achievable one
+is chosen on held-out data from the TRAINING period and applied unchanged.
+
+APIGraph
+  period          FPTM    LightGBM     XGBoost
+  --------------------------------------------
+  2013            0.78        3.82        5.07
+  2014            1.62        8.41        8.61
+  2015            2.58        9.17       10.46
+  2016            1.62        9.72        4.82
+  2017            1.51        5.26        4.59
+  2018            2.24       17.41        3.30
+    FPTM       in-distribution   0.78   drifted   1.91   grows by +1.13
+RESULT corpus=APIGraph model=FPTM inflation_iid=0.78 inflation_drifted=1.91 growth=+1.13
+    LightGBM   in-distribution   3.82   drifted   9.99   grows by +6.17
+RESULT corpus=APIGraph model=LightGBM inflation_iid=3.82 inflation_drifted=9.99 growth=+6.17
+    XGBoost    in-distribution   5.07   drifted   6.36   grows by +1.29
+RESULT corpus=APIGraph model=XGBoost inflation_iid=5.07 inflation_drifted=6.36 growth=+1.29
+
+LAMDA
+  period          FPTM    LightGBM     XGBoost
+  --------------------------------------------
+  IID             0.03        0.03        0.03
+  2016            1.11        2.74        3.29
+  2017            3.08       11.99       13.49
+  2018           22.25       33.38       32.92
+  2019            4.21       13.74       12.65
+  2020            4.85       18.25       15.66
+  2021            7.75       30.06       21.92
+  2022            6.21       22.62       22.55
+    FPTM       in-distribution   0.03   drifted   7.07   grows by +7.04
+RESULT corpus=LAMDA model=FPTM inflation_iid=0.03 inflation_drifted=7.07 growth=+7.04
+    LightGBM   in-distribution   0.03   drifted  18.97   grows by +18.94
+RESULT corpus=LAMDA model=LightGBM inflation_iid=0.03 inflation_drifted=18.97 growth=+18.94
+    XGBoost    in-distribution   0.03   drifted  17.50   grows by +17.47
+RESULT corpus=LAMDA model=XGBoost inflation_iid=0.03 inflation_drifted=17.50 growth=+17.47
+
+AND THE FIX -- mean oracle gap under each rule, from research/calibration-check/
+  corpus     model        max-F1 on val   rate matching
+  ----------------------------------------------------
+  APIGraph   fptm                  2.55            0.82
+  APIGraph   lightgbm              8.96            2.26
+  APIGraph   xgboost               6.14            0.60
+  LAMDA      fptm                  5.82            3.35
+  LAMDA      lightgbm             18.97            1.78
+  LAMDA      xgboost              17.50            3.53
+
+wrote per-period.csv (42 rows)
+
+overall: median inflation 6.21 F1, max 33.38; on drifted periods only, median 8.61
+RESULT overall median=6.21 max=33.38 drifted_median=8.61 n=42
