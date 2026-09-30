@@ -53,7 +53,7 @@ zeros and must not be read.
 
 | | verdict | keep? |
 |---|---|---|
-| [b4-footprint-labels](b4-footprint-labels/) | Footprint counted rather than quoted, and label efficiency: continual updating against retraining at matched label budget. | see its README |
+| [b4-footprint-labels](b4-footprint-labels/) | **Footprint: 44.5 KB inference masks vs 144 MB for LightGBM (3,308×)** — but an *updatable* model carries automaton state too, 356 KB, 8× more, so the small-footprint and online-updating claims are not about the same artifact. **Label efficiency: the continual-learning claim fails.** Continual ≈ retrain-from-scratch within 1 F1 in all 20 cells. Two bigger findings fall out: **250 fresh labels beat 150,090 stale ones by 59 F1**, and **keeping the old data is worse than discarding it at every cell**. | keep — the footprint distinction and the recency-beats-volume result |
 
 ## Detection — B1 and the cross-checks
 

@@ -1,0 +1,74 @@
+LAMDA width 4561  base train 150090 rows  2 seeds
+clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  parallel=:none  tm-lab 43dba5f
+
+training the base 2013-14 model ... 65.0s
+
+PART A -- footprint, counted from the model rather than quoted
+  clauses total (both classes, both polarities)  40
+  literals per clause (2 x width)                9122
+  include masks  -- what INFERENCE needs              44.5 KB
+  automaton state -- what UPDATING needs             356.3 KB
+  ratio                                                8.0x
+RESULT footprint clauses=40 masks_kb=44.54 states_kb=356.33 ratio=8.0
+  LightGBM on the same task, as pickled           147345.6 KB  (3308x the masks)
+RESULT footprint lightgbm_kb=147345.6
+  The ~50 KB figure this project has cited is the include-mask row. A model that keeps
+  learning carries the automaton row as well, so the small-footprint claim and the
+  online-updating claim cannot both be made about the same artifact.
+
+PART B -- labels consumed per unit of retained detection
+F1 on each year's held-out test split. 'frozen' spends no labels at all.
+
+year     budget   frozen  retrain-r  continual retrain-all
+----------------------------------------------------------
+2018        250    26.59      85.29      84.92      41.04
+RESULT year=2018 budget=250 frozen=26.59 retrain_recent=85.29 continual=84.92 retrain_all=41.04
+2018       1000    26.59      89.05      88.38      63.00
+RESULT year=2018 budget=1000 frozen=26.59 retrain_recent=89.05 continual=88.38 retrain_all=63.00
+2018       4000    26.59      91.19      90.96      74.13
+RESULT year=2018 budget=4000 frozen=26.59 retrain_recent=91.19 continual=90.96 retrain_all=74.13
+2018      16000    26.59      92.43      92.39      87.54
+RESULT year=2018 budget=16000 frozen=26.59 retrain_recent=92.43 continual=92.39 retrain_all=87.54
+
+2019        250    74.58      91.83      91.29      79.36
+RESULT year=2019 budget=250 frozen=74.58 retrain_recent=91.83 continual=91.29 retrain_all=79.36
+2019       1000    74.58      93.36      93.62      83.71
+RESULT year=2019 budget=1000 frozen=74.58 retrain_recent=93.36 continual=93.62 retrain_all=83.71
+2019       4000    74.58      94.90      94.99      86.46
+RESULT year=2019 budget=4000 frozen=74.58 retrain_recent=94.90 continual=94.99 retrain_all=86.46
+2019      16000    74.58      95.81      95.81      90.84
+RESULT year=2019 budget=16000 frozen=74.58 retrain_recent=95.81 continual=95.81 retrain_all=90.84
+
+2020        250    71.88      94.01      93.05      82.42
+RESULT year=2020 budget=250 frozen=71.88 retrain_recent=94.01 continual=93.05 retrain_all=82.42
+2020       1000    71.88      95.34      94.68      86.53
+RESULT year=2020 budget=1000 frozen=71.88 retrain_recent=95.34 continual=94.68 retrain_all=86.53
+2020       4000    71.88      95.89      95.70      90.20
+RESULT year=2020 budget=4000 frozen=71.88 retrain_recent=95.89 continual=95.70 retrain_all=90.20
+2020      16000    71.88      96.66      96.56      92.72
+RESULT year=2020 budget=16000 frozen=71.88 retrain_recent=96.66 continual=96.56 retrain_all=92.72
+
+2021        250    63.94      93.39      94.08      80.52
+RESULT year=2021 budget=250 frozen=63.94 retrain_recent=93.39 continual=94.08 retrain_all=80.52
+2021       1000    63.94      95.43      94.81      89.21
+RESULT year=2021 budget=1000 frozen=63.94 retrain_recent=95.43 continual=94.81 retrain_all=89.21
+2021       4000    63.94      96.28      95.98      92.10
+RESULT year=2021 budget=4000 frozen=63.94 retrain_recent=96.28 continual=95.98 retrain_all=92.10
+2021      16000    63.94      96.76      96.44      94.70
+RESULT year=2021 budget=16000 frozen=63.94 retrain_recent=96.76 continual=96.44 retrain_all=94.70
+
+2022        250    71.40      95.81      95.21      81.00
+RESULT year=2022 budget=250 frozen=71.40 retrain_recent=95.81 continual=95.21 retrain_all=81.00
+2022       1000    71.40      97.26      96.78      85.49
+RESULT year=2022 budget=1000 frozen=71.40 retrain_recent=97.26 continual=96.78 retrain_all=85.49
+2022       4000    71.40      97.94      97.48      90.21
+RESULT year=2022 budget=4000 frozen=71.40 retrain_recent=97.94 continual=97.48 retrain_all=90.21
+2022      16000    71.40      98.17      98.05      93.75
+RESULT year=2022 budget=16000 frozen=71.40 retrain_recent=98.17 continual=98.05 retrain_all=93.75
+
+----------------------------------------------------------
+Read along a row: what each strategy gets for the SAME number of labels. The
+label-efficiency claim needs 'continual' to reach a given F1 at a smaller budget than
+both 'retrain-recent' and 'retrain-all'. If 'retrain-all' leads everywhere, the honest
+advice is to retrain on everything and continual updating buys only wall clock, which is
+not a contribution this project is willing to claim.
