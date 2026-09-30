@@ -1,0 +1,231 @@
+LAMDA width 4561  train 150090  5 seeds  k=100  RETRAINED per arm
+clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  parallel=:none  tm-lab 43dba5f
+features are ZEROED, not dropped, so width / S / s are identical in every arm;
+arms 2-4 each zero exactly 38, so they share the dead-channel perturbation too.
+
+  IID    20000 rows,  9549 malware
+  2016   20000 rows,  8287 malware
+  2017   19829 rows,  4272 malware
+  2018   20000 rows,  7530 malware
+  2019   18210 rows,  8317 malware
+  2020   20000 rows,  9091 malware
+  2021   16231 rows,  7125 malware
+  2022   17284 rows,  8330 malware
+
+seed 1: support 462 | residual 38, freq-only 38, random 38  (87s to train+attribute)
+RESULT seed=1 support=462 n_residual=38 n_freqonly=38 n_random=38
+RESULT seed=1 arm=baseline eval=IID f1=95.56
+RESULT seed=1 arm=baseline eval=2016 f1=84.09
+RESULT seed=1 arm=baseline eval=2017 f1=33.29
+RESULT seed=1 arm=baseline eval=2018 f1=26.51
+RESULT seed=1 arm=baseline eval=2019 f1=74.58
+RESULT seed=1 arm=baseline eval=2020 f1=71.93
+RESULT seed=1 arm=baseline eval=2021 f1=63.94
+RESULT seed=1 arm=baseline eval=2022 f1=71.40
+  baseline       done
+RESULT seed=1 arm=zero-residual eval=IID f1=95.02
+RESULT seed=1 arm=zero-residual eval=2016 f1=83.05
+RESULT seed=1 arm=zero-residual eval=2017 f1=30.44
+RESULT seed=1 arm=zero-residual eval=2018 f1=24.15
+RESULT seed=1 arm=zero-residual eval=2019 f1=81.37
+RESULT seed=1 arm=zero-residual eval=2020 f1=83.60
+RESULT seed=1 arm=zero-residual eval=2021 f1=80.80
+RESULT seed=1 arm=zero-residual eval=2022 f1=81.83
+  zero-residual  done
+RESULT seed=1 arm=zero-random eval=IID f1=95.58
+RESULT seed=1 arm=zero-random eval=2016 f1=83.27
+RESULT seed=1 arm=zero-random eval=2017 f1=28.24
+RESULT seed=1 arm=zero-random eval=2018 f1=23.75
+RESULT seed=1 arm=zero-random eval=2019 f1=75.18
+RESULT seed=1 arm=zero-random eval=2020 f1=73.69
+RESULT seed=1 arm=zero-random eval=2021 f1=60.83
+RESULT seed=1 arm=zero-random eval=2022 f1=72.91
+  zero-random    done
+RESULT seed=1 arm=zero-freqonly eval=IID f1=95.56
+RESULT seed=1 arm=zero-freqonly eval=2016 f1=84.04
+RESULT seed=1 arm=zero-freqonly eval=2017 f1=38.58
+RESULT seed=1 arm=zero-freqonly eval=2018 f1=31.07
+RESULT seed=1 arm=zero-freqonly eval=2019 f1=75.33
+RESULT seed=1 arm=zero-freqonly eval=2020 f1=75.04
+RESULT seed=1 arm=zero-freqonly eval=2021 f1=68.40
+RESULT seed=1 arm=zero-freqonly eval=2022 f1=73.43
+  zero-freqonly  done
+seed 2: support 447 | residual 38, freq-only 38, random 38  (85s to train+attribute)
+RESULT seed=2 support=447 n_residual=38 n_freqonly=38 n_random=38
+RESULT seed=2 arm=baseline eval=IID f1=95.50
+RESULT seed=2 arm=baseline eval=2016 f1=84.34
+RESULT seed=2 arm=baseline eval=2017 f1=33.70
+RESULT seed=2 arm=baseline eval=2018 f1=28.46
+RESULT seed=2 arm=baseline eval=2019 f1=75.57
+RESULT seed=2 arm=baseline eval=2020 f1=72.77
+RESULT seed=2 arm=baseline eval=2021 f1=61.51
+RESULT seed=2 arm=baseline eval=2022 f1=71.83
+  baseline       done
+RESULT seed=2 arm=zero-residual eval=IID f1=95.32
+RESULT seed=2 arm=zero-residual eval=2016 f1=85.04
+RESULT seed=2 arm=zero-residual eval=2017 f1=28.46
+RESULT seed=2 arm=zero-residual eval=2018 f1=27.28
+RESULT seed=2 arm=zero-residual eval=2019 f1=79.76
+RESULT seed=2 arm=zero-residual eval=2020 f1=79.99
+RESULT seed=2 arm=zero-residual eval=2021 f1=72.44
+RESULT seed=2 arm=zero-residual eval=2022 f1=79.01
+  zero-residual  done
+RESULT seed=2 arm=zero-random eval=IID f1=95.70
+RESULT seed=2 arm=zero-random eval=2016 f1=85.33
+RESULT seed=2 arm=zero-random eval=2017 f1=35.65
+RESULT seed=2 arm=zero-random eval=2018 f1=28.51
+RESULT seed=2 arm=zero-random eval=2019 f1=80.45
+RESULT seed=2 arm=zero-random eval=2020 f1=81.50
+RESULT seed=2 arm=zero-random eval=2021 f1=73.88
+RESULT seed=2 arm=zero-random eval=2022 f1=79.73
+  zero-random    done
+RESULT seed=2 arm=zero-freqonly eval=IID f1=95.60
+RESULT seed=2 arm=zero-freqonly eval=2016 f1=84.84
+RESULT seed=2 arm=zero-freqonly eval=2017 f1=35.63
+RESULT seed=2 arm=zero-freqonly eval=2018 f1=27.25
+RESULT seed=2 arm=zero-freqonly eval=2019 f1=79.91
+RESULT seed=2 arm=zero-freqonly eval=2020 f1=81.51
+RESULT seed=2 arm=zero-freqonly eval=2021 f1=75.13
+RESULT seed=2 arm=zero-freqonly eval=2022 f1=78.68
+  zero-freqonly  done
+seed 3: support 482 | residual 38, freq-only 38, random 38  (92s to train+attribute)
+RESULT seed=3 support=482 n_residual=38 n_freqonly=38 n_random=38
+RESULT seed=3 arm=baseline eval=IID f1=95.72
+RESULT seed=3 arm=baseline eval=2016 f1=85.33
+RESULT seed=3 arm=baseline eval=2017 f1=41.52
+RESULT seed=3 arm=baseline eval=2018 f1=30.16
+RESULT seed=3 arm=baseline eval=2019 f1=80.39
+RESULT seed=3 arm=baseline eval=2020 f1=81.40
+RESULT seed=3 arm=baseline eval=2021 f1=74.54
+RESULT seed=3 arm=baseline eval=2022 f1=79.69
+  baseline       done
+RESULT seed=3 arm=zero-residual eval=IID f1=95.19
+RESULT seed=3 arm=zero-residual eval=2016 f1=84.54
+RESULT seed=3 arm=zero-residual eval=2017 f1=37.03
+RESULT seed=3 arm=zero-residual eval=2018 f1=31.65
+RESULT seed=3 arm=zero-residual eval=2019 f1=79.95
+RESULT seed=3 arm=zero-residual eval=2020 f1=80.84
+RESULT seed=3 arm=zero-residual eval=2021 f1=74.08
+RESULT seed=3 arm=zero-residual eval=2022 f1=80.95
+  zero-residual  done
+RESULT seed=3 arm=zero-random eval=IID f1=95.52
+RESULT seed=3 arm=zero-random eval=2016 f1=82.89
+RESULT seed=3 arm=zero-random eval=2017 f1=40.80
+RESULT seed=3 arm=zero-random eval=2018 f1=27.37
+RESULT seed=3 arm=zero-random eval=2019 f1=73.00
+RESULT seed=3 arm=zero-random eval=2020 f1=69.99
+RESULT seed=3 arm=zero-random eval=2021 f1=60.68
+RESULT seed=3 arm=zero-random eval=2022 f1=68.52
+  zero-random    done
+RESULT seed=3 arm=zero-freqonly eval=IID f1=95.47
+RESULT seed=3 arm=zero-freqonly eval=2016 f1=84.82
+RESULT seed=3 arm=zero-freqonly eval=2017 f1=37.33
+RESULT seed=3 arm=zero-freqonly eval=2018 f1=29.95
+RESULT seed=3 arm=zero-freqonly eval=2019 f1=76.50
+RESULT seed=3 arm=zero-freqonly eval=2020 f1=75.46
+RESULT seed=3 arm=zero-freqonly eval=2021 f1=66.83
+RESULT seed=3 arm=zero-freqonly eval=2022 f1=73.98
+  zero-freqonly  done
+seed 4: support 459 | residual 39, freq-only 39, random 39  (89s to train+attribute)
+RESULT seed=4 support=459 n_residual=39 n_freqonly=39 n_random=39
+RESULT seed=4 arm=baseline eval=IID f1=95.82
+RESULT seed=4 arm=baseline eval=2016 f1=84.28
+RESULT seed=4 arm=baseline eval=2017 f1=24.45
+RESULT seed=4 arm=baseline eval=2018 f1=22.76
+RESULT seed=4 arm=baseline eval=2019 f1=76.49
+RESULT seed=4 arm=baseline eval=2020 f1=74.70
+RESULT seed=4 arm=baseline eval=2021 f1=67.63
+RESULT seed=4 arm=baseline eval=2022 f1=73.12
+  baseline       done
+RESULT seed=4 arm=zero-residual eval=IID f1=95.32
+RESULT seed=4 arm=zero-residual eval=2016 f1=84.73
+RESULT seed=4 arm=zero-residual eval=2017 f1=30.81
+RESULT seed=4 arm=zero-residual eval=2018 f1=25.89
+RESULT seed=4 arm=zero-residual eval=2019 f1=80.24
+RESULT seed=4 arm=zero-residual eval=2020 f1=80.63
+RESULT seed=4 arm=zero-residual eval=2021 f1=72.80
+RESULT seed=4 arm=zero-residual eval=2022 f1=78.46
+  zero-residual  done
+RESULT seed=4 arm=zero-random eval=IID f1=95.28
+RESULT seed=4 arm=zero-random eval=2016 f1=83.26
+RESULT seed=4 arm=zero-random eval=2017 f1=35.37
+RESULT seed=4 arm=zero-random eval=2018 f1=28.88
+RESULT seed=4 arm=zero-random eval=2019 f1=76.36
+RESULT seed=4 arm=zero-random eval=2020 f1=76.00
+RESULT seed=4 arm=zero-random eval=2021 f1=69.54
+RESULT seed=4 arm=zero-random eval=2022 f1=75.54
+  zero-random    done
+RESULT seed=4 arm=zero-freqonly eval=IID f1=95.59
+RESULT seed=4 arm=zero-freqonly eval=2016 f1=83.48
+RESULT seed=4 arm=zero-freqonly eval=2017 f1=33.26
+RESULT seed=4 arm=zero-freqonly eval=2018 f1=25.73
+RESULT seed=4 arm=zero-freqonly eval=2019 f1=77.48
+RESULT seed=4 arm=zero-freqonly eval=2020 f1=78.21
+RESULT seed=4 arm=zero-freqonly eval=2021 f1=71.70
+RESULT seed=4 arm=zero-freqonly eval=2022 f1=76.73
+  zero-freqonly  done
+seed 5: support 471 | residual 34, freq-only 34, random 34  (80s to train+attribute)
+RESULT seed=5 support=471 n_residual=34 n_freqonly=34 n_random=34
+RESULT seed=5 arm=baseline eval=IID f1=95.55
+RESULT seed=5 arm=baseline eval=2016 f1=84.56
+RESULT seed=5 arm=baseline eval=2017 f1=38.68
+RESULT seed=5 arm=baseline eval=2018 f1=31.59
+RESULT seed=5 arm=baseline eval=2019 f1=79.22
+RESULT seed=5 arm=baseline eval=2020 f1=78.86
+RESULT seed=5 arm=baseline eval=2021 f1=72.80
+RESULT seed=5 arm=baseline eval=2022 f1=77.40
+  baseline       done
+RESULT seed=5 arm=zero-residual eval=IID f1=95.02
+RESULT seed=5 arm=zero-residual eval=2016 f1=81.40
+RESULT seed=5 arm=zero-residual eval=2017 f1=31.07
+RESULT seed=5 arm=zero-residual eval=2018 f1=23.63
+RESULT seed=5 arm=zero-residual eval=2019 f1=75.79
+RESULT seed=5 arm=zero-residual eval=2020 f1=76.46
+RESULT seed=5 arm=zero-residual eval=2021 f1=66.17
+RESULT seed=5 arm=zero-residual eval=2022 f1=73.93
+  zero-residual  done
+RESULT seed=5 arm=zero-random eval=IID f1=95.52
+RESULT seed=5 arm=zero-random eval=2016 f1=83.10
+RESULT seed=5 arm=zero-random eval=2017 f1=32.96
+RESULT seed=5 arm=zero-random eval=2018 f1=26.62
+RESULT seed=5 arm=zero-random eval=2019 f1=74.06
+RESULT seed=5 arm=zero-random eval=2020 f1=73.38
+RESULT seed=5 arm=zero-random eval=2021 f1=67.51
+RESULT seed=5 arm=zero-random eval=2022 f1=70.74
+  zero-random    done
+RESULT seed=5 arm=zero-freqonly eval=IID f1=95.43
+RESULT seed=5 arm=zero-freqonly eval=2016 f1=82.60
+RESULT seed=5 arm=zero-freqonly eval=2017 f1=26.93
+RESULT seed=5 arm=zero-freqonly eval=2018 f1=37.82
+RESULT seed=5 arm=zero-freqonly eval=2019 f1=74.14
+RESULT seed=5 arm=zero-freqonly eval=2020 f1=72.82
+RESULT seed=5 arm=zero-freqonly eval=2021 f1=62.80
+RESULT seed=5 arm=zero-freqonly eval=2022 f1=70.81
+  zero-freqonly  done
+
+--------------------------------------------------------------------------------------
+eval     baseline  zero-residual   zero-random  resid - random  zero-freqonly
+--------------------------------------------------------------------------------------
+IID         95.63          95.18         95.52           -0.34          95.53
+RESULT mean eval=IID baseline=95.63 residual=95.18 random=95.52 delta=-0.34 freqonly=95.53
+2016        84.52          83.75         83.57           +0.18          83.95
+RESULT mean eval=2016 baseline=84.52 residual=83.75 random=83.57 delta=+0.18 freqonly=83.95
+2017        34.33          31.56         34.60           -3.04          34.35
+RESULT mean eval=2017 baseline=34.33 residual=31.56 random=34.60 delta=-3.04 freqonly=34.35
+2018        27.90          26.52         27.03           -0.51          30.37
+RESULT mean eval=2018 baseline=27.90 residual=26.52 random=27.03 delta=-0.51 freqonly=30.37
+2019        77.25          79.42         75.81           +3.61          76.67
+RESULT mean eval=2019 baseline=77.25 residual=79.42 random=75.81 delta=+3.61 freqonly=76.67
+2020        75.93          80.30         74.91           +5.39          76.61
+RESULT mean eval=2020 baseline=75.93 residual=80.30 random=74.91 delta=+5.39 freqonly=76.61
+2021        68.08          73.26         66.49           +6.77          68.97
+RESULT mean eval=2021 baseline=68.08 residual=73.26 random=66.49 delta=+6.77 freqonly=68.97
+2022        74.69          78.83         73.49           +5.35          74.72
+RESULT mean eval=2022 baseline=74.69 residual=78.83 random=73.49 delta=+5.35 freqonly=74.72
+--------------------------------------------------------------------------------------
+zero-residual beats zero-random on 5 of 7 drifted periods
+RESULT verdict residual_beats_random=5/7
+
+The claim is the 'resid - random' column, NOT the comparison against baseline: arms 2-4
+share a 38-feature dead-channel perturbation that the baseline does not carry, so only
+arm 2 against arm 3 isolates the identity of the features from the fact of removing some.
