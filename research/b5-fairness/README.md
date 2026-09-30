@@ -69,8 +69,12 @@ So both statements are true and neither may be quoted without the other:
   neither side is allowed to see the future.
 
 Under temporal drift, threshold transfer *is* the deployment problem, so the second statement is the
-one an operator cares about. It is also the first advantage in this project that survived a
-cross-dataset check.
+one an operator cares about.
+
+**It is one dataset.** This experiment runs on APIGraph only. The threshold-transfer result therefore
+carries exactly the caveat that sank the drift-robustness claim — which also looked good on one corpus
+and did not replicate. Until the same measurement is made on LAMDA it is provisional, and it must not be
+described as cross-dataset.
 
 ## The correction owed to every earlier number in this repo
 

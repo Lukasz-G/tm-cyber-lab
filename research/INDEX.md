@@ -93,8 +93,9 @@ neither may be quoted without the other:
   not survive the drift; FPTM's does.
 
 Under temporal drift, threshold transfer *is* the deployment problem, so the second statement is the
-operationally relevant one — and it is the first advantage in this project that survived a
-cross-dataset check. Every F1 elsewhere in this repo is an oracle value; the correction is measured.
+operationally relevant one. **But it is APIGraph only** — the same single-dataset exposure that sank the
+drift-robustness claim, so it is provisional until repeated on LAMDA. Every F1 elsewhere in this repo is
+an oracle value; the correction is measured.
 
 **The operating point that survives:** 96% precision at 10% recall — low alert volume, high purity. A
 different product from a recall-tuned booster, and a defensible one.
