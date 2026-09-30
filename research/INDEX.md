@@ -113,6 +113,14 @@ different product from a recall-tuned booster, and a defensible one.
   `sha256`. An earlier version of this list claimed a `vt_detections.csv` was already downloaded; no
   such file exists in the release. See [b3-label-drift](b3-label-drift/) for what is runnable instead.
 - FAR reconstruction on LAMDA, also blocked on the authors.
-- Whether the ~38% of the model's top-100 that univariate rankings miss carries predictive weight —
-  an ablation that would turn [interp-dataset-control](interp-dataset-control/)'s residual into a
-  claim, or bury it.
+- **Whether label fragility explains the pruning regime split.**
+  [interp-residual-retrain](interp-residual-retrain/) gains ~5 F1 on 2019–2022 and loses on 2016–2018,
+  and 2017–18 are exactly where [b3-label-drift](b3-label-drift/) finds the label boundary most fragile
+  (51% and 58% of malware within two vendor votes of being discarded, against 21–27% elsewhere). Cheap to
+  check: condition the pruning effect on per-period label fragility, on both corpora. It either promotes
+  a hypothesis to the paper's abstract or deletes a paragraph.
+- **The paper cites nothing.** 18 entries sit in `paper/refs.bib` and `main.tex` contains zero `\cite`
+  calls, so the bibliography does not print and every statement about prior work is uncited. Blocking for
+  any submission.
+- **The paper has no figures.** The month-over-month drift series in [b2-drift](b2-drift/) is the
+  project's central result and is currently a table of four means; it should be a curve.
