@@ -1,0 +1,14 @@
+APIGraph width 1159  pool 30533 -> train 24427 (10.0% malware) / val 6106 (10.0% malware)
+clauses=20 T=10 S=25 L=64 LF=10 epochs=30  ceiling=LiteralCapped  parallel=:none  tm-lab 43dba5f
+  2013: 48568 rows, 4854 malware
+  2014: 58485 rows, 5809 malware
+  2015: 57452 rows, 5508 malware
+  2016: 56036 rows, 5324 malware
+  2017: 27312 rows, 2465 malware
+  2018: 41929 rows, 3783 malware
+  seed 1  2.3s
+  seed 2  1.4s
+  seed 3  1.4s
+  seed 4  1.4s
+  seed 5  1.4s
+wrote data\b5-fairness\fptm_margins.json

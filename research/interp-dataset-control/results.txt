@@ -1,0 +1,45 @@
+LAMDA width 4561  train 150090 rows (72111 malware / 77979 benign)  3 seeds
+gate config: clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  tm-lab 43dba5f
+computing dataset rankings (one pass over the training rows) ... 0.4s
+
+seed 1: 462 of 4561 features have nonzero exact attribution
+  sign composition  positive bank 79.2% negated (687 literals)  negative bank 88.6% negated (659)
+RESULT seed=1 nonzero_attrib=462 neg_frac_pos_bank=79.18 neg_frac_neg_bank=88.62
+  k=20    model∩chi2  10/20 (J 0.333)   model∩freq  12/20 (J 0.429)   model∩random   0/20   model∩inclusion  10/20
+RESULT seed=1 k=20 ov_chi2=10 ov_freq=12 ov_random=0 ov_inclusion=10 jac_chi2=0.3333 jac_freq=0.4286
+  k=100   model∩chi2  54/100 (J 0.370)   model∩freq  62/100 (J 0.449)   model∩random   5/100   model∩inclusion  49/100
+RESULT seed=1 k=100 ov_chi2=54 ov_freq=62 ov_random=5 ov_inclusion=49 jac_chi2=0.3699 jac_freq=0.4493
+  k=500   model∩chi2 219/500 (J 0.280)   model∩freq 264/500 (J 0.359)   model∩random  53/500   model∩inclusion 343/500
+RESULT seed=1 k=500 ov_chi2=219 ov_freq=264 ov_random=53 ov_inclusion=343 jac_chi2=0.2804 jac_freq=0.3587
+seed 2: 447 of 4561 features have nonzero exact attribution
+  sign composition  positive bank 80.0% negated (686 literals)  negative bank 87.4% negated (629)
+RESULT seed=2 nonzero_attrib=447 neg_frac_pos_bank=80.03 neg_frac_neg_bank=87.44
+  k=20    model∩chi2   9/20 (J 0.290)   model∩freq  11/20 (J 0.379)   model∩random   0/20   model∩inclusion   8/20
+RESULT seed=2 k=20 ov_chi2=9 ov_freq=11 ov_random=0 ov_inclusion=8 jac_chi2=0.2903 jac_freq=0.3793
+  k=100   model∩chi2  54/100 (J 0.370)   model∩freq  62/100 (J 0.449)   model∩random   3/100   model∩inclusion  51/100
+RESULT seed=2 k=100 ov_chi2=54 ov_freq=62 ov_random=3 ov_inclusion=51 jac_chi2=0.3699 jac_freq=0.4493
+  k=500   model∩chi2 217/500 (J 0.277)   model∩freq 259/500 (J 0.350)   model∩random  50/500   model∩inclusion 370/500
+RESULT seed=2 k=500 ov_chi2=217 ov_freq=259 ov_random=50 ov_inclusion=370 jac_chi2=0.2771 jac_freq=0.3495
+seed 3: 482 of 4561 features have nonzero exact attribution
+  sign composition  positive bank 81.5% negated (699 literals)  negative bank 86.5% negated (749)
+RESULT seed=3 nonzero_attrib=482 neg_frac_pos_bank=81.55 neg_frac_neg_bank=86.52
+  k=20    model∩chi2  12/20 (J 0.429)   model∩freq  12/20 (J 0.429)   model∩random   0/20   model∩inclusion   7/20
+RESULT seed=3 k=20 ov_chi2=12 ov_freq=12 ov_random=0 ov_inclusion=7 jac_chi2=0.4286 jac_freq=0.4286
+  k=100   model∩chi2  53/100 (J 0.361)   model∩freq  62/100 (J 0.449)   model∩random   4/100   model∩inclusion  48/100
+RESULT seed=3 k=100 ov_chi2=53 ov_freq=62 ov_random=4 ov_inclusion=48 jac_chi2=0.3605 jac_freq=0.4493
+  k=500   model∩chi2 228/500 (J 0.295)   model∩freq 273/500 (J 0.376)   model∩random  46/500   model∩inclusion 333/500
+RESULT seed=3 k=500 ov_chi2=228 ov_freq=273 ov_random=46 ov_inclusion=333 jac_chi2=0.2953 jac_freq=0.3755
+
+--------------------------------------------------------------------------------------------
+k              ∩ chi2         ∩ freq       ∩ random      ∩ inclusion
+--------------------------------------------------------------------------------------------
+20          10.3 / 20      11.7 / 20       0.0 / 20         8.3 / 20
+RESULT mean k=20 chi2=10.33 freq=11.67 random=0.00 inclusion=8.33 of 20
+100         53.7 /100      62.0 /100       4.0 /100        49.3 /100
+RESULT mean k=100 chi2=53.67 freq=62.00 random=4.00 inclusion=49.33 of 100
+500        221.3 /500     265.3 /500      49.7 /500       348.7 /500
+RESULT mean k=500 chi2=221.33 freq=265.33 random=49.67 inclusion=348.67 of 500
+--------------------------------------------------------------------------------------------
+RETRACT every readability claim if chi2 or freq recovers half or more of the model's top-k.
+SURVIVES if they sit near the random column. The random column is what chance alone gives
+and is the only reason the other columns can be read at all.

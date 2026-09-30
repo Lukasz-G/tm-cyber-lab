@@ -1,0 +1,68 @@
+train 24,427 (10.0% malware)  val 6,106 (10.0%)
+port check: validation labels match Julia's export, 6,106 rows
+RESULT port_check val_labels=match
+port check: all 6 test years match row for row
+
+trained lightgbm
+trained xgboost
+
+(a) AVERAGE PRECISION -- threshold-free, frontier against frontier
+year       FPTM (mean±sd)   LightGBM    XGBoost   best booster - FPTM
+----------------------------------------------------------------------
+2013         93.88± 0.50      94.87      94.26                 +0.99
+RESULT ap year=2013 fptm=93.88 sd=0.50 lgb=94.87 xgb=94.26 gap=+0.99
+2014         78.67± 1.49      81.41      80.59                 +2.74
+RESULT ap year=2014 fptm=78.67 sd=1.49 lgb=81.41 xgb=80.59 gap=+2.74
+2015         76.96± 2.27      81.23      78.98                 +4.27
+RESULT ap year=2015 fptm=76.96 sd=2.27 lgb=81.23 xgb=78.98 gap=+4.27
+2016         74.59± 1.07      79.52      77.60                 +4.93
+RESULT ap year=2016 fptm=74.59 sd=1.07 lgb=79.52 xgb=77.60 gap=+4.93
+2017         76.44± 1.72      80.46      75.89                 +4.02
+RESULT ap year=2017 fptm=76.44 sd=1.72 lgb=80.46 xgb=75.89 gap=+4.02
+2018         76.38± 0.91      76.43      82.06                 +5.67
+RESULT ap year=2018 fptm=76.38 sd=0.91 lgb=76.43 xgb=82.06 gap=+5.67
+
+  mean gap to the better booster: +3.77 AP
+
+RESULT ap mean_gap=+3.77
+
+(b) VALIDATION-CHOSEN threshold, applied unchanged   vs   (c) ORACLE best-F1 on the test year
+year    FPTM val  FPTM oracle   LGB val  LGB oracle   XGB val  XGB oracle
+------------------------------------------------------------------------------
+2013       87.30        88.08     85.33       89.15     83.47       88.54
+RESULT thresh year=2013 fptm_val=87.30 fptm_oracle=88.08 lgb_val=85.33 lgb_oracle=89.15 xgb_val=83.47 xgb_oracle=88.54
+2014       72.25        73.87     66.88       75.29     67.75       76.36
+RESULT thresh year=2014 fptm_val=72.25 fptm_oracle=73.87 lgb_val=66.88 lgb_oracle=75.29 xgb_val=67.75 xgb_oracle=76.36
+2015       67.34        69.92     63.68       72.85     64.23       74.69
+RESULT thresh year=2015 fptm_val=67.34 fptm_oracle=69.92 lgb_val=63.68 lgb_oracle=72.85 xgb_val=64.23 xgb_oracle=74.69
+2016       66.60        68.22     64.30       74.02     67.07       71.89
+RESULT thresh year=2016 fptm_val=66.60 fptm_oracle=68.22 lgb_val=64.30 lgb_oracle=74.02 xgb_val=67.07 xgb_oracle=71.89
+2017       72.65        74.16     71.19       76.45     71.58       76.17
+RESULT thresh year=2017 fptm_val=72.65 fptm_oracle=74.16 lgb_val=71.19 lgb_oracle=76.45 xgb_val=71.58 xgb_oracle=76.17
+2018       70.95        73.19     58.23       75.64     70.07       73.37
+RESULT thresh year=2018 fptm_val=70.95 fptm_oracle=73.19 lgb_val=58.23 lgb_oracle=75.64 xgb_val=70.07 xgb_oracle=73.37
+
+  what the oracle was worth: FPTM +1.73 F1, LightGBM +8.96, XGBoost +6.14
+RESULT oracle_cost fptm=1.73 lgb=8.96 xgb=6.14
+
+DOMINANCE, recomputed on every seed: does FPTM's frontier reach outside the booster's?
+year      beats LGB somewhere    beats XGB somewhere  max precision excess
+--------------------------------------------------------------------------
+2013                      5/5                    5/5                +6.48
+RESULT dominance year=2013 beats_lgb=5/5 beats_xgb=5/5 max_prec_excess=+6.48
+2014                      5/5                    5/5               +11.22
+RESULT dominance year=2014 beats_lgb=5/5 beats_xgb=5/5 max_prec_excess=+11.22
+2015                      5/5                    5/5                +9.63
+RESULT dominance year=2015 beats_lgb=5/5 beats_xgb=5/5 max_prec_excess=+9.63
+2016                      5/5                    5/5               +11.34
+RESULT dominance year=2016 beats_lgb=5/5 beats_xgb=5/5 max_prec_excess=+11.34
+2017                      5/5                    5/5               +31.64
+RESULT dominance year=2017 beats_lgb=5/5 beats_xgb=5/5 max_prec_excess=+31.64
+2018                      5/5                    5/5               +24.02
+RESULT dominance year=2018 beats_lgb=5/5 beats_xgb=5/5 max_prec_excess=+24.02
+
+--------------------------------------------------------------------------
+(a) is the honest headline: both sides swept, no threshold anywhere in it. (b) is what a
+deployment gets. (c) exists only to size the correction owed to every earlier F1 in this
+repo, all of which are oracle values. 'Beats somewhere' counts a frontier reaching outside
+the booster's at ANY recall, which is a weaker and more generous test than dominance.

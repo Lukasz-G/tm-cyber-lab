@@ -1,0 +1,94 @@
+ARM 1 -- label boundary: is the label itself stable over time?
+year     malware  median vt  4-6 dets  flip 4→5  flip 4→10
+------------------------------------------------------------
+  2013    44,383        9.0     27.7%      6.8%      53.4%
+RESULT label year=2013 n_mal=44383 median_vt=9.0 borderline=27.67 flip5=6.81 flip10=53.36
+  2014    45,756       11.0     27.0%     10.1%      44.6%
+RESULT label year=2014 n_mal=45756 median_vt=11.0 borderline=27.01 flip5=10.06 flip10=44.65
+  2016    45,134       12.0     21.9%      8.1%      40.1%
+RESULT label year=2016 n_mal=45134 median_vt=12.0 borderline=21.88 flip5=8.15 flip10=40.12
+  2017    21,359        6.0     51.1%     18.5%      77.8%
+RESULT label year=2017 n_mal=21359 median_vt=6.0 borderline=51.08 flip5=18.50 flip10=77.82
+  2018    39,350        6.0     57.8%     25.4%      76.3%
+RESULT label year=2018 n_mal=39350 median_vt=6.0 borderline=57.84 flip5=25.36 flip10=76.30
+  2019    41,585       10.0     26.0%      7.7%      49.1%
+RESULT label year=2019 n_mal=41585 median_vt=10.0 borderline=25.98 flip5=7.71 flip10=49.06
+  2020    46,355        7.0     40.7%     12.2%      67.3%
+RESULT label year=2020 n_mal=46355 median_vt=7.0 borderline=40.72 flip5=12.22 flip10=67.35
+  2021    35,627        7.0     45.3%     14.4%      79.7%
+RESULT label year=2021 n_mal=35627 median_vt=7.0 borderline=45.34 flip5=14.43 flip10=79.74
+  2022    41,648       10.0     21.1%      7.7%      45.1%
+RESULT label year=2022 n_mal=41648 median_vt=10.0 borderline=21.14 flip5=7.75 flip10=45.13
+
+  'flip 4→10' is the share of this year's malware that a threshold of 10 would relabel
+  benign. It is label fragility, measured directly, and it is not constant across years.
+
+ARMS 2 and 3 -- feature drift, all samples and benign only
+  2013: 86,431 rows
+  2014: 101,183 rows
+  2016: 109,193 rows
+  2017: 99,144 rows
+  2018: 104,292 rows
+  2019: 91,050 rows
+  2020: 102,073 rows
+  2021: 81,155 rows
+  2022: 86,416 rows
+
+transition         L1 all   L1 benign only   difference
+--------------------------------------------------------
+2013→2014          18.758           14.130       +4.627
+RESULT data from=2013 to=2014 l1_all=18.7577 l1_benign=14.1303
+2014→2016          18.147           18.536       -0.389
+RESULT data from=2014 to=2016 l1_all=18.1471 l1_benign=18.5360
+2016→2017          30.379           22.321       +8.058
+RESULT data from=2016 to=2017 l1_all=30.3789 l1_benign=22.3212
+2017→2018          20.080           18.892       +1.188
+RESULT data from=2017 to=2018 l1_all=20.0799 l1_benign=18.8917
+2018→2019          41.570           23.848      +17.722
+RESULT data from=2018 to=2019 l1_all=41.5700 l1_benign=23.8481
+2019→2020          19.487           19.073       +0.414
+RESULT data from=2019 to=2020 l1_all=19.4871 l1_benign=19.0727
+2020→2021          34.094           29.835       +4.259
+RESULT data from=2020 to=2021 l1_all=34.0945 l1_benign=29.8354
+2021→2022          30.827           24.431       +6.396
+RESULT data from=2021 to=2022 l1_all=30.8272 l1_benign=24.4310
+
+----------------------------------------------------------------------
+label fragility vs feature drift (all):     Spearman rho +0.548  p 0.160
+feature drift all vs benign-only (control): Spearman rho +0.881  p 0.004
+RESULT corr label_vs_data rho=+0.5476 p=0.1600 n=8
+RESULT corr all_vs_benign rho=+0.8810 p=0.0039 n=8
+
+  n = 8 transitions. At that size a rho of 0.5 is not distinguishable from zero, which
+  is why the year-resolution verdict below is not the answer -- the monthly series is.
+
+======================================================================
+MONTH RESOLUTION -- the same three arms, where the correlation can actually be measured
+======================================================================
+85 months with >= 200 rows
+
+quantity                                            rho         p     n
+----------------------------------------------------------------------
+label fragility vs feature drift (all samples)   -0.344    0.0015    82
+feature drift: all vs benign-only (control)      +0.748    0.0000    82
+RESULT monthly corr label_vs_data rho=-0.3445 p=0.001528 n=82
+RESULT monthly corr all_vs_benign rho=+0.7483 p=6.504e-16 n=82
+RESULT monthly median l1_all=14.073 l1_benign=8.847 frag=79.41
+
+WEAK ASSOCIATION at month resolution: real but small. Reportable as a caveat on any
+claim that treats the labels as fixed, not as a result in itself.
+The control holds: feature drift measured on unambiguously-benign samples tracks the
+all-sample series, so that series is not an artifact of the labels reshaping the
+population being averaged over.
+
+----------------------------------------------------------------------
+Year-resolution verdict below, kept because it was the pre-registered rule, and it was
+under-specified: it tested a correlation threshold without requiring significance, which at
+eight transitions it cannot have. The monthly result above supersedes it.
+CONFOUNDED: label fragility and feature drift move together on this dataset, so a result
+that claims to separate them is not supported here.
+
+This is NOT pre-registered prediction 5. That prediction concerns Appendix F's
+strengthened/weakened/flipped verdict counts, which need a detection count at two points in
+time per sample. The release carries one snapshot per sha256, so prediction 5 is untested and
+blocked on the dataset authors.

@@ -37,12 +37,31 @@ Honest limits recorded in that README rather than here: arm 1 (two seeds, same m
 **496 of 4,561** features have nonzero exact attribution, so its k=1000 rows are mostly ties among
 zeros and must not be read.
 
+## Interpretability — the control that gates every readability claim
+
+| | verdict | keep? |
+|---|---|---|
+| [interp-dataset-control](interp-dataset-control/) | **RETRACTS every readability claim, by the criterion fixed before the run.** A plain document-frequency difference — no model at all — recovers **62 of the model's top-100** features; χ² recovers 54; chance gives 4. Also **confirms pre-registered prediction 1**: ~80% of included literals are *negated*, so the clauses are blacklists and give an analyst no indicators of compromise. Blakely & Granmo's inclusion frequency overlaps exact Shapley by only 49/100, so it is not a proxy for it at this width. | **core** — a negative, and it decides what the paper may say |
+
+## Label drift
+
+| | verdict | keep? |
+|---|---|---|
+| [b3-label-drift](b3-label-drift/) | **LAMDA's labels carry drift of their own.** Share of malware a threshold of 10 would relabel ranges **40%→80%** by year; in 2017–18 over half of malware sits at 4–6 detections. Largely separable from feature drift (rho **−0.344**, p=0.0015, n=82) with the benign-only control holding at +0.748. The year-resolution analysis gave the **opposite sign** and its pre-registered rule was under-specified — it tested a correlation without requiring significance. | keep — the label-fragility series is novel; the sign flip is a methodological caution |
+
+## Deployment cost
+
+| | verdict | keep? |
+|---|---|---|
+| [b4-footprint-labels](b4-footprint-labels/) | Footprint counted rather than quoted, and label efficiency: continual updating against retraining at matched label budget. | see its README |
+
 ## Detection — B1 and the cross-checks
 
 | | verdict | keep? |
 |---|---|---|
 | [b1-gate](b1-gate/) | **PASS.** LAMDA, 10 seeds, 20 clauses/class: IID −1.82 vs LightGBM, **+4 to +12 on four of five drifted years** at 5–9 standard errors. | keep, but it must be read beside the cross-checks |
 | [b5-apigraph](b5-apigraph/) | **DOES NOT REPLICATE.** Ahead on 1 of 5 later years; behind XGBoost on all six. The `s` control ruled itself out. | **core** — this is the honest centre of the detection story |
+| [b5-fairness](b5-fairness/) | **Fixes all three recorded unfairnesses at once** — both sides swept, threshold chosen on held-out data, dominance on every seed. Boosters keep +3.77 AP on 6/6; FPTM wins the deployable-threshold F1 on 5/6. Caught a split bug that would have selected a threshold on a slice containing **0% malware**. | **core** — it is the honest basis for every comparison |
 | [b5-androzoo](b5-androzoo/) | **NARROWS.** Fails the ±5 criterion on 2020 by 0.45. Dense regime (39% vs 1.75%). Found that **clause sign composition tracks input density** — 83.8% negated at 3% density vs 64.6% at 39%. | keep — the density/sign finding is mechanistic and independent of the verdict |
 
 **Net:** superior drift robustness was a LAMDA result. What survives all three datasets is an
@@ -62,21 +81,32 @@ These six directories are one investigation. Prune aggressively; the conclusion 
 | [b5-resolution](b5-resolution/) | margin too coarse to rank | **no** — top bucket size 1, purity 100%, 96% precision @ 10% recall |
 | [b5-diversity](b5-diversity/) | extra clauses are duplicates; feedback rule saturated | **no** — zero pairs >0.9 Jaccard; diversity *rises* with budget |
 
-**Standing conclusion.** At every configuration tested, a 20–200 clause FPTM lies inside the
-gradient-boosting precision/recall frontier on APIGraph. Nine explanations were eliminated, so the
-deficit is the hypothesis class rather than a setting: a small number of large tolerant conjunctions
-ranks worse in the mid-range than an additive ensemble of thousands of shallow splits, and no budget,
-balance, length or threshold recovers it. The clauses are structurally diverse and predictively
-redundant.
+**Standing conclusion, revised 2026-09-30 by [b5-fairness](b5-fairness/).** Two statements, and
+neither may be quoted without the other:
+
+- **Threshold-free, the boosters' frontier is better** — +3.77 average precision, ahead on 6 of 6
+  years, with both sides swept. The original conclusion survives on this metric: a small number of
+  large tolerant conjunctions does rank worse in the mid-range than thousands of shallow splits, and
+  nine explanations for it were eliminated.
+- **At a threshold chosen without seeing the future, FPTM wins on 5 of 6 years.** Because choosing the
+  threshold honestly costs FPTM **1.7 F1** and costs the boosters **6–9**. Their operating point does
+  not survive the drift; FPTM's does.
+
+Under temporal drift, threshold transfer *is* the deployment problem, so the second statement is the
+operationally relevant one — and it is the first advantage in this project that survived a
+cross-dataset check. Every F1 elsewhere in this repo is an oracle value; the correction is measured.
 
 **The operating point that survives:** 96% precision at 10% recall — low alert volume, high purity. A
 different product from a recall-tuned booster, and a defensible one.
 
 ## Not yet run
 
-- Interpretability dataset control — χ² or frequency ranking of raw features vs the clause literals.
-  **Blocks every readability claim.** The equivalent control retracted the sibling project's result.
-- Booster probability sweep, for frontier-against-frontier rather than frontier-against-point.
-- Label drift vs data drift, from LAMDA's per-year VirusTotal verdict changes (`vt_detections.csv`,
-  already downloaded).
-- Model footprint and labels-per-unit-detection.
+- Pre-registered **prediction 5** — data drift and label drift differently timed, from LAMDA's
+  Appendix F strengthened/weakened/flipped verdict counts. **Blocked on the dataset authors:** that
+  needs a detection count at two points in time per sample and the release carries one snapshot per
+  `sha256`. An earlier version of this list claimed a `vt_detections.csv` was already downloaded; no
+  such file exists in the release. See [b3-label-drift](b3-label-drift/) for what is runnable instead.
+- FAR reconstruction on LAMDA, also blocked on the authors.
+- Whether the ~38% of the model's top-100 that univariate rankings miss carries predictive weight —
+  an ablation that would turn [interp-dataset-control](interp-dataset-control/)'s residual into a
+  claim, or bury it.
