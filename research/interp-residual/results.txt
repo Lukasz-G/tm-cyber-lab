@@ -1,0 +1,73 @@
+LAMDA width 4561  train 150090  3 seeds  k=100  ablation at inference
+clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  tm-lab 43dba5f
+
+  IID: 20000 rows, 9549 malware
+  2019: 18210 rows, 8317 malware
+  2021: 16231 rows, 7125 malware
+
+seed 1: support 462 features | residual 38, overlap 62, freq-only 38
+RESULT seed=1 support=462 n_residual=38 n_overlap=62
+RESULT seed=1 eval=IID arm=residual n=38 base_f1=95.56 abl_f1=93.14 drop=2.42
+RESULT seed=1 eval=IID arm=random|res| n=38 base_f1=95.56 abl_f1=95.38 drop=0.17
+RESULT seed=1 eval=IID arm=overlap n=62 base_f1=95.56 abl_f1=7.78 drop=87.78
+RESULT seed=1 eval=IID arm=random|ovl| n=62 base_f1=95.56 abl_f1=95.18 drop=0.37
+RESULT seed=1 eval=IID arm=freq-only n=38 base_f1=95.56 abl_f1=95.04 drop=0.51
+RESULT seed=1 eval=2019 arm=residual n=38 base_f1=74.58 abl_f1=78.38 drop=-3.80
+RESULT seed=1 eval=2019 arm=random|res| n=38 base_f1=74.58 abl_f1=75.63 drop=-1.05
+RESULT seed=1 eval=2019 arm=overlap n=62 base_f1=74.58 abl_f1=4.90 drop=69.68
+RESULT seed=1 eval=2019 arm=random|ovl| n=62 base_f1=74.58 abl_f1=75.55 drop=-0.97
+RESULT seed=1 eval=2019 arm=freq-only n=38 base_f1=74.58 abl_f1=72.37 drop=2.21
+RESULT seed=1 eval=2021 arm=residual n=38 base_f1=63.94 abl_f1=77.57 drop=-13.63
+RESULT seed=1 eval=2021 arm=random|res| n=38 base_f1=63.94 abl_f1=66.42 drop=-2.48
+RESULT seed=1 eval=2021 arm=overlap n=62 base_f1=63.94 abl_f1=0.14 drop=63.80
+RESULT seed=1 eval=2021 arm=random|ovl| n=62 base_f1=63.94 abl_f1=67.20 drop=-3.26
+RESULT seed=1 eval=2021 arm=freq-only n=38 base_f1=63.94 abl_f1=61.41 drop=2.53
+seed 2: support 447 features | residual 38, overlap 62, freq-only 38
+RESULT seed=2 support=447 n_residual=38 n_overlap=62
+RESULT seed=2 eval=IID arm=residual n=38 base_f1=95.50 abl_f1=93.48 drop=2.02
+RESULT seed=2 eval=IID arm=random|res| n=38 base_f1=95.50 abl_f1=95.48 drop=0.02
+RESULT seed=2 eval=IID arm=overlap n=62 base_f1=95.50 abl_f1=5.06 drop=90.45
+RESULT seed=2 eval=IID arm=random|ovl| n=62 base_f1=95.50 abl_f1=95.30 drop=0.21
+RESULT seed=2 eval=IID arm=freq-only n=38 base_f1=95.50 abl_f1=95.37 drop=0.13
+RESULT seed=2 eval=2019 arm=residual n=38 base_f1=75.57 abl_f1=79.26 drop=-3.69
+RESULT seed=2 eval=2019 arm=random|res| n=38 base_f1=75.57 abl_f1=74.80 drop=0.77
+RESULT seed=2 eval=2019 arm=overlap n=62 base_f1=75.57 abl_f1=3.68 drop=71.89
+RESULT seed=2 eval=2019 arm=random|ovl| n=62 base_f1=75.57 abl_f1=75.44 drop=0.13
+RESULT seed=2 eval=2019 arm=freq-only n=38 base_f1=75.57 abl_f1=73.11 drop=2.45
+RESULT seed=2 eval=2021 arm=residual n=38 base_f1=61.51 abl_f1=73.95 drop=-12.44
+RESULT seed=2 eval=2021 arm=random|res| n=38 base_f1=61.51 abl_f1=61.12 drop=0.39
+RESULT seed=2 eval=2021 arm=overlap n=62 base_f1=61.51 abl_f1=0.14 drop=61.37
+RESULT seed=2 eval=2021 arm=random|ovl| n=62 base_f1=61.51 abl_f1=61.82 drop=-0.31
+RESULT seed=2 eval=2021 arm=freq-only n=38 base_f1=61.51 abl_f1=56.08 drop=5.43
+seed 3: support 482 features | residual 38, overlap 62, freq-only 38
+RESULT seed=3 support=482 n_residual=38 n_overlap=62
+RESULT seed=3 eval=IID arm=residual n=38 base_f1=95.72 abl_f1=93.63 drop=2.08
+RESULT seed=3 eval=IID arm=random|res| n=38 base_f1=95.72 abl_f1=95.55 drop=0.17
+RESULT seed=3 eval=IID arm=overlap n=62 base_f1=95.72 abl_f1=7.40 drop=88.32
+RESULT seed=3 eval=IID arm=random|ovl| n=62 base_f1=95.72 abl_f1=95.41 drop=0.31
+RESULT seed=3 eval=IID arm=freq-only n=38 base_f1=95.72 abl_f1=95.38 drop=0.34
+RESULT seed=3 eval=2019 arm=residual n=38 base_f1=80.39 abl_f1=80.77 drop=-0.39
+RESULT seed=3 eval=2019 arm=random|res| n=38 base_f1=80.39 abl_f1=80.85 drop=-0.46
+RESULT seed=3 eval=2019 arm=overlap n=62 base_f1=80.39 abl_f1=4.19 drop=76.20
+RESULT seed=3 eval=2019 arm=random|ovl| n=62 base_f1=80.39 abl_f1=81.52 drop=-1.13
+RESULT seed=3 eval=2019 arm=freq-only n=38 base_f1=80.39 abl_f1=78.10 drop=2.29
+RESULT seed=3 eval=2021 arm=residual n=38 base_f1=74.54 abl_f1=79.43 drop=-4.89
+RESULT seed=3 eval=2021 arm=random|res| n=38 base_f1=74.54 abl_f1=76.18 drop=-1.65
+RESULT seed=3 eval=2021 arm=overlap n=62 base_f1=74.54 abl_f1=0.20 drop=74.34
+RESULT seed=3 eval=2021 arm=random|ovl| n=62 base_f1=74.54 abl_f1=75.75 drop=-1.21
+RESULT seed=3 eval=2021 arm=freq-only n=38 base_f1=74.54 abl_f1=71.37 drop=3.17
+
+------------------------------------------------------------------------------------
+eval     base F1    residual   random|res|     overlap   random|ovl|    freq-only
+------------------------------------------------------------------------------------
+IID        95.59        2.17          0.12       88.85          0.30         0.33
+RESULT mean eval=IID base=95.59 residual=2.17 random_res=0.12 overlap=88.85 random_ovl=0.30 freq_only=0.33
+2019       76.85       -2.63         -0.25       72.59         -0.66         2.32
+RESULT mean eval=2019 base=76.85 residual=-2.63 random_res=-0.25 overlap=72.59 random_ovl=-0.66 freq_only=2.32
+2021       66.66      -10.32         -1.24       66.50         -1.59         3.71
+RESULT mean eval=2021 base=66.66 residual=-10.32 random_res=-1.24 overlap=66.50 random_ovl=-1.59 freq_only=3.71
+------------------------------------------------------------------------------------
+Columns after 'base F1' are F1 DROPS caused by forcing that feature set to zero.
+Compare 'residual' against 'random|res|' at matched size: materially larger means the
+attribution finds features a frequency ranking misses AND the model uses them. Comparable
+means the residual is ranking noise and the interpretability line closes.

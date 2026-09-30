@@ -1,0 +1,13 @@
+LAMDA width 4561  pool 150090 -> train 120072 (48.1% malware) / val 30018 (47.8%)
+clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  parallel=:none  tm-lab 43dba5f
+  2016: 21839 rows (9027 malware)
+  2017: 19829 rows (4272 malware)
+  2018: 20859 rows (7870 malware)
+  2019: 18210 rows (8317 malware)
+  2020: 20415 rows (9271 malware)
+  2021: 16231 rows (7125 malware)
+  2022: 17284 rows (8330 malware)
+  seed 1  53.5s
+  seed 2  53.7s
+  seed 3  54.3s
+wrote data\b1-threshold-transfer\fptm_margins.json

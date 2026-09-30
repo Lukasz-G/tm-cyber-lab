@@ -71,10 +71,11 @@ So both statements are true and neither may be quoted without the other:
 Under temporal drift, threshold transfer *is* the deployment problem, so the second statement is the
 one an operator cares about.
 
-**It is one dataset.** This experiment runs on APIGraph only. The threshold-transfer result therefore
-carries exactly the caveat that sank the drift-robustness claim — which also looked good on one corpus
-and did not replicate. Until the same measurement is made on LAMDA it is provisional, and it must not be
-described as cross-dataset.
+**Replicated on LAMDA.** This experiment runs on APIGraph; `research/b1-threshold-transfer/` repeats it
+on LAMDA at a 48% base rate instead of 10% and finds the same three components in the same direction,
+with a larger effect: +3.43 AP against us, honest thresholding costing FPTM 6.19 F1 against 16.60 and
+15.31 for the boosters, and FPTM leading 7 of 8 periods. Threshold transfer is therefore a two-corpus
+result. It was **not** when this README first claimed it was, which is why the replication was run.
 
 ## The correction owed to every earlier number in this repo
 

@@ -1,0 +1,61 @@
+train 120,072 (48.1% malware)  val 30,018 (47.8%)
+RESULT port_check val_labels=match
+port check: IID and all 7 test years match row for row
+
+trained lightgbm
+trained xgboost
+
+(a) AVERAGE PRECISION -- threshold-free
+eval       FPTM (mean±sd)   LightGBM    XGBoost      gap
+----------------------------------------------------------
+IID          98.97± 0.01      99.55      99.53    +0.58
+RESULT ap eval=IID fptm=98.97 sd=0.01 lgb=99.55 xgb=99.53 gap=+0.58
+2016         93.75± 0.34      95.04      95.19    +1.44
+RESULT ap eval=2016 fptm=93.75 sd=0.34 lgb=95.04 xgb=95.19 gap=+1.44
+2017         40.00± 0.57      47.93      43.00    +7.92
+RESULT ap eval=2017 fptm=40.00 sd=0.57 lgb=47.93 xgb=43.00 gap=+7.92
+2018         53.16± 0.25      62.92      60.10    +9.77
+RESULT ap eval=2018 fptm=53.16 sd=0.25 lgb=62.92 xgb=60.10 gap=+9.77
+2019         91.84± 1.48      92.58      94.71    +2.86
+RESULT ap eval=2019 fptm=91.84 sd=1.48 lgb=92.58 xgb=94.71 gap=+2.86
+2020         93.34± 1.17      91.38      94.78    +1.43
+RESULT ap eval=2020 fptm=93.34 sd=1.17 lgb=91.38 xgb=94.78 gap=+1.43
+2021         91.66± 1.68      87.71      92.59    +0.93
+RESULT ap eval=2021 fptm=91.66 sd=1.68 lgb=87.71 xgb=92.59 gap=+0.93
+2022         94.12± 1.25      94.70      96.58    +2.46
+RESULT ap eval=2022 fptm=94.12 sd=1.25 lgb=94.70 xgb=96.58 gap=+2.46
+
+  mean gap to the better booster: +3.43 AP
+RESULT ap mean_gap=+3.43
+
+(b) VALIDATION-CHOSEN threshold   vs   (c) ORACLE best-F1
+eval    FPTM val  FPTM orc  LGB val  LGB orc  XGB val  XGB orc
+--------------------------------------------------------------
+IID        95.65     95.68    97.44    97.47    97.15    97.18
+RESULT thresh eval=IID fptm_val=95.65 fptm_oracle=95.68 lgb_val=97.44 lgb_oracle=97.47 xgb_val=97.15 xgb_oracle=97.18
+2016       85.69     86.80    85.58    88.32    85.27    88.56
+RESULT thresh eval=2016 fptm_val=85.69 fptm_oracle=86.80 lgb_val=85.58 lgb_oracle=88.32 xgb_val=85.27 xgb_oracle=88.56
+2017       38.85     41.93    34.46    46.45    28.67    42.16
+RESULT thresh eval=2017 fptm_val=38.85 fptm_oracle=41.93 lgb_val=34.46 lgb_oracle=46.45 xgb_val=28.67 xgb_oracle=42.16
+2018       33.59     55.84    28.24    61.62    25.82    58.74
+RESULT thresh eval=2018 fptm_val=33.59 fptm_oracle=55.84 lgb_val=28.24 lgb_oracle=61.62 xgb_val=25.82 xgb_oracle=58.74
+2019       81.13     85.34    72.57    86.31    75.78    88.43
+RESULT thresh eval=2019 fptm_val=81.13 fptm_oracle=85.34 lgb_val=72.57 lgb_oracle=86.31 xgb_val=75.78 xgb_oracle=88.43
+2020       83.05     87.90    67.87    86.12    73.34    89.00
+RESULT thresh eval=2020 fptm_val=83.05 fptm_oracle=87.90 lgb_val=67.87 lgb_oracle=86.12 xgb_val=73.34 xgb_oracle=89.00
+2021       78.49     86.24    52.97    83.03    64.54    86.46
+RESULT thresh eval=2021 fptm_val=78.49 fptm_oracle=86.24 lgb_val=52.97 lgb_oracle=83.03 xgb_val=64.54 xgb_oracle=86.46
+2022       81.09     87.30    65.68    88.30    68.45    91.00
+RESULT thresh eval=2022 fptm_val=81.09 fptm_oracle=87.30 lgb_val=65.68 lgb_oracle=88.30 xgb_val=68.45 xgb_oracle=91.00
+
+  what the oracle was worth: FPTM +6.19 F1, LightGBM +16.60, XGBoost +15.31
+  FPTM leads the honest-threshold F1 on 7 of 8 evaluation sets
+RESULT oracle_cost fptm=6.19 lgb=16.60 xgb=15.31
+RESULT honest_wins 7/8
+
+--------------------------------------------------------------
+On APIGraph the same three costs were FPTM 1.73, LightGBM 8.96, XGBoost 6.14.
+REPLICATES: choosing the threshold honestly costs FPTM less than it costs either booster
+here too, so threshold transfer is now a two-corpus result rather than a one-corpus one.
+Per-year figures only; no FAR mean is reported, because LAMDA's late-year malware counts are
+antivirus label lag rather than drift and a mean across them reports the lag as a result.

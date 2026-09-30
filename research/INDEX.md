@@ -41,6 +41,7 @@ zeros and must not be read.
 
 | | verdict | keep? |
 |---|---|---|
+| [interp-residual](interp-residual/) | **The 38 features frequency misses are the model's overfitting.** Ablating the 62 overlap features destroys the classifier (−88.85 F1 on IID), so what carries the model is exactly what a frequency count finds. The residual is real — 18× random on IID — but **removing it IMPROVES drifted-year F1, by 10.32 on 2021**. Identified from training data alone, so it is a candidate intervention. Recasts attribution as drift forensics rather than readability. | **core**, with caveats — needs the full year sweep and a retrain-without arm |
 | [interp-dataset-control](interp-dataset-control/) | **RETRACTS every readability claim, by the criterion fixed before the run.** A plain document-frequency difference — no model at all — recovers **62 of the model's top-100** features; χ² recovers 54; chance gives 4. Also **confirms pre-registered prediction 1**: ~80% of included literals are *negated*, so the clauses are blacklists and give an analyst no indicators of compromise. Blakely & Granmo's inclusion frequency overlaps exact Shapley by only 49/100, so it is not a proxy for it at this width. | **core** — a negative, and it decides what the paper may say |
 
 ## Label drift
@@ -61,6 +62,7 @@ zeros and must not be read.
 |---|---|---|
 | [b1-gate](b1-gate/) | **PASS.** LAMDA, 10 seeds, 20 clauses/class: IID −1.82 vs LightGBM, **+4 to +12 on four of five drifted years** at 5–9 standard errors. | keep, but it must be read beside the cross-checks |
 | [b5-apigraph](b5-apigraph/) | **DOES NOT REPLICATE.** Ahead on 1 of 5 later years; behind XGBoost on all six. The `s` control ruled itself out. | **core** — this is the honest centre of the detection story |
+| [b1-threshold-transfer](b1-threshold-transfer/) | **The APIGraph threshold-transfer result REPLICATES on LAMDA**, at a 48% base rate instead of 10%, with a larger effect: +3.43 AP against us; honest thresholding costs FPTM **6.19 F1** against **16.60 / 15.31** for the boosters; FPTM leads the deployable-threshold F1 on **7 of 8** periods, losing only IID. | **core** — the only claim in the project that holds on two corpora |
 | [b5-fairness](b5-fairness/) | **Fixes all three recorded unfairnesses at once** — both sides swept, threshold chosen on held-out data, dominance on every seed. Boosters keep +3.77 AP on 6/6; FPTM wins the deployable-threshold F1 on 5/6. Caught a split bug that would have selected a threshold on a slice containing **0% malware**. | **core** — it is the honest basis for every comparison |
 | [b5-androzoo](b5-androzoo/) | **NARROWS.** Fails the ±5 criterion on 2020 by 0.45. Dense regime (39% vs 1.75%). Found that **clause sign composition tracks input density** — 83.8% negated at 3% density vs 64.6% at 39%. | keep — the density/sign finding is mechanistic and independent of the verdict |
 
@@ -93,9 +95,11 @@ neither may be quoted without the other:
   not survive the drift; FPTM's does.
 
 Under temporal drift, threshold transfer *is* the deployment problem, so the second statement is the
-operationally relevant one. **But it is APIGraph only** — the same single-dataset exposure that sank the
-drift-robustness claim, so it is provisional until repeated on LAMDA. Every F1 elsewhere in this repo is
-an oracle value; the correction is measured.
+operationally relevant one. **Replicated on LAMDA** ([b1-threshold-transfer](b1-threshold-transfer/)):
+same direction on all three components, with a larger effect (+3.43 AP against us; honest thresholding
+costs FPTM 6.19 F1 against the boosters' 16.60 and 15.31; FPTM leads 7 of 8 periods). This is the only
+claim in the project that holds on both corpora. Every F1 elsewhere in this repo is an oracle value; the
+correction is measured.
 
 **The operating point that survives:** 96% precision at 10% recall — low alert volume, high purity. A
 different product from a recall-tuned booster, and a defensible one.
