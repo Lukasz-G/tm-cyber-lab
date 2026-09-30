@@ -1,0 +1,32 @@
+LAMDA width 4561  train 150090  5 seeds  per-MONTH evaluation  tm-lab 43dba5f
+features zeroed not dropped, so width / S / s identical across arms;
+both pruned arms zero exactly the same number, so they share the dead-channel effect.
+
+70 months with >= 150 rows and >= 30 malware
+  label fragility ranges 11.0% to 95.7%
+
+  seed 1  residual 38, random 38  (473s)
+  seed 2  residual 38, random 38  (506s)
+  seed 3  residual 38, random 38  (383s)
+  seed 4  residual 39, random 39  (316s)
+  seed 5  residual 34, random 34  (308s)
+
+------------------------------------------------------------------------
+correlation across months                     rho         p     n
+------------------------------------------------------------------------
+pruning delta vs LABEL FRAGILITY  (test)   +0.253    0.0298    70
+pruning delta vs malware count (control)   -0.147    0.2194    70
+pruning delta vs baseline F1  (context)    +0.134    0.2641    70
+RESULT corr frag rho=+0.2527 p=0.02984 n=70
+RESULT corr count rho=-0.1471 p=0.2194 n=70
+RESULT corr basef1 rho=+0.1341 p=0.2641 n=70
+RESULT median delta=2.370 fragility=80.76
+
+mean pruning delta, months with LOW  fragility (<= median 80.8%): +1.80 F1  (n=35)
+mean pruning delta, months with HIGH fragility (>  median):        +3.34 F1  (n=35)
+RESULT split low=1.795 high=3.336 n_low=35 n_high=35
+
+------------------------------------------------------------------------
+AMBIGUOUS: significant but not cleanly separated from the month-size control. Report as an
+observation, not as a precondition.
+wrote months.csv

@@ -2,98 +2,98 @@ LAMDA width 4561  88 months 2013-06..2022-12  2 seeds
 gate config: clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  train parallel=none
 tm-lab 43dba5f  attribution threads=16 (bit-identical)  background=100 explained=100
 
-fixed model: training on 150090 rows from (2013, 2014) ... 81.0s, median 69 literals/clause, LF/literals = 14.5%
+fixed model: training on 150090 rows from (2013, 2014) ... 90.1s, median 69 literals/clause, LF/literals = 14.5%
 
 RESULT fixed_model median_literals=69 tolerance_pct=14.49
 
-  2013-06  train=28888 test= 7161  40.8s
-  2013-09  train= 3998 test= 1054  6.8s
-  2013-10  train=13113 test= 3266  19.2s
-  2013-11  train=15600 test= 3862  21.6s
-  2013-12  train= 7545 test= 1944  10.8s
-  2014-01  train= 2808 test=  684  5.6s
-  2014-02  train= 5558 test= 1423  9.1s
-  2014-03  train= 4202 test= 1041  7.0s
-  2014-04  train= 2522 test=  622  4.8s
-  2014-05  train=13653 test= 3490  20.4s
-  2014-06  train=17513 test= 4325  27.7s
-  2014-07  train=30014 test= 7531  43.2s
-  2014-08  train= 4676 test= 1121  7.1s
-  2016-02  train=12158 test= 3079  28.0s
-  2016-03  train=22100 test= 5541  29.7s
-  2016-04  train=44381 test=11116  52.0s
-  2016-05  train= 2471 test=  607  3.0s
-  2016-06  train= 1126 test=  280  2.8s
-  2016-07  train= 1277 test=  313  2.0s
-  2016-08  train= 2317 test=  543  8.2s
-  2016-09  train=  585 test=  144  18.0s
-  2016-10  train=  806 test=  188  2.2s
-  2017-01  train= 3813 test=  954  7.4s
-  2017-02  train=19729 test= 4893  18.7s
-  2017-03  train=21845 test= 5401  24.8s
-  2017-04  train=24969 test= 6310  30.1s
-  2017-10  train= 3710 test=  946  6.9s
-  2017-11  train= 2584 test=  683  4.9s
-  2017-12  train= 2627 test=  632  4.6s
-  2018-01  train=13035 test= 3201  17.9s
-  2018-02  train= 1504 test=  362  3.2s
-  2018-03  train= 2070 test=  562  4.5s
-  2018-04  train= 1475 test=  377  3.2s
-  2018-06  train= 5581 test= 1420  8.9s
-  2018-07  train=23364 test= 5827  36.5s
-  2018-08  train=15808 test= 3930  24.8s
-  2018-09  train= 2993 test=  754  4.3s
-  2018-10  train=11481 test= 2834  17.7s
-  2018-11  train= 3153 test=  816  6.8s
-  2018-12  train= 2694 test=  710  6.0s
-  2019-01  train= 4659 test= 1181  7.3s
-  2019-02  train= 3634 test=  909  4.8s
-  2019-03  train= 3362 test=  852  3.9s
-  2019-04  train= 2922 test=  691  3.3s
-  2019-05  train= 3022 test=  772  3.7s
-  2019-06  train=22283 test= 5535  28.4s
-  2019-07  train= 3020 test=  791  3.5s
-  2019-08  train= 3385 test=  832  4.2s
-  2019-09  train= 3548 test=  918  4.7s
-  2019-10  train=18476 test= 4668  22.6s
-  2019-11  train= 3074 test=  735  3.0s
-  2019-12  train= 1455 test=  326  2.2s
-  2020-01  train=15102 test= 3699  15.3s
-  2020-02  train= 1247 test=  307  2.4s
-  2020-03  train=16026 test= 4079  17.5s
-  2020-04  train= 2572 test=  618  3.3s
-  2020-05  train=11087 test= 2817  15.2s
-  2020-06  train= 9400 test= 2383  11.0s
-  2020-07  train= 4853 test= 1209  5.6s
-  2020-08  train= 5155 test= 1309  6.1s
-  2020-09  train= 6219 test= 1527  6.8s
-  2020-10  train= 3651 test=  867  4.7s
-  2020-11  train= 3144 test=  787  3.5s
-  2020-12  train= 3202 test=  813  4.2s
-  2021-01  train= 2940 test=  756  5.4s
-  2021-02  train= 2194 test=  507  4.3s
-  2021-03  train= 3703 test=  953  5.7s
-  2021-04  train= 3641 test=  878  4.5s
-  2021-05  train= 3380 test=  906  4.4s
-  2021-06  train= 3373 test=  824  3.8s
-  2021-07  train= 3461 test=  827  4.5s
-  2021-08  train= 3969 test= 1003  5.4s
+  2013-06  train=28888 test= 7161  48.9s
+  2013-09  train= 3998 test= 1054  10.5s
+  2013-10  train=13113 test= 3266  24.6s
+  2013-11  train=15600 test= 3862  27.5s
+  2013-12  train= 7545 test= 1944  14.7s
+  2014-01  train= 2808 test=  684  7.2s
+  2014-02  train= 5558 test= 1423  12.0s
+  2014-03  train= 4202 test= 1041  9.1s
+  2014-04  train= 2522 test=  622  6.4s
+  2014-05  train=13653 test= 3490  25.9s
+  2014-06  train=17513 test= 4325  43.5s
+  2014-07  train=30014 test= 7531  59.9s
+  2014-08  train= 4676 test= 1121  9.7s
+  2016-02  train=12158 test= 3079  28.7s
+  2016-03  train=22100 test= 5541  36.5s
+  2016-04  train=44381 test=11116  66.0s
+  2016-05  train= 2471 test=  607  4.7s
+  2016-06  train= 1126 test=  280  3.7s
+  2016-07  train= 1277 test=  313  3.1s
+  2016-08  train= 2317 test=  543  13.0s
+  2016-09  train=  585 test=  144  18.5s
+  2016-10  train=  806 test=  188  3.2s
+  2017-01  train= 3813 test=  954  9.5s
+  2017-02  train=19729 test= 4893  24.2s
+  2017-03  train=21845 test= 5401  31.4s
+  2017-04  train=24969 test= 6310  40.5s
+  2017-10  train= 3710 test=  946  7.9s
+  2017-11  train= 2584 test=  683  6.1s
+  2017-12  train= 2627 test=  632  6.0s
+  2018-01  train=13035 test= 3201  21.7s
+  2018-02  train= 1504 test=  362  3.8s
+  2018-03  train= 2070 test=  562  5.5s
+  2018-04  train= 1475 test=  377  4.3s
+  2018-06  train= 5581 test= 1420  12.8s
+  2018-07  train=23364 test= 5827  47.6s
+  2018-08  train=15808 test= 3930  30.6s
+  2018-09  train= 2993 test=  754  4.5s
+  2018-10  train=11481 test= 2834  21.7s
+  2018-11  train= 3153 test=  816  8.3s
+  2018-12  train= 2694 test=  710  6.6s
+  2019-01  train= 4659 test= 1181  7.2s
+  2019-02  train= 3634 test=  909  4.9s
+  2019-03  train= 3362 test=  852  5.0s
+  2019-04  train= 2922 test=  691  4.5s
+  2019-05  train= 3022 test=  772  4.8s
+  2019-06  train=22283 test= 5535  41.6s
+  2019-07  train= 3020 test=  791  4.4s
+  2019-08  train= 3385 test=  832  4.6s
+  2019-09  train= 3548 test=  918  4.9s
+  2019-10  train=18476 test= 4668  28.2s
+  2019-11  train= 3074 test=  735  4.2s
+  2019-12  train= 1455 test=  326  2.9s
+  2020-01  train=15102 test= 3699  18.5s
+  2020-02  train= 1247 test=  307  2.1s
+  2020-03  train=16026 test= 4079  26.2s
+  2020-04  train= 2572 test=  618  4.7s
+  2020-05  train=11087 test= 2817  19.3s
+  2020-06  train= 9400 test= 2383  14.7s
+  2020-07  train= 4853 test= 1209  7.8s
+  2020-08  train= 5155 test= 1309  8.3s
+  2020-09  train= 6219 test= 1527  9.2s
+  2020-10  train= 3651 test=  867  5.3s
+  2020-11  train= 3144 test=  787  4.7s
+  2020-12  train= 3202 test=  813  5.3s
+  2021-01  train= 2940 test=  756  4.9s
+  2021-02  train= 2194 test=  507  3.2s
+  2021-03  train= 3703 test=  953  5.6s
+  2021-04  train= 3641 test=  878  5.7s
+  2021-05  train= 3380 test=  906  5.5s
+  2021-06  train= 3373 test=  824  5.1s
+  2021-07  train= 3461 test=  827  5.2s
+  2021-08  train= 3969 test= 1003  6.2s
   2021-09  train= 3550 test=  858  5.4s
-  2021-10  train= 3680 test=  922  5.4s
-  2021-11  train=21005 test= 5255  20.4s
-  2021-12  train=10028 test= 2542  10.3s
-  2022-01  train= 3131 test=  780  4.9s
-  2022-02  train= 2913 test=  725  4.1s
-  2022-03  train= 3153 test=  785  3.7s
-  2022-04  train=20196 test= 5026  19.0s
-  2022-05  train= 9930 test= 2506  10.2s
-  2022-06  train= 4763 test= 1201  6.6s
+  2021-10  train= 3680 test=  922  5.2s
+  2021-11  train=21005 test= 5255  23.8s
+  2021-12  train=10028 test= 2542  11.5s
+  2022-01  train= 3131 test=  780  4.4s
+  2022-02  train= 2913 test=  725  4.0s
+  2022-03  train= 3153 test=  785  3.8s
+  2022-04  train=20196 test= 5026  21.1s
+  2022-05  train= 9930 test= 2506  11.9s
+  2022-06  train= 4763 test= 1201  7.1s
   2022-07  train= 3644 test=  886  4.9s
-  2022-08  train= 8339 test= 2139  8.2s
-  2022-09  train= 2906 test=  760  3.1s
-  2022-10  train= 3359 test=  853  3.9s
-  2022-11  train= 3337 test=  783  3.6s
-  2022-12  train= 3461 test=  840  3.7s
+  2022-08  train= 8339 test= 2139  10.0s
+  2022-09  train= 2906 test=  760  3.6s
+  2022-10  train= 3359 test=  853  4.4s
+  2022-11  train= 3337 test=  783  4.1s
+  2022-12  train= 3461 test=  840  4.4s
 
 ------------------------------------------------------------------------------
 arm                                k        jaccard      sd kendall      n
@@ -121,6 +121,8 @@ RESULT arm=5 fixed model, whole month k=1000 jaccard=0.1225 sd=0.0897 kendall=0.
 
   arm3 - arm2 = +0.326  <- contribution of monthly refitting, which the published
                           number folds in silently
+
+wrote series.csv (348 rows) -- the per-month curve behind the arm means above
 
 ------------------------------------------------------------------------------
 Reference for comparison, from research/b0-noise-floor/ on their MLP + KernelExplainer

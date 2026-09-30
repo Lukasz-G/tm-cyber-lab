@@ -49,6 +49,7 @@ zeros and must not be read.
 
 | | verdict | keep? |
 |---|---|---|
+| [prune-vs-fragility](prune-vs-fragility/) | **Refutes, in sign, the obvious explanation for the pruning regime split.** Predicted a negative correlation between the pruning gain and label fragility; measured **+0.253 (p=0.030, n=70 months)** — pruning helps roughly *twice as much* where labels are *least* reliable. Month-size control clears (−0.147, p=0.22). The manuscript paragraph was deleted rather than softened, as its own todo required. | keep — a clean refutation, and the pre-registration worked |
 | [b3-label-drift](b3-label-drift/) | **LAMDA's labels carry drift of their own.** Share of malware a threshold of 10 would relabel ranges **40%→80%** by year; in 2017–18 over half of malware sits at 4–6 detections. Largely separable from feature drift (rho **−0.344**, p=0.0015, n=82) with the benign-only control holding at +0.748. The year-resolution analysis gave the **opposite sign** and its pre-registered rule was under-specified — it tested a correlation without requiring significance. | keep — the label-fragility series is novel; the sign flip is a methodological caution |
 
 ## Deployment cost
@@ -113,14 +114,13 @@ different product from a recall-tuned booster, and a defensible one.
   `sha256`. An earlier version of this list claimed a `vt_detections.csv` was already downloaded; no
   such file exists in the release. See [b3-label-drift](b3-label-drift/) for what is runnable instead.
 - FAR reconstruction on LAMDA, also blocked on the authors.
-- **Whether label fragility explains the pruning regime split.**
-  [interp-residual-retrain](interp-residual-retrain/) gains ~5 F1 on 2019–2022 and loses on 2016–2018,
-  and 2017–18 are exactly where [b3-label-drift](b3-label-drift/) finds the label boundary most fragile
-  (51% and 58% of malware within two vendor votes of being discarded, against 21–27% elsewhere). Cheap to
-  check: condition the pruning effect on per-period label fragility, on both corpora. It either promotes
-  a hypothesis to the paper's abstract or deletes a paragraph.
-- **The paper cites nothing.** 18 entries sit in `paper/refs.bib` and `main.tex` contains zero `\cite`
-  calls, so the bibliography does not print and every statement about prior work is uncited. Blocking for
-  any submission.
-- **The paper has no figures.** The month-over-month drift series in [b2-drift](b2-drift/) is the
-  project's central result and is currently a table of four means; it should be a curve.
+- **An explanation for the pruning regime split.** [interp-residual-retrain](interp-residual-retrain/)
+  gains ~5 F1 on 2019–2022 and loses ~1 on 2016–2018, and nothing accounts for it. The label-fragility
+  hypothesis was the obvious candidate and is **refuted in sign**
+  ([prune-vs-fragility](prune-vs-fragility/)), so pruning stays a candidate intervention with an
+  uncharacterised precondition.
+- **Whether calibrating the boosters closes the threshold-transfer gap.** The strongest claim in the
+  project compares FPTM against two boosters at *their* default settings; Platt scaling or isotonic
+  regression fitted on the validation slice is the obvious reviewer objection and has not been run.
+- **Bibliography metadata.** `paper/refs.bib` entries are missing publishers, pages and addresses —
+  bibtex emits warnings for most of them. These must be filled from the actual sources, not invented.

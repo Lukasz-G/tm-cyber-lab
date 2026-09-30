@@ -261,6 +261,13 @@ function main()
             "arm", "k", "jaccard", "sd", "kendall", "n")
     println("-"^78)
 
+    # Per-pair values are also written to series.csv, because the arm means below are what the paper
+    # tables report but the month-over-month CURVE is the thing a reader should actually see, and it
+    # cannot be recovered from a mean.
+    series = NamedTuple{(:k, :arm, :from, :to, :jaccard, :kendall),
+                        Tuple{Int,String,String,String,Float64,Float64}}[]
+    label(i) = @sprintf("%d-%02d", months[i].year, months[i].month)
+
     for k in KS
         tk_fixed = [topk(imp_fixed[i], k) for i in eachindex(months)]
         tk_full  = [topk(imp_full[i], k) for i in eachindex(months)]
@@ -278,17 +285,23 @@ function main()
         # arm 2 -- fixed model, consecutive months. Data drift alone.
         j2 = Float64[]; k2 = Float64[]
         for i in 1:(length(months) - 1)
-            push!(j2, jaccard(tk_fixed[i], tk_fixed[i + 1]))
-            push!(k2, kendall_dist(tk_fixed[i], tk_fixed[i + 1], imp_fixed[i], imp_fixed[i + 1]))
+            jv = jaccard(tk_fixed[i], tk_fixed[i + 1])
+            kv = kendall_dist(tk_fixed[i], tk_fixed[i + 1], imp_fixed[i], imp_fixed[i + 1])
+            push!(j2, jv); push!(k2, kv)
+            push!(series, (k=k, arm="2-fixed", from=label(i), to=label(i + 1),
+                           jaccard=jv, kendall=kv))
         end
         report("2 fixed model, data moves", j2, k2, k)
 
         # arm 3 -- refitted per month, consecutive months, as the reference does.
         j3 = Float64[]; k3 = Float64[]
         for s in 1:nseeds, i in 1:(length(months) - 1)
-            push!(j3, jaccard(tk_refit[s][i], tk_refit[s][i + 1]))
-            push!(k3, kendall_dist(tk_refit[s][i], tk_refit[s][i + 1],
-                                   imp_refit[s][i], imp_refit[s][i + 1]))
+            jv = jaccard(tk_refit[s][i], tk_refit[s][i + 1])
+            kv = kendall_dist(tk_refit[s][i], tk_refit[s][i + 1],
+                              imp_refit[s][i], imp_refit[s][i + 1])
+            push!(j3, jv); push!(k3, kv)
+            s == 1 && push!(series, (k=k, arm="3-refit", from=label(i), to=label(i + 1),
+                                     jaccard=jv, kendall=kv))
         end
         report("3 refit per month", j3, k3, k)
 
@@ -305,6 +318,15 @@ function main()
                 m3 - m2)
         println("                          number folds in silently\n")
     end
+
+    open(joinpath(@__DIR__, "series.csv"), "w") do io
+        println(io, "k,arm,from,to,jaccard,kendall")
+        for r in series
+            @printf(io, "%d,%s,%s,%s,%.6f,%.6f\n", r.k, r.arm, r.from, r.to, r.jaccard, r.kendall)
+        end
+    end
+    @printf("wrote series.csv (%d rows) -- the per-month curve behind the arm means above\n\n",
+            length(series))
 
     println("-"^78)
     println("Reference for comparison, from research/b0-noise-floor/ on their MLP + KernelExplainer")
