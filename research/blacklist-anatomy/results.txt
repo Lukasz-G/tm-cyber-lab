@@ -1,0 +1,44 @@
+LAMDA width 4561  train 150090 (72111 malware / 77979 benign)  overall density 1.19%
+clauses=20 T=10 S=100 L=64 LF=10  ceiling=LiteralCapped  tm-lab 43dba5f  3 seeds
+
+seed 1
+top-100 attributed     n=100  P(f|mal)  0.299  P(f|ben)  0.188  benign-leaning  29/100  negated  61.8%
+RESULT set=top-100 attributed n=100 p_mal=0.2992 p_ben=0.1885 benign_leaning=29 negated_pct=61.76
+  overlap (62)         n= 61  P(f|mal)  0.419  P(f|ben)  0.237  benign-leaning  12/61   negated  53.4%
+RESULT set=  overlap (62) n=61 p_mal=0.4188 p_ben=0.2372 benign_leaning=12 negated_pct=53.40
+  residual (38)        n= 39  P(f|mal)  0.112  P(f|ben)  0.112  benign-leaning  17/39   negated  79.5%
+RESULT set=  residual (38) n=39 p_mal=0.1122 p_ben=0.1123 benign_leaning=17 negated_pct=79.45
+random control         n=100  P(f|mal)  0.023  P(f|ben)  0.015  benign-leaning  33/100  negated  94.8%
+RESULT set=random control n=100 p_mal=0.0232 p_ben=0.0154 benign_leaning=33 negated_pct=94.83
+ALL features           n=4561  P(f|mal)  0.012  P(f|ben)  0.008  benign-leaning 983/4561  negated  83.8%
+RESULT set=ALL features n=4561 p_mal=0.0119 p_ben=0.0077 benign_leaning=983 negated_pct=83.80
+
+seed 2
+top-100 attributed     n=100  P(f|mal)  0.296  P(f|ben)  0.188  benign-leaning  31/100  negated  62.9%
+RESULT set=top-100 attributed n=100 p_mal=0.2963 p_ben=0.1879 benign_leaning=31 negated_pct=62.91
+  overlap (62)         n= 62  P(f|mal)  0.413  P(f|ben)  0.239  benign-leaning  13/62   negated  54.1%
+RESULT set=  overlap (62) n=62 p_mal=0.4134 p_ben=0.2385 benign_leaning=13 negated_pct=54.14
+  residual (38)        n= 38  P(f|mal)  0.105  P(f|ben)  0.105  benign-leaning  18/38   negated  82.7%
+RESULT set=  residual (38) n=38 p_mal=0.1052 p_ben=0.1053 benign_leaning=18 negated_pct=82.67
+random control         n=100  P(f|mal)  0.037  P(f|ben)  0.022  benign-leaning  32/100  negated  96.8%
+RESULT set=random control n=100 p_mal=0.0370 p_ben=0.0221 benign_leaning=32 negated_pct=96.79
+ALL features           n=4561  P(f|mal)  0.012  P(f|ben)  0.008  benign-leaning 983/4561  negated  83.6%
+RESULT set=ALL features n=4561 p_mal=0.0119 p_ben=0.0077 benign_leaning=983 negated_pct=83.57
+
+seed 3
+top-100 attributed     n=100  P(f|mal)  0.296  P(f|ben)  0.190  benign-leaning  32/100  negated  64.8%
+RESULT set=top-100 attributed n=100 p_mal=0.2962 p_ben=0.1897 benign_leaning=32 negated_pct=64.84
+  overlap (62)         n= 64  P(f|mal)  0.403  P(f|ben)  0.235  benign-leaning  14/64   negated  57.2%
+RESULT set=  overlap (62) n=64 p_mal=0.4025 p_ben=0.2351 benign_leaning=14 negated_pct=57.18
+  residual (38)        n= 36  P(f|mal)  0.107  P(f|ben)  0.109  benign-leaning  18/36   negated  82.2%
+RESULT set=  residual (38) n=36 p_mal=0.1071 p_ben=0.1089 benign_leaning=18 negated_pct=82.17
+random control         n=100  P(f|mal)  0.036  P(f|ben)  0.025  benign-leaning  32/100  negated  93.6%
+RESULT set=random control n=100 p_mal=0.0363 p_ben=0.0250 benign_leaning=32 negated_pct=93.62
+ALL features           n=4561  P(f|mal)  0.012  P(f|ben)  0.008  benign-leaning 983/4561  negated  84.1%
+RESULT set=ALL features n=4561 p_mal=0.0119 p_ben=0.0077 benign_leaning=983 negated_pct=84.12
+
+wrote features.csv (seed 1 top-100)
+
+NOT-GOODWARE if the top attributed features are markedly more common in BENIGN than in
+malware and enter mostly as negated literals. VACUOUS if their presence rates sit near the
+random control's, in which case the negated literals carry little.
