@@ -42,7 +42,7 @@ exact values (0.851) as it lands from a second run of itself (0.889): **the erro
 That replicates on a RIPPER-derived ensemble to three decimals, so it is a property of sampled
 attribution at this budget and not of Tsetlin machines.
 
-## What is claimed, and what has been withdrawn
+## Claims and withdrawals
 
 Four claims were measured and withdrawn, each by a control fixed before the run. They are listed here
 rather than buried, because the controls are reusable and the retractions are the part of this work most
@@ -91,7 +91,7 @@ test features and helps gradient boosting more than it helps a Tsetlin machine.
 [`research/INDEX.md`](research/INDEX.md) carries every experiment with its verdict, including the ones
 that were calibration rather than findings.
 
-## What this is not
+## Out of scope
 
 - **Not a claim that online learning solves drift.** Online updating makes *applying* a label nearly
   free; it does not produce labels, and antivirus consensus is slow. LAMDA's own 2024–25 malware counts,
@@ -154,7 +154,7 @@ classes or across clauses, but at the clause budgets used here neither pays, and
 clause axis is slower than running serially. Scoring does thread across examples, bit-identically, which
 is what the attribution work needs.
 
-## Method notes worth knowing before reading any result
+## Method notes
 
 - **Every F1 needs its threshold rule.** The span between an oracle threshold and an achievable one
   reaches 33 F1 on drifted periods and differs between model families, so a figure quoted without its
