@@ -82,6 +82,7 @@ test features and helps gradient boosting more than it helps a Tsetlin machine.
 | [`research/blacklist-anatomy/`](research/blacklist-anatomy/) | the sparsity control that retracts the second claim |
 | [`research/interp-residual/`](research/interp-residual/) | the 38 features a frequency count misses are where the model fails to generalise |
 | [`research/interp-residual-retrain/`](research/interp-residual-retrain/) | the pruning survives retraining but splits by period, so it is not a recommendation |
+| [`research/residual-density-control/`](research/residual-density-control/) | the gain is about *which* features, not how dense they are: the matched control raises it from +5.28 to +6.07 |
 | [`research/threshold-bias/`](research/threshold-bias/) | the threshold rule is an unstated free parameter worth up to 33 F1 |
 | [`research/b3-label-drift/`](research/b3-label-drift/) | the label boundary moves: 40% to 80% of each year's malware would be relabelled at a stricter threshold |
 | [`research/lf-attribution/`](research/lf-attribution/) | tolerance is representational and saturates by `LF ≈ 5`; the one question a classical Tsetlin machine cannot be asked |

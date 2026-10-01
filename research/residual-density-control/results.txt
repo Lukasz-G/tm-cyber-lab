@@ -1,0 +1,268 @@
+LAMDA width 4561  train 150090  5 seeds  k=100  RETRAINED per arm
+clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  parallel=:none  tm-lab 43dba5f
+Arms 1-3 reproduce research/interp-residual-retrain/. Arm 4 is the isolating control:
+38 features matched FEATURE BY FEATURE on training-period presence rate, from the same pool
+the uniform control draws from. Sign composition is reported, never selected on.
+
+seed 1: support 462  pool 362  residual 38  (95s to train+attribute)
+  zero-resid  n=38  mean presence 11.35%  negated  79.2%  literals  144
+RESULT seed=1 set=zero-resid n=38 presence=11.354 negated=79.17 literals=144
+  zero-unif   n=38  mean presence  1.61%  negated  94.3%  literals   70
+RESULT seed=1 set=zero-unif n=38 presence=1.609 negated=94.29 literals=70
+  zero-dens   n=38  mean presence  7.73%  negated  84.5%  literals   71
+RESULT seed=1 set=zero-dens n=38 presence=7.731 negated=84.51 literals=71
+  density match: median |dens error| = 0.7715 pp
+RESULT seed=1 density_match_median_pp=0.7715
+RESULT seed=1 arm=baseline eval=IID f1=95.56
+RESULT seed=1 arm=baseline eval=2016 f1=84.09
+RESULT seed=1 arm=baseline eval=2017 f1=33.29
+RESULT seed=1 arm=baseline eval=2018 f1=26.51
+RESULT seed=1 arm=baseline eval=2019 f1=74.58
+RESULT seed=1 arm=baseline eval=2020 f1=71.93
+RESULT seed=1 arm=baseline eval=2021 f1=63.94
+RESULT seed=1 arm=baseline eval=2022 f1=71.40
+  baseline    done
+RESULT seed=1 arm=zero-resid eval=IID f1=95.02
+RESULT seed=1 arm=zero-resid eval=2016 f1=83.05
+RESULT seed=1 arm=zero-resid eval=2017 f1=30.44
+RESULT seed=1 arm=zero-resid eval=2018 f1=24.15
+RESULT seed=1 arm=zero-resid eval=2019 f1=81.37
+RESULT seed=1 arm=zero-resid eval=2020 f1=83.60
+RESULT seed=1 arm=zero-resid eval=2021 f1=80.80
+RESULT seed=1 arm=zero-resid eval=2022 f1=81.83
+  zero-resid  done
+RESULT seed=1 arm=zero-unif eval=IID f1=95.58
+RESULT seed=1 arm=zero-unif eval=2016 f1=83.27
+RESULT seed=1 arm=zero-unif eval=2017 f1=28.24
+RESULT seed=1 arm=zero-unif eval=2018 f1=23.75
+RESULT seed=1 arm=zero-unif eval=2019 f1=75.18
+RESULT seed=1 arm=zero-unif eval=2020 f1=73.69
+RESULT seed=1 arm=zero-unif eval=2021 f1=60.83
+RESULT seed=1 arm=zero-unif eval=2022 f1=72.91
+  zero-unif   done
+RESULT seed=1 arm=zero-dens eval=IID f1=95.25
+RESULT seed=1 arm=zero-dens eval=2016 f1=82.33
+RESULT seed=1 arm=zero-dens eval=2017 f1=35.17
+RESULT seed=1 arm=zero-dens eval=2018 f1=25.91
+RESULT seed=1 arm=zero-dens eval=2019 f1=75.53
+RESULT seed=1 arm=zero-dens eval=2020 f1=72.94
+RESULT seed=1 arm=zero-dens eval=2021 f1=60.87
+RESULT seed=1 arm=zero-dens eval=2022 f1=71.25
+  zero-dens   done
+seed 2: support 447  pool 347  residual 38  (81s to train+attribute)
+  zero-resid  n=38  mean presence 10.46%  negated  80.1%  literals  146
+RESULT seed=2 set=zero-resid n=38 presence=10.456 negated=80.14 literals=146
+  zero-unif   n=38  mean presence  2.28%  negated  98.4%  literals   64
+RESULT seed=2 set=zero-unif n=38 presence=2.282 negated=98.44 literals=64
+  zero-dens   n=38  mean presence  7.46%  negated  89.4%  literals   85
+RESULT seed=2 set=zero-dens n=38 presence=7.457 negated=89.41 literals=85
+  density match: median |dens error| = 1.1000 pp
+RESULT seed=2 density_match_median_pp=1.1000
+RESULT seed=2 arm=baseline eval=IID f1=95.50
+RESULT seed=2 arm=baseline eval=2016 f1=84.34
+RESULT seed=2 arm=baseline eval=2017 f1=33.70
+RESULT seed=2 arm=baseline eval=2018 f1=28.46
+RESULT seed=2 arm=baseline eval=2019 f1=75.57
+RESULT seed=2 arm=baseline eval=2020 f1=72.77
+RESULT seed=2 arm=baseline eval=2021 f1=61.51
+RESULT seed=2 arm=baseline eval=2022 f1=71.83
+  baseline    done
+RESULT seed=2 arm=zero-resid eval=IID f1=95.32
+RESULT seed=2 arm=zero-resid eval=2016 f1=85.04
+RESULT seed=2 arm=zero-resid eval=2017 f1=28.46
+RESULT seed=2 arm=zero-resid eval=2018 f1=27.28
+RESULT seed=2 arm=zero-resid eval=2019 f1=79.76
+RESULT seed=2 arm=zero-resid eval=2020 f1=79.99
+RESULT seed=2 arm=zero-resid eval=2021 f1=72.44
+RESULT seed=2 arm=zero-resid eval=2022 f1=79.01
+  zero-resid  done
+RESULT seed=2 arm=zero-unif eval=IID f1=95.70
+RESULT seed=2 arm=zero-unif eval=2016 f1=85.33
+RESULT seed=2 arm=zero-unif eval=2017 f1=35.65
+RESULT seed=2 arm=zero-unif eval=2018 f1=28.51
+RESULT seed=2 arm=zero-unif eval=2019 f1=80.45
+RESULT seed=2 arm=zero-unif eval=2020 f1=81.50
+RESULT seed=2 arm=zero-unif eval=2021 f1=73.88
+RESULT seed=2 arm=zero-unif eval=2022 f1=79.73
+  zero-unif   done
+RESULT seed=2 arm=zero-dens eval=IID f1=95.38
+RESULT seed=2 arm=zero-dens eval=2016 f1=82.83
+RESULT seed=2 arm=zero-dens eval=2017 f1=32.20
+RESULT seed=2 arm=zero-dens eval=2018 f1=26.00
+RESULT seed=2 arm=zero-dens eval=2019 f1=74.62
+RESULT seed=2 arm=zero-dens eval=2020 f1=72.51
+RESULT seed=2 arm=zero-dens eval=2021 f1=63.18
+RESULT seed=2 arm=zero-dens eval=2022 f1=70.23
+  zero-dens   done
+seed 3: support 482  pool 382  residual 38  (82s to train+attribute)
+  zero-resid  n=38  mean presence 10.91%  negated  81.5%  literals  168
+RESULT seed=3 set=zero-resid n=38 presence=10.915 negated=81.55 literals=168
+  zero-unif   n=38  mean presence  2.56%  negated  93.1%  literals   72
+RESULT seed=3 set=zero-unif n=38 presence=2.562 negated=93.06 literals=72
+  zero-dens   n=38  mean presence  8.54%  negated  81.2%  literals   80
+RESULT seed=3 set=zero-dens n=38 presence=8.544 negated=81.25 literals=80
+  density match: median |dens error| = 0.3871 pp
+RESULT seed=3 density_match_median_pp=0.3871
+RESULT seed=3 arm=baseline eval=IID f1=95.72
+RESULT seed=3 arm=baseline eval=2016 f1=85.33
+RESULT seed=3 arm=baseline eval=2017 f1=41.52
+RESULT seed=3 arm=baseline eval=2018 f1=30.16
+RESULT seed=3 arm=baseline eval=2019 f1=80.39
+RESULT seed=3 arm=baseline eval=2020 f1=81.40
+RESULT seed=3 arm=baseline eval=2021 f1=74.54
+RESULT seed=3 arm=baseline eval=2022 f1=79.69
+  baseline    done
+RESULT seed=3 arm=zero-resid eval=IID f1=95.19
+RESULT seed=3 arm=zero-resid eval=2016 f1=84.54
+RESULT seed=3 arm=zero-resid eval=2017 f1=37.03
+RESULT seed=3 arm=zero-resid eval=2018 f1=31.65
+RESULT seed=3 arm=zero-resid eval=2019 f1=79.95
+RESULT seed=3 arm=zero-resid eval=2020 f1=80.84
+RESULT seed=3 arm=zero-resid eval=2021 f1=74.08
+RESULT seed=3 arm=zero-resid eval=2022 f1=80.95
+  zero-resid  done
+RESULT seed=3 arm=zero-unif eval=IID f1=95.52
+RESULT seed=3 arm=zero-unif eval=2016 f1=82.89
+RESULT seed=3 arm=zero-unif eval=2017 f1=40.80
+RESULT seed=3 arm=zero-unif eval=2018 f1=27.37
+RESULT seed=3 arm=zero-unif eval=2019 f1=73.00
+RESULT seed=3 arm=zero-unif eval=2020 f1=69.99
+RESULT seed=3 arm=zero-unif eval=2021 f1=60.68
+RESULT seed=3 arm=zero-unif eval=2022 f1=68.52
+  zero-unif   done
+RESULT seed=3 arm=zero-dens eval=IID f1=95.56
+RESULT seed=3 arm=zero-dens eval=2016 f1=85.25
+RESULT seed=3 arm=zero-dens eval=2017 f1=37.56
+RESULT seed=3 arm=zero-dens eval=2018 f1=31.68
+RESULT seed=3 arm=zero-dens eval=2019 f1=78.70
+RESULT seed=3 arm=zero-dens eval=2020 f1=78.59
+RESULT seed=3 arm=zero-dens eval=2021 f1=68.56
+RESULT seed=3 arm=zero-dens eval=2022 f1=76.48
+  zero-dens   done
+seed 4: support 459  pool 359  residual 39  (88s to train+attribute)
+  zero-resid  n=39  mean presence 10.73%  negated  76.5%  literals  136
+RESULT seed=4 set=zero-resid n=39 presence=10.728 negated=76.47 literals=136
+  zero-unif   n=39  mean presence  4.66%  negated  93.2%  literals   74
+RESULT seed=4 set=zero-unif n=39 presence=4.664 negated=93.24 literals=74
+  zero-dens   n=39  mean presence  7.01%  negated  94.6%  literals   74
+RESULT seed=4 set=zero-dens n=39 presence=7.011 negated=94.59 literals=74
+  density match: median |dens error| = 1.1400 pp
+RESULT seed=4 density_match_median_pp=1.1400
+RESULT seed=4 arm=baseline eval=IID f1=95.82
+RESULT seed=4 arm=baseline eval=2016 f1=84.28
+RESULT seed=4 arm=baseline eval=2017 f1=24.45
+RESULT seed=4 arm=baseline eval=2018 f1=22.76
+RESULT seed=4 arm=baseline eval=2019 f1=76.49
+RESULT seed=4 arm=baseline eval=2020 f1=74.70
+RESULT seed=4 arm=baseline eval=2021 f1=67.63
+RESULT seed=4 arm=baseline eval=2022 f1=73.12
+  baseline    done
+RESULT seed=4 arm=zero-resid eval=IID f1=95.32
+RESULT seed=4 arm=zero-resid eval=2016 f1=84.73
+RESULT seed=4 arm=zero-resid eval=2017 f1=30.81
+RESULT seed=4 arm=zero-resid eval=2018 f1=25.89
+RESULT seed=4 arm=zero-resid eval=2019 f1=80.24
+RESULT seed=4 arm=zero-resid eval=2020 f1=80.63
+RESULT seed=4 arm=zero-resid eval=2021 f1=72.80
+RESULT seed=4 arm=zero-resid eval=2022 f1=78.46
+  zero-resid  done
+RESULT seed=4 arm=zero-unif eval=IID f1=95.28
+RESULT seed=4 arm=zero-unif eval=2016 f1=83.26
+RESULT seed=4 arm=zero-unif eval=2017 f1=35.37
+RESULT seed=4 arm=zero-unif eval=2018 f1=28.88
+RESULT seed=4 arm=zero-unif eval=2019 f1=76.36
+RESULT seed=4 arm=zero-unif eval=2020 f1=76.00
+RESULT seed=4 arm=zero-unif eval=2021 f1=69.54
+RESULT seed=4 arm=zero-unif eval=2022 f1=75.54
+  zero-unif   done
+RESULT seed=4 arm=zero-dens eval=IID f1=95.51
+RESULT seed=4 arm=zero-dens eval=2016 f1=84.64
+RESULT seed=4 arm=zero-dens eval=2017 f1=36.66
+RESULT seed=4 arm=zero-dens eval=2018 f1=31.15
+RESULT seed=4 arm=zero-dens eval=2019 f1=77.69
+RESULT seed=4 arm=zero-dens eval=2020 f1=76.93
+RESULT seed=4 arm=zero-dens eval=2021 f1=71.85
+RESULT seed=4 arm=zero-dens eval=2022 f1=77.42
+  zero-dens   done
+seed 5: support 471  pool 371  residual 34  (95s to train+attribute)
+  zero-resid  n=34  mean presence 12.10%  negated  78.0%  literals  132
+RESULT seed=5 set=zero-resid n=34 presence=12.103 negated=78.03 literals=132
+  zero-unif   n=34  mean presence  1.79%  negated  95.2%  literals   62
+RESULT seed=5 set=zero-unif n=34 presence=1.785 negated=95.16 literals=62
+  zero-dens   n=34  mean presence  7.51%  negated  83.1%  literals   77
+RESULT seed=5 set=zero-dens n=34 presence=7.512 negated=83.12 literals=77
+  density match: median |dens error| = 1.7609 pp
+RESULT seed=5 density_match_median_pp=1.7609
+RESULT seed=5 arm=baseline eval=IID f1=95.55
+RESULT seed=5 arm=baseline eval=2016 f1=84.56
+RESULT seed=5 arm=baseline eval=2017 f1=38.68
+RESULT seed=5 arm=baseline eval=2018 f1=31.59
+RESULT seed=5 arm=baseline eval=2019 f1=79.22
+RESULT seed=5 arm=baseline eval=2020 f1=78.86
+RESULT seed=5 arm=baseline eval=2021 f1=72.80
+RESULT seed=5 arm=baseline eval=2022 f1=77.40
+  baseline    done
+RESULT seed=5 arm=zero-resid eval=IID f1=95.02
+RESULT seed=5 arm=zero-resid eval=2016 f1=81.40
+RESULT seed=5 arm=zero-resid eval=2017 f1=31.07
+RESULT seed=5 arm=zero-resid eval=2018 f1=23.63
+RESULT seed=5 arm=zero-resid eval=2019 f1=75.79
+RESULT seed=5 arm=zero-resid eval=2020 f1=76.46
+RESULT seed=5 arm=zero-resid eval=2021 f1=66.17
+RESULT seed=5 arm=zero-resid eval=2022 f1=73.93
+  zero-resid  done
+RESULT seed=5 arm=zero-unif eval=IID f1=95.52
+RESULT seed=5 arm=zero-unif eval=2016 f1=83.10
+RESULT seed=5 arm=zero-unif eval=2017 f1=32.96
+RESULT seed=5 arm=zero-unif eval=2018 f1=26.62
+RESULT seed=5 arm=zero-unif eval=2019 f1=74.06
+RESULT seed=5 arm=zero-unif eval=2020 f1=73.38
+RESULT seed=5 arm=zero-unif eval=2021 f1=67.51
+RESULT seed=5 arm=zero-unif eval=2022 f1=70.74
+  zero-unif   done
+RESULT seed=5 arm=zero-dens eval=IID f1=95.56
+RESULT seed=5 arm=zero-dens eval=2016 f1=82.70
+RESULT seed=5 arm=zero-dens eval=2017 f1=37.42
+RESULT seed=5 arm=zero-dens eval=2018 f1=28.42
+RESULT seed=5 arm=zero-dens eval=2019 f1=72.82
+RESULT seed=5 arm=zero-dens eval=2020 f1=70.06
+RESULT seed=5 arm=zero-dens eval=2021 f1=58.57
+RESULT seed=5 arm=zero-dens eval=2022 f1=68.96
+  zero-dens   done
+
+--------------------------------------------------------------------------------------------
+eval     baseline  zero-resid  zero-unif  zero-dens   resid - unif   resid - dens
+--------------------------------------------------------------------------------------------
+IID         95.63       95.18      95.52      95.45          -0.34          -0.28
+RESULT mean eval=IID baseline=95.63 resid=95.18 unif=95.52 dens=95.45 d_unif=-0.34 d_dens=-0.28
+2016        84.52       83.75      83.57      83.55          +0.18          +0.20
+RESULT mean eval=2016 baseline=84.52 resid=83.75 unif=83.57 dens=83.55 d_unif=+0.18 d_dens=+0.20
+2017        34.33       31.56      34.60      35.80          -3.04          -4.24
+RESULT mean eval=2017 baseline=34.33 resid=31.56 unif=34.60 dens=35.80 d_unif=-3.04 d_dens=-4.24
+2018        27.90       26.52      27.03      28.63          -0.51          -2.11
+RESULT mean eval=2018 baseline=27.90 resid=26.52 unif=27.03 dens=28.63 d_unif=-0.51 d_dens=-2.11
+2019        77.25       79.42      75.81      75.87          +3.61          +3.55
+RESULT mean eval=2019 baseline=77.25 resid=79.42 unif=75.81 dens=75.87 d_unif=+3.61 d_dens=+3.55
+2020        75.93       80.30      74.91      74.20          +5.39          +6.10
+RESULT mean eval=2020 baseline=75.93 resid=80.30 unif=74.91 dens=74.20 d_unif=+5.39 d_dens=+6.10
+2021        68.08       73.26      66.49      64.61          +6.77          +8.65
+RESULT mean eval=2021 baseline=68.08 resid=73.26 unif=66.49 dens=64.61 d_unif=+6.77 d_dens=+8.65
+2022        74.69       78.83      73.49      72.87          +5.35          +5.97
+RESULT mean eval=2022 baseline=74.69 resid=78.83 unif=73.49 dens=72.87 d_unif=+5.35 d_dens=+5.97
+--------------------------------------------------------------------------------------------
+2019-2022   resid - unif  +5.28   resid - dens  +6.07
+RESULT block=2019-2022 d_unif=+5.28 d_dens=+6.07
+2016-2018   resid - unif  -1.12   resid - dens  -2.05
+RESULT block=2016-2018 d_unif=-1.12 d_dens=-2.05
+
+sign composition, mean over seeds (reported, not selected on):
+  zero-resid  presence 11.11%  negated  79.1%
+  zero-unif   presence  2.58%  negated  94.8%
+  zero-dens   presence  7.65%  negated  86.6%
+RESULT profile resid_neg=79.07 unif_neg=94.84 dens_neg=86.58 resid_pres=11.111 unif_pres=2.580 dens_pres=7.651
+
+VERDICT rule: the drift-forensics claim SURVIVES if 'resid - dens' over 2019-2022 stays
+positive and comparable to 'resid - unif'. It is an ARTEFACT OF DENSITY if 'resid - dens'
+collapses toward zero while 'resid - unif' reproduces the published +5.28. Read the density
+match error first: a large one means the pool could not supply the control and the arm is
+weak rather than null.

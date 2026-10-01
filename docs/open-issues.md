@@ -73,7 +73,7 @@ exists as `https://github.com/Lukasz-G/tm-cyber-lab.git` (public, default branch
 script points at it. Verified to resolve. Kept here rather than deleted so the entry does not read as
 still open.
 
-## 7. The residual ablations' control is matched on size but not on presence rate
+## 7. ~~The residual ablations' control is matched on size but not on presence rate~~ — settled 2026-10-01
 
 `research/interp-residual/` and `research/interp-residual-retrain/` ablate 38 features by forcing them to
 zero, against a control of 38 features drawn uniformly from the nonzero-attribution support. The two sets
@@ -87,7 +87,19 @@ set, and presence rate is what sets sign composition, since a feature that is al
 included negated. Measured in `research/blacklist-anatomy/`: the residual set is 79.5% negated, the
 uniform control 94.8%.
 
-So the published `resid - random` column could in principle be reporting *density* rather than identity.
-`research/residual-density-control/` adds the arm that separates them, with a control matched on
-per-feature presence rate, and its verdict supersedes the earlier column. Until that lands, the pruning
-result is stated in the paper with this caveat attached and is not offered as a recommendation.
+So the published `resid - random` column could in principle have been reporting *density* rather than
+identity. **It was not.** `research/residual-density-control/` ran the separating arm: 38 features matched
+feature by feature on presence rate, with sign composition reported as an outcome rather than selected on.
+Arms 1-3 reproduce the earlier run to the decimal on all eight periods, and closing most of the density gap
+**raises** the residual's advantage over 2019-2022 from +5.28 to **+6.07**. The confound is real and it was
+working against the claim, so the earlier figure was conservative.
+
+Two things keep this from being a clean close. The match is **partial** - it closes about 60% of the
+presence-rate gap and 52% of the sign gap, because the attribution support does not contain 38 unused
+features at 11% presence - so the reading is the direction over the controlled range, not a measurement at
+a complete match. And the **regime split deepens** under the better control, from -1.12 to -2.05 over
+2016-2018, with 2017 at -4.24; on those periods the matched control beats the unpruned model, so pruning
+almost any dense set helps there and pruning this set helps less. The split remains unexplained after
+`prune-vs-fragility/` refuted the label-fragility account in sign. Pruning is therefore still **not**
+offered as a recommendation, and that limitation is now about the regime split alone rather than about the
+control.
