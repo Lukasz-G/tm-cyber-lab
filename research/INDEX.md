@@ -19,6 +19,8 @@ other outstanding gaps are in [../docs/open-issues.md](../docs/open-issues.md).
 
 | | verdict | keep? |
 |---|---|---|
+| [ripper-exact](ripper-exact/) | **The closed form verified on a learner we did not write.** RIPPER-induced rules, weighted into an additive ensemble, checked against brute force over all 2^13 coalitions: **max error 1.29e-14**, and the Python side is an independent reimplementation so it tests the derivation not the port. 0.7s at full width. **Arm 4 replicates**: sampled vs exact 0.765, sampled vs itself 0.765 — variance-not-bias is not a TM fact. Raw disjunctive RIPPER stays outside the class. | **core** — it is what makes this a rule-ensemble paper rather than a TM paper |
+| [lf-attribution](lf-attribution/) | **Tolerance is representational, and it saturates.** From the classical conjunction (LF=1) to LF=5, attribution support grows 260→498 features and the top-10 mass halves (54%→25%); beyond LF≈5 an eightfold further increase moves nothing. Clause size is flat throughout. Both T policies agree, and coincide to the digit at LF=10. Matches the sibling finding that a fuzzy vote buys ~3x, not LFx. | keep — the one question a classical TM cannot be asked |
 | [b2-generality](b2-generality/) | **Count-symmetry + additivity is the whole requirement.** Exact closed-form Shapley verified for fuzzy clauses, conjunctions (⇒ classical TM as a corollary), m-of-n thresholds, and an *arbitrary* function of the miss count. Ordered rule lists provably outside the class (error 1.1e−1 vs 2e−13). | **core.** This is the paper's spine |
 
 Implementation [`julia/shapley.jl`](../julia/shapley.jl), brute-force check

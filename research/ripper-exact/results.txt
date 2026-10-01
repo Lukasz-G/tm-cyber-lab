@@ -1,0 +1,39 @@
+APIGraph pool subsample: 6,000 rows x 1159 features, 9.7% malware
+
+ARM 1 -- brute force verification on 13 features
+  18 rules, 3.9 conditions each
+  max |closed form - brute force| over 6 (instance, background) pairs, including the efficiency check: 1.288e-14
+RESULT brute_force max_abs_diff=1.288e-14 n_pairs=6 n_rules=18 verdict=EXACT
+  EXACT: agreement at floating-point tolerance, on rules this project did not construct.
+
+ARM 2 -- the full ensemble, where brute force is impossible
+  RIPPER induced 21 rules over 1159 features in 37s; 3.4 conditions each
+  the ensemble reads 38 distinct features
+  exact attribution over 100x100: 0.7s, 34 features with nonzero value
+RESULT full n_rules=21 n_features_used=38 exact_seconds=0.7 nonzero=34
+
+ARM 3 -- sampled against exact, same model, same rows
+C:\Users\Łukasz\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 5 iterations, i.e. alpha=5.492e-02, with an active set of 5 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+D:\Moje dokumenty\Code\TM-Cyber\.venv\lib\site-packages\shap\explainers\_kernel.py:708: UserWarning: Linear regression equation is singular, a least squares solutions is used instead.
+To avoid this situation and get a regular matrix do one of the following:
+1) turn up the number of samples,
+2) turn up the L1 regularization with num_features(N) where N is less than the number of samples,
+3) group features together to reduce the number of inputs that need to be explained.
+  warnings.warn(
+C:\Users\Łukasz\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 3 iterations, i.e. alpha=5.651e-02, with an active set of 3 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+C:\Users\Łukasz\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 2 iterations, i.e. alpha=7.920e-02, with an active set of 2 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+  two sampled runs at nsamples=100: 15s
+  k= 20   sampled vs EXACT 0.621   sampled vs ITSELF 0.667
+RESULT arm3 k=20 sampled_vs_exact=0.6207 sampled_vs_itself=0.6667
+  k= 50   sampled vs EXACT 0.765   sampled vs ITSELF 0.765
+RESULT arm3 k=50 sampled_vs_exact=0.7654 sampled_vs_itself=0.7654
+
+If sampled-vs-exact is comparable to sampled-vs-itself here too, the variance-not-bias
+finding is a property of the estimator at this budget and not of Tsetlin machines.
+
+Note on scope: RIPPER's own prediction is a DISJUNCTION over its rules, which is not a sum
+and so is outside the class, exactly as ordered rule lists are. What is verified above is the
+weighted rule ensemble built on those rules.

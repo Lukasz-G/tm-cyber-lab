@@ -1,0 +1,35 @@
+LAMDA width 4561  train 150090  IID 20000  2021 16231  2 seeds  tm-lab 43dba5f
+held fixed: clauses=20 S=100 L=64 epochs=30  ceiling=LiteralCapped  parallel=:none
+LF=1 is max(0, 1 - misses) = 1[misses=0], i.e. an ordinary conjunction: the classical TM.
+
+LF   T policy     T  literals  tolerance   support   top10%      gini   IID F1  2021 F1
+--------------------------------------------------------------------------------------------
+1    fixed       10        66       1.5%       314    48.3%     0.785    94.07    59.68
+RESULT lf=1 policy=fixed T=10 literals=66 tolerance=1.50 support=314 top10=48.33 gini=0.7845 neg=97.70 iid_f1=94.07 drift_f1=59.68
+1    scaled       3        64       1.6%       260    54.4%     0.827    92.58    52.80
+RESULT lf=1 policy=scaled T=3 literals=64 tolerance=1.55 support=260 top10=54.41 gini=0.8272 neg=95.60 iid_f1=92.58 drift_f1=52.80
+2    fixed       10        67       3.0%       431    31.4%     0.742    95.47    68.81
+RESULT lf=2 policy=fixed T=10 literals=67 tolerance=2.99 support=431 top10=31.44 gini=0.7422 neg=95.95 iid_f1=95.47 drift_f1=68.81
+2    scaled       4        66       3.1%       363    37.6%     0.790    94.72    55.36
+RESULT lf=2 policy=scaled T=4 literals=66 tolerance=3.05 support=363 top10=37.61 gini=0.7902 neg=93.25 iid_f1=94.72 drift_f1=55.36
+5    fixed       10        70       7.2%       498    24.8%     0.738    95.81    67.35
+RESULT lf=5 policy=fixed T=10 literals=70 tolerance=7.19 support=498 top10=24.83 gini=0.7384 neg=91.26 iid_f1=95.81 drift_f1=67.35
+5    scaled       7        68       7.4%       478    27.2%     0.758    95.64    64.10
+RESULT lf=5 policy=scaled T=7 literals=68 tolerance=7.35 support=478 top10=27.24 gini=0.7579 neg=89.43 iid_f1=95.64 drift_f1=64.10
+10   fixed       10        68      14.6%       454    26.0%     0.737    95.53    62.73
+RESULT lf=10 policy=fixed T=10 literals=68 tolerance=14.60 support=454 top10=26.03 gini=0.7374 neg=83.69 iid_f1=95.53 drift_f1=62.73
+10   scaled      10        68      14.6%       454    26.0%     0.737    95.53    62.73
+RESULT lf=10 policy=scaled T=10 literals=68 tolerance=14.60 support=454 top10=26.03 gini=0.7374 neg=83.69 iid_f1=95.53 drift_f1=62.73
+20   fixed       10        70      28.4%       457    25.6%     0.759    95.05    68.09
+RESULT lf=20 policy=fixed T=10 literals=70 tolerance=28.37 support=457 top10=25.63 gini=0.7587 neg=66.44 iid_f1=95.05 drift_f1=68.09
+20   scaled      14        70      28.6%       493    25.2%     0.744    95.39    71.07
+RESULT lf=20 policy=scaled T=14 literals=70 tolerance=28.57 support=493 top10=25.15 gini=0.7436 neg=73.24 iid_f1=95.39 drift_f1=71.07
+40   fixed       10        73      54.8%       421    24.2%     0.727    94.28    63.00
+RESULT lf=40 policy=fixed T=10 literals=73 tolerance=54.79 support=421 top10=24.23 gini=0.7271 neg=40.99 iid_f1=94.28 drift_f1=63.00
+40   scaled      20        75      53.3%       474    24.1%     0.741    95.04    67.02
+RESULT lf=40 policy=scaled T=20 literals=75 tolerance=53.33 support=474 top10=24.09 gini=0.7412 neg=56.93 iid_f1=95.04 drift_f1=67.02
+--------------------------------------------------------------------------------------------
+'support' is how many of the 4,561 features carry nonzero exact attribution; 'top10%' is the
+share of attribution mass in the ten largest; gini is 0 for an even spread and 1 for all mass
+on one feature. REPRESENTATIONAL if support and concentration move with LF under BOTH T
+policies; a CAPACITY KNOB if only the F1 columns move; CONFOUNDED if the policies disagree.
