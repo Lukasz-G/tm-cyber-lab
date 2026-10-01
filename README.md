@@ -12,7 +12,7 @@ over almost entirely from month to month whilst its accuracy holds — is measur
 attribution estimator whose own variance goes unreported. It need not be sampled.
 
 For any additive ensemble of rules whose output depends only on **how many** of a rule's literals are
-unsatisfied rather than on which, exact Shapley values have a closed form costing `O((g+d)²)` per rule,
+unsatisfied, not on which, exact Shapley values have a closed form costing `O((g+d)²)` per rule,
 independent of the feature count. The class takes in Fuzzy-Pattern and classical Tsetlin machines,
 *m*-of-*n* threshold ensembles and weighted rule ensembles. It provably excludes ordered rule lists and
 raw disjunctive rulesets, and that boundary is measured rather than assumed.
@@ -20,7 +20,7 @@ raw disjunctive rulesets, and that boundary is measured rather than assumed.
 | | |
 |---|---|
 | agreement with brute-force enumeration | **8.9e−16** over 144 configurations |
-| the same, on rules induced by RIPPER rather than written here | **1.29e−14**, all 2¹³ coalitions |
+| the same, on rules induced by RIPPER, not written here | **1.29e−14**, all 2¹³ coalitions |
 | ordered rule lists, where additivity fails | **1.1e−1**, against 2e−13 for the additive arms |
 | cost at 4,561 features, 100 background × 100 explained | **6.7 s** per month, single-threaded |
 
@@ -44,8 +44,7 @@ attribution at this budget and not of Tsetlin machines.
 
 ## Claims and withdrawals
 
-Four claims were measured and withdrawn, each by a control fixed before the run. They are listed here
-rather than buried, because the controls are reusable and the retractions are the part of this work most
+Four claims were measured and withdrawn, each by a control fixed before the run. They are listed here and not buried, because the controls are reusable and the retractions are the part of this work most
 likely to save someone else a month.
 
 - **No readability claim.** A document-frequency count with no model in it recovers **62 of the model's
@@ -88,8 +87,7 @@ test features and helps gradient boosting more than it helps a Tsetlin machine.
 | [`research/lf-attribution/`](research/lf-attribution/) | tolerance is representational and saturates by `LF ≈ 5`; the one question a classical Tsetlin machine cannot be asked |
 | [`research/b4-footprint-labels/`](research/b4-footprint-labels/) | 44.5 KB to infer, 356.3 KB to keep learning; 250 fresh labels beat 150,090 stale ones by 59 F1 |
 
-[`research/INDEX.md`](research/INDEX.md) carries every experiment with its verdict, including the ones
-that were calibration rather than findings.
+[`research/INDEX.md`](research/INDEX.md) carries every experiment with its verdict, including the ones that were calibration and not findings.
 
 ## Out of scope
 
@@ -141,8 +139,7 @@ julia --project=. test/boundary.jl /tmp/fx
 python test/boundary.py verify /tmp/fx
 ```
 
-`bootstrap.jl` clones [tm-lab](https://github.com/Lukasz-G/tm-lab) at a pinned commit rather than
-vendoring it, so experiments reproduce from a fresh checkout without carrying another project's source.
+`bootstrap.jl` clones [tm-lab](https://github.com/Lukasz-G/tm-lab) at a pinned commit instead of vendoring it, so experiments reproduce from a fresh checkout without carrying another project's source.
 `Manifest.toml` is not committed; the root `Project.toml` records the package paths.
 
 Datasets are not committed. LAMDA is `IQSeC-Lab/LAMDA` on HuggingFace (DOI 10.57967/hf/5563).
