@@ -72,3 +72,22 @@ Its default `TMCYBER_REPO` was `https://github.com/Lukasz-G/TM-Cyber.git`, a 404
 exists as `https://github.com/Lukasz-G/tm-cyber-lab.git` (public, default branch `master`) and the
 script points at it. Verified to resolve. Kept here rather than deleted so the entry does not read as
 still open.
+
+## 7. The residual ablations' control is matched on size but not on presence rate
+
+`research/interp-residual/` and `research/interp-residual-retrain/` ablate 38 features by forcing them to
+zero, against a control of 38 features drawn uniformly from the nonzero-attribution support. The two sets
+are matched on count and both carry the same dead-channel perturbation, which is why the verdict rests on
+residual-against-random rather than on residual-against-baseline.
+
+They are not matched on the variable that governs how much the zeroing does. **Zeroing is not
+sign-neutral**: it removes the evidence for a positive literal but *satisfies* a negated one. The residual
+features sit at a training-period presence rate of 11.2% against roughly 1.5-2.3% for a uniformly drawn
+set, and presence rate is what sets sign composition, since a feature that is almost always absent gets
+included negated. Measured in `research/blacklist-anatomy/`: the residual set is 79.5% negated, the
+uniform control 94.8%.
+
+So the published `resid - random` column could in principle be reporting *density* rather than identity.
+`research/residual-density-control/` adds the arm that separates them, with a control matched on
+per-feature presence rate, and its verdict supersedes the earlier column. Until that lands, the pruning
+result is stated in the paper with this caveat attached and is not offered as a recommendation.

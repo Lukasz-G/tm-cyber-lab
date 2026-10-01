@@ -46,7 +46,7 @@ with 2017 costing 3.04. "5 of 7" undersells the structure: this is a clean regim
 is not deployable as a rule, and the pre-registered criterion — a majority of drifted years — is met on a
 count while concealing that the failures are contiguous.
 
-### A hypothesis about the two regimes, offered as a hypothesis
+### A hypothesis about the two regimes, since refuted
 
 2017 and 2018 are exactly the years `b3-label-drift/` found the label boundary most fragile: 51% and 58%
 of malware sitting at 4–6 detections, against 21–27% in the years where pruning works. 2018 is also the
@@ -54,9 +54,11 @@ collapse year for every model here (baseline 27.90). A plausible reading is that
 non-generalising features helps when the labels are stable enough for "generalise" to mean something, and
 cannot help when the evaluation labels are themselves unreliable.
 
-This is **not tested**. It connects two of this project's results and it is cheap to check — condition the
-effect on per-period label fragility across both corpora — but stated as it stands it is a story that fits
-three points.
+**It was tested, and it is refuted in sign.** `prune-vs-fragility/` conditioned the pruning gain on label
+fragility over 70 months and found $\rho = +0.253$ ($p = 0.030$): pruning helps roughly *twice as much*
+where the labels are least reliable, which is the opposite of the prediction above. A month-size control
+clears ($-0.147$, $p = 0.22$), so thin months are not the explanation either. The hypothesis is dead and no
+replacement is offered — we have no account of the regime split.
 
 ## What may now be claimed
 
@@ -67,7 +69,7 @@ three points.
   where the model fails to generalise — holds under the stronger test.
 - **Not claimable:** that pruning should be applied unconditionally. It hurts on 2017 and is neutral on
   2016 and 2018.
-- **Not claimable:** the label-fragility explanation for the regime split.
+- **Refuted:** the label-fragility explanation for the regime split, in sign, over 70 months (`prune-vs-fragility/`).
 - **Still not claimable:** anything about readable rules. This makes a feature set diagnostic, not a
   clause legible.
 
@@ -83,6 +85,14 @@ includes it at no evaluation cost, inflating its literal count and shifting the 
 worth +0.0109 accuracy for 32 dead bits in the sibling project. The defence is that **arms 2, 3 and 4 each
 zero exactly 38 features**, so the perturbation is identical between them, which is precisely why the
 verdict rests on arm 2 against arm 3 and not on arm 2 against the baseline.
+
+**That defence is incomplete, and `residual-density-control/` is the repair.** Zeroing is not
+sign-neutral: it removes the evidence for a positive literal but *satisfies* a negated one. The residual
+features sit at a training-period presence rate of 11.2%, roughly ten times the uniformly-drawn control's,
+and presence rate is what sets sign composition — a feature that is almost always absent is included
+negated. So arm 3 is matched on count but not on the thing that governs how much the zeroing does. The
+control matched on presence rate is in `residual-density-control/`, and the verdict there supersedes the
+`resid - random` column here.
 
 ## The mirror arm did not behave as predicted
 
