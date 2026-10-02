@@ -55,7 +55,7 @@ def main():
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
 
-    ax.text(L, 0.967, "Exact attribution is cheaper than approximating it",
+    ax.text(L, 0.967, "Exact attribution at less cost than its approximation",
             fontsize=19, color=INK, va="top", weight="semibold")
     ax.text(L, 0.930,
             "LAMDA, 4,561 Drebin features, 2013–2022, flat Fuzzy-Pattern Tsetlin machine at 20 "
@@ -83,15 +83,15 @@ def main():
     panel(ax, R, bT - bH, W, bH, BLUE)
 
     for x, accent, head, sub, eq, body, foot in (
-        (L, ORANGE, "SAMPLED", "what the literature uses",
+        (L, ORANGE, "SAMPLED", "the instrument in general use",
          "100 coalitions against 4,561 features",
          ["Kernel SHAP fits a weighted linear surrogate to the target's outputs on sampled",
           "coalitions. The library's own default budget is $2M+2048 = 11{,}170$; the published",
           "series uses 100, which is a factor of forty-five fewer coalitions than features.",
           "→  the variance that would tell a real turnover from a failure to find it twice",
           "     is not reported at all"],
-         "lands 0.851 from the truth and 0.889 from ITSELF"),
-        (R, BLUE, "EXACT", "what the closed form gives",
+         "0.851 from the truth, and 0.889 from ITSELF"),
+        (R, BLUE, "EXACT", "the instrument available here",
          "no sampling, and no feature-count term",
          ["All but $g+d$ features have value exactly zero, the rest collapse to two shared",
           "values, and the cost per rule is set by rule size. The class covers Fuzzy-Pattern",
@@ -126,7 +126,7 @@ def main():
     # ---- band C: the decomposition -------------------------------------- #
     cT, cH = hY - pts(40), 0.332
     panel(ax, L, cT - cH, FW, cH, ORANGE, fill="#faeee8")
-    ax.text(L + 0.018, cT - pts(18), "WHAT THE PUBLISHED 0.958 IS MADE OF", fontsize=11.5,
+    ax.text(L + 0.018, cT - pts(18), "THE COMPOSITION OF THE PUBLISHED 0.958", fontsize=11.5,
             color=ORANGE, va="top", weight="semibold")
 
     labels = ["the estimator's own\nnoise floor",

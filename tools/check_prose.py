@@ -1,9 +1,10 @@
 """Audit the repository's prose against the house style, and print numbers instead of impressions.
 
-The paper had its own audit from the start; the README, the experiment write-ups and the script headers
-did not, which is why the "X rather than Y" construction stood at 200 instances across tracked files
-while the manuscript sat at a curated ten. Every check here exists because the rule was broken without
-that being visible on reading.
+The paper had its own audit from the start; the README, the experiment write-ups, the script headers and
+the strings inside the plotting scripts did not, which is why the "X rather than Y" construction stood at
+200 instances across tracked files while the manuscript sat at a curated ten, and why the last
+full-sentence titles in the project survived inside figures. Every check here exists because the rule was
+broken without that being visible on reading.
 
     python tools/check_prose.py              audit
     python tools/check_prose.py -v           list every instance
@@ -16,6 +17,7 @@ a determiner follows, but the pass still declines anything it cannot classify an
 
 Exit status is 0 if nothing is flagged and 1 otherwise.
 """
+import ast
 import re
 import subprocess
 import sys
@@ -157,6 +159,59 @@ for rel in files:
 print("  [%s] American spellings %d" % ((GRN + " ok " + OFF) if not a else (YLW + "warn" + OFF), a))
 print("  [%s] hedging and marketing %d" % ((GRN + " ok " + OFF) if not h else (RED + "FLAG" + OFF), h))
 
-bad = bool(over or bad_heads or h)
+print("\nFIGURE HEADINGS  (plain noun phrases)")
+# A heading slot has to be found mechanically here, because a figure carries no '#' to key on: an
+# all-caps label of two or more words, a set_title or suptitle argument, a string set in semibold or at
+# display size, or a string sharing a tuple with an all-caps label, which is how a subtitle sits under
+# its head. A string ending in a full stop is prose inside the panel and is exempt. That last signal is
+# the one that separates the two reliably; font size alone does not, since a figure sets body text in
+# semibold for emphasis.
+CAPS = re.compile(r"^[A-Z0-9 ,.'$&()%+–—-]+$")
+VERBISH = re.compile(r"\b(?:is|are|was|were|does|do|did|has|have|had|will|can|cannot|must|should"
+                     r"|uses|gives|gave|takes|took|reaches|lands|retired|survives|equals|moves"
+                     r"|needs|holds|leads|trails|recovers|separates|contributes|sits)\b", re.I)
+
+
+def heading_slots(src):
+    lines = src.split("\n")
+    found = {}
+
+    def add(node):
+        t = node.value
+        if t.rstrip().endswith((".", ",")) or len(t.split()) < 2:
+            return
+        if t.startswith(("$", "→")) or "\\" in t:   # maths, an arrow bullet, a TeX fragment
+            return
+        found.setdefault((node.lineno, t), True)
+
+    for node in ast.walk(ast.parse(src)):
+        if isinstance(node, ast.Tuple):
+            es = [e for e in node.elts if isinstance(e, ast.Constant) and isinstance(e.value, str)]
+            if any(CAPS.fullmatch(e.value) and e.value.strip() for e in es):
+                for e in es:
+                    add(e)
+        if isinstance(node, ast.Constant) and isinstance(node.value, str):
+            ln = lines[node.lineno - 1]
+            stmt = "\n".join(lines[max(0, node.lineno - 3):node.lineno + 2])
+            m = re.search(r"fontsize=([\d.]+)", stmt)
+            if ((CAPS.fullmatch(node.value) and len(node.value.split()) >= 2)
+                    or ".set_title(" in ln or ".suptitle(" in ln
+                    or 'weight="semibold"' in stmt or (m and float(m.group(1)) >= 12)):
+                add(node)
+    return sorted(found)
+
+
+fig_heads = []
+for rel in [f for f in files if "figures/" in f and f.endswith(".py")]:
+    for ln, t in heading_slots((ROOT / rel).read_text(encoding="utf-8")):
+        if (VERBISH.search(t) or re.match(r"\s*(what|why|how|whether)\b", t, re.I)
+                or re.search(r",\s*not\s", t, re.I)):
+            fig_heads.append((rel, ln, t))
+print("  [%s] %d figure headings that are not noun phrases"
+      % ((GRN + " ok " + OFF) if not fig_heads else (RED + "FLAG" + OFF), len(fig_heads)))
+for rel, ln, t in fig_heads[:14]:
+    print("        %-30s %4d  %s" % (rel.split("/")[-1], ln, t.replace("\n", " / ")[:60]))
+
+bad = bool(over or bad_heads or h or fig_heads)
 print("\n" + ((GRN + "all checks pass" + OFF) if not bad else (RED + "flagged" + OFF)))
 sys.exit(1 if bad else 0)
