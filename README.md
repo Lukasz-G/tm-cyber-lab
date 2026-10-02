@@ -44,6 +44,8 @@ attribution at this budget and not of Tsetlin machines.
 
 ## Claims and withdrawals
 
+![Four claims, and the control that retired each](docs/figures/claims-and-controls.png)
+
 Four claims were measured and withdrawn, each by a control fixed before the run. They are listed here and not buried, because the controls are reusable and the retractions are the part of this work most
 likely to save someone else a month.
 
@@ -117,6 +119,7 @@ python/tmcyber/           dataset handling, splits, baselines; writes the packed
 docs/matrix-format.md     the .tmx format spec — header plus raw packed words
 docs/clause-attribution.md  the attribution pre-registration: arms, protocol, falsification conditions
 research/<name>/          experiments: run script, raw output, README with the question and the answer
+docs/figures/            the two figures above, each with the script that drew it
 test/shapley_closed_form.jl  brute-force enumeration against the closed form, 144 configurations
 tools/                    bootstrap and arm fan-out for a rented CPU box
 ```
