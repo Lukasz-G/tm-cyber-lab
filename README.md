@@ -54,7 +54,9 @@ likely to save someone else a month.
   to be *absent*, but at this density a **random** included literal is **94.8%** negated — a negated
   literal is satisfied for free on almost every row. The model-wide figure is the sparsity of the input.
   The features the model actually relies on are 53% negated and present in 42% of malware against 24% of
-  goodware.
+  goodware — and on the corpus whose vocabulary is released, 85% of the attributed top-20 are
+  permissions or suspicious API calls against a 23% base rate, so they are indicators in the operational
+  sense too.
 - **No drift-robustness advantage.** The LAMDA advantage of 4 to 12 F1 on four of five drifted years did
   not replicate on APIGraph, and a third arm holding the effective specificity `s = width/S` constant
   rules out the obvious confound.
@@ -78,6 +80,7 @@ test features and helps gradient boosting more than it helps a Tsetlin machine.
 | [`research/b0-noise-floor/`](research/b0-noise-floor/) | the reported explanation drift sits at its own estimator's noise floor |
 | [`research/b2-drift/`](research/b2-drift/) | the five pre-registered arms over 88 months; the decomposition above |
 | [`research/interp-dataset-control/`](research/interp-dataset-control/) | the control that retracts readability |
+| [`research/groundtruth-overlap/`](research/groundtruth-overlap/) | the attributed features are indicators: 85% indicator-class in the top 20 against a 23% base rate, and the one place the model beats the corpus |
 | [`research/blacklist-anatomy/`](research/blacklist-anatomy/) | the sparsity control that retracts the second claim |
 | [`research/interp-residual/`](research/interp-residual/) | the 38 features a frequency count misses are where the model fails to generalise |
 | [`research/interp-residual-retrain/`](research/interp-residual-retrain/) | the pruning survives retraining but splits by period, so it is not a recommendation |

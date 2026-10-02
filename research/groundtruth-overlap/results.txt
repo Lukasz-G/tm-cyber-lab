@@ -1,0 +1,79 @@
+APIGraph: width 1159  train 30533 rows, 3061 malware (10.0%)  3 seeds  tm-lab 43dba5f
+clauses=20 T=10 S=100 L=64 LF=10 epochs=30  ceiling=LiteralCapped  parallel=:none
+
+Vocabulary by Drebin category, which is what fixes the base rate:
+  activitylist               615   53.1%  identity
+  requestedpermissionlist    118   10.2%  INDICATOR
+  intentfilterlist           117   10.1%  
+  restrictedapilist           96    8.3%  INDICATOR
+  broadcastreceiverlist       58    5.0%  identity
+  servicelist                 52    4.5%  identity
+  usedpermissionslist         32    2.8%  INDICATOR
+  urldomainlist               23    2.0%  
+  suspiciousapilist           21    1.8%  INDICATOR
+  hardwarecomponentslist      21    1.8%  
+  contentproviderlist          6    0.5%  identity
+
+BASE RATE over all 1159 features: indicator 23.0%   app-identity 63.1%
+RESULT base width=1159 indicator=23.04 identity=63.07
+
+RESULT seed=1 k=20 shapley_ind=85.00 shapley_ide=0.00 freq_ind=85.00 freq_ide=5.00
+RESULT seed=1 k=100 shapley_ind=73.00 shapley_ide=14.00 freq_ind=57.00 freq_ide=32.00
+RESULT seed=1 k=500 shapley_ind=40.40 shapley_ide=43.80 freq_ind=38.80 freq_ide=43.80
+
+The ten features carrying the most exact attribution, seed 1, named:
+   1. INDICATOR  requestedpermissionlist android.permission.send_sms
+   2. INDICATOR  suspiciousapilist      landroid/telephony/telephonymanager.getdeviceid
+   3. INDICATOR  usedpermissionslist    android.permission.send_sms
+   4. INDICATOR  suspiciousapilist      landroid/telephony/smsmanager.sendtextmessage
+   5. other      intentfilterlist       android.intent.action.boot_completed
+   6. INDICATOR  requestedpermissionlist android.permission.read_phone_state
+   7. INDICATOR  requestedpermissionlist android.permission.receive_sms
+   8. other      urldomainlist          91.213.175.176
+   9. INDICATOR  suspiciousapilist      landroid/telephony/telephonymanager.getsubscriberid
+  10. INDICATOR  usedpermissionslist    android.permission.internet
+
+and the ten a frequency count ranks highest, for comparison:
+   1. INDICATOR  requestedpermissionlist android.permission.read_phone_state
+   2. INDICATOR  usedpermissionslist    android.permission.read_phone_state
+   3. INDICATOR  suspiciousapilist      landroid/telephony/telephonymanager.getdeviceid
+   4. other      intentfilterlist       android.intent.action.boot_completed
+   5. INDICATOR  suspiciousapilist      landroid/telephony/telephonymanager.getsubscriberid
+   6. INDICATOR  requestedpermissionlist android.permission.send_sms
+   7. INDICATOR  restrictedapilist      android.app.notificationmanager.notify
+   8. INDICATOR  requestedpermissionlist android.permission.write_external_storage
+   9. INDICATOR  requestedpermissionlist android.permission.receive_boot_completed
+  10. INDICATOR  requestedpermissionlist android.permission.access_wifi_state
+
+seed 1 done (attribution support 321 of 1159)
+RESULT seed=2 k=20 shapley_ind=90.00 shapley_ide=0.00 freq_ind=85.00 freq_ide=5.00
+RESULT seed=2 k=100 shapley_ind=64.00 shapley_ide=18.00 freq_ind=57.00 freq_ide=32.00
+RESULT seed=2 k=500 shapley_ind=40.20 shapley_ide=44.40 freq_ind=38.80 freq_ide=43.80
+seed 2 done (attribution support 320 of 1159)
+RESULT seed=3 k=20 shapley_ind=80.00 shapley_ide=5.00 freq_ind=85.00 freq_ide=5.00
+RESULT seed=3 k=100 shapley_ind=72.00 shapley_ide=13.00 freq_ind=57.00 freq_ide=32.00
+RESULT seed=3 k=500 shapley_ind=40.60 shapley_ide=44.20 freq_ind=38.80 freq_ide=43.80
+seed 3 done (attribution support 313 of 1159)
+
+--------------------------------------------------------------------------
+ranking         k    indicator %   app-identity %
+--------------------------------------------------------------------------
+shapley        20          85.0%             1.7%
+RESULT mean ranking=shapley k=20 indicator=85.00 identity=1.67
+frequency      20          85.0%             5.0%
+RESULT mean ranking=frequency k=20 indicator=85.00 identity=5.00
+shapley       100          69.7%            15.0%
+RESULT mean ranking=shapley k=100 indicator=69.67 identity=15.00
+frequency     100          57.0%            32.0%
+RESULT mean ranking=frequency k=100 indicator=57.00 identity=32.00
+shapley       500          40.4%            44.1%
+RESULT mean ranking=shapley k=500 indicator=40.40 identity=44.13
+frequency     500          38.8%            43.8%
+RESULT mean ranking=frequency k=500 indicator=38.80 identity=43.80
+--------------------------------------------------------------------------
+base rate    all          23.0%            63.1%
+
+SUBSTANTIATED if the shapley rows are enriched in the indicator categories over the base
+rate and are not activity-dominated. WITHDRAW the paper's caption if they track the base
+rate or are identity-dominated. NO SEMANTIC ADVANTAGE over the corpus if shapley and
+frequency agree, which would place this beside the readability retraction.

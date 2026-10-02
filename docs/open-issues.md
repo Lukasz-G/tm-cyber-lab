@@ -103,3 +103,29 @@ almost any dense set helps there and pruning this set helps less. The split rema
 `prune-vs-fragility/` refuted the label-fragility account in sign. Pruning is therefore still **not**
 offered as a recommendation, and that limitation is now about the regime split alone rather than about the
 control.
+
+## 8. ~~Ground-truth overlap was never measured~~ — run 2026-10-02, and the primary corpus cannot support it
+
+Of the five interpretability measurements this project required before any claim about what clauses mean,
+the fifth went unrun the longest: do the selected Drebin tokens correspond to documented indicators? It
+was singled out at the design stage as the measurement that is *better* in this domain than in image or
+text tasks, because the feature names carry meaning.
+
+**On LAMDA they do not.** The released parquet columns are `feat_0` ... `feat_4560`: the Drebin vocabulary
+is stripped. No semantic check is possible on the primary corpus with the public release, by us or by
+anyone. The design-stage argument for this domain over raw-byte PE malware rested partly on feature names
+meaning something, and for the primary corpus it does not hold.
+
+**On APIGraph they do**, and our packed matrix already carried them: 1,159 entries matching the 2012
+selected vocabulary exactly. `research/groundtruth-overlap/` runs the measurement there. The attributed
+top-20 is **85.0% indicator-class against a 23.0% base rate**, with app-identity features suppressed from
+63.1% to **1.7%**, and at k=100 exact attribution beats a frequency count by +12.7 points of indicator
+share and -17.0 points of app-identity pollution.
+
+Two things remain open rather than fixed. Whether the result transfers to the primary corpus is
+**untestable** with the public release. And no comparison against a curated external indicator list has
+been made; the categories used are the feature set's own and are coarse. The paper states both.
+
+The figure caption that read "they are indicators" on LAMDA evidence is corrected: it now claims the
+median presence ratio above two, which is what that corpus can support, and points at the section that
+answers the semantic question on the other one.
