@@ -8,11 +8,11 @@
 #            presence rate of 11.2% against 1.5-2.3% for a uniform draw, and at 79.5% negated literals
 #            against 94.8% -- because a feature that is almost always absent is included negated. So the
 #            uniform control receives a systematically weaker intervention than the residual does, and the
-#            published +5.28 F1 over 2019-2022 could be reporting density rather than identity.
+#            published +5.28 F1 over 2019-2022 could be reporting density, not identity.
 #            If a density-matched control gains as much as the residual, the drift-forensics claim is an
 #            artefact of how much the zeroing does, and it must be withdrawn. If it does not, the claim
 #            survives its own strongest objection and the caveat currently in the manuscript is deleted
-#            rather than apologised for.
+#, not apologised for.
 # ARMS:      four, all RETRAINED from scratch per seed. Arms 1-3 reproduce the published comparison exactly
 #            so the new arm is read on the same scale, and the reproduction is itself a check.
 #              1. BASELINE   -- all features.
@@ -20,7 +20,7 @@
 #              3. ZERO-UNIF  -- 38 drawn uniformly from the nonzero-attribution support. The PUBLISHED
 #                               control: matched on count only.
 #              4. ZERO-DENS  -- 38 from the same pool, matched feature-by-feature on training-period
-#                               PRESENCE RATE. The isolating arm. Presence rate is chosen rather than sign
+#                               PRESENCE RATE. The isolating arm. Presence rate is chosen and not sign
 #                               composition because it is upstream: it is model-free, and it is what causes
 #                               the sign difference. The achieved negated share is therefore an OUTCOME
 #                               here and is printed, not an objective that was optimised for.
@@ -32,7 +32,7 @@
 #            density effect and the paper's pruning subsection becomes a diagnosis only.
 #            Reported either way, and the match quality is reported with it: if the pool cannot supply 38
 #            features at the residual's presence rate the arm is weak, and the printed mismatch says so
-#            rather than letting a failed match pass as a null result.
+#            instead of letting a failed match pass as a null result.
 #
 #   julia --project=. -t 16 research/residual-density-control/run.jl [nseeds]
 #
@@ -328,7 +328,7 @@ function main()
     println("positive and comparable to 'resid - unif'. It is an ARTEFACT OF DENSITY if 'resid - dens'")
     println("collapses toward zero while 'resid - unif' reproduces the published +5.28. Read the density")
     println("match error first: a large one means the pool could not supply the control and the arm is")
-    println("weak rather than null.")
+    println("weak, not null.")
 end
 
 main()

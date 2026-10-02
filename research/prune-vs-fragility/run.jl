@@ -8,12 +8,12 @@
 #            4-6 detections, within two vendor votes of being discarded, against 21-27% elsewhere. Those
 #            two facts were measured for unrelated reasons and they line up.
 #            If the association holds, pruning has a stated precondition and becomes deployable advice
-#            rather than an unexplained regime split. If it does not, the alignment was three points
-#            agreeing by chance and the paragraph is deleted rather than softened.
-# ARMS:      three retrained models, evaluated PER MONTH rather than per year, and two correlations:
+#, not an unexplained regime split. If it does not, the alignment was three points
+#            agreeing by chance and the paragraph is deleted and not softened.
+# ARMS:      three retrained models, evaluated PER MONTH, not per year, and two correlations:
 #              1. zero-residual  -- the pruned model.
 #              2. zero-random    -- size-matched control, so the delta isolates WHICH features were
-#                                   removed rather than the fact of removing 38 of them.
+#                                   removed and not the fact of removing 38 of them.
 #              3. baseline       -- unpruned, for the absolute reference.
 #            then, across months: the pruning delta against label fragility (the test), AND the pruning
 #            delta against the month's malware COUNT (the control correlation). The second is what
@@ -256,7 +256,7 @@ function main()
         println("association is not explained by month size. Pruning has a stated precondition.")
     elseif p1 >= 0.05
         println("REJECTED: the fragility association is not significant over the monthly series. Delete the")
-        println("label-fragility paragraph from the manuscript rather than softening it.")
+        println("label-fragility paragraph from the manuscript instead of softening it.")
     else
         println("AMBIGUOUS: significant but not cleanly separated from the month-size control. Report as an")
         println("observation, not as a precondition.")

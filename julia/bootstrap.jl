@@ -3,7 +3,7 @@
 #   julia --project=. julia/bootstrap.jl
 #   julia --project=. -e 'using Pkg; Pkg.instantiate()'
 #
-# tm-lab is cloned at a pinned commit rather than vendored into this repository's history:
+# tm-lab is cloned at a pinned commit, not vendored into this repository's history:
 # experiments stay reproducible from a fresh checkout without carrying another project's
 # source, and the pin makes "which version of the machine produced this number" answerable.
 #
@@ -36,7 +36,7 @@ end
 Point `vendor/tm-lab` at a local working copy.
 
 `Project.toml`'s `[sources]` are committed and must not be rewritten per machine, so the override
-works by making `vendor/tm-lab` a link rather than by editing the environment. A Windows directory
+works by making `vendor/tm-lab` a link and not by editing the environment. A Windows directory
 junction needs no privileges, unlike a directory symlink.
 """
 function link_local(local_path::AbstractString)

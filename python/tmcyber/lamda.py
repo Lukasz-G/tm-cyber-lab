@@ -31,7 +31,7 @@ FEATURE_PREFIX = "feat_"
 
 # AnoShift-style splits as the paper defines them. FAR is deliberately not treated as one block:
 # 2023-2025 malware counts collapse (7,892 / 794 / 23 against ~45,000 benign per year), which is
-# antivirus label lag rather than drift, so the usable window ends at 2022 and every FAR figure is
+# antivirus label lag, not drift, so the usable window ends at 2022 and every FAR figure is
 # reported per year.
 TRAIN_YEARS = (2013, 2014)
 NEAR_YEARS = (2016, 2017)

@@ -64,7 +64,7 @@ export clause_literals, shapley, shapley_mean
 # Every binomial here therefore goes through `log Γ` in Float64. The summed terms are hypergeometric
 # probabilities, all strictly positive, so there is no cancellation and the relative error stays at
 # the 1e-14 level -- five orders inside the 1e-9 the brute-force check enforces, and that check is run
-# against this implementation rather than the previous one.
+# against this implementation in place of the previous one.
 const _LOGFACT_N = 1 << 17
 
 const _LOGFACT = let v = Vector{Float64}(undef, _LOGFACT_N + 1)

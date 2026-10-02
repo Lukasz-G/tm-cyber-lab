@@ -8,7 +8,7 @@ Configuration: 20 clauses per class across both polarities, `T` = 10, `S` = 100,
 the released 2013–14 train portions (150,090 rows, 72,111 malware); test = the 2013–14 test portions
 (37,524 rows, 18,028 malware). Width 4,561 ⇒ 9,122 literals.
 
-## It trains, and the first number is encouraging
+## First training, and an encouraging number
 
 **IID F1 = 95.11** (final, not best — best was 95.53 at epoch 7, and quoting peaks is how an earlier
 project talked itself into a result that reversed). Precision 96.51, recall 93.76, FNR 6.24,
@@ -21,10 +21,10 @@ LightGBM** — before any tuning, and at a model size where the whole thing is a
 Nothing follows from that yet. The gate is about NEAR and FAR, where every published model collapses
 from ~97 to ~59 and ~47, and where a 20-clause model has no particular reason to behave the same way.
 
-## Both pre-registered predictions were wrong
+## Two wrong pre-registered predictions
 
 They were written down before any LAMDA model existed, which is the only reason this is worth
-reporting rather than rationalising.
+reporting instead of rationalising.
 
 ### Prediction 2 — readability ratio — **wrong, and in the helpful direction**
 
@@ -39,7 +39,7 @@ So the interpretability route is **not** closed off the way the prediction assum
 clause is not a one-line rule, but it is three orders of magnitude away from the ~3,800-literal cores
 that made the IMDb extraction useless. The reason the prediction failed is worth noting: it reasoned
 from the *input width* (9,122 literals, IMDb-like) when the governing quantity is the *clause size*,
-which is set by `L`, `LF` and the data's sparsity rather than by the width.
+which is set by `L`, `LF` and the data's sparsity and not by the width.
 
 Clauses run **2.2× over `L` = 64** (median 69, max 144), which independently reproduces the sibling
 project's finding that `L` is a growth gate and not a cap.
@@ -59,7 +59,7 @@ disclose. Blacklist-*dominated* clauses that still carry a dozen positive litera
 candidate indicators of compromise — and whether those are meaningful is exactly what the dataset
 control and the ground-truth-overlap measurement have to decide. Neither has been run.
 
-## What this licenses, and what it does not
+## Claims licensed and refused
 
 - It licenses **attempting** an interpretability claim, which prediction 2 had provisionally written
   off. It does not license making one: the dataset control (would a χ² or frequency ranking of the

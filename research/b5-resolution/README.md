@@ -1,4 +1,4 @@
-# b5-resolution — is the margin too coarse to rank? No.
+# b5-resolution — margin resolution, adequate for ranking
 
 Last standing hypothesis after six knobs were eliminated. Precision at a high threshold needs
 fine-grained ranking; an FPTM margin is an integer sum over ~10 firing clauses whose votes sit near the
@@ -18,7 +18,7 @@ Top bucket is a single example at 100% purity. The ranking is fine-grained exact
 high-precision operating point needs it. 118 distinct levels over 56k examples is coarse in aggregate
 but not at the head, and the head is what matters.
 
-Consistent with the sweep rather than contradicting it: FPTM reaches 94% precision at ~12% recall,
+Consistent with the sweep instead of contradicting it: FPTM reaches 94% precision at ~12% recall,
 LightGBM reaches 94% precision at 46% recall. **Same precision, 4x the recall.** The limit is the
 *shape* of the PR curve — precision decays faster with recall — not its granularity.
 

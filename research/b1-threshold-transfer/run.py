@@ -22,15 +22,15 @@
 # PASS/FAIL: the claim REPLICATES if choosing the threshold honestly costs FPTM materially less F1 than
 #            it costs both boosters, as on APIGraph. It FAILS if the costs are comparable, or if the
 #            boosters lose less than FPTM does -- in which case threshold transfer joins drift robustness
-#            as a LAMDA-or-APIGraph artifact and the manuscript's claim (iii) has to go the same way as
+#            as a LAMDA-or-APIGraph artefact and the manuscript's claim (iii) has to go the same way as
 #            its predecessor.
 #
 #   julia --project=. -t 16 research/b1-threshold-transfer/export_margins.jl 3
 #   python research/b1-threshold-transfer/run.py
 #
-# Features are read from the .tmx matrices rather than the parquet release, even though the boosters
+# Features are read from the .tmx matrices in place of the parquet release, even though the boosters
 # elsewhere in this project read parquet. The reason is alignment: the Julia side exported row indices
-# into the .tmx files, so reading the same files makes "the same rows" provable rather than assumed. The
+# into the .tmx files, so reading the same files makes "the same rows" provable and not assumed. The
 # .tmx is the binarised feature matrix the parquet was converted into, so nothing about the features
 # changes. The label vectors are compared row for row before anything is computed.
 
@@ -206,12 +206,12 @@ def main():
           f"XGBoost {apigraph[2]}.")
     if np.mean(c_f) < min(np.mean(c_l), np.mean(c_x)):
         print("REPLICATES: choosing the threshold honestly costs FPTM less than it costs either booster")
-        print("here too, so threshold transfer is now a two-corpus result rather than a one-corpus one.")
+        print("here too, so threshold transfer is now a two-corpus result, not a one-corpus one.")
     else:
         print("DOES NOT REPLICATE: the ordering seen on APIGraph is absent here, so threshold transfer")
-        print("joins drift robustness as a single-corpus artifact and the manuscript claim must go.")
+        print("joins drift robustness as a single-corpus artefact and the manuscript claim must go.")
     print("Per-year figures only; no FAR mean is reported, because LAMDA's late-year malware counts are")
-    print("antivirus label lag rather than drift and a mean across them reports the lag as a result.")
+    print("antivirus label lag and not drift and a mean across them reports the lag as a result.")
     return 0
 
 

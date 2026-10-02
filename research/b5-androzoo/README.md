@@ -25,7 +25,7 @@ was fixed in advance precisely so it could not be reinterpreted afterwards, and 
 APIGraph, XGBoost is the stronger booster and comparing against the weaker one would have produced an
 apparent pass. This is the second dataset where that choice decides the verdict.
 
-## `s` is again not the explanation
+## `s` again excluded as the explanation
 
 The two FPTM arms differ by 0.26 and 0.23 F1, despite `s = width/S` moving by a factor of 3.7 between
 them (45.6 against 169.8). Across all three datasets now, matching `s` has changed results by under 2
@@ -33,7 +33,7 @@ points while the dataset has changed them by ten or more. Worth stating plainly:
 confound in encoder comparisons at differing widths, and it is not what is driving any of these
 cross-dataset results.** The control has now earned its keep twice by ruling itself out.
 
-## The finding that is actually new here
+## The genuinely new finding
 
 | | LAMDA | APIGraph | AndroZoo |
 |---|---|---|---|
@@ -50,11 +50,11 @@ This is the mechanism behind pre-registered prediction 1 appearing directly. At 
 absent" literal is satisfied by 97% of rows, so it costs a clause almost nothing to include and clauses
 hoard them; at 39% density that stops being true and the machine stops leaning on them. The prediction
 itself was wrong — LAMDA produced no pure blacklists — but the reasoning underneath it was sound, and
-this is the first evidence that **clause sign composition tracks input density rather than being a
+this is the first evidence that **clause sign composition tracks input density instead of being a
 property of the model**. That is a statement about how these machines work, not about malware, and it
 did not require a win to establish.
 
-## What the three datasets now say together
+## The three datasets taken together
 
 | dataset | density | malware | FPTM vs best booster |
 |---|---|---|---|
@@ -73,8 +73,7 @@ class. That is a genuine efficiency claim and not a performance one, and it shou
   data than its narrow standard deviation suggests.
 - **Hyperparameters carried over unchanged** except the `S` rescaling — correct for a replication, but
   `T` = 10 was derived for LAMDA and has never been tuned for a 10% base rate or a dense input. Whether
-  tuning closes a 5.45-point gap is untested, and testing it must be pre-registered separately rather
-  than used to convert this verdict.
+  tuning closes a 5.45-point gap is untested, and testing it must be pre-registered separately, not used to convert this verdict.
 - Gradient boosting here runs at 91–97% precision and 34–48% recall, a very different operating point
   from LAMDA's. Comparing single F1 values across such different precision/recall splits hides more
   than it shows; a threshold sweep would say more and has not been run.
@@ -89,5 +88,5 @@ julia --project=. -t 16 research/b5-androzoo/run.jl 10
 ```
 
 Raw output in `results.txt` and `baselines.txt`. An earlier run of `run.jl` printed `NARROWS` from a
-missing `baselines.json`, which was a NaN artefact rather than a verdict; the script now warns when the
+missing `baselines.json`, which was a NaN artefact and not a verdict; the script now warns when the
 file is absent, and that warning should be treated as invalidating the run.

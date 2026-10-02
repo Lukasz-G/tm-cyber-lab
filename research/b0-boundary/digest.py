@@ -1,7 +1,6 @@
 """Compute expected digests from the ORIGINAL Parquet, independently of the .tmx writer.
 
-The point is that the Julia side is checked against numbers derived from the source data rather than
-from the same code path that produced the file. Reading the .tmx back in Python would only prove the
+The point is that the Julia side is checked against numbers derived from the source data and not from the same code path that produced the file. Reading the .tmx back in Python would only prove the
 writer agrees with itself.
 
     python research/b0-boundary/digest.py > research/b0-boundary/expected.txt

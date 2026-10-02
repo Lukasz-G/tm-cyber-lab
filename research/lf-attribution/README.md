@@ -1,4 +1,4 @@
-# lf-attribution — what tolerance does to credit assignment, not to accuracy
+# lf-attribution — the effect of tolerance on credit assignment
 
 `LF` is the ceiling in the clause vote `max(0, ceiling − misses)`. At `LF = 1` the vote is
 `1[misses = 0]` — an ordinary conjunction, and so a **classical** Tsetlin machine. As `LF` grows the
@@ -30,17 +30,16 @@ largest; gini is 0 for an even spread and 1 for all mass on one feature.
 
 **Tolerance spreads attribution.** Going from the classical conjunction to `LF = 5`, the attribution
 support grows from 260–314 features to 478–498, and the mass held by the top ten halves, from 48–54% to
-25–27%. Gini falls from 0.79–0.83 to 0.74–0.76. The clause is genuinely scoring sub-patterns rather than
-one dominant conjunction.
+25–27%. Gini falls from 0.79–0.83 to 0.74–0.76. The clause is genuinely scoring sub-patterns and not one dominant conjunction.
 
 **And it stops.** Beyond `LF ≈ 5` nothing moves: support sits between 420 and 500 and the top-ten share
 between 24% and 27% all the way to `LF = 40`, an eightfold further increase in tolerance. The effect is
 real and it is bounded.
 
 **Clause size barely changes** — the median stays between 64 and 75 literals throughout. Tolerance
-redistributes credit among roughly the same-sized clauses rather than growing them.
+redistributes credit among roughly the same-sized clauses instead of growing them.
 
-## The control did its job
+## The control's contribution
 
 Sweeping `LF` alone would confound it with a mis-scaled `T`, since the published relation is
 `T ≈ sqrt(CLAUSES/2 · LF)`. Both policies were run, and **they agree on every direction**: support up,
@@ -62,7 +61,7 @@ attribution spread is about **1.6×** the classical model's, and it likewise doe
 Two independent measurements, on different quantities, both say the useful range of tolerance is small and
 bounded. **A large `LF` is not buying a proportionally richer model.**
 
-## What this licenses
+## Claims licensed
 
 - That tolerance is a **representational** parameter, not merely a capacity knob: it changes which
   features carry the model's decisions, not only how well it classifies.

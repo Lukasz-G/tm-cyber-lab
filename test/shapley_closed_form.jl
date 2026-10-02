@@ -3,8 +3,8 @@
 #   julia --project=. test/shapley_closed_form.jl
 #
 # B2's whole claim is that these attributions are exact where a KernelExplainer's are sampled, so
-# "exact" has to be demonstrated rather than asserted. Brute force is only tractable at ~14
-# features, which is why this runs on small trained models rather than on LAMDA — but the formula
+# "exact" has to be demonstrated, not asserted. Brute force is only tractable at ~14
+# features, which is why this runs on small trained models and not on LAMDA — but the formula
 # has no width-dependent term, so a small model exercises every branch.
 #
 # Two properties are checked, and they fail differently:

@@ -189,7 +189,7 @@ function main()
 
     # The boundary: an ordered rule list is not a sum over rules, so linearity over components — the
     # thing the construction rests on — does not apply. The formula should FAIL here, and it is worth
-    # showing that it does rather than claiming it would.
+    # showing that it does instead of claiming it would.
     worst_ord = 0.0
     for trial in 1:6
         rng = MersenneTwister(7000 + trial)

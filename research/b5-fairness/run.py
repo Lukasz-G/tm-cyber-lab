@@ -20,8 +20,8 @@
 #              c. ORACLE best-F1 on the test year itself -- kept only to quantify how much (b) costs,
 #                 since every earlier F1 in this project is an oracle value and readers of those need
 #                 to know the size of the correction.
-#            Dominance is recomputed on EVERY seed rather than seed 1, with spread reported.
-# PASS/FAIL: not a gate. It REPLACES numbers rather than deciding anything. The specific claim under
+#            Dominance is recomputed on EVERY seed, not seed 1, with spread reported.
+# PASS/FAIL: not a gate. It REPLACES numbers instead of deciding anything. The specific claim under
 #            test is the standing conclusion that FPTM is dominated on APIGraph at every configuration
 #            tried: that stands if boosters keep a higher average precision on every year once both
 #            are swept, and must be softened if FPTM matches or beats them on any year.
@@ -94,7 +94,7 @@ def f1_at(y, s, t):
 def frontier_beats(y, s_a, y_b=None, s_b=None):
     """
     Does frontier A reach ANY point strictly outside frontier B? Interpolates B's precision at A's
-    recall levels, so this is a curve-against-curve test rather than a point comparison.
+    recall levels, so this is a curve-against-curve test, not a point comparison.
     """
     pa, ra, _ = precision_recall_curve(y, s_a)
     pb, rb, _ = precision_recall_curve(y, s_b)

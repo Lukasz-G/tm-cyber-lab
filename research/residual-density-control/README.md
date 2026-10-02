@@ -1,11 +1,11 @@
-# residual-density-control — the pruning gain is identity, not density
+# residual-density-control — the pruning gain as a matter of identity
 
 `interp-residual-retrain/` found that zeroing the 38 attributed-but-not-frequent features and retraining
 improves F1 over 2019–2022 by **+5.28** against a size-matched random control. That control was matched on
 count and on nothing else, and this experiment exists because count is not the variable that decides how
 much the zeroing does.
 
-## Why the published control was not enough
+## Insufficiency of the published control
 
 **Zeroing is not sign-neutral.** It removes the evidence for a positive literal and *satisfies* a negated
 one, so what the intervention actually does to a clause depends on the sign its literals carry. And sign
@@ -16,9 +16,9 @@ The two sets are far apart on exactly that axis. The residual sits at a **11.1%*
 rate; a uniform draw from the nonzero-attribution support sits at **2.6%**. `blacklist-anatomy/` measured
 the consequence at 79.1% negated against 94.8%. So the uniform control was receiving a systematically
 *weaker* intervention than the residual, and the published +5.28 could in principle have been reporting
-density rather than which features were chosen.
+density and not which features were chosen.
 
-## Answer: identity. The better control makes the effect bigger, not smaller
+## Answer: identity, with a larger effect under the better control
 
 Arms 1–3 reproduce `interp-residual-retrain/` **to the decimal on all eight periods**, so arm 4 is read on
 exactly the same scale. Arm 4 replaces the uniform draw with 38 features matched *feature by feature* on
@@ -41,8 +41,7 @@ presence rate, from the same pool.
 | 2016–2018 | −1.12 | **−2.05** |
 
 **The verdict is the direction, not just the sign.** Closing most of the density gap *raises* the
-residual's advantage from +5.28 to +6.07. Density was masking part of the effect rather than
-manufacturing it, so the published figure was conservative. Had the matched control gained as much as the
+residual's advantage from +5.28 to +6.07. Density was masking part of the effect instead of manufacturing it, so the published figure was conservative. Had the matched control gained as much as the
 residual, the drift-forensics claim would have been withdrawn here; instead it survives its strongest
 available objection.
 
@@ -52,7 +51,7 @@ against 34.33 on 2017, 28.63 against 27.90 on 2018), which the uniform control d
 early periods it is not that pruning the residual is merely useless — pruning almost any dense set helps
 there, and pruning the residual specifically helps less. We still have no account of the split.
 
-## How good the match actually is, since a weak match would make this a non-result
+## Quality of the match, on which the verdict depends
 
 Partial, and the shortfall is reported because the verdict depends on reading it correctly.
 
@@ -69,14 +68,14 @@ residual is unusually dense for a set drawn from the attribution support.
 
 **That is why the direction matters more than the magnitude.** The confound is controlled only partway,
 and over that partial range it moves the effect *up*. Extrapolating a monotone trend, a perfect match
-would not reverse the sign. We state that as the reading of a partial match rather than as a measurement
+would not reverse the sign. We state that as the reading of a partial match and not as a measurement
 of a complete one.
 
 **One seed went the other way on sign.** On seed 4 the density-matched set landed at 94.59% negated,
 slightly *worse* than that seed's uniform control at 93.24%, because presence rate predicts sign on
 average and not per draw. The sign improvement is a mean over seeds, not a property of every seed.
 
-## What this licenses
+## Claims licensed
 
 - **Confirmed, against the strongest control we can build:** exact attribution computed from training-period
   data alone identifies a feature subset whose removal improves detection on 2019–2022 by ~6 F1 over a

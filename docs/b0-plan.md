@@ -100,16 +100,16 @@ never did: **Jaccard between runs of the same month**.
   substantially estimator variance, and the central B2 result is established before we train a
   single Tsetlin machine.
 - If it is **near 0**, the churn is real, B2 becomes the exact-decomposition result instead
-  (arms 2 and 3), and we will have found that out for the price of one afternoon rather than after
+  (arms 2 and 3), and we will have found that out for the price of one afternoon, not after
   building everything.
 
-Either outcome reshapes B2, which is why it comes before B1 rather than after. It is also the only
+Either outcome reshapes B2, which is why it comes before B1 and not after. It is also the only
 part of B0 that could produce something publishable, so if it does, that changes the paper's
-structure and should be discussed rather than absorbed.
+structure and should be discussed and not absorbed.
 
 ---
 
-## What B0 deliberately does not do
+## Deliberate exclusions from B0
 
 - No hyperparameter search. B1's gate is at a stated configuration; tuning before the gate turns a
   gate into a target.

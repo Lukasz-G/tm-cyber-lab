@@ -15,7 +15,7 @@ For any additive ensemble of rules whose output depends only on **how many** of 
 unsatisfied, not on which, exact Shapley values have a closed form costing `O((g+d)²)` per rule,
 independent of the feature count. The class takes in Fuzzy-Pattern and classical Tsetlin machines,
 *m*-of-*n* threshold ensembles and weighted rule ensembles. It provably excludes ordered rule lists and
-raw disjunctive rulesets, and that boundary is measured rather than assumed.
+raw disjunctive rulesets, and that boundary is measured, not assumed.
 
 | | |
 |---|---|
@@ -67,7 +67,7 @@ likely to save someone else a month.
   the threshold rule, not to the model.
 
 What the last withdrawal left behind is worth more than the claim it replaced, and it is a statement about
-how this area evaluates rather than about any model in it: **an oracle threshold inflates reported F1 by
+how this area evaluates and not about any model in it: **an oracle threshold inflates reported F1 by
 0.03 in distribution and by 7 to 19 points on drifted periods, peaking above 33**, unequally across model
 families. Two defensible-looking reporting choices therefore span more than most published effect sizes
 here. The deployable recommendation is to match the predicted positive rate, which needs only unlabelled
@@ -152,7 +152,7 @@ Datasets are not committed. LAMDA is `IQSeC-Lab/LAMDA` on HuggingFace (DOI 10.57
 
 Heavier sweeps run on a rented CPU box: `tools/vast_setup.sh` installs a pinned Julia and the pinned
 Tsetlin stack, `tools/fanout.sh` runs experiment arms in parallel and appends each result to one small
-log as it finishes. Cores go to arms rather than to making one run faster. Training can thread across
+log as it finishes. Cores go to arms, not to making one run faster. Training can thread across
 classes or across clauses, but at the clause budgets used here neither pays, and at the smallest the
 clause axis is slower than running serially. Scoring does thread across examples, bit-identically, which
 is what the attribution work needs.

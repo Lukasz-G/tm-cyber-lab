@@ -10,7 +10,7 @@
 #            size-matched random set, the residual is load-bearing and a narrow claim becomes
 #            defensible: the attribution finds features frequency misses, and they are features the
 #            model uses. If it costs no more than random, the residual is ranking noise, the retraction
-#            stands unqualified, and the interpretability line closes rather than staying open as a
+#            stands unqualified, and the interpretability line closes instead of staying open as a
 #            maybe.
 # ARMS:      six ablations of the test input, and the size-matched random pairs are the point:
 #              1. RESIDUAL      -- the model's top-100 minus what frequency also picks (~38 features).
@@ -24,7 +24,7 @@
 #                                  ablating these costs as much as the residual, attribution adds
 #                                  nothing over frequency even where they disagree.
 #              6. none          -- unablated, the reference F1.
-#            Arms 2 and 4 are drawn from the nonzero-attribution support rather than from all 4,561
+#            Arms 2 and 4 are drawn from the nonzero-attribution support and not from all 4,561
 #            features, because 4,065 of those features have exactly zero attribution and ablating them
 #            is guaranteed to do nothing. A random control over the full width would make any real set
 #            look load-bearing by comparison, which would be a rigged comparison.

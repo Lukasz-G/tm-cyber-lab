@@ -3,7 +3,7 @@
 # SURPRISE:  probably not, and that is the useful answer. With feature_fraction and bagging_fraction
 #            at their defaults of 1.0 there is no stochasticity left in LightGBM's tree building, so
 #            every seed should give a bit-identical model — in which case one run IS the mean and the
-#            caveat on B1 dissolves rather than needing to be measured away. If the seeds DO differ,
+#            caveat on B1 dissolves instead of needing to be measured away. If the seeds DO differ,
 #            we need the mean and the spread before claiming FPTM beats it on the FAR years.
 # ARMS:      five seeds of the same configuration. Nothing else varies, which is the point.
 # PASS/FAIL: not pass/fail. Either the seeds are identical (report LightGBM as deterministic and

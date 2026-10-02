@@ -1,4 +1,4 @@
-# interp-residual-retrain — does pruning the residual survive retraining, and every year?
+# interp-residual-retrain — pruning the residual, retrained and over every year
 
 `interp-residual/` found that forcing the 38 attributed-but-not-frequent features to zero *at inference*
 improves drifted-year F1 — by 10.32 on 2021. Two things were missing before that could be a
@@ -32,7 +32,7 @@ over the unpruned baseline. The direction holds and the effect is real, but the 
 relearns the shortcut, so the inference figure overstated it. That is the expected relationship, and it is
 the reason this arm was necessary.
 
-### But the effect splits by period, and the split is not noise
+### The split by period, and its distinctness from noise
 
 | periods | resid − random | resid − baseline |
 |---|---|---|
@@ -60,7 +60,7 @@ where the labels are least reliable, which is the opposite of the prediction abo
 clears ($-0.147$, $p = 0.22$), so thin months are not the explanation either. The hypothesis is dead and no
 replacement is offered — we have no account of the regime split.
 
-## What may now be claimed
+## Claims now permitted
 
 - **Confirmed:** exact attribution, computed from training data alone, identifies a 38-feature subset
   whose removal improves detection on later drifted periods by ~4 F1 over the unpruned model and ~5 over a
@@ -73,7 +73,7 @@ replacement is offered — we have no account of the regime split.
 - **Still not claimable:** anything about readable rules. This makes a feature set diagnostic, not a
   clause legible.
 
-## Why features are zeroed rather than dropped
+## Zeroing in place of dropping
 
 Deleting 38 of 4,561 columns changes the input width, and two things in this model depend on width: the
 effective specificity `s = width/S`, which in a sibling measurement accounted for more of an apparent
@@ -94,7 +94,7 @@ negated. So arm 3 is matched on count but not on the thing that governs how much
 control matched on presence rate is in `residual-density-control/`, and the verdict there supersedes the
 `resid - random` column here.
 
-## The mirror arm did not behave as predicted
+## The mirror arm's unpredicted behaviour
 
 `interp-residual/` found that ablating the frequency-only features *hurt* under drift, suggesting they
 were the more drift-stable set. Retrained, `zero-freqonly` is indistinguishable from baseline on most

@@ -6,7 +6,7 @@
 #            vocabulary STRIPPED: its parquet columns are feat_0 ... feat_4560, so no semantic check is
 #            possible on the primary corpus at all. APIGraph ships the real token names, and our packed
 #            matrix already carries them: 1,159 entries matching the 2012 selected vocabulary exactly.
-#            The design of the vocabulary makes this a sharp test rather than a browse. Of 1,159 features,
+#            The design of the vocabulary makes this a sharp test, not a browse. Of 1,159 features,
 #            615 (53.1%) are activitylist_ -- Java class names of app screens, which identify an
 #            application and tell a responder nothing transferable -- while the categories that constitute
 #            an indicator of compromise, requestedpermissionlist / usedpermissionslist / restrictedapilist

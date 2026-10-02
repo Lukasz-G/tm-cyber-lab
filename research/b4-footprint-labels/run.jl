@@ -90,7 +90,7 @@ function fit!(m, X, Y, seed; epochs=EPOCHS)
 end
 
 # ---------------------------------------------------------------------------------------------
-# Part A -- footprint, counted rather than quoted
+# Part A -- footprint, counted, not quoted
 
 """
 Bytes an FPTM occupies, split by what the bytes are FOR.
@@ -113,7 +113,7 @@ end
 
 function report_footprint(m, width)
     fp = footprint(m, width)
-    println("PART A -- footprint, counted from the model rather than quoted")
+    println("PART A -- footprint, counted from the model and not quoted")
     @printf("  clauses total (both classes, both polarities)  %d\n", fp.nclauses)
     @printf("  literals per clause (2 x width)                %d\n", 2width)
     @printf("  include masks  -- what INFERENCE needs          %8.1f KB\n", fp.masks / 1024)
@@ -132,7 +132,7 @@ function report_footprint(m, width)
     println("""
   The ~50 KB figure this project has cited is the include-mask row. A model that keeps
   learning carries the automaton row as well, so the small-footprint claim and the
-  online-updating claim cannot both be made about the same artifact.
+  online-updating claim cannot both be made about the same artefact.
 """)
 end
 

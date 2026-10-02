@@ -13,7 +13,7 @@
 # One structural difference to keep in view when reading the numbers: LAMDA's training pool is close to
 # balanced (~48% malware) while APIGraph is ~10%. Threshold transfer is a statement about where a
 # decision boundary sits, so the base rate is exactly the kind of thing that could make it behave
-# differently, and that is a reason to run this rather than to assume it.
+# differently, and that is a reason to run this, not to assume it.
 #
 #   julia --project=. -t 16 research/b1-threshold-transfer/export_margins.jl [nseeds]
 

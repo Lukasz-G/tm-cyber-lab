@@ -5,7 +5,7 @@
 #            class score is an integer margin, so it has a threshold to sweep like any scorer, and
 #            nobody has swept it. If the boosters' points lie INSIDE the swept FPTM curve, the model is
 #            dominated and the limitation is representational. If they lie ON or OUTSIDE it, six
-#            experiments' worth of single-point comparisons have been measuring a default rather than a
+#            experiments' worth of single-point comparisons have been measuring a default and not a
 #            capability, and the conclusions need revisiting.
 # ARMS:      the full FPTM precision/recall curve against the two boosters' single points. Sweeping the
 #            margin is itself the control: it removes threshold choice as an explanation, which is the

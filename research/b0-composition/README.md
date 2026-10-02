@@ -1,4 +1,4 @@
-# b0-composition — does our copy of LAMDA match the published one?
+# b0-composition — our copy of LAMDA against the published table
 
 **Calibration, not a finding.** Every later comparison against the published 97.49 / 59.48 / 47.24 F1
 is meaningless if we hold a different release than those numbers came from. This checks that we do.
@@ -16,8 +16,7 @@ is meaningless if we hold a different release than those numbers came from. This
 2015 absent as expected, 4,561 feature columns ⇒ 9,122 literals, 120 months present.
 
 Per-year malware counts also reproduce the figures the paper cites for the late years — 2023 = 7,892,
-**2024 = 794, 2025 = 23** against roughly 45,000 benign each. That collapse is antivirus label lag
-rather than drift, and it is the reason nothing here is ever reported as a single FAR mean across
+**2024 = 794, 2025 = 23** against roughly 45,000 benign each. That collapse is antivirus label lag, not drift, and it is the reason nothing here is ever reported as a single FAR mean across
 2018–2025.
 
 ## The one thing worth knowing: how to count families
@@ -93,5 +92,5 @@ Raw output in `results.txt`. The dataset is `IQSeC-Lab/LAMDA` on HuggingFace (DO
 
 `year_month` being present in the Parquet matters: the reference explanation-drift script reads
 monthwise `.npz` files from a path local to the authors' machine, which is not part of the release,
-so monthly splits here are derived by us from the released `year_month` rather than taken from their
+so monthly splits here are derived by us from the released `year_month` and not taken from their
 own monthly files.

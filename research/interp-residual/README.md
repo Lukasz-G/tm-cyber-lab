@@ -7,7 +7,7 @@ model's exact-attribution top-100. Its pre-registration said the remaining 38 li
 Ablation is at inference — the selected features are forced to zero — which is the right test for an
 attribution claim, since attribution asserts these features drive *this* model's output.
 
-## Answer: the residual is load-bearing, and what it bears is the model's overfitting
+## Answer: a load-bearing residual, bearing the model's overfitting
 
 $F_1$ **drops** from forcing each set to zero. Positive means the ablation hurt; negative means it
 *helped*. 3 seeds, sets sized 38 and 62 with size-matched random controls drawn from the
@@ -19,14 +19,14 @@ nonzero-attribution support.
 | 2019 | 76.85 | **−2.63** | −0.25 | +72.59 | −0.66 | +2.32 |
 | 2021 | 66.66 | **−10.32** | −1.24 | +66.50 | −1.59 | +3.71 |
 
-### 1. Sixty-two features are the model, and a frequency count finds all of them
+### 1. Sixty-two features as the model, all found by a frequency count
 
 Ablating the overlap set destroys the classifier: 95.59 → 6.74 on IID, and on 2021 it removes
 essentially all skill. Sixty-two features out of 4,561 carry the model. **They are exactly the features
 identifiable without any model at all**, which is the retraction in `interp-dataset-control/` restated as
-a causal fact rather than a rank correlation. A size-matched random set costs 0.30.
+a causal fact in place of a rank correlation. A size-matched random set costs 0.30.
 
-### 2. The residual is real — 18× random — but it is where the model fails to generalise
+### 2. A real residual at 18× random, and the locus of failed generalisation
 
 On IID the residual costs **2.17** against **0.12** for random at the same size, so the attribution is
 finding genuine model-specific structure that frequency misses. It is not ranking noise.
@@ -36,20 +36,19 @@ against 0.25 and 1.24 for random. The 38 features the attribution finds and a fr
 are the features that **do not survive the drift**. They are the model's overfitting to its training
 period, and exact attribution localises them.
 
-This is worth more than the readability claim it replaces, and it is a drift-forensics claim rather than
-an interpretability one, which fits this project's thesis better. **It is also an intervention:** the
+This is worth more than the readability claim it replaces, and it is a drift-forensics claim, not an interpretability one, which fits this project's thesis better. **It is also an intervention:** the
 residual is identified from training-period data alone — the attribution uses background and explained
 rows drawn from the 2013–14 pool and never touches a test year — so dropping those 38 features is
 something a deployment could actually do, for a 10-point gain on the worst year measured.
 
-### 3. Features the attribution dismisses are the more drift-stable ones
+### 3. The dismissed features as the more drift-stable ones
 
 `freq-only` is frequency's top-100 minus the model's: features a univariate ranking hands an analyst and
 the attribution ranks below the top 100. Ablating them costs almost nothing in-distribution (0.33) but
 **2.32 and 3.71 on the drifted years** — the mirror image of the residual. The model does use them, and
 what it draws from them travels better than what it draws from its own top-ranked idiosyncrasies.
 
-## What this licenses, and what it does not
+## Claims licensed and refused
 
 - **Claimable:** exact attribution separates, from training data alone, the features a model relies on
   that generalise from those that do not. The non-generalising set is small (38 of 4,561) and removing it
@@ -58,13 +57,13 @@ what it draws from them travels better than what it draws from its own top-ranke
   the ones a frequency count already supplies.
 - **Not claimable yet:** the 10.32-point gain. Three seeds and two drifted years is not enough, the
   effect is much smaller on 2019 than on 2021, and the obvious stronger arm — *retrain* without those
-  features rather than ablate at inference — has not been run. Ablation answers "does this model use
+  features, not ablate at inference — has not been run. Ablation answers "does this model use
   them"; retraining answers "is there a better model that ignores them", and only the second supports a
   recommendation.
 - **Not claimable:** anything about human-readable rules. Nothing here makes a clause legible; it makes a
   feature set diagnostic.
 
-## Why the random control is drawn from the support, not from all features
+## Provenance of the random control
 
 4,065 of the 4,561 features have exactly zero exact attribution, so ablating a random selection from the
 full width is guaranteed to do almost nothing. A random baseline over all features would have made any

@@ -48,7 +48,7 @@ Why the difference is so large: 2016 scores 84.83 and 2017 scores **33.36**. Poo
 average, so it is roughly the midpoint of a good year and a collapsed one.
 
 **FAR remains unresolved.** 2018–2022 averaged gives 57.42; extending to 2018–2025 gives 42.87;
-published is 47.24, which lies between. We do not know their year range, and rather than search for a
+published is 47.24, which lies between. We do not know their year range, and and not search for a
 subset that happens to reproduce 47.24 — which would be fitting a definition to a target — it is
 recorded as not reconstructible from the release.
 
@@ -71,7 +71,7 @@ never for FAR.
 **Degradation is not monotone in time.** 2018, the year immediately after training, is the worst year
 in the whole series — worse than 2022, four years further out — and 2019 is two and a half times
 better than 2018. The same holds for XGBoost, and (in `../b1-gate/`) for a Tsetlin machine, so it is a
-property of the data rather than of any model.
+property of the data and not of any model.
 
 Precision holds at 82–99% throughout while recall collapses from 97% to 15–59%. The failure mode is
 missed malware, not false alarms, which is the thing an operational paper should lead with.
@@ -79,10 +79,10 @@ missed malware, not false alarms, which is the thing an operational paper should
 A single mean over 2018–2022 is 57.42 — a number that describes neither 2018 nor 2019. Nothing in this
 project reports one.
 
-## Is gradient boosting deterministic here?
+## Determinism of gradient boosting here
 
 The B1 comparison puts a ten-seed Tsetlin mean against a single LightGBM run, so LightGBM's own seed
-variance has to be established rather than assumed. With `feature_fraction` and `bagging_fraction` at
+variance has to be established, not assumed. With `feature_fraction` and `bagging_fraction` at
 their defaults of 1.0 there should be no stochasticity left in the tree building.
 
 **It is deterministic.** Five seeds, `seeds.py`, raw output `seeds.txt`: all five produced
@@ -90,8 +90,8 @@ their defaults of 1.0 there should be no stochasticity left in the tree building
 0.0000 everywhere (IID 97.49, NEAR 72.12, 2018 28.32, 2019 72.22, 2020 67.77, 2021 53.87, 2022 64.90).
 
 So the single run *is* the mean, and comparing a multi-seed Tsetlin mean against one LightGBM number is
-correct rather than a shortcut. The caveat dissolves instead of needing to be averaged away — which is
-the cheaper outcome, and the reason the check was worth running rather than assuming either way.
+correct in place of a shortcut. The caveat dissolves instead of needing to be averaged away — which is
+the cheaper outcome, and the reason the check was worth running instead of assuming either way.
 
 Note what this does *not* say: LightGBM is deterministic **at this configuration**, because
 `feature_fraction` and `bagging_fraction` sit at their defaults of 1.0 and there is no stochasticity
@@ -101,7 +101,7 @@ left in the tree building. Turn either below 1.0 and the seed matters again.
 
 1. The paper describes holding out the last month of each training year; the release ships an 80/20
    stratified within-year train/test split. We use the released split, so "IID" here is the 2013–14
-   test portions rather than two held-out months. Given that IID reproduces to 0.00, this appears not
+   test portions, not two held-out months. Given that IID reproduces to 0.00, this appears not
    to matter.
 2. NEAR and FAR use whole years unless stated; the table above shows the held-out-only variant differs
    by under 0.3 F1.

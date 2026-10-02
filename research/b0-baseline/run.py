@@ -10,7 +10,7 @@
 #
 # Deviation to record: the paper describes holding out the last month of each training year, while
 # the release ships an 80/20 stratified within-year train/test split. We use the released split, so
-# IID here is the 2013-14 test portions rather than the two held-out months. NEAR and FAR use the
+# IID here is the 2013-14 test portions and not the two held-out months. NEAR and FAR use the
 # whole year. Per-year FAR is reported; the single FAR mean is printed ONLY to demonstrate that we
 # reproduce their figure, and is never used again.
 

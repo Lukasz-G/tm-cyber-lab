@@ -3,7 +3,7 @@
 # SURPRISE:  yes, and it is the last explanation standing. Seven knobs have been eliminated and three
 #            measurements point the same way: 80% of the training data is inert (6k rows equal 30k),
 #            10x the clauses buys +0.75 F1, and score resolution is adequate. If the extra clauses are
-#            near-duplicates, the ceiling is the feedback rule's pattern diversity rather than any
+#            near-duplicates, the ceiling is the feedback rule's pattern diversity and not any
 #            hyperparameter -- which makes it a tm-lab question, not a TM-Cyber one. If they ARE
 #            diverse, then diversity is fine and the limitation is that the patterns themselves are
 #            individually weak, which is a different and harder problem.

@@ -2,7 +2,7 @@
 #            from a chi-squared or frequency ranking of the raw training data?
 # SURPRISE:  yes, whichever way it lands, because the equivalent control in the sibling algorithm
 #            project RETRACTED its one interpretability positive: the readable words extracted from an
-#            IMDb model turned out to come from the dataset rather than from the model, and a plain
+#            IMDb model turned out to come from the dataset, not from the model, and a plain
 #            frequency ranking reproduced them. Nobody had checked. Here the prior is genuinely open --
 #            this model's tolerance came out at 14.5% of the clause, the regime that decomposed into
 #            genuine rules on MNIST, not IMDb's useless 1.7% -- so the control can pay off rather than
@@ -23,13 +23,13 @@
 #            A fifth ranking is reported alongside but is not an arm: inclusion frequency across
 #            positive-polarity clauses, which is Blakely & Granmo's Global Feature Strength. It is
 #            DATA-INDEPENDENT given a fixed model, so it cannot drift by construction, and it is here
-#            to keep the contrast with a data-conditional measure legible rather than to be tested.
+#            to keep the contrast with a data-conditional measure legible and not to be tested.
 # PASS/FAIL: not a gate, but it is decisive for what may be written. RETRACT every readability claim if
 #            a dataset ranking recovers most of the model's top-k -- concretely, if overlap with
 #            chi-squared or frequency reaches half the model's top-100. SURVIVES if dataset overlap
 #            sits near the random baseline. The interesting middle is a partial overlap, which licenses
 #            "the clauses select features a univariate ranking does not" only for the non-overlapping
-#            part, and that part has to be shown rather than asserted.
+#            part, and that part has to be shown, not asserted.
 #
 #   julia --project=. -t 16 research/interp-dataset-control/run.jl [nseeds]
 #

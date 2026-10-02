@@ -1,4 +1,4 @@
-# interp-dataset-control — can the model's feature list be had without the model?
+# interp-dataset-control — the model's feature list, without the model
 
 The control that gates every readability claim in this project. The equivalent control in the sibling
 algorithm project **retracted** its one interpretability positive: readable words extracted from an IMDb
@@ -9,7 +9,7 @@ Pre-registered criterion, written into the script header before the run:
 > RETRACT every readability claim if chi-squared or frequency recovers **half or more** of the model's
 > top-k. SURVIVES if they sit near the random baseline.
 
-## Answer: it fires. The readability claim is retracted.
+## Answer: a fired criterion, and a retracted readability claim
 
 LAMDA 2013–14 train, 150,090 rows, flat FPTM at the B1 gate configuration, 3 seeds. Overlap between
 the model's exact-Shapley top-k and each ranking's top-k.
@@ -25,15 +25,15 @@ the model's exact-Shapley top-k and each ranking's top-k.
 frequency clears it at k=500 too. The criterion was fixed in advance and it fires.
 
 The random column is why the others can be read: chance alone gives 4 of 100. So the overlap is
-emphatically not an artifact of the comparison — the model's ranking really is, substantially, the
+emphatically not an artefact of the comparison — the model's ranking really is, substantially, the
 dataset's ranking.
 
-### What survives, stated precisely
+### Precise statement of what survives
 
 About **38%** of the model's top-100 is *not* recovered by frequency and **46%** not by χ². That
 residual is real and is what an honest claim can be built on — but the pre-registration is explicit
 that it "licenses *the clauses select features a univariate ranking does not* only for the
-non-overlapping part, and that part has to be shown rather than asserted". It has not been shown. So:
+non-overlapping part, and that part has to be shown, not asserted". It has not been shown. So:
 
 - **Not claimable:** that this model's clauses give an analyst a readable account of what distinguishes
   malware. Most of what they point at, a one-line frequency count also points at.
@@ -44,9 +44,9 @@ non-overlapping part, and that part has to be shown rather than asserted". It ha
   univariate rankings miss. An ablation — drop the residual, keep the overlap, measure F1 — would
   answer it. Not run.
 
-## Prediction 1 is confirmed: the clauses are blacklists
+## Prediction 1 confirmed — blacklist-shaped clauses
 
-Pre-registered prediction 1 said the clauses would encode *absence* rather than presence, because
+Pre-registered prediction 1 said the clauses would encode *absence*, not presence, because
 Drebin features are sparse so "none of these tokens present" is the cheapest clause to learn. Measured:
 
 | bank | negated literals | total |
@@ -65,9 +65,9 @@ It matches `b5-androzoo/`, which found sign composition tracks input density (83
 density, 64.6% at 39%). LAMDA sits at ~3% density, so ~80% negated is the predicted value, and this
 confirms that relationship on a second dataset.
 
-## Inclusion frequency is not a proxy for Shapley here
+## Inclusion frequency as no proxy for Shapley here
 
-Reported alongside as a fifth ranking rather than as an arm: Blakely & Granmo's Global Feature
+Reported alongside as a fifth ranking and not as an arm: Blakely & Granmo's Global Feature
 Strength, the inclusion frequency of a feature across positive-polarity clauses. It overlaps the exact
 Shapley top-100 by **49.3 of 100** — about as far off as χ² (53.7) and *further* than plain frequency
 (62.0).
@@ -99,7 +99,7 @@ Flat FPTM, `clauses_per_class` 20, `T` 10, `S` 100, `L` 64, `LF` 10, 30 epochs, 
 ceiling, `parallel = :none`, tm-lab **43dba5f**, attribution threaded 16 ways and bit-identical.
 Attribution uses 100 background and 100 explained rows from the training period, matching the budget
 in `b2-drift/`. Between 447 and 482 of 4,561 features have nonzero exact attribution across the three
-seeds — sparsity is a consequence of the closed form rather than a threshold.
+seeds — sparsity is a consequence of the closed form and not a threshold.
 
 χ² and the frequency difference share a single pass over the training rows, so the two dataset
 rankings cannot disagree about the data.

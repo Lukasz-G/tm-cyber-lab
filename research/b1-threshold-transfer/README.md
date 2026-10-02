@@ -1,4 +1,4 @@
-# b1-threshold-transfer — does threshold transfer replicate on LAMDA?
+# b1-threshold-transfer — replication of threshold transfer on LAMDA
 
 `b5-fairness/` found on APIGraph that gradient boosting holds the better precision/recall frontier while
 its *operating point* does not survive drift. That was written up as an advantage which had survived a
@@ -9,7 +9,7 @@ advantage looked just as convincing and did not replicate.
 There was also a mechanism that could have broken it. LAMDA's pool is **48% malware** against APIGraph's
 **10%**, and threshold transfer is a claim about where a decision boundary sits.
 
-## Answer: it replicates, and the effect is larger here
+## Answer: replication, with a larger effect here
 
 ### (a) Threshold-free — the boosters keep the better frontier
 
@@ -40,7 +40,7 @@ Average precision, 3 seeds. Positive gap is against us.
 The only loss is IID, by 1.79, which matches the in-distribution deficit measured in `b1-gate/`. On 2021
 the margin over LightGBM is **25.5 F1**.
 
-### The mechanism, and it is stronger on LAMDA
+### The mechanism, stronger on LAMDA
 
 | | LAMDA | APIGraph |
 |---|---|---|
@@ -65,12 +65,12 @@ drift-robustness claim that did not. Both halves must still travel together: the
 genuinely better, and quoting only the F1 table would overstate the result in exactly the way the earlier
 comparisons did.
 
-## Why the base-rate difference matters and did not break it
+## The base-rate difference, and its limits
 
-Threshold transfer could plausibly have been an artifact of APIGraph's 10% base rate — a boundary placed
+Threshold transfer could plausibly have been an artefact of APIGraph's 10% base rate — a boundary placed
 in a sparse-positive regime might transfer for reasons that do not apply near balance. It survives at
 48%, and with a larger effect, so the mechanism is not base-rate dependent. That was the specific reason
-to run this rather than assume it.
+to run this and not assume it.
 
 ## Configuration and alignment
 
@@ -80,14 +80,12 @@ leaves — the same configuration used on APIGraph, so the two corpora are treat
 150,090 rows → 120,072 train / 30,018 validation via an interleaved split (every 5th row), 48.1% and
 47.8% malware.
 
-Features are read from the `.tmx` matrices on both sides rather than from the parquet release, because
-the Julia export indexes those files: reading the same files makes "identical rows" provable rather than
-assumed. **Both sides assert their label vectors match row for row before anything is computed**, and
+Features are read from the `.tmx` matrices on both sides, not from the parquet release, because
+the Julia export indexes those files: reading the same files makes "identical rows" provable and not assumed. **Both sides assert their label vectors match row for row before anything is computed**, and
 that passed on the validation slice and all seven test years. Test years are subsampled to 25,000 rows
 with a fixed seed.
 
-Per-year only; no FAR mean, because LAMDA's 2024–25 malware counts are antivirus label lag rather than
-drift and a mean across them would report the lag as a result.
+Per-year only; no FAR mean, because LAMDA's 2024–25 malware counts are antivirus label lag, not drift and a mean across them would report the lag as a result.
 
 ## Reproduce
 

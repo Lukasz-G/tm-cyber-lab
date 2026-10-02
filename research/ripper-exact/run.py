@@ -2,7 +2,7 @@
 #            RIPPER, a classical and entirely unrelated learner?
 # SURPRISE:  yes, and it is what decides whether this is a paper about Tsetlin machines or a paper about
 #            rule ensembles. The derivation needs only that a rule's output depend on HOW MANY of its
-#            literals are unsatisfied rather than which, and that the model sum its rules. Nothing in it is
+#            literals are unsatisfied, not which, and that the model sum its rules. Nothing in it is
 #            TM-specific. research/b2-generality/ verified that on constructed models; constructed models
 #            are a weak demonstration, because they were built by the same person who derived the formula.
 #            A ruleset induced by a 1990s separate-and-conquer algorithm on real malware data was not.
@@ -55,7 +55,7 @@ SRC = Path("data/apigraph/data/gen_apigraph_drebin")
 POOL = "2012-01to2012-12_selected.npz"
 
 # ---------------------------------------------------------------------------------------------
-# the closed form, reimplemented here from the derivation rather than ported from the Julia source
+# the closed form, reimplemented here from the derivation, not ported from the Julia source
 
 _LOGFACT = np.concatenate([[0.0], np.cumsum(np.log(np.arange(1, 1 << 16)))])
 

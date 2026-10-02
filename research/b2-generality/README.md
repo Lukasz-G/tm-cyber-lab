@@ -1,4 +1,4 @@
-# b2-generality — how far does the closed-form Shapley result reach?
+# b2-generality — the reach of the closed-form Shapley result
 
 The derivation of exact Shapley values for a fuzzy clause used exactly one property of the clause:
 that its output depends on **how many** of its literals are unsatisfied, not on which ones. Nothing
@@ -7,7 +7,7 @@ else about the response `max(0, ceiling − misses)` was needed.
 If that is really the only requirement, the result is not about Fuzzy-Pattern Tsetlin machines. This
 finds out which.
 
-## Answer: count-symmetry is the whole requirement.
+## Answer: count-symmetry as the whole requirement
 
 All 2¹³ coalitions brute-forced per case, six random models per arm, compared against the closed form.
 
@@ -31,14 +31,14 @@ fuzziness, tolerance, or Tsetlin machines.
 > number of features.
 
 Instances of that form include: Fuzzy-Pattern Tsetlin machines; classical Tsetlin machines (a clause
-is the `g(m) = 1[m = 0]` case, so the classical machine is a corollary rather than a separate
+is the `g(m) = 1[m = 0]` case, so the classical machine is a corollary in place of a separate
 derivation); m-of-n threshold ensembles; and **weighted rule ensembles of the RuleFit kind**, where a
 prediction is a sparse linear combination of indicator functions of conjunctive rules.
 
 That last one is what widens this from a Tsetlin result to a rule-learning result, and it reaches the
 rule-based drift literature directly.
 
-## The boundary, established by measurement rather than assertion
+## The boundary, established by measurement and not assertion
 
 An **ordered rule list** — RIPPER's "first matching rule wins" — is *not* in the class. The prediction
 is not a sum over rules, so Shapley's linearity over components, which the whole construction rests
@@ -50,7 +50,7 @@ and "we checked and it genuinely breaks here" is a stronger statement than "we e
 apply." It also means RIPPER itself is **not** covered, only unordered weighted rule ensembles — a
 distinction that has to be stated precisely, because it would be easy and wrong to claim otherwise.
 
-## Why it works
+## The mechanism
 
 The derivation only ever used the miss count. For a coalition `S`, partitioning a rule's literals by
 behaviour at the explained instance `x` versus the background `b`:
@@ -85,7 +85,7 @@ derived for the fuzzy case:
 ## Consequence for the paper
 
 The method contribution is now "exact Shapley values for additive ensembles of count-symmetric rules",
-with the Tsetlin machine as one instance and the classical machine as a corollary — rather than a
+with the Tsetlin machine as one instance and the classical machine as a corollary —, not a
 result about one model family. The malware application becomes the demonstration of what exactness
 buys, which is the ordering the project had been planning for on weaker grounds.
 
@@ -97,4 +97,4 @@ julia --project=. research/b2-generality/run.jl
 
 Raw output in `results.txt`. The production implementation, specialised to Tsetlin machines, is
 [`julia/shapley.jl`](../../julia/shapley.jl); this script carries its own generic implementation so
-that the generalisation is tested rather than assumed from the specialised one.
+that the generalisation is tested, not assumed from the specialised one.

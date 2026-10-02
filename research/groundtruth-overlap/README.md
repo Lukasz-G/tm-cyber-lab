@@ -1,4 +1,4 @@
-# groundtruth-overlap — what the attributed features actually are
+# groundtruth-overlap — the character of the attributed features
 
 This is the fifth of the five interpretability measurements this project required before any claim about
 what clauses mean, and the one that went unrun longest. It was singled out at the design stage as better
@@ -11,7 +11,7 @@ APIGraph ships the real token names, and our packed matrix already carries them 
 the 2012 selected vocabulary exactly. So the measurement is available on the secondary corpus and nowhere
 else.
 
-## Why the vocabulary makes this a sharp test and not a browse
+## The vocabulary as a sharp test
 
 | Drebin category | n | share | |
 |---|---|---|---|
@@ -67,7 +67,7 @@ At `k = 500` the advantage vanishes (40.4% against 38.8%), which is expected and
 attribution support is only 313–321 of 1,159 features, so `k = 500` is mostly ties among zeros. The same
 sparsity bound limits every top-`k` in this project above the support size.
 
-## The named profile, which is the part a reviewer will read
+## The named profile, and what a reviewer reads
 
 Ten features carrying the most exact attribution, seed 1:
 
@@ -93,7 +93,7 @@ hardcoded IP at rank 8 is the kind of concrete artefact a responder can pivot on
 attribution surfaces it in the top ten. One example is an anecdote, so this is reported as the
 qualitative difference it is and no claim is built on it.
 
-## What this licenses, and what it does not
+## Claims licensed and refused
 
 - **The attributed features on APIGraph are indicators**, at 85% of the top 20 against a 23% base rate,
   with app identity suppressed from 63.1% to 1.7%. This is the first claim in the project about what

@@ -94,7 +94,7 @@ def main(root):
         defs[f"mean of per-year F1, {portion}"] = (
             float(np.mean([per_year[(y, portion)][0] for y in lamda.NEAR_YEARS])),
             float(np.mean([per_year[(y, portion)][0] for y in lamda.FAR_YEARS])))
-    # FAR as the paper's own window (2018-2025) rather than our 2018-2022
+    # FAR as the paper's own window (2018-2025) in place of our 2018-2022
     full_far = [y for y in (2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025)]
     for portion in ("all", "test"):
         fy = []

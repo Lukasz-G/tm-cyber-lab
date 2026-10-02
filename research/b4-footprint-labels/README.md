@@ -1,10 +1,10 @@
-# b4-footprint-labels — what it costs to deploy, and what a label is worth
+# b4-footprint-labels — the cost of deployment, and the price of a label
 
-Two secondary claims, measured rather than quoted. One of them contradicts a figure this project has
+Two secondary claims, measured and not quoted. One of them contradicts a figure this project has
 cited about itself; the other kills the continual-learning claim and replaces it with something more
 useful.
 
-## Part A — the footprint claim is true, and it is not the claim we were making
+## Part A — the true footprint claim, and its difference from ours
 
 Counted from the trained model at the gate configuration, width 4,561, 40 clauses total:
 
@@ -17,7 +17,7 @@ Counted from the trained model at the gate configuration, width 4,561, 40 clause
 **The 3,300× advantage over gradient boosting is real and larger than advertised.** Even the updatable
 form is 400× smaller than the booster.
 
-**But the small-footprint and online-updating claims cannot be made about the same artifact.** The 50 KB
+**But the small-footprint and online-updating claims cannot be made about the same artefact.** The 50 KB
 model is inference-only: include masks and nothing else. A model that keeps learning must carry one
 automaton counter per literal per clause, which is 8× more. This project has cited both figures and
 should not cite them together without this distinction.
@@ -70,7 +70,7 @@ This is consistent with the project's standing position that "online learning so
 framing — applying a label is nearly free, producing one is not. The measurement now says the thing
 online updating was supposed to win at, it does not win at.
 
-### The caveat that bounds all three, and it is a real one
+### The real caveat bounding all three
 
 The budget is drawn from the **same year** as the test split (LAMDA splits each year 80/20), so these
 numbers measure **adaptation to a distribution already observed**, not forecasting. "250 labels recover
@@ -85,7 +85,7 @@ elsewhere in this repository (26.6 on 2018 against 28.1 measured there at 10 see
 
 | arm | role |
 |---|---|
-| **frozen** | what the labels buy. Without it every other column looks like an absolute score rather than an improvement |
+| **frozen** | what the labels buy. Without it every other column looks like an absolute score, not an improvement |
 | **retrain-recent** | the naive baseline, and the one that turned out to win |
 | **continual** | the claim under test |
 | **retrain-all** | the upper bound if labels are cheap and compute is not. Without it, continual beating retrain-recent would have looked like a win when it might only have been "more data helps" |

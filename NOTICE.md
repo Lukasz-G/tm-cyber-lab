@@ -10,10 +10,10 @@ project carries the upstream copyright notice **inline, in that file**, in addit
 file that merely implements something described in a paper does not.
 
 This project is expected to stay on the citation side of that line: it uses the Tsetlin stack as a
-library rather than transferring its internals. The one place to watch is the packed matrix format
+library instead of transferring its internals. The one place to watch is the packed matrix format
 in `docs/matrix-format.md` and its readers, which deliberately reproduce Tsetlin.jl's chunked input
-bit layout so that loading is a reinterpret rather than a conversion. That is a layout convention
-rather than transferred code, and it is noted here so the judgement is on the record.
+bit layout so that loading is a reinterpret, not a conversion. That is a layout convention
+and not transferred code, and it is noted here so the judgement is on the record.
 
 ## Code
 

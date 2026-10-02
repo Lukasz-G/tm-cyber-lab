@@ -1,7 +1,7 @@
 """Write and read the `.tmx` packed binary matrix -- the Python/Julia boundary.
 
 Format spec: docs/matrix-format.md. The on-disk bit layout is the layout TMCore's `TMInput`
-uses internally, so the Julia side loads a row by reinterpreting words rather than by
+uses internally, so the Julia side loads a row by reinterpreting words, not by
 converting bits.
 
 Nothing here knows about LAMDA. Dataset-specific work belongs in lamda.py.
@@ -40,7 +40,7 @@ def _pack(rows: np.ndarray) -> np.ndarray:
 
     Padding bits in the final word of each row are zero. TMCore requires clause include-masks
     to be zero there too, so a writer that leaves garbage in the padding produces a file that
-    trains differently -- hence the explicit zero pad rather than trusting the input's dtype.
+    trains differently -- hence the explicit zero pad instead of trusting the input's dtype.
     """
     if rows.ndim != 2:
         raise ValueError(f"expected a 2-D matrix, got shape {rows.shape}")

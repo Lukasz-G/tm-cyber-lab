@@ -2,11 +2,9 @@
 
     python -m tmcyber.build_tmx data/lamda/raw data/lamda/tmx
 
-One `.tmx` plus one `.meta.arrow` per year, and a single shared `features.arrow`. Per year rather
-than one combined file because months never span years, so a per-month slice only ever needs one
+One `.tmx` plus one `.meta.arrow` per year, and a single shared `features.arrow`. Per year, not one combined file because months never span years, so a per-month slice only ever needs one
 year loaded, and a 100k x 4,561 year is a comfortable 57 MB packed while the whole corpus would be
-574 MB. All 24 released files share the same feature column order, which is checked here rather than
-assumed.
+574 MB. All 24 released files share the same feature column order, which is checked here and not assumed.
 
 Column-name note: the Parquet calls the VirusTotal count `vt_count`; the sidecar stores it as
 `vt_detection`, which is the name the dataset's own metadata and paper use, and the name the matrix

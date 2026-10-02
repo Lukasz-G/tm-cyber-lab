@@ -1,4 +1,4 @@
-# b5-imbalance — is class imbalance the cause? No.
+# b5-imbalance — class imbalance excluded as the cause
 
 Strongest hypothesis on the cross-dataset evidence: width varies 15x and density 22x across our three
 datasets and neither tracks the outcome, but base rate does perfectly — LAMDA at 37% malware is where

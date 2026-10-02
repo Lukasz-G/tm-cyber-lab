@@ -1,4 +1,4 @@
-# b5-clause-length — does clause length or the (L, clauses, T) grid move the frontier?
+# b5-clause-length — clause length and the (L, clauses, T) grid against the frontier
 
 Boosters compose many shallow conjunctions; an FPTM clause here is one ~69-literal conjunction with
 tolerance 10. `L` sets that length and had been carried over from LAMDA unquestioned.
@@ -21,7 +21,7 @@ APIGraph, 3 seeds, judged on the swept frontier because the default threshold co
 | 64 | 200 | 32 | 70 | 72.94 | 6/6 | 6/6 |
 
 **`L` controls length precisely** — 8/16/32/64 give 12/19/36/68 literals, so clauses run 1.1–1.5x over
-it, consistent with `L` being a growth gate rather than a cap.
+it, consistent with `L` being a growth gate and not a cap.
 
 **The booster-shaped cell (8, 200) is the worst of the ten.** Many shallow conjunctions is the wrong
 prescription here.

@@ -10,12 +10,12 @@ What was wrong, and is now fixed:
 2. Dominance counts came from seed 1 while F1 averaged five seeds.
 3. The swept threshold was chosen on the same rows it was scored on — an oracle, not an operating point.
 
-## The two answers disagree, and both are real
+## Two disagreeing answers, both real
 
 APIGraph, 2012 pool split 80/20, train on the 80%, threshold chosen on the held-out 20%, tested per
 year. 5 seeds. ~10% malware throughout.
 
-### (a) Threshold-free: the boosters are ahead on every year
+### (a) Threshold-free — the boosters ahead on every year
 
 Average precision — the whole frontier, no threshold anywhere in it.
 
@@ -30,9 +30,9 @@ Average precision — the whole frontier, no threshold anywhere in it.
 
 **Mean gap +3.77 AP, ahead on 6 of 6.** The standing conclusion — that a 20-clause FPTM lies inside the
 gradient-boosting frontier on APIGraph — **survives** the fair comparison. It is not a threshold
-artifact.
+artefact.
 
-### (b) At a threshold you could actually deploy: FPTM is ahead on 5 of 6
+### (b) At a deployable threshold — FPTM ahead on 5 of 6
 
 Threshold picked on the held-out 20% of the 2012 pool, then applied unchanged to every test year — the
 number a deployment gets, with no access to the future.
@@ -48,7 +48,7 @@ number a deployment gets, with no access to the future.
 
 FPTM beats both boosters on five years and loses 2016 to XGBoost by 0.47.
 
-### Why they disagree: the oracle was worth far more to the boosters
+### The source of the disagreement: the oracle's value to the boosters
 
 | model | F1 given up by choosing the threshold honestly |
 |---|---|
@@ -128,7 +128,7 @@ honest-threshold fix would have had nothing to select a threshold on. It would n
 would have silently produced a meaningless threshold.
 
 The split is now interleaved (every 5th row), 10.0% malware in both halves, and the **exact indices are
-exported from Julia rather than the rule re-derived in Python**, so the two languages cannot disagree.
+exported from Julia in place of the rule re-derived in Python**, so the two languages cannot disagree.
 Both sides also assert that their label vectors match row for row before anything is computed — that
 check is what would have caught a silent misalignment, and it passed on the validation slice and all
 six test years.

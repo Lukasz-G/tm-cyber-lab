@@ -1,4 +1,4 @@
-# b2-drift — exact clause-level explanation drift, and what the sampled estimator was measuring
+# b2-drift — exact clause-level explanation drift, and the sampled estimator's target
 
 The measurement this project exists to make. `b0-noise-floor/` showed that LAMDA's reported
 explanation drift sits at its own estimator's noise floor — but it showed that by re-running the
@@ -8,7 +8,7 @@ without saying what the signal is. This measures the signal, exactly.
 Protocol fixed in advance in [`docs/clause-attribution.md`](../../docs/clause-attribution.md),
 pre-registered 2026-09-19 before any LAMDA model existed.
 
-## Answer: the explanation is far more stable than reported, and most of the reported churn is refitting
+## Answer: an explanation far more stable than reported, with most churn from refitting
 
 LAMDA, 88 months 2013-06 to 2022-12, flat FPTM at the B1 gate configuration, top-100 features.
 Jaccard `1 − |∩|/|∪|`, so **lower means more stable**.
@@ -44,7 +44,7 @@ learned is less stable than the data is. Arm 3 (0.661) sits above arm 1, and the
 rows instead of 100 — and moves the answer by 0.02. Whatever residual churn arm 2 shows is data, not
 the row sample.
 
-## Arm 4: the arm no published work can run
+## Arm 4 — beyond the reach of published work
 
 Sampled `KernelExplainer` against the closed form, **on the identical model**, with the data and the
 attribution target held fixed. This requires a model whose exact Shapley values are computable, which
@@ -66,7 +66,7 @@ it is barely determined at all.
 Every call at `nsamples=100` emitted the library's own warning that the sample count is too small to
 determine a regular solution.
 
-### The exact attribution is sparse, and that is why k=1000 should not be read here
+### Sparsity of the exact attribution, and the unreadability of k=1000
 
 Only **496 of 4,561** features have nonzero exact Shapley value on this model. A top-1000 set drawn
 from it is therefore more than half arbitrary — ties among zeros. The k=1000 arm-4 rows in
@@ -78,10 +78,10 @@ Sparsity is itself a consequence of the closed form: a clause's vote depends onl
 literals flip, so every feature outside the clauses' literal sets has value exactly zero. It is not a
 threshold or a regularisation choice.
 
-## What this licenses, and what it does not
+## Claims licensed and refused
 
 - That the published explanation-drift figure is **dominated by estimator variance and monthly
-  refitting**, with a measured decomposition rather than an inference from re-running.
+  refitting**, with a measured decomposition and not an inference from re-running.
 - That exact attribution on a nonlinear malware model is **cheap**: the whole 88-month series, three
   attribution passes per month, runs in about 25 minutes on 16 threads.
 - It does **not** license any claim that the clauses are human-readable. The tolerance ratio is
@@ -100,10 +100,10 @@ Quoted from the pre-registration so they cannot drift:
 - *"If arm 4 shows sampled and exact attributions agreeing closely, then `nsamples=100` was adequate
   despite appearances, and the estimator-variance hypothesis is wrong."* **Did not fire** — 0.851.
 - *"If the TM's own clause-level Jaccard is ≈ 0.9 with a near-zero noise floor, explanation drift is a
-  property of the problem rather than of the estimator."* **Did not fire.**
+  property of the problem, not of the estimator."* **Did not fire.**
 - The run's own invalidation condition — arm 1 landing at the same level as arms 2 and 3, meaning seed
   variation swamps everything — **did not fire**, but came closest: arm 1 sits between them and above
-  arm 2, which is why that is reported above rather than buried.
+  arm 2, which is why that is reported above and not buried.
 
 ## Interpretability diagnostic, recorded because any rule quoted later needs it
 
@@ -111,7 +111,7 @@ Fixed model, 2013–14: median **69 literals per clause**, `LF` = 10, so toleran
 clause. Pre-registered prediction 2 expected ~2% — IMDb's regime, where extracted rules are precise
 and useless — and is **wrong**, for the second time after `b0-sanity/`. 14.5% is nearer MNIST's 21%,
 which is the regime that decomposed into genuine rules. That makes the dataset control worth running
-rather than a formality.
+in place of a formality.
 
 ## Configuration
 
@@ -128,9 +128,9 @@ rather than a formality.
 
 2013 months before June, and 2015 entirely, are absent: LAMDA has no 2015, and months with fewer than
 100 rows in either portion are skipped. 2023–2025 are excluded because LAMDA's 2024 and 2025 malware
-counts are 794 and 23 against ~45,000 benign per year, which is antivirus label lag rather than drift.
+counts are 794 and 23 against ~45,000 benign per year, which is antivirus label lag, not drift.
 
-## A bug worth knowing about, since it is in shared code
+## A bug in shared code, worth knowing about
 
 `julia/shapley.jl` originally computed its binomial ratio in exact rational arithmetic with
 `binomial(big(n), big(k))`. Correct, and it is what the closed form was first verified against — but it
@@ -156,4 +156,4 @@ python research/b2-drift/arm4.py --big 1000                      # arm 4 -> resu
 `run.jl` takes optional `[nmonths] [nseeds]` for a short pass. `arm4.py` asserts that its own
 re-implementation of the clause vote reproduces the exported Julia scores exactly before it explains
 anything — a comparison against a mis-scored model would measure the port, so that check is a hard
-failure rather than a warning. It passed at max difference **0**.
+failure, not a warning. It passed at max difference **0**.

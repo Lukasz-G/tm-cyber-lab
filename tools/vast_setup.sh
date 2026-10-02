@@ -4,7 +4,7 @@
 #
 #   curl -sL https://raw.githubusercontent.com/<owner>/TM-Cyber/main/tools/vast_setup.sh | bash
 #
-# Why a script rather than a template: the rented image has no Julia, and the version matters --
+# Why a script and not a template: the rented image has no Julia, and the version matters --
 # a model serialized under one Julia can fail to load under another, and the Tsetlin stack is
 # pinned by commit, so pinning the runtime too is the cheap half of reproducibility.
 #

@@ -11,7 +11,7 @@ against itself. This checks the writer against the reader that actually feeds th
 expected.txt has one line per row: the sorted 1-based indices of that row's set bits, space
 separated. That is a representation both languages can produce independently, and it catches the
 failure that matters -- an off-by-one or endianness disagreement in the bit layout, which would
-silently train a different model rather than raise.
+silently train a different model, not raise.
 """
 
 from __future__ import annotations

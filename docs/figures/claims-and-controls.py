@@ -7,7 +7,7 @@ the headline claims did not survive, so nobody builds on them. And it shows that
 control fixed BEFORE the run, which is the part worth copying.
 
 The bottom band is there so the figure is not merely a list of failures. What the withdrawals left
-behind is a methodological finding that constrains other work rather than describing ours, and it is
+behind is a methodological finding that constrains other work instead of describing ours, and it is
 larger than the claim it replaced.
 
 ENCODING. One row per claim, read left to right as claim, control, verdict. The verdict column carries

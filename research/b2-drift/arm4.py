@@ -14,11 +14,11 @@
 #                 estimator's own reproducibility, which bounds how much of (a) is variance rather
 #                 than bias.
 #              c. sampled at a LARGER budget vs exact -- without it, a poor (a) could be blamed on
-#                 KernelExplainer being unsuitable here rather than on the budget being too small.
+#                 KernelExplainer being unsuitable here, not on the budget being too small.
 #                 If (c) improves on (a), the budget is the cause, which is the claim.
 # PASS/FAIL: not a gate. The pre-registered falsification is explicit: if sampled and exact agree
 #            closely at nsamples=100, the estimator-variance hypothesis is wrong and that is reported.
-#            The run is invalid rather than informative if Python's own re-implementation of the clause
+#            The run is invalid and not informative if Python's own re-implementation of the clause
 #            vote disagrees with the Julia scores exported alongside the model -- that is asserted
 #            before any explaining happens, because a comparison against a mis-scored model measures
 #            the port.
@@ -27,7 +27,7 @@
 #   python research/b2-drift/arm4.py [--nsamples 100] [--big 2000]
 #
 # Budget note: KernelExplainer's own default for M features is 2*M + 2048, which at LAMDA's 4,561 is
-# 11,170 coalitions. The LAMDA release uses 100. Arm (c) runs an intermediate budget rather than the
+# 11,170 coalitions. The LAMDA release uses 100. Arm (c) runs an intermediate budget and not the
 # full default purely for wall clock, and says so in the output, because the point it has to make is
 # only that the direction of travel is toward exact.
 

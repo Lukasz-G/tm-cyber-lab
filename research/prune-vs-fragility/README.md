@@ -1,4 +1,4 @@
-# prune-vs-fragility — does pruning help only where the labels are stable? No. The opposite.
+# prune-vs-fragility — the pruning gain against label stability, refuted in sign
 
 `interp-residual-retrain/` found the pruning gain splits by period: +5.28 F1 over a size-matched control
 across 2019–2022, −1.12 across 2016–2018. `b3-label-drift/` independently found 2017 and 2018 are exactly
@@ -28,7 +28,7 @@ The hypothesis predicted a **negative** correlation — pruning helping more whe
 measured correlation is **positive and significant**: pruning helps *more* where the labels are *more*
 fragile, by roughly double.
 
-## Verdict: rejected, and the paragraph is deleted rather than softened
+## Verdict — rejected, with the paragraph deleted
 
 The pre-registered criterion, fixed in the script header before the run:
 
@@ -41,13 +41,13 @@ The correlation is significant but of the opposite sign, which the criterion did
 script's branch logic reported as "AMBIGUOUS". That label is too generous: a hypothesis that predicts a
 negative association and meets a significant positive one is refuted, not unresolved. **The
 label-fragility paragraph has been removed from the manuscript**, per the `\todo` that accompanied it,
-which said to delete rather than soften if the check failed.
+which said to delete, not soften if the check failed.
 
 The control behaved: the association is not explained by month size (−0.147, p = 0.22), so the positive
-result is not an artifact of small noisy months. It is a real relationship pointing the other way, and we
+result is not an artefact of small noisy months. It is a real relationship pointing the other way, and we
 have no account of it. We do not offer one.
 
-## What this does not disturb
+## Findings left undisturbed
 
 The regime split itself is unaffected — it was measured in `interp-residual-retrain/` and stands: pruning
 gains ~5 F1 over a matched control on 2019–2022 and loses ~1 on 2016–2018. **What is now missing is any
@@ -65,8 +65,7 @@ needs months with enough rows to give a stable F1.
 
 ## Design notes
 
-Three arms — pruned, size-matched random control, and unpruned baseline — with features **zeroed rather
-than dropped**, so width, `S` and `s = width/S` are identical across arms and both pruned arms carry the
+Three arms — pruned, size-matched random control, and unpruned baseline — with features **zeroed, not dropped**, so width, `S` and `s = width/S` are identical across arms and both pruned arms carry the
 same dead-channel perturbation. The delta is pruned minus random, never pruned minus baseline.
 
 The **month-size control correlation is not optional**. Label fragility and sample size could easily move

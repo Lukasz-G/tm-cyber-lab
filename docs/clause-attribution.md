@@ -5,7 +5,7 @@ defensible and they are not equivalent, so choosing one after seeing which produ
 Jaccard curve would be choosing the headline. This file fixes the choice, the comparison protocol
 and the falsification conditions in advance.
 
-## 1. What is being measured, and against what
+## 1. The quantity, and its comparator
 
 LAMDA reports **explanation drift**: Jaccard and Kendall distances between consecutive months over
 the top-ranked SHAP features. On LAMDA the Jaccard sits close to 0.9 for top-100 features — the
@@ -15,7 +15,7 @@ is comparatively stable. On APIGraph the same measurement shows a gradual downwa
 A Jaccard of 0.9 is consistent with real explanation drift *and* with the attribution estimator
 being noisy. The question this work answers is which.
 
-## 2. What the reference measurement actually does
+## 2. The reference measurement's procedure
 
 Read from the released source (`code/section_4_concept_drift_analysis/4_5_shap_explanation_monthly_lamda.py`
 and `4_5_shap_explanation_graphs.py`), not from the paper text, because three details matter and
@@ -82,7 +82,7 @@ month at the gate configuration of 20 clauses per class, using the same 100 back
 explained budget as the reference. The full ~135-month series is about 15 minutes on one core, and
 scoring threads bit-identically across examples. At 200 clauses per class it is 28 s per month.
 **The exact computation is cheaper than the sampled approximation it replaces**, which is worth
-stating plainly rather than treating as a workaround for lacking a gradient.
+stating plainly instead of treating as a workaround for lacking a gradient.
 
 ### Rejected alternatives, and why
 
@@ -124,7 +124,7 @@ by the clause count: a model-intrinsic heuristic, not a Shapley value. They comp
 Wisconsin Breast Cancer (30 features) and report that the top-10 sets largely agree — a
 correspondence, explicitly not an identity. Classical Boolean-output TM, no fuzzy vote, no temporal
 analysis. Two things follow. First, the exact-Shapley result above is a different and stronger
-claim, and must be stated as *equal to* Shapley rather than *like* SHAP. Second, their measure is
+claim, and must be stated as *equal to* Shapley, not *like* SHAP. Second, their measure is
 **data-independent**, so under a fixed model it shows zero explanation drift by construction; it is
 worth reporting as an additional arm precisely because that makes the contrast with a
 data-conditional measure legible.
@@ -151,11 +151,11 @@ Fixed in advance, and matched to the reference wherever matching is possible.
 - **k.** 100 and 1000, both reported.
 - **Pairing.** Consecutive months.
 - **Budget.** 100 background and 100 explained rows per month, matching the reference, so that any
-  difference is attributable to the estimator rather than to sample size. Exactness is free here,
+  difference is attributable to the estimator, not to sample size. Exactness is free here,
   so a second arm at the full month is also reported — see arm 5.
 - **Window.** 2013–2022. Later years are excluded for the reason given in the repository README:
   LAMDA's 2024 and 2025 malware counts are 794 and 23 against roughly 45,000 benign per year, which
-  is antivirus label lag rather than drift.
+  is antivirus label lag and not drift.
 
 ### The five arms
 
@@ -171,8 +171,8 @@ Reported together, because the comparison between them *is* the result.
    on the identical TM. This is the direct measurement of estimator variance, with the model, the
    data and the attribution target all held fixed. No published work can run this arm, because it
    requires a model whose exact Shapley values are computable.
-5. **Budget sensitivity.** Exact attribution over the full month rather than 100 rows, to show how
-   much of any residual churn is the 100-row sample rather than the coalition sampling.
+5. **Budget sensitivity.** Exact attribution over the full month and not 100 rows, to show how
+   much of any residual churn is the 100-row sample in place of the coalition sampling.
 
 Arms 1 and 4 are the contribution. Arms 2 and 3 separate what the published number combines.
 
@@ -186,9 +186,8 @@ Stated now so the result cannot be reinterpreted later.
 - **If arm 4 shows sampled and exact attributions agreeing closely**, then `nsamples=100` was
   adequate despite appearances, and the estimator-variance hypothesis is wrong.
 - **If the TM's own clause-level Jaccard is ≈ 0.9 with a near-zero noise floor**, explanation drift
-  is a property of the problem rather than of the estimator, which is a *stronger* result for the
-  drift literature than the one this work set out to test, and must be reported as the headline
-  rather than buried.
+  is a property of the problem and not of the estimator, which is a *stronger* result for the
+  drift literature than the one this work set out to test, and must be reported as the headline, not buried.
 - **If the TM fails the detection gate**, none of this is reportable as a malware result, because
   attribution drift in a model that does not work is not evidence about malware.
 

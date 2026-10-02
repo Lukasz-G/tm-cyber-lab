@@ -1,7 +1,7 @@
-# b5-diversity — are the extra clauses duplicates? No.
+# b5-diversity — the extra clauses, and their non-duplication
 
 If 10× the clause budget buys 0.75 F1, the obvious explanation is that the extra clauses are copies and
-the feedback rule has saturated — which would make the ceiling a tm-lab problem rather than a TM-Cyber
+the feedback rule has saturated — which would make the ceiling a tm-lab problem, not a TM-Cyber
 one.
 
 ## Result: rejected
@@ -17,7 +17,7 @@ APIGraph, 3 seeds. Pairwise Jaccard over clause literal sets, against size-match
 
 Zero near-duplicate pairs at either budget. Diversity *increases* with budget (0.082 → 0.034). Trained
 overlap is 2.5–7× the random baseline, so clauses do share real structure — they are learning
-overlapping patterns rather than noise — but nowhere near duplication.
+overlapping patterns, not noise — but nowhere near duplication.
 
 **The random control is what makes this readable.** Sparse clauses over 1,159 features have low overlap
 by chance alone, so "overlap is low" is meaningless without knowing what chance looks like at matched

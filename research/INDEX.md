@@ -1,7 +1,7 @@
 # Experiment index
 
 Every experiment, its verdict, and whether it earns its place. Written so that pruning is a decision
-about which rows to delete rather than an archaeology exercise.
+about which rows to delete and not an archaeology exercise.
 
 Conventions and the required script header are in [README.md](README.md). Known-unfair comparisons and
 other outstanding gaps are in [../docs/open-issues.md](../docs/open-issues.md).
@@ -19,7 +19,7 @@ other outstanding gaps are in [../docs/open-issues.md](../docs/open-issues.md).
 
 | | verdict | keep? |
 |---|---|---|
-| [ripper-exact](ripper-exact/) | **The closed form verified on a learner we did not write.** RIPPER-induced rules, weighted into an additive ensemble, checked against brute force over all 2^13 coalitions: **max error 1.29e-14**, and the Python side is an independent reimplementation so it tests the derivation not the port. 0.7s at full width. **Arm 4 replicates**: sampled vs exact 0.765, sampled vs itself 0.765 — variance-not-bias is not a TM fact. Raw disjunctive RIPPER stays outside the class. | **core** — it is what makes this a rule-ensemble paper rather than a TM paper |
+| [ripper-exact](ripper-exact/) | **The closed form verified on a learner we did not write.** RIPPER-induced rules, weighted into an additive ensemble, checked against brute force over all 2^13 coalitions: **max error 1.29e-14**, and the Python side is an independent reimplementation so it tests the derivation not the port. 0.7s at full width. **Arm 4 replicates**: sampled vs exact 0.765, sampled vs itself 0.765 — variance-not-bias is not a TM fact. Raw disjunctive RIPPER stays outside the class. | **core** — it is what makes this a rule-ensemble paper in place of a TM paper |
 | [lf-attribution](lf-attribution/) | **Tolerance is representational, and it saturates.** From the classical conjunction (LF=1) to LF=5, attribution support grows 260→498 features and the top-10 mass halves (54%→25%); beyond LF≈5 an eightfold further increase moves nothing. Clause size is flat throughout. Both T policies agree, and coincide to the digit at LF=10. Matches the sibling finding that a fuzzy vote buys ~3x, not LFx. | keep — the one question a classical TM cannot be asked |
 | [b2-generality](b2-generality/) | **Count-symmetry + additivity is the whole requirement.** Exact closed-form Shapley verified for fuzzy clauses, conjunctions (⇒ classical TM as a corollary), m-of-n thresholds, and an *arbitrary* function of the miss count. Ordered rule lists provably outside the class (error 1.1e−1 vs 2e−13). | **core.** This is the paper's spine |
 
@@ -34,7 +34,7 @@ Implementation [`julia/shapley.jl`](../julia/shapley.jl), brute-force check
 | [b0-noise-floor](b0-noise-floor/) | **LAMDA's reported explanation drift sits at its own estimator's noise floor.** Same month, two runs: Jaccard 0.926. Consecutive months: 0.958. Same model, explainer re-run only: 0.926 — so it is coalition sampling at `nsamples=100` against 4,561 features, not monthly refitting. | **core** |
 | [b2-drift](b2-drift/) | **The measurement the project exists to make, all five pre-registered arms, 88 months.** Pure data drift is **0.294** against a reported 0.958. Monthly refitting contributes **more than the data** (arm3 − arm2 = +0.367). Arm 4 — impossible for published work, since it needs exact values — shows the sampled estimator lands as far from the truth (0.851) as from *itself* (0.889), so the error is **variance not bias**, and 10× the budget nearly halves it (0.496), so **the budget is the cause**. | **core.** With b2-generality this is the paper |
 
-Honest limits recorded in that README rather than here: arm 1 (two seeds, same month, **0.547**) sits
+Honest limits recorded in that README and not here: arm 1 (two seeds, same month, **0.547**) sits
 *above* arm 2, so at 20 clauses per class model variation exceeds month-to-month data drift; and only
 **496 of 4,561** features have nonzero exact attribution, so its k=1000 rows are mostly ties among
 zeros and must not be read.
@@ -45,7 +45,7 @@ zeros and must not be read.
 |---|---|---|
 | [interp-residual-retrain](interp-residual-retrain/) | **The pruning survives retraining, but splits by period.** Every arm retrained, 5 seeds, all 8 periods, features ZEROED not dropped so width / S / s and the dead-channel perturbation are identical across arms. Over **2019-2022 the gain is +5.28 F1** over a size-matched control (+3.96 over the unpruned model); over **2016-2018 it is -1.12** and hurts 2017 by 3.04. Four contiguous wins, three contiguous failures - so "5 of 7" satisfies the pre-registered count while hiding the structure. **Not an unconditional recommendation.** | **core** - it is the honest form of the pruning result |
 | [residual-density-control](residual-density-control/) | **The pruning gain is identity, not density, and the better control makes it bigger.** The published control was matched on count only; zeroing is not sign-neutral and sign is set by presence rate, where the residual sits at 11.1% against a uniform draw's 2.6%. Matched feature-by-feature on presence rate, the 2019-2022 advantage goes **+5.28 -> +6.07**, and arms 1-3 reproduce [interp-residual-retrain](interp-residual-retrain/) to the decimal. Match is partial (60% of the density gap), so the verdict is the direction. The regime split **deepens** (-1.12 -> -2.05). | **core** - it is what lets the drift-forensics claim stand |
-| [interp-residual](interp-residual/) | **The 38 features frequency misses are the model's overfitting.** Ablating the 62 overlap features destroys the classifier (−88.85 F1 on IID), so what carries the model is exactly what a frequency count finds. The residual is real — 18× random on IID — but **removing it IMPROVES drifted-year F1, by 10.32 on 2021**. Identified from training data alone, so it is a candidate intervention. Recasts attribution as drift forensics rather than readability. | **core**, with caveats — needs the full year sweep and a retrain-without arm |
+| [interp-residual](interp-residual/) | **The 38 features frequency misses are the model's overfitting.** Ablating the 62 overlap features destroys the classifier (−88.85 F1 on IID), so what carries the model is exactly what a frequency count finds. The residual is real — 18× random on IID — but **removing it IMPROVES drifted-year F1, by 10.32 on 2021**. Identified from training data alone, so it is a candidate intervention. Recasts attribution as drift forensics and not readability. | **core**, with caveats — needs the full year sweep and a retrain-without arm |
 | [groundtruth-overlap](groundtruth-overlap/) | **The attributed features are indicators, and this is the one semantic advantage of the model over the corpus.** APIGraph, whose vocabulary is released: the attributed top-20 is **85.0% indicator-class against a 23.0% base rate**, with app-identity features down from 63.1% to **1.7%**. At k=100 attribution beats a frequency count by **+12.7pp** indicator and **-17.0pp** identity, which set-overlap could not see because the two rankings agree on the set and differ on the ORDER. Named top-10 is a coherent premium-SMS profile. **LAMDA ships `feat_0...feat_4560`, so this is impossible on the primary corpus.** | **core** - measurement 5 of 5, and it took the longest to run |
 | [interp-dataset-control](interp-dataset-control/) | **RETRACTS every readability claim, by the criterion fixed before the run.** A plain document-frequency difference — no model at all — recovers **62 of the model's top-100** features; χ² recovers 54; chance gives 4. Also **confirms pre-registered prediction 1** in form but not in consequence: ~80% of included literals are *negated*, which reads as a blacklist until [blacklist-anatomy](blacklist-anatomy/) shows a random literal at this density is 94.8% negated. The reading that the clauses supply no indicator of compromise was withdrawn there. Blakely & Granmo's inclusion frequency overlaps exact Shapley by only 49/100, so it is not a proxy for it at this width. | **core** — a negative, and it decides what the paper may say |
 
@@ -53,14 +53,14 @@ zeros and must not be read.
 
 | | verdict | keep? |
 |---|---|---|
-| [prune-vs-fragility](prune-vs-fragility/) | **Refutes, in sign, the obvious explanation for the pruning regime split.** Predicted a negative correlation between the pruning gain and label fragility; measured **+0.253 (p=0.030, n=70 months)** — pruning helps roughly *twice as much* where labels are *least* reliable. Month-size control clears (−0.147, p=0.22). The manuscript paragraph was deleted rather than softened, as its own todo required. | keep — a clean refutation, and the pre-registration worked |
-| [b3-label-drift](b3-label-drift/) | **LAMDA's labels carry drift of their own.** Share of malware a threshold of 10 would relabel ranges **40%→80%** by year; in 2017–18 over half of malware sits at 4–6 detections. Largely separable from feature drift (rho **−0.344**, p=0.0015, n=82) with the benign-only control holding at +0.748. The year-resolution analysis gave the **opposite sign** and its pre-registered rule was under-specified — it tested a correlation without requiring significance. | keep — the label-fragility series is novel; the sign flip is a methodological caution |
+| [prune-vs-fragility](prune-vs-fragility/) | **Refutes, in sign, the obvious explanation for the pruning regime split.** Predicted a negative correlation between the pruning gain and label fragility; measured **+0.253 (p=0.030, n=70 months)** — pruning helps roughly *twice as much* where labels are *least* reliable. Month-size control clears (−0.147, p=0.22). The manuscript paragraph was deleted, not softened, as its own todo required. | keep — a clean refutation, and the pre-registration worked |
+| [b3-label-drift](b3-label-drift/) | **LAMDA's labels carry drift of their own.** Share of malware a threshold of 10 would relabel ranges **40%→80%** by year; in 2017–18 over half of malware sits at 4–6 detections. Largely separable from feature drift (rho **−0.344**, p=0.0015, n=82) with the benign-only control holding at +0.748. The year-resolution analysis gave the **opposite sign** and its pre-registered rule was under-specified — it tested a correlation without requiring significance. | keep — the label-fragility series has no published peer; the sign flip is a methodological caution |
 
 ## Deployment cost
 
 | | verdict | keep? |
 |---|---|---|
-| [b4-footprint-labels](b4-footprint-labels/) | **Footprint: 44.5 KB inference masks vs 144 MB for LightGBM (3,308×)** — but an *updatable* model carries automaton state too, 356 KB, 8× more, so the small-footprint and online-updating claims are not about the same artifact. **Label efficiency: the continual-learning claim fails.** Continual ≈ retrain-from-scratch within 1 F1 in all 20 cells. Two bigger findings fall out: **250 fresh labels beat 150,090 stale ones by 59 F1**, and **keeping the old data is worse than discarding it at every cell**. | keep — the footprint distinction and the recency-beats-volume result |
+| [b4-footprint-labels](b4-footprint-labels/) | **Footprint: 44.5 KB inference masks vs 144 MB for LightGBM (3,308×)** — but an *updatable* model carries automaton state too, 356 KB, 8× more, so the small-footprint and online-updating claims are not about the same artefact. **Label efficiency: the continual-learning claim fails.** Continual ≈ retrain-from-scratch within 1 F1 in all 20 cells. Two bigger findings fall out: **250 fresh labels beat 150,090 stale ones by 59 F1**, and **keeping the old data is worse than discarding it at every cell**. | keep — the footprint distinction and the recency-beats-volume result |
 
 ## Detection — B1 and the cross-checks
 
@@ -78,7 +78,7 @@ zeros and must not be read.
 *efficiency* claim — within roughly five F1 of the best of two boosters at a few hundred literals per
 class — not a performance one.
 
-## Why is FPTM dominated? Nine hypotheses, all rejected.
+## The dominance of the boosters: nine hypotheses, all rejected
 
 These six directories are one investigation. Prune aggressively; the conclusion is one paragraph.
 
@@ -127,6 +127,6 @@ Every F1 elsewhere in this repo is an oracle value; the correction is measured.
 - ~~Bibliography metadata~~ — **done 2026-09-30.** Every entry verified against the publisher's record,
   and every arXiv entry additionally against the first page of the PDF. Three carried substantive errors,
   not merely gaps: `lamda2025` had the lab name in place of seven authors, the "Graph Tsetlin Machine"
-  entry was titled after the model rather than the paper, and the TESSERACT follow-up was retitled in its
+  entry was titled after the model, not the paper, and the TESSERACT follow-up was retitled in its
   version 2. The 15 remaining bibtex warnings are structural — arXiv preprints have no volume or pages,
   and NDSS is unpaginated. PDFs are in the gitignored `papers/`.

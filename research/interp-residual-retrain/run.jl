@@ -1,4 +1,4 @@
-# QUESTION:  across every evaluation period, and when the model is RETRAINED rather than ablated at
+# QUESTION:  across every evaluation period, and when the model is RETRAINED, not ablated at
 #            inference, does removing the 38 attributed features a frequency ranking misses actually
 #            improve detection under drift?
 # SURPRISE:  yes, and it is the arm that decides whether the previous result is a recommendation or a
@@ -28,9 +28,9 @@
 #            coincidence.
 # PASS/FAIL: the intervention is REAL if arm 2 beats both arm 1 and arm 3 on a majority of drifted years,
 #            with the margin over arm 3 -- not over arm 1 -- being the claim, since arm 3 shares every
-#            confound. It is an ARTIFACT of inference-time ablation if arm 2 and arm 3 are comparable once
+#            confound. It is an ARTEFACT of inference-time ablation if arm 2 and arm 3 are comparable once
 #            the model is retrained, and in that case research/interp-residual/ must be restated as a
-#            property of a fixed model rather than as a candidate intervention.
+#            property of a fixed model and not as a candidate intervention.
 #
 #   julia --project=. -t 16 research/interp-residual-retrain/run.jl [nseeds]
 #
@@ -45,7 +45,7 @@
 # exactly the dead-channel effect measured in the sibling project at +0.0109 accuracy for 32 dead bits.
 # The defence is that arms 2, 3 and 4 each zero EXACTLY 38 features, so they carry an identical
 # dead-channel perturbation and the comparison between them is clean. Arm 1 does not, which is precisely
-# why the verdict rests on arm 2 against arm 3 rather than on arm 2 against arm 1.
+# why the verdict rests on arm 2 against arm 3, not on arm 2 against arm 1.
 
 include(joinpath(@__DIR__, "..", "..", "julia", "tmx.jl"))
 include(joinpath(@__DIR__, "..", "..", "julia", "shapley.jl"))
@@ -90,7 +90,7 @@ end
 """
 Copy of `X` with every feature in `drop` forced to zero, at the same width.
 
-Built row by row into packed TMInputs rather than held as dense Bool vectors: at 150k rows and width
+Built row by row into packed TMInputs and not held as dense Bool vectors: at 150k rows and width
 4,561 the dense form is ~700 MB while the packed form is ~86 MB, and nothing downstream needs the dense
 version.
 """

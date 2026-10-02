@@ -1,4 +1,4 @@
-# ripper-exact — the closed form on a rule ensemble that is not a Tsetlin machine
+# ripper-exact — the closed form on a non-Tsetlin rule ensemble
 
 `b2-generality/` proved the closed form needs only count-symmetry plus additivity, and verified it on
 constructed models. Constructed models are a weak demonstration: they were built by the same person who
@@ -17,7 +17,7 @@ activations. That is a standard interpretable model in its own right, and each r
 which is the ceiling-1 case of the fuzzy clause vote, since `max(0, 1 − misses) = 1[misses = 0]`. No
 separate derivation is needed and none is used.
 
-## Arm 1 — brute force says EXACT, on rules this project did not construct
+## Arm 1 — brute force on externally induced rules
 
 RIPPER refit on the 13 strongest features, every one of the 2¹³ coalitions enumerated, Shapley computed
 from the definition and compared against the closed form, over 6 (instance, background) pairs, with the
@@ -43,7 +43,7 @@ only the port.
 Cheaper than on the Tsetlin machine (6.7 s at the same budget), and for the same structural reason: cost
 scales with rule size, not with the feature count, and RIPPER's rules are short.
 
-## Arm 3 — the paper's central finding is not Tsetlin-specific
+## Arm 3 — the paper's central finding, beyond Tsetlin machines
 
 Sampled `KernelExplainer` at `nsamples=100` against the exact values, on this identical non-TM model:
 
@@ -53,15 +53,15 @@ Sampled `KernelExplainer` at `nsamples=100` against the exact values, on this id
 | 50 | **0.765** | **0.765** |
 
 The estimator lands as far from the truth as it lands from a second run of itself — identical to three
-decimals at k = 50. **The error is variance rather than bias here too**, which is the paper's central
+decimals at k = 50. **The error is variance and not bias here too**, which is the paper's central
 attribution result reproduced on a learner with no relationship to a Tsetlin machine.
 
 That matters for how the contribution should be read: it is a statement about sampled attribution at a
 realistic budget, and about what exactness buys, not a statement about one model family.
 
-## What this licenses
+## Claims licensed
 
-- **The scope claim in the paper is verified rather than asserted.** "Weighted rule ensembles" is in the
+- **The scope claim in the paper is verified and not asserted.** "Weighted rule ensembles" is in the
   class, demonstrated on an externally-induced ruleset, checked against brute force at 1e−14.
 - **The variance-not-bias result generalises** beyond Tsetlin machines.
 - It does **not** extend the class. Disjunctive RIPPER and ordered rule lists remain outside it, and the

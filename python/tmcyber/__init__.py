@@ -1,7 +1,7 @@
 """TM-Cyber: Tsetlin machines on Android malware concept drift.
 
 Python owns datasets, splits, baselines and statistics. Julia owns Tsetlin training, clause
-inspection and drift measurement. The boundary is the binarized feature matrix -- see
+inspection and drift measurement. The boundary is the binarised feature matrix -- see
 docs/matrix-format.md.
 """
 

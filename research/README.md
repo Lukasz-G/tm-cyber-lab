@@ -30,7 +30,7 @@ needs one cheap point, not a swept grid with seeds.
 
 **`ARMS` must name three, not two.** Every two-arm comparison in the sibling project turned out to
 be confounded — three times — and the isolating third arm changed the conclusion each time, once
-killing a premise rather than a tuning.
+killing a premise and not a tuning.
 
 Two specific controls, both learned the hard way:
 
@@ -51,12 +51,12 @@ Two specific controls, both learned the hard way:
   ~45,000 benign per year. That is AV label lag, not drift, and a mean across 2018–2025 reports the
   lag as a result.
 - **State the scope inside the claim** — "on LAMDA 2013–2022 at 20 clauses", not "about FPTM". A
-  single-dataset positive is provisional, and says so in the write-up rather than afterwards.
+  single-dataset positive is provisional, and says so in the write-up, not afterwards.
 - **Record the tm-lab commit** next to any number that depends on the machine's behaviour. The
   pinned commit is in `julia/bootstrap.jl`; a run against a local working copy via `TM_LAB_PATH` is
   not reproducible from this repository and must say so.
 - **Say which clause-vote ceiling policy was used.** The FPTM paper, the reference implementation
-  and the optimized fork disagree, and `TMCore` can express all of them. Two results reporting
+  and the optimised fork disagree, and `TMCore` can express all of them. Two results reporting
   "FPTM" are not necessarily reporting the same model.
 
 ## Data

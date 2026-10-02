@@ -1,4 +1,4 @@
-# b5-diagnosis — precision/recall decomposition, and is the clause budget binding?
+# b5-diagnosis — precision/recall decomposition, and the clause budget
 
 First step of the "why is FPTM dominated" line. B5 recorded only F1, which cannot separate *misses
 malware* from *cries wolf*.

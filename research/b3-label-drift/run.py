@@ -1,4 +1,4 @@
-# QUESTION:  is what LAMDA calls concept drift partly the LABEL BOUNDARY moving rather than the data
+# QUESTION:  is what LAMDA calls concept drift partly the LABEL BOUNDARY moving and not the data
 #            moving -- and are the two separable in time?
 # SURPRISE:  yes. Every drift paper on this dataset treats the labels as fixed ground truth and
 #            attributes all degradation to the features. But LAMDA's labels are a THRESHOLD on a
@@ -237,17 +237,17 @@ def main():
         print("dataset does not support a claim that separates them.")
     elif p_ld_m >= 0.05 or abs(r_ld) < 0.3:
         print("SEPARABLE at month resolution: label fragility carries no reliable linear relation to")
-        print("feature drift, so the two are distinct signals rather than one phenomenon seen twice.")
+        print("feature drift, so the two are distinct signals in place of one phenomenon seen twice.")
     else:
         print("WEAK ASSOCIATION at month resolution: real but small. Reportable as a caveat on any")
         print("claim that treats the labels as fixed, not as a result in itself.")
     if r_ab > 0.7 and p_ab_m < 0.05:
         print("The control holds: feature drift measured on unambiguously-benign samples tracks the")
-        print("all-sample series, so that series is not an artifact of the labels reshaping the")
+        print("all-sample series, so that series is not an artefact of the labels reshaping the")
         print("population being averaged over.")
     else:
         print("The control does NOT hold, which weakens every reading above: the all-sample feature")
-        print("series may be partly an artifact of which samples the labels admit.")
+        print("series may be partly an artefact of which samples the labels admit.")
 
     print("\n" + "-" * 70)
     print("Year-resolution verdict below, kept because it was the pre-registered rule, and it was")
@@ -256,7 +256,7 @@ def main():
     if abs(rho_ld) < 0.5 and rho_ab > 0.7:
         print("SEPARABLE: label fragility and feature drift move largely independently, while the")
         print("benign-only control tracks the all-sample series -- so the feature drift is not an")
-        print("artifact of the labels reshaping the population being averaged.")
+        print("artefact of the labels reshaping the population being averaged.")
     elif abs(rho_ld) >= 0.5:
         print("CONFOUNDED: label fragility and feature drift move together on this dataset, so a result")
         print("that claims to separate them is not supported here.")

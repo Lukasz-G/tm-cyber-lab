@@ -6,11 +6,11 @@
 #            (0.958 reported against a 0.926 floor, cause localised to coalition sampling). That
 #            established the published number cannot see a signal -- it did NOT establish what the
 #            signal is. Exact attribution has no sampling noise by construction, so whatever churn
-#            survives here is real. A LOW number says the published finding was an artifact and
+#            survives here is real. A LOW number says the published finding was an artefact and
 #            explanations are stable, which is the result this project was set up to test. A HIGH
-#            number says explanation drift is a property of the problem rather than of the estimator,
+#            number says explanation drift is a property of the problem and not of the estimator,
 #            which is a STRONGER result for the drift literature and, per the pre-registration, must
-#            then be reported as the headline rather than buried.
+#            then be reported as the headline, not buried.
 # ARMS:      the pre-registered five (docs/clause-attribution.md section 4), and the comparison
 #            BETWEEN them is the result, so none is a control for the others in the usual sense:
 #              1. noise floor -- same month, two seeds. For a TM this is model variation only, since
@@ -20,12 +20,12 @@
 #              3. model refitted per month, as the reference does. Arm 3 minus arm 2 is the
 #                 contribution of refitting, which the published number folds in silently.
 #              5. arm 2 over the month's whole test split instead of 100 rows, to show how much of
-#                 any residual churn is the 100-row sample rather than the coalition sampling.
+#                 any residual churn is the 100-row sample, not the coalition sampling.
 #            Arm 4 (sampled KernelExplainer against the closed form on the identical model) needs
 #            shap and therefore Python; it lives in arm4.py and is reported alongside.
 # PASS/FAIL: not a gate -- this is the measurement the paper is about, and every outcome is
 #            reportable. The pre-registered falsification conditions are what this is judged
-#            against, and they are quoted in the README rather than restated here so they cannot
+#            against, and they are quoted in the README and not restated here so they cannot
 #            drift. What would invalidate the run itself: arm 1 coming out at the same level as
 #            arms 2 and 3, which would mean seed variation swamps everything and the design cannot
 #            separate data drift from model variation at this clause budget.
@@ -37,7 +37,7 @@
 # explained rows from its test portion, importance = mean over explained rows of |phi|, Jaccard
 # 1-|∩|/|∪| and Kendall (1-tau)/2 over the union's importance values, k in {100, 1000}, consecutive
 # months, window 2013-2022. Later years are excluded because LAMDA's 2024 and 2025 malware counts
-# are 794 and 23 against ~45,000 benign per year, which is antivirus label lag rather than drift.
+# are 794 and 23 against ~45,000 benign per year, which is antivirus label lag, not drift.
 
 include(joinpath(@__DIR__, "..", "..", "julia", "tmx.jl"))
 include(joinpath(@__DIR__, "..", "..", "julia", "shapley.jl"))
@@ -305,7 +305,7 @@ function main()
         end
         report("3 refit per month", j3, k3, k)
 
-        # arm 5 -- fixed model, whole test split rather than 100 rows.
+        # arm 5 -- fixed model, whole test split and not 100 rows.
         j5 = Float64[]; k5 = Float64[]
         for i in 1:(length(months) - 1)
             push!(j5, jaccard(tk_full[i], tk_full[i + 1]))

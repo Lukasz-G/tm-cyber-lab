@@ -21,7 +21,7 @@ month-sliced read returns the same rows as slicing the full read. 1,008,381 rows
 
 Month slicing is comfortably fast enough for a ~120-month drift series.
 
-## Month coverage is irregular, and it matters downstream
+## Irregular month coverage, and its downstream effect
 
 The conversion surfaced something the composition check only hinted at. Coverage is not twelve months
 per year:

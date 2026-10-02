@@ -4,14 +4,14 @@
 #            LF is the ceiling in the clause vote max(0, ceiling - misses). At LF = 1 the vote is
 #            1[misses = 0], which is an ordinary conjunction and so a classical TM; as LF grows the clause
 #            keeps voting while several literals fail. Our closed form is built directly on that structure,
-#            so it can measure what tolerance does to credit assignment rather than only to accuracy.
+#            so it can measure what tolerance does to credit assignment, not only to accuracy.
 #            Two outcomes are interesting and they point opposite ways. If raising LF SPREADS attribution
 #            over more features, tolerance is buying genuine partial matching -- the clause really is
 #            scoring sub-patterns -- and the attribution support should grow. If attribution instead
 #            CONCENTRATES, the extra tolerance is being absorbed by a few literals doing the same work more
-#            loosely, which would make LF a capacity knob rather than a representational one, and would
+#            loosely, which would make LF a capacity knob in place of a representational one, and would
 #            bear on the sibling finding that a fuzzy vote buys about three times the resolution of its own
-#            binarisation rather than LF times.
+#            binarisation and not LF times.
 # ARMS:      LF in {1, 2, 5, 10, 20, 40}, each under TWO threshold policies, because sweeping LF alone
 #            would confound it with a mis-scaled T:
 #              1. T FIXED at 10, the gate configuration's value. Isolates what LF does at constant T, but

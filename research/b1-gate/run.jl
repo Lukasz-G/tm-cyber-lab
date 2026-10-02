@@ -4,7 +4,7 @@
 #            it win" but the SHAPE over time: our LightGBM is non-monotone in year (F1 28.3 in 2018
 #            against 72.2 in 2019), so whether a 20-clause model tracks that shape or a different one
 #            is informative either way. A model that degrades differently is a finding; a model that
-#            degrades identically says the drift is in the data rather than the hypothesis class.
+#            degrades identically says the drift is in the data and not the hypothesis class.
 # ARMS:      flat FPTM at 3 seeds, against LightGBM and XGBoost trained and evaluated by us on the
 #            IDENTICAL row sets (research/b0-baseline). The comparison is deliberately NOT against the
 #            published figures: our LightGBM reproduces their IID to 0.00 but exceeds their NEAR by

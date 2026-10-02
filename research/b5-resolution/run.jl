@@ -5,7 +5,7 @@
 #            frontier without moving it. Resolution is the only candidate left that explains the SHAPE
 #            of the failure: recall collapsing to 11.8% when 94% precision is demanded is what a large
 #            tied top-margin bucket looks like. The sibling project measured that a fuzzy vote buys ~3x
-#            its binarization's resolution rather than LFx, with firing votes near the bottom of
+#            its binarisation's resolution and not LFx, with firing votes near the bottom of
 #            [1, LF], so coarseness is expected -- what is unmeasured is whether it BINDS.
 # ARMS:      margin cardinality and top-bucket purity at 20 and 200 clauses, against the boosters'
 #            score cardinality on identical rows. The 200-clause arm is the discriminating one: if

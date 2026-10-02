@@ -1,6 +1,6 @@
 # QUESTION:  how much does reporting F1 at a threshold chosen on the evaluation data inflate it, and does
 #            the inflation grow with drift?
-# SURPRISE:  yes, and it is a statement about how this field evaluates rather than about any model. A
+# SURPRISE:  yes, and it is a statement about how this field evaluates and not about any model. A
 #            threshold picked to maximise F1 on the test period is an ORACLE: it uses labels a deployment
 #            does not have. The resulting number is an upper bound, and it is widely reported as though it
 #            were attainable -- including, until recently, everywhere in this project. What is not known is

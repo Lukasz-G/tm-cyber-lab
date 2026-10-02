@@ -1,7 +1,7 @@
 # QUESTION:  does forcing shorter, more specific clauses move FPTM's precision/recall frontier OUTWARD
 #            on APIGraph, or only along it?
 # SURPRISE:  yes. The threshold sweep established that FPTM is dominated by both boosters at their own
-#            operating points — so the limitation is representational rather than a threshold artefact
+#            operating points — so the limitation is representational in place of a threshold artefact
 #            — and that clause COUNT only slides along the frontier. The remaining structural suspect
 #            is clause LENGTH: a booster composes many shallow specific conjunctions, while a clause
 #            here is a single ~69-literal conjunction with tolerance 10. `L` is what sets that length,

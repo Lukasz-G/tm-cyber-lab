@@ -106,7 +106,7 @@ Sorted 1-based row indices matching the given metadata filters, ready for `read_
 Pass `year` and `month` as integers or as collections. `split` is one of `"train"`, `"iid"`,
 `"near"`, `"far"`, or a collection of them. A `far` slice should always be taken per year: the
 2024-25 malware counts collapse to 794 and 23 samples against ~45,000 benign, which is AV label
-lag rather than drift, so a FAR mean across 2018-2025 is not a meaningful number.
+lag and not drift, so a FAR mean across 2018-2025 is not a meaningful number.
 """
 matches(_, ::Nothing) = true
 matches(v, want::AbstractString) = v == want

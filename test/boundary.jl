@@ -5,7 +5,7 @@
 # Reads each fixture through the same code path training uses -- Tmx.read_inputs into TMInput --
 # and writes back the set-bit indices of every row. Python compares. A disagreement here means the
 # machine would train on different bits than the pipeline wrote, which is the kind of bug that
-# produces a plausible wrong number rather than an error.
+# produces a plausible wrong number, not an error.
 
 include(joinpath(@__DIR__, "..", "julia", "tmx.jl"))
 

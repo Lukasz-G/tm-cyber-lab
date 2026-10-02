@@ -53,7 +53,7 @@ def main(root):
     df = pd.concat(frames, ignore_index=True)
 
     # The paper labels benign at vt_detection == 0 and malware at >= 4, with [1,3] discarded, so the
-    # stored label should already be that partition; check rather than assume.
+    # stored label should already be that partition; check, not assume.
     df["label"] = df["label"].astype(int)
     total = len(df)
     malware = int((df["label"] == 1).sum())
@@ -61,11 +61,11 @@ def main(root):
 
     # Family counting convention, which the paper does not spell out and which matters:
     # AVClass2 names every unclustered sample `singleton:<sha256>`, so those strings are per-sample
-    # placeholders rather than families. The paper's "1,380 families" counts distinct NAMED families
+    # placeholders and not families. The paper's "1,380 families" counts distinct NAMED families
     # excluding both the singletons and the literal `unknown` bucket; its "150,604 singletons" is the
     # count of `singleton:*` strings. Counting naively instead gives 151,985 families and 151,075
     # singletons, because 471 named families happen to hold exactly one sample -- a real property of
-    # the data rather than an error, and the reason the two definitions diverge.
+    # the data, not an error, and the reason the two definitions diverge.
     fams = df.loc[df["label"] == 1, "family"].astype(str)
     fam_counts = Counter(fams)
     singleton_names = {k: v for k, v in fam_counts.items() if k.startswith("singleton:")}

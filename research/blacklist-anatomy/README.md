@@ -1,4 +1,4 @@
-# blacklist-anatomy — the "80% negated" figure is sparsity, not a property of what the model uses
+# blacklist-anatomy — the "80% negated" figure as a property of input sparsity
 
 `interp-dataset-control/` measured that about four in five included literals require a feature to be
 **absent**, and this project concluded from it that the clauses "give an analyst no indicator of
@@ -35,7 +35,7 @@ load-bearing features are present-in-malware indicators about half the time. **T
 clauses supply no indicator of compromise is withdrawn.** Pre-registered prediction 1 is confirmed on raw
 literal counts and the interpretation drawn from it was not.
 
-## The residual has no class signal at all, which explains the pruning result
+## The residual's absence of class signal, and the pruning result
 
 The 38 features a frequency ranking misses have `P(f | malware) = P(f | benign) = 0.112`, a ratio of
 **1.03**. They carry **zero** discriminative information in the training period.
@@ -64,7 +64,7 @@ pruning result should be read with this caveat until it is.
 
 `paper/figures/blacklist-anatomy.py` draws the two partitions on class-conditional presence axes. The
 overlap set sits below the diagonal, in the malware-enriched region; the residual sits on it. That is the
-whole finding in one picture, and the figure is what makes "no class signal" concrete rather than a
+whole finding in one picture, and the figure is what makes "no class signal" concrete in place of a
 number in a table.
 
 ## Arms

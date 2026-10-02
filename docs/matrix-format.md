@@ -1,13 +1,13 @@
 # `.tmx` — the Python/Julia boundary
 
-The project boundary is the **binarized feature matrix**. Feature extraction, dataset handling,
+The project boundary is the **binarised feature matrix**. Feature extraction, dataset handling,
 baselines and statistics are Python; Tsetlin training, clause inspection and drift measurement are
 Julia. Nothing crosses that line except a matrix, its row metadata, and a trained model.
 
-`.tmx` exists so that crossing is a `reinterpret` rather than a conversion: the on-disk bit layout is
+`.tmx` exists so that crossing is a `reinterpret`, not a conversion: the on-disk bit layout is
 the layout `TMCore`'s `TMInput` already uses internally.
 
-## Why not Arrow, Parquet or `Serialization` for the matrix itself
+## The case against Arrow, Parquet and `Serialization` for the matrix
 
 - Julia `Serialization` survives neither a Julia upgrade nor a struct rename. A format that cannot
   survive a Julia upgrade is not a format.
@@ -69,7 +69,7 @@ Feature **names** go in `<name>.features.arrow`, one row per column of the matri
 with at least a `name` column. Without it no interpretability claim can be checked against
 ground-truth indicators, so it is not optional.
 
-## Invariants a reader may assume, and a writer must guarantee
+## Invariants, for the reader and for the writer
 
 1. `n_cols` is the true feature count; the file may be longer than `n_cols` bits per row only by
    zero padding inside the last word.

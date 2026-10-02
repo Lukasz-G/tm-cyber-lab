@@ -1,4 +1,4 @@
-# b0-noise-floor — is the reported explanation drift real, or the estimator's own noise?
+# b0-noise-floor — the reported explanation drift against its estimator's noise
 
 LAMDA reports Jaccard distance "close to 0.9" between consecutive months over the top-100 SHAP
 features and reads it as **explanation drift**: the features the model relies on almost entirely turn
@@ -7,7 +7,7 @@ over month to month, while classification performance is comparatively stable.
 A Jaccard of 0.9 is equally consistent with real drift and with a noisy estimator. This measures
 which.
 
-## Answer: it is the estimator.
+## Answer: the estimator
 
 Nine months of the benchmark, three independent runs per month, top-100 features.
 
@@ -33,7 +33,7 @@ was high without saying whether the cause was refitting or sampling, and those h
 implications: refitting noise would be a property of the protocol, sampling noise is a property of the
 estimator at the budget used.
 
-## Why the estimator behaves this way
+## The estimator's mechanism
 
 The released script calls `shap.KernelExplainer(...).shap_values(X_test[:100], nsamples=100)` on
 4,561 features. `KernelExplainer`'s own default is `2·M + 2048`, which here is **11,170** coalitions.
@@ -80,14 +80,14 @@ where the protocol needs 100 background and 100 explained.
 3. **GPU, single machine, three runs per month.** More runs would tighten the standard deviations;
    they are already small relative to the effect.
 
-## What this licenses
+## Claims licensed
 
 - The statement that **the published explanation-drift figure sits at its own noise floor**, with the
-  cause localised to coalition sampling rather than to monthly refitting.
+  cause localised to coalition sampling, not to monthly refitting.
 - It does **not** license the statement that there is no explanation drift on this dataset. The
   measurement cannot see a signal underneath a floor this high; a different estimator might. That is
   what exact attribution is for, and it is the reason this result belongs *inside* a paper about exact
-  attribution rather than standing alone as a correction.
+  attribution instead of standing alone as a correction.
 
 ## Reproduce
 

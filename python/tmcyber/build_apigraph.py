@@ -44,7 +44,7 @@ POOL_RE = re.compile(r"^(\d{4})-(\d{2})to(\d{4})-(\d{2})_selected\.npz$")
 def feature_names(src: Path) -> list:
     """Feature names in column order, from the pool's `_selected_training_features.json`.
 
-    The JSON is a name -> column-index mapping, so it must be inverted rather than iterated.
+    The JSON is a name -> column-index mapping, so it must be inverted, not iterated.
     """
     cands = sorted(glob.glob(str(src / "*_selected_training_features.json")))
     full = [c for c in cands if "to" in Path(c).name and "full" not in Path(c).name]

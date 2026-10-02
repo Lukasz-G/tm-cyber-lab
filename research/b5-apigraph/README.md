@@ -1,4 +1,4 @@
-# b5-apigraph — the drift advantage does not replicate
+# b5-apigraph — non-replication of the drift advantage
 
 **This is a negative result and it is the most important experiment in the project so far.**
 
@@ -25,7 +25,7 @@ Pre-registered criterion: within 5 F1 on the first test year *and* ahead on a ma
 The first condition holds (−1.37). The second fails — **ahead on 1 of 5**, and against XGBoost behind
 on all six.
 
-## What the third arm rules out
+## The exclusion the third arm buys
 
 The two FPTM columns exist because `s = width/S` has confounded a comparison in this project's sibling
 before, once accounting for more of an apparent effect than the thing being measured. LAMDA ran width
@@ -36,7 +36,7 @@ the explanation. Without this arm, "the result did not replicate" would have bee
 from "we changed `s` and it broke", and those have completely different consequences. The dataset is
 the explanation.
 
-## A detail that would have flattered us
+## A detail in our favour
 
 On LAMDA, LightGBM and XGBoost were close (97.49 / 97.18 on IID, within 3 points on every FAR year).
 On APIGraph they are **not**: XGBoost beats LightGBM by 4–12 points on every year after 2013, reaching
@@ -46,7 +46,7 @@ The single year where FPTM is ahead of LightGBM, 2018, is precisely the year whe
 and FPTM is 7.6 points *behind* XGBoost there. Had this experiment carried only LightGBM — the model
 LAMDA's own paper leads with — the table would have read as a partial replication. It is not one.
 
-## What survives and what does not
+## Survivals and casualties
 
 **Does not survive:** any claim that Fuzzy-Pattern Tsetlin machines are more robust to concept drift
 than gradient boosting. That was a LAMDA result and it is now scoped to LAMDA. It should not appear in
@@ -59,16 +59,16 @@ hundred literals per class. That is a real and useful claim, and a weaker one th
 **Untouched:** the method result (exact Shapley in closed form for additive count-symmetric rule
 ensembles) and the noise-floor result (LAMDA's reported explanation drift sits at its own estimator's
 floor). Neither depends on the detector winning anything. The project's spine was already the method
-rather than the detector, which is the only reason this negative result costs a section rather than the
+in place of the detector, which is the only reason this negative result costs a section, not the
 paper.
 
 ## Limitations, including one that cuts both ways
 
 - **Hyperparameters were carried over unchanged**, only `S` rescaled. That is the right protocol for a
-  replication — tuning per dataset would be fitting rather than testing — but it means "does not
+  replication — tuning per dataset would be fitting instead of testing — but it means "does not
   replicate" partly overlaps with "was not tuned for a 10% base rate", and `T` = 10 was derived for
   LAMDA's configuration. Whether tuning changes the conclusion is **untested**, and if it is tested it
-  has to be pre-registered as its own question rather than used to rescue this one.
+  has to be pre-registered as its own question and not used to rescue this one.
 - **These are not the APIGraph authors' features.** APIGraph releases only MD5 hashes, so this uses the
   Drebin extraction published with Chen et al., *Continuous Learning for Android Malware Detection*
   (USENIX Security 2023) — almost certainly the same data LAMDA's own APIGraph comparison used, given

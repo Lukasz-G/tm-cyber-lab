@@ -1,4 +1,4 @@
-# threshold-bias — the decision threshold is worth up to 33 F1, and the amount grows with drift
+# threshold-bias — the decision threshold at up to 33 F1, growing with drift
 
 A reanalysis, not a new run: it reads the `RESULT` lines already written by `b5-fairness/`,
 `b1-threshold-transfer/` and `calibration-check/`. The question is not which model wins but how much the
@@ -25,7 +25,7 @@ combinations: 6.21; on drifted periods only, 8.61.
 **In distribution the inflation is essentially zero — 0.03 for all three models on LAMDA. It is a
 drift-specific bias**, and it grows precisely where a temporal-evaluation paper locates its contribution.
 
-## Why this is a field observation and not a model comparison
+## A field observation in place of a model comparison
 
 Three things make it more than a curiosity about our own numbers.
 
@@ -59,13 +59,13 @@ Mean oracle gap by rule, from `calibration-check/`:
 Rate matching sets the threshold so the predicted positive rate on the test period equals the rate the
 validation threshold produced. It needs **only unlabelled test features**, so a deployment can run it, and
 it closes most of the gap for every model. Note it helps the boosters more than it helps us — which is
-why this is advice about thresholding rather than a claim about model class.
+why this is advice about thresholding in place of a claim about model class.
 
-## What we do *not* claim
+## Limits of the claim
 
 **We do not claim that specific published work reports oracle thresholds.** We checked the benchmark used
 here: its paper states that "no task-specific tuning or dataset-specific hyperparameter adjustments are
-performed", which reads as defaults rather than oracles. The claim is narrower and still worth making:
+performed", which reads as defaults and not oracles. The claim is narrower and still worth making:
 
 - the threshold rule is a free parameter worth more than the effects typically reported;
 - it is usually **unstated**, so a reader cannot tell which of the three numbers a table contains;

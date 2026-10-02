@@ -1,11 +1,11 @@
-# b3-label-drift — is some of LAMDA's "concept drift" the label boundary moving?
+# b3-label-drift — LAMDA's "concept drift" against movement in the label boundary
 
 Every drift result on this dataset treats the labels as fixed ground truth. They are not: malware means
 `vt_detection >= 4`, benign means exactly 0, and `[1,3]` is discarded. That is a threshold on a
 continuous, vendor-generated quantity, and if the detection-count distribution moves then samples cross
 the boundary for reasons that have nothing to do with the APK.
 
-## First, what this is not
+## First, the exclusions
 
 Pre-registered **prediction 5** concerns LAMDA's Appendix F — samples whose VirusTotal verdicts
 *strengthened, weakened or flipped* between two scans (10,289 weakened in 2017, and so on). That needs
@@ -17,9 +17,9 @@ repository's experiment index, which was **wrong and has been corrected**. So **
 and blocked on asking the authors** — it is not reinterpreted, withdrawn or quietly satisfied by what
 follows. What follows is a weaker, runnable question about the same worry.
 
-## Answer: the label boundary does move, and it is a largely separate signal from feature drift
+## Answer: real movement in the label boundary, largely separate from feature drift
 
-### Arm 1 — the label is not stable
+### Arm 1 — instability in the label
 
 Share of each year's malware that a threshold of 10 detections would relabel benign:
 
@@ -44,7 +44,7 @@ also the year LAMDA's Appendix F reports its spike in weakened verdicts. Two dif
 two different quantities pointing at the same year is suggestive, not evidence — but it is the reason
 to keep asking the authors for the Appendix F series.
 
-### Arms 2 and 3 — feature drift, and the control that makes it readable
+### Arms 2 and 3 — feature drift, and its readability control
 
 L1 distance between consecutive years' per-feature presence rates:
 
@@ -72,17 +72,16 @@ drift measured on them is pure data drift with the label question removed.
 85 months with ≥200 rows.
 
 **The control holds.** All-sample feature drift tracks benign-only feature drift at +0.748, so the
-feature series is not an artifact of the labels reshaping which samples get averaged.
+feature series is not an artefact of the labels reshaping which samples get averaged.
 
 **The two signals are weakly and *negatively* related.** Months with more feature drift tend to have
 *less* fragile labels. Real (p = 0.0015) but small, and it is not the confounding that would sink the
 separability claim — if label fragility and feature drift were the same phenomenon seen twice, the
 correlation would be strongly positive. It is not.
 
-So: **largely separable, with a weak negative coupling that belongs in any write-up as a caveat rather
-than as a finding.**
+So: **largely separable, with a weak negative coupling that belongs in any write-up as a caveat and not as a finding.**
 
-## The year-resolution analysis got the sign wrong, and that is the methodological point
+## The wrong sign at year resolution, as the methodological point
 
 The rule was pre-registered in the script header: *separable* if |rho| < 0.5 with the control tracking,
 *confounded* if |rho| ≥ 0.5. At year resolution it returned **rho +0.548, p = 0.160** and therefore
@@ -93,7 +92,7 @@ threshold **without requiring significance**, which at eight transitions it cann
 resolution the same quantity is **−0.344** — the opposite sign — with p = 0.0015.
 
 Both are kept in `results.txt`. A rule fixed in advance is not worth much if it is fixed at a
-resolution that cannot answer the question, and the honest response is to say so rather than to quote
+resolution that cannot answer the question, and the honest response is to say so, not to quote
 whichever number reads better.
 
 ## Arms
@@ -102,9 +101,9 @@ whichever number reads better.
 |---|---|---|
 | 1 | label fragility per period | the thing nobody measures |
 | 2 | feature drift, all samples | the thing everybody measures |
-| 3 | **feature drift, benign only** | the control. `vt_detection == 0` is threshold-independent, so drift here cannot be a labelling artifact. Without it, a correlation between 1 and 2 could not be told apart from the labels reshaping arm 2's population |
+| 3 | **feature drift, benign only** | the control. `vt_detection == 0` is threshold-independent, so drift here cannot be a labelling artefact. Without it, a correlation between 1 and 2 could not be told apart from the labels reshaping arm 2's population |
 
-## What this licenses
+## Claims licensed
 
 - That **LAMDA's labels carry drift of their own**, with fragility varying 40–80% by year, and that a
   paper treating them as fixed ground truth is making an unstated assumption.

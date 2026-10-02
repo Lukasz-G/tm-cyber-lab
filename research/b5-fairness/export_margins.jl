@@ -5,7 +5,7 @@
 #      cut. A swept model against an unswept one is not a comparison.
 #   2. dominance counts came from seed 1 only, while the F1 figures averaged five seeds.
 #   3. the swept threshold was chosen on the same data it was scored on, so it is an oracle value
-#      rather than an operating point a deployment could reach.
+#, not an operating point a deployment could reach.
 #
 # Fix for (3) drives the design: the 2012 pool is split 80/20, training uses the 80% and the threshold
 # is chosen on the held-out 20%, then applied unchanged to every test year. That means this trains on
@@ -13,10 +13,10 @@
 # experiment's -- but both models here see exactly the same 80%, which is what makes the comparison
 # itself fair. run.py trains the boosters on the identical split, using the indices exported here.
 #
-# The split is INTERLEAVED (every 5th row) rather than a contiguous tail. A contiguous tail was tried
+# The split is INTERLEAVED (every 5th row) and not a contiguous tail. A contiguous tail was tried
 # first and produced a validation slice containing 0.0% malware, because the 2012 pool is ordered by
 # class -- so the honest-threshold fix would have silently had no positives to choose a threshold on.
-# Exporting the indices rather than the rule is what makes the two languages provably agree.
+# Exporting the indices in place of the rule is what makes the two languages provably agree.
 #
 #   julia --project=. -t 16 research/b5-fairness/export_margins.jl [nseeds]
 

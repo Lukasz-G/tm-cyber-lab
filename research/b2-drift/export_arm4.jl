@@ -9,7 +9,7 @@
 # The boundary is deliberately dumb -- clause literal lists and per-clause ceilings as JSON, plus the
 # rows as a dense 0/1 matrix. Python re-implements the clause vote from that, and `arm4.py` checks its
 # scores against the Julia scores exported here before it explains anything. If that check fails the
-# comparison is meaningless, so it is a hard assertion rather than a warning.
+# comparison is meaningless, so it is a hard assertion in place of a warning.
 #
 #   julia --project=. -t 16 research/b2-drift/export_arm4.jl [year] [month]
 

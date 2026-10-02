@@ -5,13 +5,13 @@
 #            choosing a threshold honestly costs the boosters 6-9 F1 on one corpus and 15-17 on the other,
 #            against 1.7 and 6.2 for FPTM. The natural reply is that gradient boosters are famously
 #            miscalibrated and that Platt scaling or isotonic regression on the held-out slice would fix
-#            it, making the whole finding an artifact of not having applied a standard technique.
+#            it, making the whole finding an artefact of not having applied a standard technique.
 #            There is a reason to expect the reply to fail, and stating it in advance is the point of
 #            writing it here: BOTH CALIBRATORS ARE MONOTONE. A monotone map of the scores cannot change
 #            the ranking, so average precision is invariant by construction, and the F1-maximising
 #            threshold chosen on the validation slice maps to exactly the same decision rule expressed in
 #            raw scores. If that reasoning is right, arms 1-3 will agree to within tie-breaking, and the
-#            objection is answered structurally rather than empirically. If they DISAGREE, the reasoning
+#            objection is answered structurally and not empirically. If they DISAGREE, the reasoning
 #            is wrong and the threshold-transfer claim needs restating.
 # ARMS:      five decision rules per model, on both corpora, so that "calibration" is not conflated with
 #            "a different way of picking the operating point" -- which is what actually varies here:
