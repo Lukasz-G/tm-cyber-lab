@@ -1,4 +1,4 @@
-# b0-sanity — first flat FPTM on LAMDA, and the two readability diagnostics
+# b0-sanity — first flat FPTM on LAMDA, with the two readability diagnostics
 
 **Not the gate.** The detection number here is one serial run at one configuration on the IID split
 only. B1 is the gate and it needs NEAR and per-year FAR against the published baselines.
@@ -8,7 +8,7 @@ Configuration: 20 clauses per class across both polarities, `T` = 10, `S` = 100,
 the released 2013–14 train portions (150,090 rows, 72,111 malware); test = the 2013–14 test portions
 (37,524 rows, 18,028 malware). Width 4,561 ⇒ 9,122 literals.
 
-## First training, and an encouraging number
+## First training, at IID $F_1$ 95.11
 
 **IID F1 = 95.11** (final, not best — best was 95.53 at epoch 7, and quoting peaks is how an earlier
 project talked itself into a result that reversed). Precision 96.51, recall 93.76, FNR 6.24,
@@ -26,7 +26,7 @@ from ~97 to ~59 and ~47, and where a 20-clause model has no particular reason to
 They were written down before any LAMDA model existed, which is the only reason this is worth
 reporting instead of rationalising.
 
-### Prediction 2 — readability ratio — **wrong, and in the helpful direction**
+### Prediction 2 — readability ratio — **wrong in the helpful direction**
 
 Predicted: LAMDA would land near the published IMDb configuration's 1.7% `LF`/included-literals,
 meaning near-strict conjunctions of thousands of literals, precise and useless to a human.

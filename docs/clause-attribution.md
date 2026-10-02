@@ -5,7 +5,7 @@ defensible and they are not equivalent, so choosing one after seeing which produ
 Jaccard curve would be choosing the headline. This file fixes the choice, the comparison protocol
 and the falsification conditions in advance.
 
-## 1. The quantity, and its comparator
+## 1. The measured quantity and its comparator
 
 LAMDA reports **explanation drift**: Jaccard and Kendall distances between consecutive months over
 the top-ranked SHAP features. On LAMDA the Jaccard sits close to 0.9 for top-100 features — the
@@ -84,7 +84,7 @@ scoring threads bit-identically across examples. At 200 clauses per class it is 
 **The exact computation is cheaper than the sampled approximation it replaces**, which is worth
 stating plainly instead of treating as a workaround for lacking a gradient.
 
-### Rejected alternatives, and why
+### Grounds for rejecting the alternatives
 
 - **Firing-weighted clause membership** — sum over clauses of polarity × membership × the clause's
   firing rate on the month. Cheap and exact, but it is not what SHAP estimates, so it answers a

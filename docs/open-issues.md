@@ -51,7 +51,7 @@ verdict counts — a detection count at two points in time per sample. `metadata
 per `sha256`, and there is no `vt_detections.csv` in the release despite an earlier note in this
 repository claiming otherwise. `research/b3-label-drift/` measures what the release does support.
 
-## 5. ~~The missing dataset control for interpretability~~ — fixed 2026-09-30, and a retraction with it
+## 5. ~~The missing dataset control for interpretability~~ — fixed 2026-09-30, with a retraction attached
 
 Closed by `research/interp-dataset-control/`, and the criterion fixed before the run fired: a document
 frequency difference with no model in it recovers **62 of the model's top-100** attributed features, and

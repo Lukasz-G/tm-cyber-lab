@@ -44,7 +44,7 @@ also the year LAMDA's Appendix F reports its spike in weakened verdicts. Two dif
 two different quantities pointing at the same year is suggestive, not evidence — but it is the reason
 to keep asking the authors for the Appendix F series.
 
-### Arms 2 and 3 — feature drift, and its readability control
+### Arms 2 and 3 — feature drift with its readability control
 
 L1 distance between consecutive years' per-feature presence rates:
 

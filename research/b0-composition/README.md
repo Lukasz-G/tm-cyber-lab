@@ -60,7 +60,7 @@ Note that the "deliberately 50:50" balance is a corpus-level statement, not a pe
 at 21.5% malware and 2013 at 51.4%. Any per-month or per-year operating point has to be read against
 that year's own base rate.
 
-## Months, and a constraint on the attribution protocol
+## The month counts as a constraint on the attribution protocol
 
 120 months present. Row counts run from **2** to 55,497, median 4,294. **Six months hold fewer than
 200 rows** and therefore cannot supply the 100 background + 100 explained samples the reference

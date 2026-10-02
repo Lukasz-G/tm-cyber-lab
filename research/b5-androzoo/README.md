@@ -1,4 +1,4 @@
-# b5-androzoo — the dense regime, and the third dataset
+# b5-androzoo — the dense regime on a third dataset
 
 APIGraph killed the drift-robustness claim. What was left was "a twenty-clause model is *competitive*
 with gradient boosting", and this is the regime that should break that if anything does: **16,978

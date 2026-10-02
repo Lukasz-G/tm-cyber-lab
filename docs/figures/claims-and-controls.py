@@ -76,7 +76,7 @@ def main():
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
 
-    ax.text(L, 0.968, "Four claims, and the control behind each retraction",
+    ax.text(L, 0.968, "Four withdrawn claims, with the control behind each",
             fontsize=19, color=INK, va="top", weight="semibold")
     ax.text(L, 0.932,
             "Every control was fixed before its run. Each claim is withdrawn in the paper with the "
@@ -117,7 +117,7 @@ def main():
     # ---- band: what survives -------------------------------------------- #
     sT, sH = hY - pts(26), 0.182
     panel(ax, L, sT - sH, FW, sH, BLUE, fill="#eef4fc")
-    ax.text(L + 0.018, sT - pts(18), "THE SURVIVING FINDING, AND NOT ONE ABOUT OUR MODEL",
+    ax.text(L + 0.018, sT - pts(18), "THE SURVIVING FINDING",
             fontsize=11.5, color=BLUE, va="top", weight="semibold")
     for k, line in enumerate((
             "An oracle threshold inflates reported $F_1$ by 0.03 in distribution and by 7 to 19 points "

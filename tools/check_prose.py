@@ -126,8 +126,12 @@ for rel, n in sorted(over, key=lambda x: -x[1])[:12]:
     print("        %-50s %d" % (rel, n))
 
 print("\nMARKDOWN HEADINGS  (plain noun phrases)")
+# The last clause bans the two-halves title, "X, and Y". It is the contrastive pair's twin: a title
+# that promises a name and delivers an apposition, and it stood at 44 instances project-wide. Where
+# the halves are a tight noun pair the comma simply goes; where the second half was a pointer, the
+# replacement names the thing instead.
 BAD = re.compile(r"\b(is|are|was|were|does|do|did|has|have|will|can|cannot|must|gets?|makes?)\b"
-                 r"|^(What|Why|How|Whether)\b|,\s*(Not|not)\s", re.I)
+                 r"|^(What|Why|How|Whether)\b|,\s*(Not|not)\s|,\s+and\s", re.I)
 bad_heads = []
 for rel in [f for f in files if f.endswith(".md")]:
     fenced = False
@@ -205,7 +209,7 @@ fig_heads = []
 for rel in [f for f in files if "figures/" in f and f.endswith(".py")]:
     for ln, t in heading_slots((ROOT / rel).read_text(encoding="utf-8")):
         if (VERBISH.search(t) or re.match(r"\s*(what|why|how|whether)\b", t, re.I)
-                or re.search(r",\s*not\s", t, re.I)):
+                or re.search(r",\s*not\s", t, re.I) or re.search(r",\s+and\s", t, re.I)):
             fig_heads.append((rel, ln, t))
 print("  [%s] %d figure headings that are not noun phrases"
       % ((GRN + " ok " + OFF) if not fig_heads else (RED + "FLAG" + OFF), len(fig_heads)))

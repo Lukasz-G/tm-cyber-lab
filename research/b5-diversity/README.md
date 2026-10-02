@@ -1,4 +1,4 @@
-# b5-diversity — the extra clauses, and their non-duplication
+# b5-diversity — the extra clauses and their non-duplication
 
 If 10× the clause budget buys 0.75 F1, the obvious explanation is that the extra clauses are copies and
 the feedback rule has saturated — which would make the ceiling a tm-lab problem, not a TM-Cyber

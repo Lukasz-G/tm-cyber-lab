@@ -1,4 +1,4 @@
-# interp-residual — the 38 features frequency misses, and what they turn out to be
+# interp-residual — the 38 features frequency misses
 
 `interp-dataset-control/` retracted the readability claim: a document-frequency count recovers 62 of the
 model's exact-attribution top-100. Its pre-registration said the remaining 38 licenses a narrow claim
@@ -26,7 +26,7 @@ essentially all skill. Sixty-two features out of 4,561 carry the model. **They a
 identifiable without any model at all**, which is the retraction in `interp-dataset-control/` restated as
 a causal fact in place of a rank correlation. A size-matched random set costs 0.30.
 
-### 2. A real residual at 18× random, and the locus of failed generalisation
+### 2. A real residual at 18× random, at the locus of failed generalisation
 
 On IID the residual costs **2.17** against **0.12** for random at the same size, so the attribution is
 finding genuine model-specific structure that frequency misses. It is not ranking noise.

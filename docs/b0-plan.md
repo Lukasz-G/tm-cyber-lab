@@ -70,7 +70,7 @@ per-month slice read, because B2 does ~135 of them.
 
 **Pass:** bit-exact, and a month slice loads in well under a second.
 
-## B0.4 — First TM sanity run, and the readability diagnostic
+## B0.4 — First TM sanity run with the readability diagnostic
 
 Not the gate — a single serial run at the gate configuration (20 clauses per class, `T` ≈ 10,
 `LF` = 10, `L` = 64, `:none`, `LiteralCapped`) on the 2013–14 training split, scored on IID.

@@ -56,7 +56,7 @@ recorded as not reconstructible from the release.
 unaffected. Comparisons against the *published* figures are stated with the definition attached, and
 never for FAR.
 
-## Per-year results, and the thing worth noticing
+## Per-year results, non-monotone in time
 
 | year | LightGBM F1 | XGBoost F1 | rows | malware |
 |---|---|---|---|---|

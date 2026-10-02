@@ -43,7 +43,7 @@ common default — the model's own argmax — *deflates*: `b5-threshold/` measur
 average on APIGraph. So the span between two defensible-looking reporting choices exceeds most published
 effect sizes, and neither is the number a deployment gets.
 
-## The fix, and it works for everyone
+## The fix, effective for every model family
 
 Mean oracle gap by rule, from `calibration-check/`:
 

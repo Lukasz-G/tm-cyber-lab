@@ -67,7 +67,7 @@ At `k = 500` the advantage vanishes (40.4% against 38.8%), which is expected and
 attribution support is only 313–321 of 1,159 features, so `k = 500` is mostly ties among zeros. The same
 sparsity bound limits every top-`k` in this project above the support size.
 
-## The named profile, and what a reviewer reads
+## The named profile
 
 Ten features carrying the most exact attribution, seed 1:
 

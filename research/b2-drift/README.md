@@ -1,4 +1,4 @@
-# b2-drift — exact clause-level explanation drift, and the sampled estimator's target
+# b2-drift — exact clause-level explanation drift against the sampled estimator's target
 
 The measurement this project exists to make. `b0-noise-floor/` showed that LAMDA's reported
 explanation drift sits at its own estimator's noise floor — but it showed that by re-running the
@@ -66,7 +66,7 @@ it is barely determined at all.
 Every call at `nsamples=100` emitted the library's own warning that the sample count is too small to
 determine a regular solution.
 
-### Sparsity of the exact attribution, and the unreadability of k=1000
+### Sparsity of the exact attribution
 
 Only **496 of 4,561** features have nonzero exact Shapley value on this model. A top-1000 set drawn
 from it is therefore more than half arbitrary — ties among zeros. The k=1000 arm-4 rows in
@@ -91,7 +91,7 @@ threshold or a regularisation choice.
 - Arms 1–3 and 5 are one dataset. The cross-dataset picture for *detection* did not replicate
   (`b5-apigraph/`), so a drift-forensics result on LAMDA alone is provisional in the same way.
 
-## Pre-registered falsification conditions, and which fired
+## Pre-registered falsification conditions against the outcome
 
 Quoted from the pre-registration so they cannot drift:
 

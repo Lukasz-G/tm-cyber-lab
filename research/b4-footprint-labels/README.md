@@ -1,10 +1,10 @@
-# b4-footprint-labels — the cost of deployment, and the price of a label
+# b4-footprint-labels — the cost of deployment in bytes and in labels
 
 Two secondary claims, measured and not quoted. One of them contradicts a figure this project has
 cited about itself; the other kills the continual-learning claim and replaces it with something more
 useful.
 
-## Part A — the true footprint claim, and its difference from ours
+## Part A — the true footprint claim against ours
 
 Counted from the trained model at the gate configuration, width 4,561, 40 clauses total:
 
@@ -22,7 +22,7 @@ model is inference-only: include masks and nothing else. A model that keeps lear
 automaton counter per literal per clause, which is 8× more. This project has cited both figures and
 should not cite them together without this distinction.
 
-## Part B — continual updating buys nothing, and stale data actively harms
+## Part B — the null result from continual updating, with harm from stale data
 
 $F_1$ on each year's held-out test split. `frozen` is the 2013–14 model, spending no labels.
 `retrain-recent` trains a fresh model on the budget alone. `continual` continues training the 2013–14
@@ -81,7 +81,7 @@ not zero-shot generalisation to an unseen future, and the numbers must not be re
 The `frozen` column is the honest zero-shot number, and it is the one that matches the detection tables
 elsewhere in this repository (26.6 on 2018 against 28.1 measured there at 10 seeds).
 
-## Arms, and why four
+## The four arms
 
 | arm | role |
 |---|---|

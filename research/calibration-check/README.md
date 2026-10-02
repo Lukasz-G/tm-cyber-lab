@@ -27,7 +27,7 @@ threshold transfer, and this settles that objection structurally.** Fixed `p = 0
 the one arm where calibration can act on its own — is slightly *worse* than the validation threshold
 everywhere except XGBoost on APIGraph.
 
-## Part 2 — the selection rule as the whole effect, and the claim it breaks
+## Part 2 — the selection rule as the whole effect
 
 Arm 5 sets the threshold so the **predicted positive rate** on each test period matches the rate the
 validation threshold produced. It uses only unlabelled test features, so a deployment can run it.
@@ -83,7 +83,7 @@ Rate matching helps FPTM too (2.55 → 0.82 and 5.82 → 3.35) but unevenly: on 
 least informative about them. We note the coincidence and do not build on it — the one time this project
 built on that coincidence it was refuted (`prune-vs-fragility/`).
 
-## Arms, and why five
+## The five arms
 
 | arm | what it isolates |
 |---|---|

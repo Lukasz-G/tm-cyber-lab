@@ -9,7 +9,7 @@ Pre-registered criterion, written into the script header before the run:
 > RETRACT every readability claim if chi-squared or frequency recovers **half or more** of the model's
 > top-k. SURVIVES if they sit near the random baseline.
 
-## Answer: a fired criterion, and a retracted readability claim
+## Answer: a fired criterion, with the readability claim retracted
 
 LAMDA 2013–14 train, 150,090 rows, flat FPTM at the B1 gate configuration, 3 seeds. Overlap between
 the model's exact-Shapley top-k and each ranking's top-k.
@@ -80,7 +80,7 @@ Inclusion frequency is also **data-independent** given a fixed model, so it show
 drift by construction — which is why it cannot substitute for the data-conditional measure in
 `b2-drift/`.
 
-## Arms, and why four
+## The four arms
 
 | arm | ranking | role |
 |---|---|---|

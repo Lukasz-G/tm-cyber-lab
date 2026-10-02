@@ -65,7 +65,7 @@ drift-robustness claim that did not. Both halves must still travel together: the
 genuinely better, and quoting only the F1 table would overstate the result in exactly the way the earlier
 comparisons did.
 
-## The base-rate difference, and its limits
+## The limits of the base-rate explanation
 
 Threshold transfer could plausibly have been an artefact of APIGraph's 10% base rate — a boundary placed
 in a sparse-positive regime might transfer for reasons that do not apply near balance. It survives at

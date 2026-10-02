@@ -6,7 +6,7 @@ recommendation: it was two years, and inference ablation cannot distinguish "thi
 "a better model ignores them". Both are supplied here: every period, and the model **retrained** from
 scratch per arm.
 
-## Answer: real, substantial, and conditional on the period
+## Answer: a real and substantial gain, conditional on the period
 
 5 seeds. Every arm retrained. F1, higher is better.
 
@@ -32,7 +32,7 @@ over the unpruned baseline. The direction holds and the effect is real, but the 
 relearns the shortcut, so the inference figure overstated it. That is the expected relationship, and it is
 the reason this arm was necessary.
 
-### The split by period, and its distinctness from noise
+### The split by period, distinct from noise
 
 | periods | resid − random | resid − baseline |
 |---|---|---|

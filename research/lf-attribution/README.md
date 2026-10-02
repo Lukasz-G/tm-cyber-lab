@@ -7,7 +7,7 @@ clause keeps voting while several literals fail.
 The closed form is built directly on that structure, so it can measure what tolerance does to *where
 credit goes*. This is the one question in the project that a classical TM cannot be asked.
 
-## Answer: representational, and it saturates by LF ≈ 5
+## Answer: representational, saturating by LF ≈ 5
 
 LAMDA, 2 seeds, everything but `LF` and `T` held at the gate configuration. "support" is how many of the
 4,561 features carry nonzero exact attribution; "top10%" is the share of attribution mass in the ten
@@ -52,7 +52,7 @@ check that cost nothing to include.
 Where the policies *do* differ is at the bottom: at `LF = 1` the scaled policy gives `T = 3`, and that arm
 is the worst in the table (92.58 IID, 52.80 on 2021). The relation is not reliable at the strict end.
 
-## This matches, and extends, a result from the sibling project
+## An extension of the sibling project's result
 
 That project measured that a fuzzy vote buys about **3× the resolution of its own binarisation, not `LF`×,
 and the factor does not grow with `LF`**. The same shape appears here in a different quantity:

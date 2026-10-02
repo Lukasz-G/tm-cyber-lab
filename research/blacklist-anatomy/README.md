@@ -19,7 +19,7 @@ three agree to within a point.
 
 Median presence ratio P(mal)/P(ben): **2.16** for the overlap set, **1.03** for the residual.
 
-## Three readings, and the right one
+## Three readings of the same number
 
 **The model-wide 83.8% is the background rate, not a finding.** A *random* included literal is **94.8%**
 negated. At 1.19% density a negated literal is satisfied for free on almost every row, so a clause
@@ -35,7 +35,7 @@ load-bearing features are present-in-malware indicators about half the time. **T
 clauses supply no indicator of compromise is withdrawn.** Pre-registered prediction 1 is confirmed on raw
 literal counts and the interpretation drawn from it was not.
 
-## The residual's absence of class signal, and the pruning result
+## The pruning result on a residual with no class signal
 
 The 38 features a frequency ranking misses have `P(f | malware) = P(f | benign) = 0.112`, a ratio of
 **1.03**. They carry **zero** discriminative information in the training period.
