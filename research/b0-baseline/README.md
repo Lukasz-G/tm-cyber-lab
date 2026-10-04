@@ -39,9 +39,8 @@ A single fixed LightGBM model, evaluated six ways (`splitdef.py`, raw output `sp
 | mean per-year F1, FAR 2018–2025, all | — | — | 42.87 | −4.37 |
 | mean per-year F1, FAR 2018–2025, held-out | — | — | 43.02 | −4.22 |
 
-**NEAR is the mean of per-year F1.** Whether the held-out portion or the whole year is used barely
-matters (59.19 vs 59.09) because the release's split is stratified within year; whether you pool rows
-or average years matters enormously, because it changes the weight given to a bad year.
+**NEAR is the mean of per-year F1.** Whether the held-out portion or the whole year is used barely matters, 59.19 against 59.09, because the release's split is stratified within year.
+Whether you pool rows or average years matters enormously, because it changes the weight given to a bad year.
 
 Why the difference is so large: 2016 scores 84.83 and 2017 scores **33.36**. Pooling rows lets 2016's
 109,193 samples dominate; averaging years gives the two equal weight. The published number is the

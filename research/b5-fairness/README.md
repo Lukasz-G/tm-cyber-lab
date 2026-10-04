@@ -56,10 +56,8 @@ FPTM beats both boosters on five years and loses 2016 to XGBoost by 0.47.
 | LightGBM | **+8.96** |
 | XGBoost | **+6.14** |
 
-This is the mechanism and it is the actual finding. The boosters have the better frontier, but **their
-operating point does not survive the drift** — a threshold chosen on 2012 is badly wrong by 2014, and
-recovering their frontier's quality needs a threshold chosen on the test year itself, which a
-deployment cannot do. FPTM's margin keeps its calibration: 1.7 F1 between its oracle and its honest
+This is the mechanism and it is the actual finding. The boosters have the better frontier, but **their operating point does not survive the drift**.
+A threshold chosen on 2012 is badly wrong by 2014. Recovering their frontier's quality needs a threshold chosen on the test year itself, which a deployment cannot do. FPTM's margin keeps its calibration: 1.7 F1 between its oracle and its honest
 threshold, against 6–9 for the boosters.
 
 So both statements are true and neither may be quoted without the other:

@@ -163,6 +163,144 @@ for rel in files:
 print("  [%s] American spellings %d" % ((GRN + " ok " + OFF) if not a else (YLW + "warn" + OFF), a))
 print("  [%s] hedging and marketing %d" % ((GRN + " ok " + OFF) if not h else (RED + "FLAG" + OFF), h))
 
+print("\nTHE 2026-10-04 DIRECTIVE  (markdown, and the prose inside the code)")
+# Four of the directive's rules are mechanical and four are not. Mechanical: the automatic
+# transitions, the five emphasis adverbs it names, complexity vocabulary used without saying what is
+# held fixed, and the sentence carrying several independent claims at once. Left to reading: whether
+# a number serves an argument, whether measurement and inference are kept apart, whether a term
+# needs defining for a neighbouring field, and whether a transition is doing real work.
+#
+# Two scoping decisions, each made after the rule cried wolf on correct prose:
+#   - the adverb list is the directive's five. Adding "simply" flagged six correct sentences, and
+#     "not simply the ceiling" is ordinary technical English meaning "not merely".
+#   - "however" is a transition only when it opens a sentence or sits in commas. "however well it
+#     was trained" is a concessive adverb.
+# And the complexity rule is scoped to the SENTENCE, not the source line: "tractable at ~14
+# features" names its quantity even when the number falls on the next line of the file.
+AUTO_TRANS = re.compile(
+    r"(?:(?<=^)|(?<=\. )|(?<=\n))(?:Importantly|Notably|Crucially|Furthermore|Moreover|"
+    r"Taken together|More broadly|In contrast)\s*,"
+    r"|\b(?:it is worth noting|this underscores|this highlights the importance|"
+    r"these findings suggest|our results demonstrate|raises important questions|a principled|"
+    r"thereby)\b", re.I)
+HOWEVER_T = re.compile(r"(?:(?<=^)|(?<=\. ))However\s*,|,\s+however\s*,")
+ADVERB = re.compile(r"\b(?:clearly|obviously|remarkably|strikingly|surprisingly)\b", re.I)
+FALSE_SYM = re.compile(r"\bnot only\b[^.]{0,120}\bbut (?:also|it also)\b", re.I)
+COMPLEXITY = re.compile(r"\b(?:efficient|efficiently|scalable|tractable)\b", re.I)
+COST_CLAIM = re.compile(
+    r"\b(?:computation|attribution|closed form|formula|algorithm|exact values?)\s+"
+    r"(?:is|are|was|were)\s+(?:much\s+|far\s+)?cheap(?:er)?\b"
+    r"|\bcheap(?:er)?\s+than\s+(?:the\s+)?(?:approximation|sampled|estimate|estimation)\b", re.I)
+QTY_FIXED = re.compile(
+    r"\b(?:per (?:rule|clause|month|row|epoch)|independent of|held fixed|does not (?:grow|depend)|"
+    r"at (?:this|the same) width|with the feature count|polynomial|O\(|"
+    r"\d+(?:[.,]\d+)?\s*(?:s|ms|features|coalitions|rules))\b", re.I)
+ART = re.compile(r"([-=*_#.~])\1{3,}")
+
+
+def directive_sentences(text, md):
+    """Sentences, after removing the structures that are not sentences.
+
+    A heading carries no full stop, so without a boundary after it the heading glues itself to the
+    paragraph beneath and the pair reads as one 400-character sentence. That accounted for most of
+    the first pass's false positives.
+    """
+    t = text
+    if md:
+        out, fenced = [], False
+        for ln in t.split("\n"):
+            if ln.lstrip().startswith("```"):
+                fenced = not fenced
+                out.append("")
+                continue
+            out.append("" if (fenced or ln.lstrip().startswith("|")
+                              or re.match(r"^\s*[-|: ]+$", ln) or ART.search(ln)) else ln)
+        t = "\n".join(out)
+    t = re.sub(r"(?m)^((?:#{1,6} |[-*] |\d+\. ).*)$", r"\1.", t)
+    t = re.sub(r"\n\s*\n", ".\n", t)
+    t = re.sub(r"\b([A-Z]\.|e\.g|i\.e|cf|vs|et al|approx|Fig|Sec|Tab|No)\.", r"\1@", t)
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", t) if len(s.strip()) > 20]
+
+
+def directive_overloaded(s):
+    """One sentence carrying a result, a comparison and a qualification together."""
+    if ART.search(s) or len(s.split()) < 28 or s.count("=") > 1 or s.count("   ") > 1:
+        return False
+    if not re.search(r"[a-z]{3}\s+[a-z]{2,}", s):
+        return False
+    signals = (s.count(";") + len(re.findall(r"—|---", s))
+               + len(re.findall(r"\([^)]{12,}\)", s))
+               + len(re.findall(r"\b(?:which|whilst|while|although|whereas|so that|thereby)\b", s)))
+    return len(s) > 250 and signals >= 2
+
+
+def prose_of(rel):
+    """For markdown the whole file; for code only the docstrings and the real comments."""
+    src = (ROOT / rel).read_text(encoding="utf-8", errors="replace")
+    if rel.endswith(".md"):
+        return src, True
+    # Consecutive comment lines are ONE block. Joining every line with a blank line instead split
+    # "Brute force is only tractable at / ~14 features" into two sentences, so the rule could not
+    # see the quantity the claim holds fixed and flagged correct prose.
+    chunks, run = [], []
+    for ln in src.split("\n"):
+        m = re.match(r"\s*#\s?(.{12,})$", ln)
+        if m and not ART.search(m.group(1)):
+            run.append(m.group(1))
+        else:
+            if run:
+                chunks.append(" ".join(run))
+            run = []
+    if run:
+        chunks.append(" ".join(run))
+    if rel.endswith(".py"):
+        try:
+            for node in ast.walk(ast.parse(src)):
+                if isinstance(node, (ast.Module, ast.FunctionDef, ast.ClassDef)):
+                    d = ast.get_docstring(node)
+                    if d:
+                        chunks.append(d)
+        except SyntaxError:
+            pass
+    if rel.endswith(".jl"):
+        chunks += re.findall(r'"""(.*?)"""', src, re.S)
+    return "\n\n".join(chunks), False
+
+
+dir_hits, dir_over = [], []
+for rel in files:
+    try:
+        text, md = prose_of(rel)
+    except (UnicodeDecodeError, FileNotFoundError):
+        continue
+    sents = directive_sentences(text, md)
+    for s in sents:
+        for name, pat in (("auto-transition", AUTO_TRANS), ("however-transition", HOWEVER_T),
+                          ("emphasis-adverb", ADVERB), ("false-symmetry", FALSE_SYM)):
+            for m in pat.finditer(s):
+                dir_hits.append((rel, name, m.group(0).strip()))
+        for name, pat in (("complexity-term", COMPLEXITY), ("bare-cost-claim", COST_CLAIM)):
+            if pat.search(s) and not QTY_FIXED.search(s):
+                dir_hits.append((rel, name, pat.search(s).group(0).strip()))
+        if directive_overloaded(s):
+            dir_over.append((rel, len(s), s))
+
+HOWEVER_CAP, OVERLOAD_CAP = 2, 2
+hard = [h for h in dir_hits if h[1] != "however-transition"]
+howevers = [h for h in dir_hits if h[1] == "however-transition"]
+print("  [%s] banned constructions                %d"
+      % ((GRN + " ok " + OFF) if not hard else (RED + "FLAG" + OFF), len(hard)))
+for rel, name, hit in hard[:12]:
+    print("        %-40s %-18s %s" % (rel.split("/")[-1], name, hit))
+print("  [%s] 'however' as a transition           %d  (cap %d)"
+      % ((GRN + " ok " + OFF) if len(howevers) <= HOWEVER_CAP else (RED + "FLAG" + OFF),
+         len(howevers), HOWEVER_CAP))
+print("  [%s] overloaded sentences                %d  (cap %d; >250 chars, 2+ clause signals)"
+      % ((GRN + " ok " + OFF) if len(dir_over) <= OVERLOAD_CAP else (RED + "FLAG" + OFF),
+         len(dir_over), OVERLOAD_CAP))
+for rel, ln, s in sorted(dir_over, key=lambda r: -r[1])[:6]:
+    print("        %-36s %4d  %s" % (rel.split("/")[-1], ln, " ".join(s.split())[:62]))
+
 print("\nFIGURE HEADINGS  (plain noun phrases)")
 # A heading slot has to be found mechanically here, because a figure carries no '#' to key on: an
 # all-caps label of two or more words, a set_title or suptitle argument, a string set in semibold or at
@@ -216,6 +354,7 @@ print("  [%s] %d figure headings that are not noun phrases"
 for rel, ln, t in fig_heads[:14]:
     print("        %-30s %4d  %s" % (rel.split("/")[-1], ln, t.replace("\n", " / ")[:60]))
 
-bad = bool(over or bad_heads or h or fig_heads)
+bad = bool(over or bad_heads or h or fig_heads or hard
+           or len(howevers) > HOWEVER_CAP or len(dir_over) > OVERLOAD_CAP)
 print("\n" + ((GRN + "all checks pass" + OFF) if not bad else (RED + "flagged" + OFF)))
 sys.exit(1 if bad else 0)

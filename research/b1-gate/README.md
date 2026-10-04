@@ -29,8 +29,9 @@ advantages are 5 to 9 standard errors out, so they are not seed noise.
 
 ## A deliberate comparison against our own gradient boosting
 
-Not against the published figures. Our LightGBM reproduces the published IID F1 to two decimal places
-(97.49 against 97.49), but the published NEAR figure turns out to be a **mean of per-year F1**, not pooled over rows, and the FAR figure is not reconstructible from the release at all — see
+Not against the published figures. Our LightGBM reproduces the published IID F1 to two decimal places, 97.49 against 97.49.
+The published NEAR figure turns out to be a **mean of per-year F1** and not a pooled one.
+The FAR figure is not reconstructible from the release at all — see
 `../b0-baseline/`. Comparing FPTM against numbers we computed on identical row sets removes that
 ambiguity completely. The relationship between our gradient boosting and theirs is reported
 separately, where it belongs.
@@ -92,7 +93,5 @@ failed on their second dataset, so that qualifier is not boilerplate.
 julia --project=. -t 16 research/b1-gate/run.jl 10
 ```
 
-`results_10seed.txt` is the ten-seed run, `results.txt` the earlier three-seed one. Threads affect
-`predict` only, which is bit-identical across thread counts; training is serial because parallelising
-across classes caps at the class count (two here) and parallelising across clauses is slower than
-serial at this clause budget on this width.
+`results_10seed.txt` is the ten-seed run, `results.txt` the earlier three-seed one. Threads affect `predict` only, and `predict` is bit-identical across thread counts.
+Training is serial for two reasons: parallelising across classes caps at the class count, which is two here, and parallelising across clauses is slower than serial at this clause budget on this width.

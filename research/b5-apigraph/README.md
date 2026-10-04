@@ -71,8 +71,7 @@ paper.
   has to be pre-registered as its own question and not used to rescue this one.
 - **These are not the APIGraph authors' features.** APIGraph releases only MD5 hashes, so this uses the
   Drebin extraction published with Chen et al., *Continuous Learning for Android Malware Detection*
-  (USENIX Security 2023) — almost certainly the same data LAMDA's own APIGraph comparison used, given
-  the matching file layout, but a third party's extraction nonetheless.
+  (USENIX Security 2023) — The matching file layout makes it almost certainly the same data LAMDA's own APIGraph comparison used. It remains a third party's extraction.
 - **Different protocol from LAMDA by design.** One 2012 training pool and per-year tests, which is what
   the dataset ships. Absolute F1 is not comparable across the two datasets; only the gap to gradient
   boosting on identical rows is.

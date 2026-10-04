@@ -60,10 +60,8 @@ misses(S) = β + (g − |C ∩ S|) + |D ∩ S|
 ```
 
 where `β` counts literals unsatisfied under both, `C` those satisfied only under `x` (size `g`), and
-`D` those satisfied only under `b` (size `d`). This depends on the two counts alone. Therefore every
-feature outside `C ∪ D` has Shapley value exactly zero, members of `C` share one value and members of
-`D` another, and averaging over a uniform permutation — `r` relevant predecessors, hypergeometric split
-`k` — collapses the whole thing to `O((g+d)²)` terms.
+`D` those satisfied only under `b` (size `d`). This depends on the two counts alone. Therefore every feature outside `C ∪ D` has Shapley value exactly zero. Members of `C` share one value and members of `D` another.
+Averaging over a uniform permutation, with `r` relevant predecessors and a hypergeometric split `k`, collapses the whole thing to `O((g+d)²)` terms.
 
 Generalising from the fuzzy clause changes exactly one line: the marginal contribution of adding a
 feature, which was `±1`, becomes `g(M−1) − g(M)` for a member of `C` and `g(M+1) − g(M)` for a member

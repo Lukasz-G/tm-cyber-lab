@@ -7,9 +7,8 @@ malware detection. Flat Fuzzy-Pattern Tsetlin machines over static Drebin-style 
 
 ## The result
 
-Reported explanation drift in malware detection — the finding that the features a detector relies on turn
-over almost entirely from month to month whilst its accuracy holds — is measured with a **sampled**
-attribution estimator whose own variance goes unreported. It need not be sampled.
+A malware detector's explanation is reported to drift: the features it relies on turn over almost entirely from month to month, whilst its accuracy holds.
+That measurement comes from a **sampled** attribution estimator whose own variance goes unreported. It need not be sampled.
 
 For any additive ensemble of rules whose output depends only on **how many** of a rule's literals are
 unsatisfied, not on which, exact Shapley values have a closed form costing `O((g+d)²)` per rule,
@@ -24,8 +23,8 @@ raw disjunctive rulesets, and that boundary is measured, not assumed.
 | ordered rule lists, where additivity fails | **1.1e−1**, against 2e−13 for the additive arms |
 | cost at 4,561 features, 100 background × 100 explained | **6.7 s** per month, single-threaded |
 
-The computation is not a tractable approximation. It is exact, and at this width it is **cheaper than the
-sampled estimate it replaces**.
+The computation is not an approximation. It is exact, and at this width it **costs less than the sampled
+estimate it replaces**, with a cost per clause that does not grow with the feature count.
 
 With an exact instrument, one published number separates into three:
 

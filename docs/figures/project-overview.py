@@ -2,7 +2,7 @@
 
 WHY THIS FIGURE EXISTS. The repository's headline is a conditional that is hard to take in from prose:
 IF a rule ensemble is additive and its rules read only how many literals are unsatisfied, THEN exact
-Shapley values have a closed form, and at realistic width that closed form is cheaper than the sampled
+Shapley values have a closed form, and at realistic width it costs less than the sampled
 estimate it replaces. The figure states the condition once, puts the two routes side by side so the cost
 comparison is visible and not asserted, and then shows what the exact instrument does to the number
 the project set out to check.

@@ -81,7 +81,7 @@ splitting the total wrongly between features.
 month at the gate configuration of 20 clauses per class, using the same 100 background × 100
 explained budget as the reference. The full ~135-month series is about 15 minutes on one core, and
 scoring threads bit-identically across examples. At 200 clauses per class it is 28 s per month.
-**The exact computation is cheaper than the sampled approximation it replaces**, which is worth
+**At this width the exact computation costs less than the sampled approximation it replaces**, and its cost per clause does not grow with the feature count, which is worth
 stating plainly instead of treating as a workaround for lacking a gradient.
 
 ### Grounds for rejecting the alternatives
@@ -94,9 +94,8 @@ stating plainly instead of treating as a workaround for lacking a gradient.
   partial matches. Kept as a secondary, reported alongside; not the primary, for the same
   comparability reason.
 - **Leave-one-feature-out.** The obvious exact choice, and wrong here. LOFO is the single
-  all-others-present marginal, whereas Shapley averages over all coalition orderings, and the two
-  differ most precisely on **redundant** literals — which fuzzy clauses accumulate by design, since
-  tolerance is what lets a clause degrade gracefully on noisy input. LOFO would systematically
+  all-others-present marginal, whereas Shapley averages over all coalition orderings.
+The two differ most on **redundant** literals. Fuzzy clauses accumulate those by design, since tolerance is what lets a clause degrade gracefully on noisy input. LOFO would systematically
   under-credit the literals FPTM has most of, and would make the ranking look more stable than it
   is. It was the plan until the closed form turned out to exist.
 - **Automaton-state weighting** — ranking literals by TA confidence. Not usable: automata pile up

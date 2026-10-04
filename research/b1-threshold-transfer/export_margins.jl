@@ -1,9 +1,9 @@
 # Exports FPTM margins on LAMDA so that run.py can repeat the threshold-transfer comparison here.
 #
 # research/b5-fairness/ measured, on APIGraph, that gradient boosting holds the better precision/recall
-# frontier (+3.77 average precision on 6 of 6 years) while its OPERATING POINT does not survive the
-# drift: choosing a threshold on held-out data instead of on the test year costs FPTM 1.73 F1 and costs
-# the boosters 6 to 9. That was written up as the one advantage here that survived a cross-dataset
+# frontier: +3.77 average precision on 6 of 6 years. Its OPERATING POINT does not survive the drift.
+# Choosing a threshold on held-out data instead of on the test year costs FPTM 1.73 F1 and costs the
+# boosters 6 to 9. That was written up as the one advantage here that survived a cross-dataset
 # check. It had not -- b5-fairness runs on APIGraph alone. This is the missing half.
 #
 # It matters because the last result that looked convincing on one corpus was the LAMDA

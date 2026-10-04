@@ -23,9 +23,8 @@ the validation slice is the same decision rule however the scores are relabelled
 | LAMDA | XGBoost | 60.27 | 60.27 | 60.27 |
 
 Identical to the decimal in all six model-corpus combinations. **Calibration changes nothing about
-threshold transfer, and this settles that objection structurally.** Fixed `p = 0.5` after Platt scaling —
-the one arm where calibration can act on its own — is slightly *worse* than the validation threshold
-everywhere except XGBoost on APIGraph.
+threshold transfer, and this settles that objection structurally.** Arm 3 fixes `p = 0.5` after Platt scaling, which is the one arm where calibration can act on its own.
+It is slightly *worse* than the validation threshold everywhere except XGBoost on APIGraph.
 
 ## Part 2 — the selection rule as the whole effect
 

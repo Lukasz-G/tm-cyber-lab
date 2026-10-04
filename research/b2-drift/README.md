@@ -1,9 +1,7 @@
 # b2-drift — exact clause-level explanation drift against the sampled estimator's target
 
-The measurement this project exists to make. `b0-noise-floor/` showed that LAMDA's reported
-explanation drift sits at its own estimator's noise floor — but it showed that by re-running the
-estimator and watching the answer move, which establishes the published number cannot see a signal
-without saying what the signal is. This measures the signal, exactly.
+The measurement this project exists to make. `b0-noise-floor/` showed that LAMDA's reported explanation drift sits at its own estimator's noise floor.
+It showed that by re-running the estimator and watching the answer move. That establishes the published number cannot see a signal, without saying what the signal is. This measures the signal, exactly.
 
 Protocol fixed in advance in [`docs/clause-attribution.md`](../../docs/clause-attribution.md),
 pre-registered 2026-09-19 before any LAMDA model existed.
@@ -133,8 +131,8 @@ counts are 794 and 23 against ~45,000 benign per year, which is antivirus label 
 ## A bug in shared code, worth knowing about
 
 `julia/shapley.jl` originally computed its binomial ratio in exact rational arithmetic with
-`binomial(big(n), big(k))`. Correct, and it is what the closed form was first verified against — but it
-allocates a BigInt per term, and on a real attribution pass over LAMDA it produced **4.6 billion
+`binomial(big(n), big(k))`. Correct, and it is what the closed form was first verified against.
+But it allocates a BigInt per term, and on a real attribution pass over LAMDA it produced **4.6 billion
 allocations and crashed the garbage collector inside a threaded region** (`EXCEPTION_ACCESS_VIOLATION`
 in `ijl_gc_collect`, reached from `BigFloat`). It now routes every binomial through a log-factorial
 table in Float64. The summed terms are hypergeometric probabilities, all positive, so there is no
@@ -153,7 +151,5 @@ julia --project=. -t 16 research/b2-drift/export_arm4.jl 2016 6  # -> data/b2-ar
 python research/b2-drift/arm4.py --big 1000                      # arm 4 -> results-arm4.txt
 ```
 
-`run.jl` takes optional `[nmonths] [nseeds]` for a short pass. `arm4.py` asserts that its own
-re-implementation of the clause vote reproduces the exported Julia scores exactly before it explains
-anything — a comparison against a mis-scored model would measure the port, so that check is a hard
-failure, not a warning. It passed at max difference **0**.
+`run.jl` takes optional `[nmonths] [nseeds]` for a short pass. `arm4.py` asserts that its own re-implementation of the clause vote reproduces the exported Julia scores exactly before it explains anything.
+A comparison against a mis-scored model would measure the port. That check is therefore a hard failure and not a warning. It passed at max difference **0**.

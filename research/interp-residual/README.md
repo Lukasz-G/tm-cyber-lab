@@ -36,10 +36,8 @@ against 0.25 and 1.24 for random. The 38 features the attribution finds and a fr
 are the features that **do not survive the drift**. They are the model's overfitting to its training
 period, and exact attribution localises them.
 
-This is worth more than the readability claim it replaces, and it is a drift-forensics claim, not an interpretability one, which fits this project's thesis better. **It is also an intervention:** the
-residual is identified from training-period data alone — the attribution uses background and explained
-rows drawn from the 2013–14 pool and never touches a test year — so dropping those 38 features is
-something a deployment could actually do, for a 10-point gain on the worst year measured.
+This is worth more than the readability claim it replaces, and it is a drift-forensics claim, not an interpretability one, which fits this project's thesis better. **It is also an intervention:** the residual is identified from training-period data alone, with background and explained rows drawn from the 2013–14 pool and no test year touched.
+Dropping those 38 features is therefore something a deployment could actually do, for a 10-point gain on the worst year measured.
 
 ### 3. The dismissed features as the more drift-stable ones
 

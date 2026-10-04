@@ -17,7 +17,7 @@
 #   julia --project=. -t 16 research/b5-diagnosis/run.jl [nseeds]
 #
 # APIGraph only: it is the cheapest of the three datasets (30k train rows, width 1,159) and the one
-# where the replication failed most clearly, so it is where diagnosis is most informative per second.
+# where the replication failed by the largest margin, so it is where diagnosis is most informative per second.
 
 include(joinpath(@__DIR__, "..", "..", "julia", "tmx.jl"))
 include(joinpath(@__DIR__, "..", "..", "julia", "shapley.jl"))

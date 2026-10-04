@@ -58,8 +58,8 @@ frequency difference with no model in it recovers **62 of the model's top-100** 
 chi-squared recovers 54, against 4 for chance. **No readability claim may appear anywhere.**
 
 Two follow-ups settled it further. `research/interp-residual/` and
-`research/interp-residual-retrain/` show the 62 overlap features carry essentially the whole model, while
-the 38 the frequency count misses are where the model fails to generalise — removing them improves
+`research/interp-residual-retrain/` show the 62 overlap features carry essentially the whole model.
+The 38 the frequency count misses are where the model fails to generalise: removing them improves
 drifted-period F1 by about 5 over a matched control on 2019–2022, though not on 2016–2018.
 
 What replaces the readability claim is a drift-forensics one, and it is narrower: exact attribution

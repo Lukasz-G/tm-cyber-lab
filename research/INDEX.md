@@ -34,10 +34,9 @@ Implementation [`julia/shapley.jl`](../julia/shapley.jl), brute-force check
 | [b0-noise-floor](b0-noise-floor/) | **LAMDA's reported explanation drift sits at its own estimator's noise floor.** Same month, two runs: Jaccard 0.926. Consecutive months: 0.958. Same model, explainer re-run only: 0.926 — so it is coalition sampling at `nsamples=100` against 4,561 features, not monthly refitting. | **core** |
 | [b2-drift](b2-drift/) | **The measurement the project exists to make, all five pre-registered arms, 88 months.** Pure data drift is **0.294** against a reported 0.958. Monthly refitting contributes **more than the data** (arm3 − arm2 = +0.367). Arm 4 — impossible for published work, since it needs exact values — shows the sampled estimator lands as far from the truth (0.851) as from *itself* (0.889), so the error is **variance not bias**, and 10× the budget nearly halves it (0.496), so **the budget is the cause**. | **core.** With b2-generality this is the paper |
 
-Honest limits recorded in that README and not here: arm 1 (two seeds, same month, **0.547**) sits
-*above* arm 2, so at 20 clauses per class model variation exceeds month-to-month data drift; and only
-**496 of 4,561** features have nonzero exact attribution, so its k=1000 rows are mostly ties among
-zeros and must not be read.
+Two honest limits are recorded in that README and not here.
+Arm 1 (two seeds, same month, **0.547**) sits *above* arm 2, so at 20 clauses per class model variation exceeds month-to-month data drift.
+And only **496 of 4,561** features have nonzero exact attribution, so its k=1000 rows are mostly ties among zeros and must not be read.
 
 ## Interpretability — the control that gates every readability claim
 

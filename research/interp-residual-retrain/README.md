@@ -42,9 +42,8 @@ the reason this arm was necessary.
 Four consecutive later years all land between +3.6 and +6.8. Three earlier years are flat or negative,
 with 2017 costing 3.04. "5 of 7" undersells the structure: this is a clean regime split, not a majority.
 
-**So it is not yet a blanket recommendation.** A pruning step you cannot know in advance whether to apply
-is not deployable as a rule, and the pre-registered criterion — a majority of drifted years — is met on a
-count while concealing that the failures are contiguous.
+**So it is not yet a blanket recommendation.** A pruning step you cannot know in advance whether to apply is not deployable as a rule.
+The pre-registered criterion was a majority of drifted years. That criterion is met on a count, and the count conceals that the failures are contiguous.
 
 ### A hypothesis about the two regimes, since refuted
 
