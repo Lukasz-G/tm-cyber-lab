@@ -41,6 +41,37 @@ exact values (0.851) as it lands from a second run of itself (0.889): **the erro
 That replicates on a RIPPER-derived ensemble to three decimals, so it is a property of sampled
 attribution at this budget and not of Tsetlin machines.
 
+## The input, the model and the assignment of credit
+
+Three questions come before any result below: what a feature is in this setting, what the model
+computes from it, and how credit for a decision is divided among features.
+
+![Two corpora of sparse binary token sets](docs/figures/datasets-and-features.png)
+
+The rows are sparse binary token sets. Two consequences run through everything else. At **1.19%**
+density on the primary corpus, a literal asking for a feature to be *absent* is satisfied on almost
+every row, which is why a trained model looks like a blacklist. And the primary corpus ships its
+vocabulary stripped, as `feat_0 ... feat_4560`, so no claim about what a feature *means* can be made
+there. The replication corpus releases real token names, and more than half of them are Java class
+names of an application's own screens, which identify an app and transfer to nothing.
+
+![From a sparse binary row to a decision](docs/figures/tm-mechanics.png)
+
+The model is a vote. Each clause is a conjunction over included literals, scored as
+`max(0, LF - misses)`, and the class score is a signed sum over two banks of ten clauses. Two
+properties of that vote carry the rest of this repository: the score reads **how many** literals are
+unsatisfied and never which, and it is **additive** over clauses.
+
+![Exact credit for a clause's literals](docs/figures/feature-importance.png)
+
+Those two properties are what make exact attribution available. Group a clause's literals by how
+each behaves at the explained row against the background row, and the vote turns on two counts.
+Every feature outside those two groups has Shapley value exactly zero, which on the primary corpus
+leaves 496 of 4,561 features with any value at all, and the cost is `O((g+d)^2)` per clause with no
+feature-count term. Polynomial-time computation for this class follows from known results on Shapley
+values over decomposable circuits; what the closed form supplies is an explicit expression needing
+no compilation step.
+
 ## Claims and withdrawals
 
 ![Four claims, and the control that retired each](docs/figures/claims-and-controls.png)
@@ -118,7 +149,7 @@ python/tmcyber/           dataset handling, splits, baselines; writes the packed
 docs/matrix-format.md     the .tmx format spec — header plus raw packed words
 docs/clause-attribution.md  the attribution pre-registration: arms, protocol, falsification conditions
 research/<name>/          experiments: run script, raw output, README with the question and the answer
-docs/figures/            the two figures above, each with the script that drew it
+docs/figures/            the figures above, each with the script that drew it
 test/shapley_closed_form.jl  brute-force enumeration against the closed form, 144 configurations
 tools/                    bootstrap and arm fan-out for a rented CPU box
 ```

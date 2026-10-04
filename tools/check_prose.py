@@ -234,8 +234,40 @@ def directive_overloaded(s):
     return len(s) > 250 and signals >= 2
 
 
+def rendered_strings(src):
+    """Every string a figure script draws on the canvas.
+
+    A figure's rendered text is prose under the directive exactly as a paragraph is, and it was
+    invisible to every check here: it is neither markdown nor a comment, so the heading rule saw the
+    titles and nothing else saw the body. Anything of four words or more that is not a path, a
+    colour, a format string or a keyword value is taken as prose.
+    """
+    out = []
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:
+        return out
+    skip = set()
+    for node in ast.walk(tree):
+        for kw in getattr(node, "keywords", []) or []:
+            if isinstance(kw.value, ast.Constant) and isinstance(kw.value.value, str):
+                skip.add(id(kw.value))          # weight="semibold", va="top", color="#1a1a19"
+    for node in ast.walk(tree):
+        if not (isinstance(node, ast.Constant) and isinstance(node.value, str)):
+            continue
+        if id(node) in skip:
+            continue
+        t = node.value
+        if len(t.split()) < 4 or t.startswith(("#", "$", "→")) or "\\" in t:
+            continue
+        if re.search(r"%[sdfr]|\{\}|/[a-z0-9_-]+/|\.(png|pdf|py|csv|md)\b", t):
+            continue
+        out.append(t)
+    return out
+
+
 def prose_of(rel):
-    """For markdown the whole file; for code only the docstrings and the real comments."""
+    """For markdown the whole file; for code the docstrings, the comments and any rendered text."""
     src = (ROOT / rel).read_text(encoding="utf-8", errors="replace")
     if rel.endswith(".md"):
         return src, True
@@ -264,6 +296,8 @@ def prose_of(rel):
             pass
     if rel.endswith(".jl"):
         chunks += re.findall(r'"""(.*?)"""', src, re.S)
+    if "figures/" in rel and rel.endswith(".py"):
+        chunks += rendered_strings(src)
     return "\n\n".join(chunks), False
 
 
