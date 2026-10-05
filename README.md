@@ -17,6 +17,11 @@ malware detection. Flat Fuzzy-Pattern Tsetlin machines over static Drebin-style 
 A malware detector's explanation is reported to drift: the features it relies on turn over almost entirely from month to month, whilst its accuracy holds.
 That measurement comes from a **sampled** attribution estimator whose own variance goes unreported. It need not be sampled.
 
+A Tsetlin machine's clauses can be printed, which says what the model contains and not how much one
+feature counted towards a single decision. The figure under test is a Shapley value, so testing it
+takes a Shapley value, and Shapley values are the only unit in which a Tsetlin machine, a booster and
+an induced ruleset are comparable at all.
+
 For any additive ensemble of rules whose output depends only on **how many** of a rule's literals are
 unsatisfied, not on which, exact Shapley values have a closed form costing `O((g+d)²)` per rule,
 independent of the feature count. The class takes in Fuzzy-Pattern and classical Tsetlin machines,
