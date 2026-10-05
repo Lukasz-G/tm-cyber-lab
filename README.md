@@ -8,7 +8,9 @@ malware detection. Flat Fuzzy-Pattern Tsetlin machines over static Drebin-style 
 > **A paper reporting these results is in preparation.** This repository carries the code, the raw
 > output and a write-up for every experiment, including the ones that retracted earlier claims. The
 > manuscript is not public yet. Until it is, the `research/` directories are the citable record, and
-> each states its own configuration, its pre-registered criterion and its result.
+> each states its own configuration, its pre-registered criterion and its result. Two follow-up
+> studies are under way, on adversarial aspects and on on-edge deployment at low energy, and
+> [Follow-up work](#follow-up-work) says what neither of them has measured yet.
 
 ## The result
 
@@ -141,9 +143,32 @@ test features and helps gradient boosting more than it helps a Tsetlin machine.
   data, not found. See the retractions above.
 - **Not a robustness result.** No adversary is assumed anywhere. Attribution has been used to construct
   backdoors in malware classifiers, and an attack or defence resting on a sampled attribution inherits
-  the variance measured here, but that application is not pursued.
+  the variance measured here, but that application is not pursued here. It is a follow-up direction,
+  as the next section records.
 - **Not flow-feature intrusion detection**, which is saturated near 99% and dominated by dataset
   artefacts, and not a graph or message-passing result.
+
+## Follow-up work
+
+Two studies are under way. Neither has a result in this repository, and the second has no measurement
+of any kind yet.
+
+- **Adversarial aspects.** The question runs both ways and the answer is not the comfortable one by
+  default. A clause that tolerates a few unsatisfied literals may hold up when an attacker flips a few
+  bits, or partial matching may hand that attacker a cheaper path than a strict conjunction would,
+  because the attacker chooses which bits to flip. Attribution is part of the same study: backdoors in
+  malware classifiers have been built from explanations, and anything built on a sampled attribution
+  inherits the variance measured here. Online updating is a poisoning surface of its own, and the
+  label-efficiency result above is what would be traded away to close it.
+- **On-edge deployment and energy.** Inference is a bitwise AND and a popcount over 64-bit words, and
+  the model measured here is 44.5 KB to infer and 356.3 KB to keep learning. That is the arithmetic an
+  energy argument would rest on, and the energy itself is not measured anywhere in this repository: no
+  joules, no board, no duty cycle. The follow-up measures it on hardware rather than deducing it from
+  the instruction mix. Ultra-low-energy intrusion detection with Tsetlin machines is an active line at
+  CAIR under [SecureIoTM](https://www.uia.no/english/research/research-projects/engineering-and-science/secureIotm/index.html).
+  That project has already put an interpretable Tsetlin intrusion detector on a Raspberry Pi
+  ([arXiv:2605.16707](https://arxiv.org/abs/2605.16707)). The direction is not ours alone, and that
+  work is the comparison a follow-up has to make.
 
 ## Starting points
 
