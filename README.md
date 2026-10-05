@@ -5,6 +5,11 @@ malware detection. Flat Fuzzy-Pattern Tsetlin machines over static Drebin-style 
 [LAMDA](https://arxiv.org/abs/2505.18551) and cross-checked on
 [APIGraph](https://dl.acm.org/doi/10.1145/3372297.3417291) under temporal splits.
 
+> **A paper reporting these results is in preparation.** This repository carries the code, the raw
+> output and a write-up for every experiment, including the ones that retracted earlier claims. The
+> manuscript is not public yet. Until it is, the `research/` directories are the citable record, and
+> each states its own configuration, its pre-registered criterion and its result.
+
 ## The result
 
 A malware detector's explanation is reported to drift: the features it relies on turn over almost entirely from month to month, whilst its accuracy holds.
@@ -138,6 +143,32 @@ test features and helps gradient boosting more than it helps a Tsetlin machine.
   the variance measured here, but that application is not pursued.
 - **Not flow-feature intrusion detection**, which is saturated near 99% and dominated by dataset
   artefacts, and not a graph or message-passing result.
+
+## Starting points
+
+This work consumes a Tsetlin stack it did not write, and three pieces of prior work carry most of
+the machinery.
+
+- **The Tsetlin machine** — Granmo, *A Game Theoretic Bandit Driven Approach to Optimal Pattern
+  Recognition with Propositional Logic*, [arXiv:1804.01508](https://arxiv.org/abs/1804.01508). The
+  learning scheme: clauses as conjunctions over literals, teams of automata updated by reinforcement,
+  a class decided by a vote. The attribution result here is a statement about that vote.
+- **The Fuzzy-Pattern Tsetlin machine** — Hnilov,
+  [arXiv:2508.08350](https://arxiv.org/abs/2508.08350). The variant used throughout, and the source
+  of the clause vote `max(0, LF - misses)` with its tolerance `LF`. That the vote reads *how many*
+  literals are unsatisfied and never which of them is the property the closed form rests on, so the
+  attribution result follows the design of this model rather than our own.
+- **The reference implementations** — [Tsetlin.jl](https://github.com/BooBSD/Tsetlin.jl) and
+  [FuzzyPatternTM](https://github.com/BooBSD/FuzzyPatternTM), both Hnilov, both MIT. The packed
+  clause-evaluation layout the `.tmx` format mirrors comes from the first, which is why loading a
+  matrix is a reinterpret and not a conversion. The published IMDb settings in the second are where
+  this project's starting hyperparameters came from.
+
+The wider line is set out in Granmo et al., *The Tsetlin Machine Goes Deep*,
+[arXiv:2507.14874](https://arxiv.org/abs/2507.14874). Graph and message-passing work is out of scope
+here, as [Out of scope](#out-of-scope) records.
+
+Attribution obligations are in [NOTICE.md](NOTICE.md).
 
 ## Layout
 
