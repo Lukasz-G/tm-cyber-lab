@@ -68,8 +68,10 @@ unsatisfied and never which, and it is **additive** over clauses.
 
 ![Exact credit for a clause's literals](docs/figures/feature-importance.png)
 
-Those two properties are what make exact attribution available. Group a clause's literals by how
-each behaves at the explained row against the background row, and the vote turns on two counts.
+Those two properties are what make exact attribution available. A vote that counts failures
+without reading their names cannot tell two features that fail in the same way apart, so credit has
+to treat them alike. Group a clause's literals by how each behaves at the explained row against the
+background row, and the vote turns on two counts.
 Every feature outside those two groups has Shapley value exactly zero, which on the primary corpus
 leaves 496 of 4,561 features with any value at all, and the cost is `O((g+d)^2)` per clause with no
 feature-count term. Polynomial-time computation for this class follows from known results on Shapley
