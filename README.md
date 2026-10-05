@@ -24,7 +24,7 @@ raw disjunctive rulesets, and that boundary is measured, not assumed.
 | | |
 |---|---|
 | agreement with brute-force enumeration | **8.9e−16** over 144 configurations |
-| the same, on rules induced by RIPPER, not written here | **1.29e−14**, all 2¹³ coalitions |
+| the same, on rules from RIPPER, a 1995 rule learner we did not write | **1.29e−14**, all 2¹³ coalitions |
 | ordered rule lists, where additivity fails | **1.1e−1**, against 2e−13 for the additive arms |
 | cost at 4,561 features, 100 background × 100 explained | **6.7 s** per month, single-threaded |
 
@@ -43,8 +43,7 @@ With an exact instrument, one published number separates into three:
 So the reported figure is, in descending order of magnitude, an estimator's variance, an experimental
 choice, and only then the phenomenon. At the budget used, the sampled estimator lands as far from the
 exact values (0.851) as it lands from a second run of itself (0.889): **the error is variance, not bias**.
-That replicates on a RIPPER-derived ensemble to three decimals, so it is a property of sampled
-attribution at this budget and not of Tsetlin machines.
+That replicates to three decimals on an ensemble built from RIPPER's rules. RIPPER is a rule learner from 1995 that reads labelled data and writes IF-THEN rules; it has no connection to this work, so the result is a property of sampled attribution at this budget and not of Tsetlin machines.
 
 ## The input, the model and the assignment of credit
 

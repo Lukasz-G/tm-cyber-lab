@@ -1,9 +1,14 @@
 # ripper-exact — the closed form on a non-Tsetlin rule ensemble
 
-`b2-generality/` proved the closed form needs only count-symmetry plus additivity, and verified it on
-constructed models. Constructed models are a weak demonstration: they were built by the same person who
-derived the formula. This runs it on rules induced by **RIPPER** — a 1990s separate-and-conquer algorithm
-with no connection to this work — on real malware data.
+**RIPPER is a rule learner from 1995.** You give it labelled examples and it writes IF-THEN rules, one at a time, setting aside the rows each rule covers before it looks for the next:
+
+```
+IF sends_SMS AND reads_contacts THEN malware
+IF reads_IMEI AND boot_persist  THEN malware
+ELSE benign
+```
+
+**Why it is here.** `b2-generality/` proved the closed form needs only count-symmetry plus additivity, and verified it on models we constructed. That is weak evidence: the same person wrote the formula and the models it was checked on, so the models could have been shaped to fit, and nobody outside could tell. RIPPER predates this project by three decades and knows nothing about it. A formula that holds on its rules does not hold by construction.
 
 ## Scope, stated first because getting it wrong would be the obvious error
 
