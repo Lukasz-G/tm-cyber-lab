@@ -26,7 +26,7 @@ essentially all skill. Sixty-two features out of 4,561 carry the model. **They a
 identifiable without any model at all**, which is the retraction in `interp-dataset-control/` restated as
 a causal fact in place of a rank correlation. A size-matched random set costs 0.30.
 
-### 2. A real residual at 18× random, at the locus of failed generalisation
+### 2. A real residual at 18× random, in the features where generalisation breaks down
 
 On IID the residual costs **2.17** against **0.12** for random at the same size, so the attribution is
 finding genuine model-specific structure that frequency misses. It is not ranking noise.

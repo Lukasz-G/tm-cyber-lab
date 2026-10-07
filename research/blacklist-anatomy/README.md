@@ -41,7 +41,8 @@ The 38 features a frequency ranking misses have `P(f | malware) = P(f | benign) 
 **1.03**. They carry **zero** discriminative information in the training period.
 
 That is a far better account of `interp-residual-retrain/` than the label-fragility story, which was
-refuted in sign. The model attributes weight to features that do not distinguish the classes; removing
+contradicted: the correlation has the opposite sign. The model attributes weight to features that do
+not distinguish the classes; removing
 them improves detection on later periods because they were never signal. It also fits the shape of the
 earlier result — they cost a little in-distribution, where the model has fitted them, and help out of
 distribution, where they do not transfer.

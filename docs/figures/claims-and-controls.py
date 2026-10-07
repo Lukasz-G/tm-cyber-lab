@@ -6,7 +6,7 @@ they contradict earlier commits. Gathering them into one panel does two things. 
 the headline claims did not survive, so nobody builds on them. And it shows that each was retired by a
 control fixed BEFORE the run, which is the part worth copying.
 
-The bottom band is there so the figure is not merely a list of failures. What the withdrawals left
+The bottom band is there so the figure is not only a list of failures. What the withdrawals left
 behind is a methodological finding that constrains other work instead of describing ours, and it is
 larger than the claim it replaced.
 

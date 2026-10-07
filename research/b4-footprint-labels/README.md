@@ -53,7 +53,7 @@ benchmark is severe enough that a tiny current sample dominates a large historic
 
 **2. Keeping the old data is worse than discarding it — at every one of the 20 cells.** `retrain-all`
 trails `retrain-recent` everywhere, by 44 $F_1$ at the smallest budget on 2018 and still by 5 at the
-largest. The stale rows are not merely uninformative, they outvote the fresh ones. The gap closes as the
+largest. The stale rows are not only uninformative: they dominate the fresh ones. The gap closes as the
 budget grows, which is the fresh data gradually winning the argument.
 
 **3. Continual updating is indistinguishable from starting over.** `continual` and `retrain-recent` sit

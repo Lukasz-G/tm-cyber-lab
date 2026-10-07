@@ -120,7 +120,7 @@ Every F1 elsewhere in this repo is an oracle value; the correction is measured.
 - FAR reconstruction on LAMDA, also blocked on the authors.
 - **An explanation for the pruning regime split.** [interp-residual-retrain](interp-residual-retrain/)
   gains ~5 F1 on 2019–2022 and loses ~1 on 2016–2018, and nothing accounts for it. The label-fragility
-  hypothesis was the obvious candidate and is **refuted in sign**
+  hypothesis was tested and the correlation came out with **the opposite sign**
   ([prune-vs-fragility](prune-vs-fragility/)), so pruning stays a candidate intervention with an
   uncharacterised precondition.
 - ~~Bibliography metadata~~ — **done 2026-09-30.** Every entry verified against the publisher's record,

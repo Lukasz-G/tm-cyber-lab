@@ -85,7 +85,8 @@ average and not per draw. The sign improvement is a mean over seeds, not a prope
   *and* sign was the right comparison and that we had not run it. It has been run, in the stronger
   upstream form, and the direction is against the confound.
 - **Still not claimable:** that pruning should be applied unconditionally. The regime split is larger under
-  this control, not smaller, and remains unexplained after the label-fragility account was refuted in sign
+  this control, not smaller, and remains unexplained after the label-fragility account was tested and
+its correlation came out with the opposite sign
   (`prune-vs-fragility/`).
 - **Still not claimable:** anything about readable clauses. This makes a feature set diagnostic.
 

@@ -5,7 +5,7 @@
 #            every seed should give a bit-identical model — in which case one run IS the mean and the
 #            caveat on B1 dissolves instead of needing to be measured away. If the seeds DO differ,
 #            we need the mean and the spread before claiming FPTM beats it on the FAR years.
-# ARMS:      five seeds of the same configuration. Nothing else varies, which is the point.
+# ARMS:      five seeds of the same configuration. Nothing else varies.
 # PASS/FAIL: not pass/fail. Either the seeds are identical (report LightGBM as deterministic and
 #            quote the single run) or they are not (quote mean±sd and redo the B1 gap arithmetic
 #            against the mean).

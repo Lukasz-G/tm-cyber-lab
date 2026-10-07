@@ -5,7 +5,7 @@
 #            compares consecutive months within a run; between-run agreement within a month is one
 #            line away and was never computed. If two runs on identical data already disagree at
 #            ~0.9, the published curve measures the estimator and not the malware.
-# ARMS:      three, and the decomposition is the point:
+# ARMS:      three, for the decomposition:
 #              (a) between-run, within month, model REFIT each run   -> refit + explainer noise
 #              (b) between-run, within month, model held FIXED       -> explainer noise alone
 #              (c) between consecutive months                        -> their reported quantity

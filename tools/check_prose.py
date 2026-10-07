@@ -301,7 +301,40 @@ def prose_of(rel):
     return "\n\n".join(chunks), False
 
 
-dir_hits, dir_over = [], []
+# The 2026-10-07 directive, mirrored from the paper repository's tools/check_style.py section 4e and
+# kept in step with it by hand. It governs paragraph shape where the block above governs word choice:
+# the narrated setup that announces how the analysis proceeded, the metaphor standing in for several
+# inferential steps, the "reading" hedge, the dramatised failure, the counterfactual whose apodosis is
+# about the paper, and the aphorism offered as the result.
+E_NARRATE = re.compile(
+    r"\b(?:the obvious (?:candidate|confound|objection)|the natural (?:explanation|objection|"
+    r"candidate)|we then asked|this led us to|we therefore considered|the key question is|"
+    r"this raises the question|the answer is (?:negative|positive|no|yes)|needs spelling out|"
+    r"the control settles it)\b", re.I)
+E_METAPHOR = re.compile(
+    r"\b(?:deepens? the split|closes? the gap|moves upward|beats the model|refuted in sign|"
+    r"on identical ground|holds the better frontier|dissolved|outvotes?|runs ahead of|"
+    r"the locus of|bought by giving up|free of charge|wearing a [a-z ]+'s clothes)\b", re.I)
+E_READING = re.compile(
+    r"\b(?:the reading (?:is|here is|there is)|one might read this as|the interpretation would be|"
+    r"any reading of)\b", re.I)
+E_DRAMA = re.compile(
+    r"\b(?:decisively refuted|this explanation collapses|turns the argument on its head|"
+    r"we are therefore forced to conclude|is not merely|rather than simply)\b", re.I)
+_UNIT = r"(?:subsection|section|paper|table|paragraph|README)"
+E_COUNTER = re.compile(
+    r"(?:(?<=^)|(?<=\. ))Had\b(?:"
+    r"[^.]{0,200}\b(?:this|the)\s+" + _UNIT + r"\b[^.]{0,40}\bwould have been\b"
+    r"|[^.]{0,160}\bwould have been\b[^.]{0,60}" + _UNIT + r"\b)", re.I)
+E_APHORISM = re.compile(
+    r"\b(?:and (?:the|that) (?:disagreement|ordering|split|difference) is (?:the|our) "
+    r"(?:result|finding|point)|is the point|that is the (?:point|result|finding)|"
+    r"is demonstrated, not assumed|substitute no alternative)\b", re.I)
+SHAPE = (("narrated-setup", E_NARRATE), ("compressed-metaphor", E_METAPHOR),
+         ("reading-hedge", E_READING), ("dramatised-failure", E_DRAMA),
+         ("rhetorical-counterfactual", E_COUNTER), ("aphorism-as-result", E_APHORISM))
+
+dir_hits, dir_over, shape_hits = [], [], []
 for rel in files:
     try:
         text, md = prose_of(rel)
@@ -316,6 +349,11 @@ for rel in files:
         for name, pat in (("complexity-term", COMPLEXITY), ("bare-cost-claim", COST_CLAIM)):
             if pat.search(s) and not QTY_FIXED.search(s):
                 dir_hits.append((rel, name, pat.search(s).group(0).strip()))
+        # This file and its sibling quote every form they ban, as a style guide has to.
+        if not rel.startswith("tools/check_"):
+            for name, pat in SHAPE:
+                for m in pat.finditer(s):
+                    shape_hits.append((rel, name, m.group(0).strip()))
         if directive_overloaded(s):
             dir_over.append((rel, len(s), s))
 
@@ -334,6 +372,12 @@ print("  [%s] overloaded sentences                %d  (cap %d; >250 chars, 2+ cl
          len(dir_over), OVERLOAD_CAP))
 for rel, ln, s in sorted(dir_over, key=lambda r: -r[1])[:6]:
     print("        %-36s %4d  %s" % (rel.split("/")[-1], ln, " ".join(s.split())[:62]))
+
+print("\nTHE 2026-10-07 DIRECTIVE  (paragraph shape)")
+print("  [%s] rhetorical over-engineering        %d"
+      % ((GRN + " ok " + OFF) if not shape_hits else (RED + "FLAG" + OFF), len(shape_hits)))
+for rel, name, hit in shape_hits[:12]:
+    print("        %-40s %-26s %s" % (rel.split("/")[-1], name, hit))
 
 print("\nFIGURE HEADINGS  (plain noun phrases)")
 # A heading slot has to be found mechanically here, because a figure carries no '#' to key on: an
@@ -388,7 +432,7 @@ print("  [%s] %d figure headings that are not noun phrases"
 for rel, ln, t in fig_heads[:14]:
     print("        %-30s %4d  %s" % (rel.split("/")[-1], ln, t.replace("\n", " / ")[:60]))
 
-bad = bool(over or bad_heads or h or fig_heads or hard
+bad = bool(over or bad_heads or h or fig_heads or hard or shape_hits
            or len(howevers) > HOWEVER_CAP or len(dir_over) > OVERLOAD_CAP)
 print("\n" + ((GRN + "all checks pass" + OFF) if not bad else (RED + "flagged" + OFF)))
 sys.exit(1 if bad else 0)

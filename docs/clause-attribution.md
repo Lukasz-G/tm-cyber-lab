@@ -61,8 +61,8 @@ in `S` and a background instance's value elsewhere; `f` is the class score, `pos
 summed clause votes. Against a background *set*, `v` is the mean over backgrounds; Shapley is
 linear in `v`, so the result is still exact.
 
-This is the same quantity `KernelExplainer` estimates. That is the point: the comparison is
-like-for-like, and the only difference is that one side samples and the other does not.
+This is the same quantity `KernelExplainer` estimates, so the comparison is like-for-like: the
+only difference is that one side samples and the other does not.
 
 **It has a closed form.** A clause's vote is `max(0, ceiling − misses)`, and `misses` depends only
 on *how many* of the clause's literals are flipped between instance and background, never on which.

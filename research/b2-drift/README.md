@@ -22,7 +22,7 @@ Jaccard `1 − |∩|/|∪|`, so **lower means more stable**.
 
 At k=1000: arm 2 = 0.125, arm 5 = 0.122, arm 1 = 0.352, arm 3 = 0.451.
 
-Four readings, and the ordering is the result.
+Four readings, in order:
 
 **Pure data drift is 0.294 against a reported 0.958.** The feature set a fixed model relies on turns
 over about 30% month to month, not 96%. The published figure was not measuring the malware.

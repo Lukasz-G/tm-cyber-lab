@@ -2,7 +2,7 @@
 
 `b5-fairness/` and `b1-threshold-transfer/` reported that gradient boosting holds the better
 precision/recall frontier while its *operating point* does not survive drift, and that this was the one
-claim in the project holding on two corpora. The obvious objection is that boosters are famously
+claim in the project holding on two corpora. One objection is that boosters are famously
 miscalibrated and that Platt scaling or isotonic regression would fix it.
 
 **The objection as stated is wrong, and a stronger version of it is right.**
@@ -50,7 +50,7 @@ And mean F1 under quantile matching:
 | LAMDA | 73.40 | **75.38** | 74.23 |
 
 **On both corpora a booster now leads.** The pre-registered criterion — the claim fails if any calibrated
-booster arm closes the gap to FPTM — fires on both.
+booster arm reaches FPTM's figure — fires on both.
 
 ## Verdict — the advantage as a property of the threshold rule
 

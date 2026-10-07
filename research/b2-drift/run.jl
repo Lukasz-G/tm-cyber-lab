@@ -1,6 +1,6 @@
 # QUESTION:  measured exactly, with no estimator noise at all, how much does a malware detector's
 #            explanation actually turn over from month to month?
-# SURPRISE:  yes, either way, and that is the point of running it. LAMDA reports Jaccard ~0.9 between
+# SURPRISE:  yes, either way. LAMDA reports Jaccard ~0.9 between
 #            consecutive months over top-100 SHAP features and reads it as explanation drift;
 #            research/b0-noise-floor/ showed that figure sits at its own estimator's noise floor
 #            (0.958 reported against a 0.926 floor, cause localised to coalition sampling). That

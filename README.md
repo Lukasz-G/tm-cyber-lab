@@ -104,7 +104,7 @@ likely to save someone else a month.
   sense too.
 - **No drift-robustness advantage.** The LAMDA advantage of 4 to 12 F1 on four of five drifted years did
   not replicate on APIGraph, and a third arm holding the effective specificity `s = width/S` constant
-  rules out the obvious confound.
+  rules out that confound.
 - **No threshold-transfer advantage.** Gradient boosting transfers its operating point badly under a
   validation-F1 threshold rule and well under predicted-positive-rate matching. The advantage belonged to
   the threshold rule, not to the model.

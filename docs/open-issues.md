@@ -95,8 +95,9 @@ working against the claim, so the earlier figure was conservative.
 
 Two things keep this from being a clean close. The match is **partial** - it closes about 60% of the
 presence-rate gap and 52% of the sign gap, because the attribution support does not contain 38 unused
-features at 11% presence - so the reading is the direction over the controlled range, not a measurement at
-a complete match. And the **regime split deepens** under the better control, from -1.12 to -2.05 over
+features at 11% presence - so the comparison supports the direction of the effect over the controlled
+range, not a measurement at a complete match. And the **regime split is wider** under the better
+control, from -1.12 to -2.05 over
 2016-2018, with 2017 at -4.24; on those periods the matched control beats the unpruned model, so pruning
 almost any dense set helps there and pruning this set helps less. The split remains unexplained after
 `prune-vs-fragility/` refuted the label-fragility account in sign. Pruning is therefore still **not**

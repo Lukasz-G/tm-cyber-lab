@@ -1,4 +1,4 @@
-# prune-vs-fragility — the pruning gain against label stability, refuted in sign
+# prune-vs-fragility — the pruning gain against label stability, a correlation of opposite sign
 
 `interp-residual-retrain/` found the pruning gain splits by period: +5.28 F1 over a size-matched control
 across 2019–2022, −1.12 across 2016–2018. `b3-label-drift/` independently found 2017 and 2018 are exactly

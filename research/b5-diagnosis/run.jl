@@ -11,7 +11,7 @@
 #            once, and a two-arm version could not tell which mattered.
 # PASS/FAIL: not a gate. This is DIAGNOSIS, and it explicitly does NOT revisit the B5 verdict: that
 #            replication was run at the pre-registered configuration and stands as run. Whether a
-#            tuned model closes the gap is a different question from whether the LAMDA result
+#            tuned model removes the difference is a different question from whether the LAMDA result
 #            replicated at matched settings, and conflating them would be retrofitting.
 #
 #   julia --project=. -t 16 research/b5-diagnosis/run.jl [nseeds]

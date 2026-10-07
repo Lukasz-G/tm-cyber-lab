@@ -6,8 +6,8 @@
 #            against 1.7 and 6.2 for FPTM. The natural reply is that gradient boosters are famously
 #            miscalibrated and that Platt scaling or isotonic regression on the held-out slice would fix
 #            it, making the whole finding an artefact of not having applied a standard technique.
-#            There is a reason to expect the reply to fail, and stating it in advance is the point of
-#            writing it here: BOTH CALIBRATORS ARE MONOTONE. A monotone map of the scores cannot change
+#            There is a reason to expect the reply to fail, and it is stated here in advance:
+#            BOTH CALIBRATORS ARE MONOTONE. A monotone map of the scores cannot change
 #            the ranking, so average precision is invariant by construction, and the F1-maximising
 #            threshold chosen on the validation slice maps to exactly the same decision rule expressed in
 #            raw scores. If that reasoning is right, arms 1-3 will agree to within tie-breaking, and the
@@ -24,11 +24,11 @@
 #                 equals the rate the validation threshold produced. Uses unlabelled test features only,
 #                 which a deployment has, and is what practitioners actually reach for under drift.
 #            Arms 2 and 3 are the literal form of the objection; arm 4 is its strongest form; arm 5 is the
-#            technique that can genuinely beat it, included so the answer is not merely "calibration does
+#            technique that can genuinely beat it, included so the answer is not only "calibration does
 #            not help" when something else might.
 # PASS/FAIL: the threshold-transfer claim SURVIVES if the boosters' best calibrated arm still gives up
 #            materially more F1 than FPTM's best does, on both corpora. It FAILS, and the manuscript claim
-#            must be rewritten, if any calibrated booster arm closes the gap to FPTM.
+#            must be rewritten, if any calibrated booster arm reaches FPTM's figure.
 #
 #   python research/calibration-check/run.py
 #

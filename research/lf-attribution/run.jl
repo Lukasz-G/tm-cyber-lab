@@ -20,7 +20,7 @@
 #                 the threshold kept where the relation says it belongs.
 #            Agreement between the two arms is what licenses attributing an effect to LF; disagreement
 #            localises it to the threshold instead, and either way the pair says more than either alone.
-#            LF = 1 is not merely the smallest point on the sweep -- it is the classical TM, and so is the
+#            LF = 1 is not only the smallest point on the sweep -- it is the classical TM, and so is the
 #            control for "is any of this fuzziness-specific".
 # PASS/FAIL: not a gate. REPRESENTATIONAL if the attribution support and its concentration move
 #            monotonically with LF and both T policies agree. A CAPACITY KNOB if attribution is

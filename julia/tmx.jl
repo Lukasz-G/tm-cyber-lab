@@ -48,7 +48,7 @@ read_header(path::AbstractString) = open(io -> read_header(io, path), path)
 
 Load a `.tmx` as `TMInput`s, ready for `TMCore.train!` and `predict`.
 
-`rows` selects a subset by 1-based index, which is the point of the format: a month or a year is
+`rows` selects a subset by 1-based index, which is what the format is for: a month or a year is
 read without materializing the rest. Indices must be sorted and unique; the caller gets them from
 the metadata sidecar.
 """

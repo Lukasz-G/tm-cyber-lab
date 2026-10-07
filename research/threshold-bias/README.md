@@ -35,7 +35,7 @@ rule ensemble and two gradient boosters alike.
 **It is unequal between model families, so it can reorder a comparison.** On LAMDA it is worth 7.07 to
 FPTM and 18.97 to LightGBM. A table built from oracle thresholds and a table built from achievable ones
 do not rank the same models in the same order.
-That is not hypothetical. It is what happened to this project: an advantage we measured on two corpora dissolved once the threshold rule changed
+That is not hypothetical. It is what happened to this project: an advantage we measured on two corpora did not survive a change of threshold rule
 (`calibration-check/`).
 
 **Both common choices are wrong, in opposite directions.** The oracle inflates by up to 33. The other

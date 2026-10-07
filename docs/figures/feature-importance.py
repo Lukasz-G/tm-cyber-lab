@@ -49,7 +49,7 @@ def panel(ax, x, y, w, h, accent, fill=PANEL):
 
 
 # The four groups of the derivation, in the order it uses them. "size" is the symbol the derivation
-# gives each group; only C and D have one, which is the point.
+# gives each group; only C and D have one.
 GROUPS = (
     ("A", GREY, "satisfied at both",
      ["the row and the background", "agree, so the literal is", "never a miss"],

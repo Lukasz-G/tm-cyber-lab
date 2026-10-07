@@ -53,7 +53,7 @@ collapse year for every model here (baseline 27.90). A plausible reading is that
 non-generalising features helps when the labels are stable enough for "generalise" to mean something, and
 cannot help when the evaluation labels are themselves unreliable.
 
-**It was tested, and it is refuted in sign.** `prune-vs-fragility/` conditioned the pruning gain on label
+**It was tested, and the correlation has the opposite sign.** `prune-vs-fragility/` conditioned the pruning gain on label
 fragility over 70 months and found $\rho = +0.253$ ($p = 0.030$): pruning helps roughly *twice as much*
 where the labels are least reliable, which is the opposite of the prediction above. A month-size control
 clears ($-0.147$, $p = 0.22$), so thin months are not the explanation either. The hypothesis is dead and no
