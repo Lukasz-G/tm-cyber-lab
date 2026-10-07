@@ -15,7 +15,7 @@ Nine months of the benchmark, three independent runs per month, top-100 features
 |---|---|---|---|
 | **(a)** same month, two independent runs, model refit each time | **0.926** | 0.024 | 27 |
 | **(b)** same month, **same model**, only the explainer re-run | **0.926** | 0.021 | 18 |
-| **(c)** consecutive months, within a run — *the reported quantity* | 0.958 | 0.012 | 24 |
+| **(c)** consecutive months, within a run — *their protocol, re-run here* | 0.958 | 0.012 | 24 |
 
 Kendall distance: 0.723 for (a) against 0.753 for (c).
 

@@ -17,14 +17,14 @@ Jaccard `1 − |∩|/|∪|`, so **lower means more stable**.
 | 5 | fixed model, whole test split instead of 100 rows | 0.274 | 0.163 | 87 |
 | 1 | same month, two seeds — model variation only | 0.547 | 0.139 | 88 |
 | 3 | refitted per month, as the reference does | 0.661 | 0.124 | 174 |
-| — | *LAMDA's reported figure, MLP + KernelExplainer at `nsamples=100`* | *0.958* | | |
+| — | *LAMDA's protocol re-run here, MLP + KernelExplainer at `nsamples=100`; they publish ≈0.9* | *0.958* | | |
 | — | *its own noise floor, from `b0-noise-floor/`* | *0.926* | | |
 
 At k=1000: arm 2 = 0.125, arm 5 = 0.122, arm 1 = 0.352, arm 3 = 0.451.
 
 Four readings, in order:
 
-**Pure data drift is 0.294 against a reported 0.958.** The feature set a fixed model relies on turns
+**Pure data drift is 0.294 against the 0.958 their protocol gives here.** The feature set a fixed model relies on turns
 over about 30% month to month, not 96%. The published figure was not measuring the malware.
 
 **Monthly refitting contributes more than the data does.** Arm 3 − arm 2 = **+0.367** at k=100 and

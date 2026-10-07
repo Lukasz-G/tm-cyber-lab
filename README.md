@@ -14,7 +14,7 @@ malware detection. Flat Fuzzy-Pattern Tsetlin machines over static Drebin-style 
 
 ## The result
 
-A malware detector's explanation is reported to drift: the features it relies on turn over almost entirely from month to month, whilst its accuracy holds.
+A malware detector's explanation is reported to drift: the features it relies on turn over almost entirely from month to month, a far larger movement than its accuracy shows over the same step.
 That measurement comes from a **sampled** attribution estimator whose own variance goes unreported. It need not be sampled.
 
 A Tsetlin machine's clauses can be printed, which says what the model contains and not how much one
@@ -42,7 +42,7 @@ With an exact instrument, one published number separates into three:
 
 | | Jaccard distance |
 |---|---|
-| reported in the literature | 0.958 |
+| their protocol, re-run here (they publish ≈0.9) | 0.958 |
 | **the estimator's own noise floor** — same month, same model, explainer re-run | **0.926** |
 | refitting a fresh model each month, as the released code does | 0.661 |
 | **pure data drift** — one fixed model, the data moving | **0.294** |
