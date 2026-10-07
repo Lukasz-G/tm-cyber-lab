@@ -125,6 +125,7 @@ test features and helps gradient boosting more than it helps a Tsetlin machine.
 | [`research/b0-noise-floor/`](research/b0-noise-floor/) | the reported explanation drift sits at its own estimator's noise floor |
 | [`research/b2-drift/`](research/b2-drift/) | the five pre-registered arms over 88 months; the decomposition above |
 | [`research/interp-dataset-control/`](research/interp-dataset-control/) | the control that retracts readability |
+| [`research/local-feature-strength/`](research/local-feature-strength/) | the established closed form's per-input expression: better than its global one, below a frequency count, and it drifts |
 | [`research/groundtruth-overlap/`](research/groundtruth-overlap/) | the attributed features are indicators: 85% indicator-class in the top 20 against a 23% base rate, and the one place the model beats the corpus |
 | [`research/blacklist-anatomy/`](research/blacklist-anatomy/) | the sparsity control that retracts the second claim |
 | [`research/interp-residual/`](research/interp-residual/) | the 38 features a frequency count misses are where the model fails to generalise |

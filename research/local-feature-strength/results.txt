@@ -1,0 +1,142 @@
+LAMDA width 4561  train 150090 rows  88 months  3 seeds  tm-lab 43dba5f
+config clauses=20 T=10 S=100 L=64 LF=10 epochs=30 ceiling=LiteralCapped threads=16
+
+PART 1 -- agreement with the exact values, on the training period's own rows
+seed 1: nonzero exact 462, nonzero local(as written) 79, nonzero local(both) 418
+RESULT seed=1 k=20 rank=local_written overlap=12 of 20
+RESULT seed=1 k=20 rank=local_both overlap=8 of 20
+RESULT seed=1 k=20 rank=global_incl overlap=10 of 20
+RESULT seed=1 k=100 rank=local_written overlap=54 of 100
+RESULT seed=1 k=100 rank=local_both overlap=37 of 100
+RESULT seed=1 k=100 rank=global_incl overlap=49 of 100
+RESULT seed=1 k=500 rank=local_written overlap=150 of 500
+RESULT seed=1 k=500 rank=local_both overlap=343 of 500
+RESULT seed=1 k=500 rank=global_incl overlap=343 of 500
+seed 2: nonzero exact 447, nonzero local(as written) 62, nonzero local(both) 390
+RESULT seed=2 k=20 rank=local_written overlap=11 of 20
+RESULT seed=2 k=20 rank=local_both overlap=7 of 20
+RESULT seed=2 k=20 rank=global_incl overlap=8 of 20
+RESULT seed=2 k=100 rank=local_written overlap=52 of 100
+RESULT seed=2 k=100 rank=local_both overlap=38 of 100
+RESULT seed=2 k=100 rank=global_incl overlap=51 of 100
+RESULT seed=2 k=500 rank=local_written overlap=147 of 500
+RESULT seed=2 k=500 rank=local_both overlap=370 of 500
+RESULT seed=2 k=500 rank=global_incl overlap=370 of 500
+seed 3: nonzero exact 482, nonzero local(as written) 63, nonzero local(both) 390
+RESULT seed=3 k=20 rank=local_written overlap=10 of 20
+RESULT seed=3 k=20 rank=local_both overlap=3 of 20
+RESULT seed=3 k=20 rank=global_incl overlap=7 of 20
+RESULT seed=3 k=100 rank=local_written overlap=54 of 100
+RESULT seed=3 k=100 rank=local_both overlap=38 of 100
+RESULT seed=3 k=100 rank=global_incl overlap=48 of 100
+RESULT seed=3 k=500 rank=local_written overlap=120 of 500
+RESULT seed=3 k=500 rank=local_both overlap=332 of 500
+RESULT seed=3 k=500 rank=global_incl overlap=333 of 500
+
+------------------------------------------------------------------------------
+k           local (Eqn 7)   local (+negated)     global (Eqn 4)
+------------------------------------------------------------------------------
+20              11.0 / 20           6.0 / 20           8.3 / 20
+RESULT mean k=20 local_written=11.00 local_both=6.00 global_incl=8.33
+100             53.3 /100          37.7 /100          49.3 /100
+RESULT mean k=100 local_written=53.33 local_both=37.67 global_incl=49.33
+500            139.0 /500         348.3 /500         348.7 /500
+RESULT mean k=500 local_written=139.00 local_both=348.33 global_incl=348.67
+------------------------------------------------------------------------------
+
+PART 2 -- month-over-month drift of the local expression, fixed model
+Comparable to b2-drift arm 2 (exact, fixed model, data moves): mean 0.294.
+  2013-09  local 0.095  local+neg 0.214  exact 0.413
+  2013-10  local 0.039  local+neg 0.425  exact 0.291
+  2013-11  local 0.305  local+neg 0.425  exact 0.305
+  2013-12  local 0.305  local+neg 0.319  exact 0.291
+  2014-01  local 0.058  local+neg 0.400  exact 0.347
+  2014-02  local 0.305  local+neg 0.561  exact 0.387
+  2014-03  local 0.020  local+neg 0.182  exact 0.214
+  2014-04  local 0.020  local+neg 0.529  exact 0.291
+  2014-05  local 0.291  local+neg 0.571  exact 0.374
+  2014-06  local 0.291  local+neg 0.485  exact 0.387
+  2014-07  local 0.276  local+neg 0.214  exact 0.230
+  2014-08  local 0.291  local+neg 0.462  exact 0.261
+  2016-02  local 0.291  local+neg 0.387  exact 0.387
+  2016-03  local 0.305  local+neg 0.400  exact 0.333
+  2016-04  local 0.230  local+neg 0.621  exact 0.473
+  2016-05  local 0.261  local+neg 0.693  exact 0.571
+  2016-06  local 0.347  local+neg 0.639  exact 0.551
+  2016-07  local 0.020  local+neg 0.473  exact 0.507
+  2016-08  local 0.020  local+neg 0.582  exact 0.571
+  2016-09  local 0.387  local+neg 0.601  exact 0.726
+  2016-10  local 0.148  local+neg 0.630  exact 0.425
+  2017-01  local 0.165  local+neg 0.726  exact 0.485
+  2017-02  local 0.131  local+neg 0.095  exact 0.246
+  2017-03  local 0.131  local+neg 0.077  exact 0.165
+  2017-04  local 0.020  local+neg 0.077  exact 0.182
+  2017-10  local 0.020  local+neg 0.131  exact 0.214
+  2017-11  local 0.077  local+neg 0.131  exact 0.165
+  2017-12  local 0.058  local+neg 0.058  exact 0.131
+  2018-01  local 0.113  local+neg 0.261  exact 0.400
+  2018-02  local 0.165  local+neg 0.438  exact 0.291
+  2018-03  local 0.095  local+neg 0.400  exact 0.148
+  2018-04  local 0.077  local+neg 0.095  exact 0.095
+  2018-06  local 0.113  local+neg 0.374  exact 0.305
+  2018-07  local 0.113  local+neg 0.077  exact 0.148
+  2018-08  local 0.058  local+neg 0.077  exact 0.182
+  2018-09  local 0.165  local+neg 0.387  exact 0.214
+  2018-10  local 0.058  local+neg 0.582  exact 0.198
+  2018-11  local 0.077  local+neg 0.561  exact 0.131
+  2018-12  local 0.095  local+neg 0.058  exact 0.148
+  2019-01  local 0.058  local+neg 0.165  exact 0.165
+  2019-02  local 0.113  local+neg 0.058  exact 0.165
+  2019-03  local 0.039  local+neg 0.058  exact 0.095
+  2019-04  local 0.020  local+neg 0.020  exact 0.182
+  2019-05  local 0.039  local+neg 0.113  exact 0.148
+  2019-06  local 0.473  local+neg 0.601  exact 0.507
+  2019-07  local 0.450  local+neg 0.639  exact 0.519
+  2019-08  local 0.058  local+neg 0.058  exact 0.148
+  2019-09  local 0.077  local+neg 0.095  exact 0.182
+  2019-10  local 0.131  local+neg 0.734  exact 0.519
+  2019-11  local 0.182  local+neg 0.758  exact 0.582
+  2019-12  local 0.182  local+neg 0.701  exact 0.374
+  2020-01  local 0.148  local+neg 0.425  exact 0.485
+  2020-02  local 0.165  local+neg 0.718  exact 0.611
+  2020-03  local 0.165  local+neg 0.750  exact 0.611
+  2020-04  local 0.095  local+neg 0.400  exact 0.333
+  2020-05  local 0.131  local+neg 0.726  exact 0.529
+  2020-06  local 0.058  local+neg 0.165  exact 0.214
+  2020-07  local 0.039  local+neg 0.095  exact 0.131
+  2020-08  local 0.095  local+neg 0.077  exact 0.148
+  2020-09  local 0.198  local+neg 0.333  exact 0.319
+  2020-10  local 0.261  local+neg 0.387  exact 0.347
+  2020-11  local 0.113  local+neg 0.095  exact 0.148
+  2020-12  local 0.039  local+neg 0.113  exact 0.131
+  2021-01  local 0.039  local+neg 0.077  exact 0.182
+  2021-02  local 0.058  local+neg 0.077  exact 0.214
+  2021-03  local 0.058  local+neg 0.058  exact 0.165
+  2021-04  local 0.058  local+neg 0.148  exact 0.165
+  2021-05  local 0.058  local+neg 0.095  exact 0.182
+  2021-06  local 0.058  local+neg 0.113  exact 0.165
+  2021-07  local 0.095  local+neg 0.077  exact 0.148
+  2021-08  local 0.077  local+neg 0.113  exact 0.165
+  2021-09  local 0.095  local+neg 0.077  exact 0.131
+  2021-10  local 0.095  local+neg 0.020  exact 0.113
+  2021-11  local 0.148  local+neg 0.726  exact 0.529
+  2021-12  local 0.131  local+neg 0.077  exact 0.182
+  2022-01  local 0.131  local+neg 0.718  exact 0.485
+  2022-02  local 0.058  local+neg 0.540  exact 0.148
+  2022-03  local 0.131  local+neg 0.077  exact 0.148
+  2022-04  local 0.261  local+neg 0.742  exact 0.592
+  2022-05  local 0.095  local+neg 0.165  exact 0.198
+  2022-06  local 0.058  local+neg 0.305  exact 0.413
+  2022-07  local 0.148  local+neg 0.305  exact 0.214
+  2022-08  local 0.131  local+neg 0.649  exact 0.319
+  2022-09  local 0.276  local+neg 0.710  exact 0.485
+  2022-10  local 0.165  local+neg 0.077  exact 0.165
+  2022-11  local 0.113  local+neg 0.095  exact 0.148
+  2022-12  local 0.131  local+neg 0.058  exact 0.165
+
+RESULT drift n=87 local_written=0.1384 local_both=0.3311 exact=0.2943
+  sd: local 0.1028  local+neg 0.2483  exact 0.1586
+
+If the local columns sit near the exact one, their expression is a usable proxy at this
+width and the paper must say so. If they sit far from it, the paper's claim stands but
+has to be stated about this expression rather than about inclusion frequency.
