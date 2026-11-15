@@ -1,0 +1,255 @@
+PASS/FAIL -- hypercube, test share 0.10. Stated criterion: |difference| > 1.0 F1 and > the seed/draw range of each side. Bootstrap criterion: |difference| > 1.0 F1 and its 95% interval (2000 paired resamples of the shared test rows, seed-mean scores) excludes zero. The bootstrap criterion decides every verdict (decided 2026-11-13 before any full result was read); the stated criterion is secondary. 'Small' in-distribution gap <= 2.0.
+
+Reading (1): oracle gap small in distribution, larger on later years
+  B0  validation     fptm      stated: iid   0.18 later   2.67 diff  +2.49 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.00 later   5.84 diff  +5.84 [+4.96, +6.77] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=B0 rule=validation model=fptm stated_iid_gap=0.18 stated_later_gap=2.67 stated_diff=2.49 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.00 boot_later_gap=5.84 boot_diff=5.84 boot_lo=4.96 boot_hi=6.77 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation     lightgbm  stated: iid   0.36 later  10.21 diff  +9.86 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.36 later  10.21 diff  +9.86 [+8.89, +11.05] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=B0 rule=validation model=lightgbm stated_iid_gap=0.36 stated_later_gap=10.21 stated_diff=9.86 stated_verdict=SURVIVES boot_iid_gap=0.36 boot_later_gap=10.21 boot_diff=9.86 boot_lo=8.89 boot_hi=11.05 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation     xgboost   stated: iid   0.27 later   5.46 diff  +5.18 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.27 later   5.46 diff  +5.18 [+4.20, +6.18] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=B0 rule=validation model=xgboost stated_iid_gap=0.27 stated_later_gap=5.46 stated_diff=5.18 stated_verdict=SURVIVES boot_iid_gap=0.27 boot_later_gap=5.46 boot_diff=5.18 boot_lo=4.20 boot_hi=6.18 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  fptm      stated: iid   0.18 later   2.67 diff  +2.49 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.00 later   5.84 diff  +5.84 [+4.96, +6.77] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=B0 rule=validation_te model=fptm stated_iid_gap=0.18 stated_later_gap=2.67 stated_diff=2.49 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.00 boot_later_gap=5.84 boot_diff=5.84 boot_lo=4.96 boot_hi=6.77 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  lightgbm  stated: iid   0.36 later  10.21 diff  +9.86 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.36 later  10.21 diff  +9.86 [+8.89, +11.05] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=B0 rule=validation_te model=lightgbm stated_iid_gap=0.36 stated_later_gap=10.21 stated_diff=9.86 stated_verdict=SURVIVES boot_iid_gap=0.36 boot_later_gap=10.21 boot_diff=9.86 boot_lo=8.89 boot_hi=11.05 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  xgboost   stated: iid   0.27 later   5.46 diff  +5.18 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.27 later   5.46 diff  +5.18 [+4.20, +6.18] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=B0 rule=validation_te model=xgboost stated_iid_gap=0.27 stated_later_gap=5.46 stated_diff=5.18 stated_verdict=SURVIVES boot_iid_gap=0.27 boot_later_gap=5.46 boot_diff=5.18 boot_lo=4.20 boot_hi=6.18 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation     fptm      stated: iid   9.37 later   2.03 diff  -7.34 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid  11.66 later   1.48 diff -10.18 [-11.93, -8.35] -> UNRESOLVED
+RESULT reading1 corpus=hypercube condition=U rule=validation model=fptm stated_iid_gap=9.37 stated_later_gap=2.03 stated_diff=-7.34 stated_verdict=UNRESOLVED boot_iid_gap=11.66 boot_later_gap=1.48 boot_diff=-10.18 boot_lo=-11.93 boot_hi=-8.35 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation     lightgbm  stated: iid   2.68 later   3.41 diff  +0.73 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   2.41 later   4.38 diff  +1.97 [+0.83, +3.26] -> UNRESOLVED
+RESULT reading1 corpus=hypercube condition=U rule=validation model=lightgbm stated_iid_gap=2.68 stated_later_gap=3.41 stated_diff=0.73 stated_verdict=UNRESOLVED boot_iid_gap=2.41 boot_later_gap=4.38 boot_diff=1.97 boot_lo=0.83 boot_hi=3.26 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation     xgboost   stated: iid   3.07 later   1.98 diff  -1.09 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   2.32 later   2.03 diff  -0.29 [-1.37, +0.90] -> UNRESOLVED
+RESULT reading1 corpus=hypercube condition=U rule=validation model=xgboost stated_iid_gap=3.07 stated_later_gap=1.98 stated_diff=-1.09 stated_verdict=UNRESOLVED boot_iid_gap=2.32 boot_later_gap=2.03 boot_diff=-0.29 boot_lo=-1.37 boot_hi=0.90 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation_te  fptm      stated: iid   0.13 later   6.62 diff  +6.49 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.83 later   6.30 diff  +5.47 [+4.32, +6.89] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=U rule=validation_te model=fptm stated_iid_gap=0.13 stated_later_gap=6.62 stated_diff=6.49 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.83 boot_later_gap=6.30 boot_diff=5.47 boot_lo=4.32 boot_hi=6.89 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation_te  lightgbm  stated: iid   0.22 later   9.09 diff  +8.87 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.00 later   8.79 diff  +8.79 [+7.72, +10.00] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=U rule=validation_te model=lightgbm stated_iid_gap=0.22 stated_later_gap=9.09 stated_diff=8.87 stated_verdict=SURVIVES boot_iid_gap=0.00 boot_later_gap=8.79 boot_diff=8.79 boot_lo=7.72 boot_hi=10.00 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation_te  xgboost   stated: iid   0.17 later   4.58 diff  +4.40 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.08 later   5.64 diff  +5.56 [+4.57, +6.67] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=U rule=validation_te model=xgboost stated_iid_gap=0.17 stated_later_gap=4.58 stated_diff=4.40 stated_verdict=SURVIVES boot_iid_gap=0.08 boot_later_gap=5.64 boot_diff=5.56 boot_lo=4.57 boot_hi=6.67 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation     fptm      stated: iid   7.37 later   0.97 diff  -6.39 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid  10.63 later   0.78 diff  -9.85 [-11.55, -8.17] -> UNRESOLVED
+RESULT reading1 corpus=hypercube condition=O rule=validation model=fptm stated_iid_gap=7.37 stated_later_gap=0.97 stated_diff=-6.39 stated_verdict=UNRESOLVED boot_iid_gap=10.63 boot_later_gap=0.78 boot_diff=-9.85 boot_lo=-11.55 boot_hi=-8.17 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation     lightgbm  stated: iid   2.13 later   4.55 diff  +2.43 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   2.13 later   4.55 diff  +2.43 [+1.35, +3.64] -> UNRESOLVED
+RESULT reading1 corpus=hypercube condition=O rule=validation model=lightgbm stated_iid_gap=2.13 stated_later_gap=4.55 stated_diff=2.43 stated_verdict=UNRESOLVED boot_iid_gap=2.13 boot_later_gap=4.55 boot_diff=2.43 boot_lo=1.35 boot_hi=3.64 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation     xgboost   stated: iid   2.58 later   2.80 diff  +0.22 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   2.58 later   2.80 diff  +0.22 [-0.80, +1.33] -> UNRESOLVED
+RESULT reading1 corpus=hypercube condition=O rule=validation model=xgboost stated_iid_gap=2.58 stated_later_gap=2.80 stated_diff=0.22 stated_verdict=UNRESOLVED boot_iid_gap=2.58 boot_later_gap=2.80 boot_diff=0.22 boot_lo=-0.80 boot_hi=1.33 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation_te  fptm      stated: iid   0.20 later   6.27 diff  +6.07 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.26 later   6.89 diff  +6.63 [+5.50, +7.81] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=O rule=validation_te model=fptm stated_iid_gap=0.20 stated_later_gap=6.27 stated_diff=6.07 stated_verdict=SURVIVES boot_iid_gap=0.26 boot_later_gap=6.89 boot_diff=6.63 boot_lo=5.50 boot_hi=7.81 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation_te  lightgbm  stated: iid   0.39 later  10.17 diff  +9.78 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.39 later  10.17 diff  +9.78 [+8.64, +10.98] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=O rule=validation_te model=lightgbm stated_iid_gap=0.39 stated_later_gap=10.17 stated_diff=9.78 stated_verdict=SURVIVES boot_iid_gap=0.39 boot_later_gap=10.17 boot_diff=9.78 boot_lo=8.64 boot_hi=10.98 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation_te  xgboost   stated: iid   0.24 later   8.88 diff  +8.65 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.24 later   8.88 diff  +8.65 [+7.60, +9.76] -> SURVIVES
+RESULT reading1 corpus=hypercube condition=O rule=validation_te model=xgboost stated_iid_gap=0.24 stated_later_gap=8.88 stated_diff=8.65 stated_verdict=SURVIVES boot_iid_gap=0.24 boot_later_gap=8.88 boot_diff=8.65 boot_lo=7.60 boot_hi=9.76 boot_verdict=SURVIVES verdict=SURVIVES
+
+Reading (1c): each booster's mean later-year oracle gap larger than FPTM's (both boosters)
+  B0  validation     lightgbm  minus fptm: stated  +7.54 counts True | bootstrap  +4.37 [+3.42, +5.52] counts True
+  B0  validation     xgboost   minus fptm: stated  +2.78 counts False | bootstrap  -0.39 [-1.51, +0.88] counts False
+  B0  validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=hypercube condition=B0 rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  B0  validation_te  lightgbm  minus fptm: stated  +7.54 counts True | bootstrap  +4.37 [+3.42, +5.52] counts True
+  B0  validation_te  xgboost   minus fptm: stated  +2.78 counts False | bootstrap  -0.39 [-1.51, +0.88] counts False
+  B0  validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=hypercube condition=B0 rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  U   validation     lightgbm  minus fptm: stated  +1.38 counts False | bootstrap  +2.90 [+1.72, +3.93] counts True
+  U   validation     xgboost   minus fptm: stated  -0.05 counts False | bootstrap  +0.56 [-0.24, +1.40] counts False
+  U   validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=hypercube condition=U rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  U   validation_te  lightgbm  minus fptm: stated  +2.47 counts False | bootstrap  +2.49 [+1.21, +3.48] counts True
+  U   validation_te  xgboost   minus fptm: stated  -2.04 counts False | bootstrap  -0.66 [-1.70, +0.32] counts False
+  U   validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=hypercube condition=U rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  O   validation     lightgbm  minus fptm: stated  +3.58 counts True | bootstrap  +3.77 [+2.82, +4.67] counts True
+  O   validation     xgboost   minus fptm: stated  +1.83 counts True | bootstrap  +2.02 [+1.18, +2.74] counts True
+  O   validation     -> SURVIVES (bootstrap, deciding) | stated (secondary) SURVIVES
+RESULT reading1c corpus=hypercube condition=O rule=validation stated_verdict=SURVIVES boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation_te  lightgbm  minus fptm: stated  +3.90 counts False | bootstrap  +3.28 [+2.21, +4.30] counts True
+  O   validation_te  xgboost   minus fptm: stated  +2.62 counts False | bootstrap  +2.00 [+0.86, +2.99] counts True
+  O   validation_te  -> SURVIVES (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=hypercube condition=O rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=SURVIVES verdict=SURVIVES
+
+Reading (2): the condition moves default minus validation, not oracle F1, AP or oracle minus validation
+  validation     fptm      -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 2, bootstrap 6: iid B0-U +1.03; 2022 B0-U +5.68; 2022 B0-O +4.28; 2022 U-O -1.40; 2023 B0-U -5.87; 2023 B0-O -6.30
+      AP                     counted: stated 4, bootstrap 4: 2022 B0-U +1.88; 2022 U-O -1.76; 2023 B0-U -8.62; 2023 B0-O -7.95
+      oracle-validation      counted: stated 2, bootstrap 7: iid B0-U -11.66; iid B0-O -10.63; 2022 B0-U +5.02; 2022 B0-O +6.69; 2022 U-O +1.68; 2023 B0-U +3.72 ...
+      default-validation     counted: stated 1, bootstrap 5: iid B0-U -9.38; iid B0-O -9.57; 2022 B0-U -5.29; 2022 B0-O -3.28; 2022 U-O +2.00
+RESULT reading2 corpus=hypercube rule=validation model=fptm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=2 oracle_F1_counted_boot=6 AP_counted_stated=4 AP_counted_boot=4 oracle-validation_counted_stated=2 oracle-validation_counted_boot=7 default-validation_counted_stated=1 default-validation_counted_boot=5
+  validation     lightgbm  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 3, bootstrap 4: 2022 B0-U +4.74; 2022 U-O -4.46; 2023 B0-U -4.07; 2023 U-O +3.63
+      AP                     counted: stated 2, bootstrap 2: 2023 B0-U -3.49; 2023 U-O +3.24
+      oracle-validation      counted: stated 5, bootstrap 7: iid B0-U -2.05; iid B0-O -1.77; 2022 B0-U +7.75; 2022 B0-O +6.16; 2022 U-O -1.58; 2023 B0-U +3.91 ...
+      default-validation     counted: stated 5, bootstrap 8: iid B0-U +1.13; iid B0-O -1.52; iid U-O -2.66; 2022 B0-O +5.22; 2022 U-O +5.67; 2023 B0-U -2.43 ...
+RESULT reading2 corpus=hypercube rule=validation model=lightgbm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=3 oracle_F1_counted_boot=4 AP_counted_stated=2 AP_counted_boot=2 oracle-validation_counted_stated=5 oracle-validation_counted_boot=7 default-validation_counted_stated=5 default-validation_counted_boot=8
+  validation     xgboost   -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 4, bootstrap 2: 2023 B0-O -1.72; 2023 U-O -1.78
+      AP                     counted: stated 0, bootstrap 1: 2022 U-O +1.16
+      oracle-validation      counted: stated 3, bootstrap 4: iid B0-U -2.05; iid B0-O -2.31; 2023 B0-U +5.85; 2023 B0-O +4.33
+      default-validation     counted: stated 4, bootstrap 6: iid B0-U +2.27; iid B0-O -1.82; iid U-O -4.09; 2023 B0-U -3.52; 2023 B0-O +1.81; 2023 U-O +5.33
+RESULT reading2 corpus=hypercube rule=validation model=xgboost stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=4 oracle_F1_counted_boot=2 AP_counted_stated=0 AP_counted_boot=1 oracle-validation_counted_stated=3 oracle-validation_counted_boot=4 default-validation_counted_stated=4 default-validation_counted_boot=6
+  validation_te  fptm      -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 2, bootstrap 6: iid B0-U +1.03; 2022 B0-U +5.68; 2022 B0-O +4.28; 2022 U-O -1.40; 2023 B0-U -5.87; 2023 B0-O -6.30
+      AP                     counted: stated 4, bootstrap 4: 2022 B0-U +1.88; 2022 U-O -1.76; 2023 B0-U -8.62; 2023 B0-O -7.95
+      oracle-validation_te   counted: stated 0, bootstrap 5: 2022 B0-U +4.15; 2022 B0-O +2.93; 2022 U-O -1.22; 2023 B0-U -5.06; 2023 B0-O -5.01
+      default-validation_te  counted: stated 2, bootstrap 5: iid B0-U +1.44; 2022 B0-U -6.15; 2022 B0-O -7.05; 2023 B0-U -9.09; 2023 B0-O -9.06
+RESULT reading2 corpus=hypercube rule=validation_te model=fptm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=2 oracle_F1_counted_boot=6 AP_counted_stated=4 AP_counted_boot=4 oracle-validation_te_counted_stated=0 oracle-validation_te_counted_boot=5 default-validation_te_counted_stated=2 default-validation_te_counted_boot=5
+  validation_te  lightgbm  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 3, bootstrap 4: 2022 B0-U +4.74; 2022 U-O -4.46; 2023 B0-U -4.07; 2023 U-O +3.63
+      AP                     counted: stated 2, bootstrap 2: 2023 B0-U -3.49; 2023 U-O +3.24
+      oracle-validation_te   counted: stated 0, bootstrap 4: 2022 B0-U +5.04; 2022 U-O -4.41; 2023 B0-U -2.20; 2023 U-O +1.66
+      default-validation_te  counted: stated 4, bootstrap 7: iid B0-U +3.54; iid U-O -3.33; 2022 B0-U -3.16; 2022 U-O +2.84; 2023 B0-U -8.54; 2023 B0-O -1.24 ...
+RESULT reading2 corpus=hypercube rule=validation_te model=lightgbm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=3 oracle_F1_counted_boot=4 AP_counted_stated=2 AP_counted_boot=2 oracle-validation_te_counted_stated=0 oracle-validation_te_counted_boot=4 default-validation_te_counted_stated=4 default-validation_te_counted_boot=7
+  validation_te  xgboost   -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 4, bootstrap 2: 2023 B0-O -1.72; 2023 U-O -1.78
+      AP                     counted: stated 0, bootstrap 1: 2022 U-O +1.16
+      oracle-validation_te   counted: stated 3, bootstrap 4: 2022 B0-O -2.98; 2022 U-O -2.36; 2023 B0-O -3.88; 2023 U-O -4.13
+      default-validation_te  counted: stated 6, bootstrap 8: iid B0-U +4.51; iid U-O -3.98; 2022 B0-U -1.52; 2022 B0-O -3.96; 2022 U-O -2.45; 2023 B0-U -9.13 ...
+RESULT reading2 corpus=hypercube rule=validation_te model=xgboost stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=4 oracle_F1_counted_boot=2 AP_counted_stated=0 AP_counted_boot=1 oracle-validation_te_counted_stated=3 oracle-validation_te_counted_boot=4 default-validation_te_counted_stated=6 default-validation_te_counted_boot=8
+
+Negative control: oracle gap on the 1:9 iid set at most 2.0 (stated: mean; bootstrap: upper 95% bound)
+  B0  validation_te  fptm      stated   0.18 -> PASS (secondary) | bootstrap (deciding)   0.00 (upper   0.20) -> PASS
+RESULT control_negative corpus=hypercube condition=B0 rule=validation_te model=fptm stated_gap=0.18 stated_verdict=PASS boot_gap=0.00 boot_hi=0.20 boot_verdict=PASS verdict=PASS
+  B0  validation_te  lightgbm  stated   0.36 -> PASS (secondary) | bootstrap (deciding)   0.36 (upper   0.81) -> PASS
+RESULT control_negative corpus=hypercube condition=B0 rule=validation_te model=lightgbm stated_gap=0.36 stated_verdict=PASS boot_gap=0.36 boot_hi=0.81 boot_verdict=PASS verdict=PASS
+  B0  validation_te  xgboost   stated   0.27 -> PASS (secondary) | bootstrap (deciding)   0.27 (upper   0.60) -> PASS
+RESULT control_negative corpus=hypercube condition=B0 rule=validation_te model=xgboost stated_gap=0.27 stated_verdict=PASS boot_gap=0.27 boot_hi=0.60 boot_verdict=PASS verdict=PASS
+  B0  validation     fptm      stated   0.18 -> PASS (secondary) | bootstrap (deciding)   0.00 (upper   0.20) -> PASS
+RESULT control_negative corpus=hypercube condition=B0 rule=validation model=fptm stated_gap=0.18 stated_verdict=PASS boot_gap=0.00 boot_hi=0.20 boot_verdict=PASS verdict=PASS
+  B0  validation     lightgbm  stated   0.36 -> PASS (secondary) | bootstrap (deciding)   0.36 (upper   0.81) -> PASS
+RESULT control_negative corpus=hypercube condition=B0 rule=validation model=lightgbm stated_gap=0.36 stated_verdict=PASS boot_gap=0.36 boot_hi=0.81 boot_verdict=PASS verdict=PASS
+  B0  validation     xgboost   stated   0.27 -> PASS (secondary) | bootstrap (deciding)   0.27 (upper   0.60) -> PASS
+RESULT control_negative corpus=hypercube condition=B0 rule=validation model=xgboost stated_gap=0.27 stated_verdict=PASS boot_gap=0.27 boot_hi=0.60 boot_verdict=PASS verdict=PASS
+  U   validation_te  fptm      stated   0.13 -> PASS (secondary) | bootstrap (deciding)   0.83 (upper   1.61) -> PASS
+RESULT control_negative corpus=hypercube condition=U rule=validation_te model=fptm stated_gap=0.13 stated_verdict=PASS boot_gap=0.83 boot_hi=1.61 boot_verdict=PASS verdict=PASS
+  U   validation_te  lightgbm  stated   0.22 -> PASS (secondary) | bootstrap (deciding)   0.00 (upper   0.00) -> PASS
+RESULT control_negative corpus=hypercube condition=U rule=validation_te model=lightgbm stated_gap=0.22 stated_verdict=PASS boot_gap=0.00 boot_hi=0.00 boot_verdict=PASS verdict=PASS
+  U   validation_te  xgboost   stated   0.17 -> PASS (secondary) | bootstrap (deciding)   0.08 (upper   0.52) -> PASS
+RESULT control_negative corpus=hypercube condition=U rule=validation_te model=xgboost stated_gap=0.17 stated_verdict=PASS boot_gap=0.08 boot_hi=0.52 boot_verdict=PASS verdict=PASS
+  U   validation     fptm      stated   9.37 -> FAIL (secondary) | bootstrap (deciding)  11.66 (upper  13.49) -> FAIL
+RESULT control_negative corpus=hypercube condition=U rule=validation model=fptm stated_gap=9.37 stated_verdict=FAIL boot_gap=11.66 boot_hi=13.49 boot_verdict=FAIL verdict=FAIL
+  U   validation     lightgbm  stated   2.68 -> FAIL (secondary) | bootstrap (deciding)   2.41 (upper   3.18) -> FAIL
+RESULT control_negative corpus=hypercube condition=U rule=validation model=lightgbm stated_gap=2.68 stated_verdict=FAIL boot_gap=2.41 boot_hi=3.18 boot_verdict=FAIL verdict=FAIL
+  U   validation     xgboost   stated   3.07 -> FAIL (secondary) | bootstrap (deciding)   2.32 (upper   3.31) -> FAIL
+RESULT control_negative corpus=hypercube condition=U rule=validation model=xgboost stated_gap=3.07 stated_verdict=FAIL boot_gap=2.32 boot_hi=3.31 boot_verdict=FAIL verdict=FAIL
+  O   validation_te  fptm      stated   0.20 -> PASS (secondary) | bootstrap (deciding)   0.26 (upper   0.88) -> PASS
+RESULT control_negative corpus=hypercube condition=O rule=validation_te model=fptm stated_gap=0.20 stated_verdict=PASS boot_gap=0.26 boot_hi=0.88 boot_verdict=PASS verdict=PASS
+  O   validation_te  lightgbm  stated   0.39 -> PASS (secondary) | bootstrap (deciding)   0.39 (upper   0.90) -> PASS
+RESULT control_negative corpus=hypercube condition=O rule=validation_te model=lightgbm stated_gap=0.39 stated_verdict=PASS boot_gap=0.39 boot_hi=0.90 boot_verdict=PASS verdict=PASS
+  O   validation_te  xgboost   stated   0.24 -> PASS (secondary) | bootstrap (deciding)   0.24 (upper   0.60) -> PASS
+RESULT control_negative corpus=hypercube condition=O rule=validation_te model=xgboost stated_gap=0.24 stated_verdict=PASS boot_gap=0.24 boot_hi=0.60 boot_verdict=PASS verdict=PASS
+  O   validation     fptm      stated   7.37 -> FAIL (secondary) | bootstrap (deciding)  10.63 (upper  12.37) -> FAIL
+RESULT control_negative corpus=hypercube condition=O rule=validation model=fptm stated_gap=7.37 stated_verdict=FAIL boot_gap=10.63 boot_hi=12.37 boot_verdict=FAIL verdict=FAIL
+  O   validation     lightgbm  stated   2.13 -> FAIL (secondary) | bootstrap (deciding)   2.13 (upper   3.05) -> FAIL
+RESULT control_negative corpus=hypercube condition=O rule=validation model=lightgbm stated_gap=2.13 stated_verdict=FAIL boot_gap=2.13 boot_hi=3.05 boot_verdict=FAIL verdict=FAIL
+  O   validation     xgboost   stated   2.58 -> FAIL (secondary) | bootstrap (deciding)   2.58 (upper   3.52) -> FAIL
+RESULT control_negative corpus=hypercube condition=O rule=validation model=xgboost stated_gap=2.58 stated_verdict=FAIL boot_gap=2.58 boot_hi=3.52 boot_verdict=FAIL verdict=FAIL
+
+Positive control: oracle gap on the 1:1 cut of the iid set larger than on the 1:9 iid set by a difference that counts (criterion rule: validation_te; validation reported beside it)
+  B0  validation_te  fptm      stated 1:9   0.18 1:1   1.53 diff  +1.34 -> PASS       (secondary) | bootstrap (deciding) diff  +1.65 [+0.91, +2.64] -> PASS
+RESULT control_positive corpus=hypercube condition=B0 rule=validation_te model=fptm stated_gap_1to9=0.18 stated_gap_1to1=1.53 stated_diff=1.34 stated_verdict=PASS boot_diff=1.65 boot_lo=0.91 boot_hi=2.64 boot_verdict=PASS verdict=PASS
+  B0  validation_te  lightgbm  stated 1:9   0.36 1:1   0.78 diff  +0.43 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.43 [-0.15, +0.99] -> FAIL
+RESULT control_positive corpus=hypercube condition=B0 rule=validation_te model=lightgbm stated_gap_1to9=0.36 stated_gap_1to1=0.78 stated_diff=0.43 stated_verdict=FAIL boot_diff=0.43 boot_lo=-0.15 boot_hi=0.99 boot_verdict=FAIL verdict=FAIL
+  B0  validation_te  xgboost   stated 1:9   0.27 1:1   0.96 diff  +0.69 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.69 [+0.25, +1.18] -> FAIL
+RESULT control_positive corpus=hypercube condition=B0 rule=validation_te model=xgboost stated_gap_1to9=0.27 stated_gap_1to1=0.96 stated_diff=0.69 stated_verdict=FAIL boot_diff=0.69 boot_lo=0.25 boot_hi=1.18 boot_verdict=FAIL verdict=FAIL
+  B0  validation     fptm      stated 1:9   0.18 1:1   1.53 diff  +1.34 -> larger     (secondary) | bootstrap (deciding) diff  +1.65 [+0.91, +2.64] -> larger
+RESULT control_positive corpus=hypercube condition=B0 rule=validation model=fptm stated_gap_1to9=0.18 stated_gap_1to1=1.53 stated_diff=1.34 stated_verdict=larger boot_diff=1.65 boot_lo=0.91 boot_hi=2.64 boot_verdict=larger verdict=larger
+  B0  validation     lightgbm  stated 1:9   0.36 1:1   0.78 diff  +0.43 -> not larger (secondary) | bootstrap (deciding) diff  +0.43 [-0.15, +0.99] -> not larger
+RESULT control_positive corpus=hypercube condition=B0 rule=validation model=lightgbm stated_gap_1to9=0.36 stated_gap_1to1=0.78 stated_diff=0.43 stated_verdict=not_larger boot_diff=0.43 boot_lo=-0.15 boot_hi=0.99 boot_verdict=not_larger verdict=not_larger
+  B0  validation     xgboost   stated 1:9   0.27 1:1   0.96 diff  +0.69 -> not larger (secondary) | bootstrap (deciding) diff  +0.69 [+0.25, +1.18] -> not larger
+RESULT control_positive corpus=hypercube condition=B0 rule=validation model=xgboost stated_gap_1to9=0.27 stated_gap_1to1=0.96 stated_diff=0.69 stated_verdict=not_larger boot_diff=0.69 boot_lo=0.25 boot_hi=1.18 boot_verdict=not_larger verdict=not_larger
+  U   validation_te  fptm      stated 1:9   0.13 1:1   2.26 diff  +2.13 -> PASS       (secondary) | bootstrap (deciding) diff  +1.04 [+0.04, +2.25] -> PASS
+RESULT control_positive corpus=hypercube condition=U rule=validation_te model=fptm stated_gap_1to9=0.13 stated_gap_1to1=2.26 stated_diff=2.13 stated_verdict=PASS boot_diff=1.04 boot_lo=0.04 boot_hi=2.25 boot_verdict=PASS verdict=PASS
+  U   validation_te  lightgbm  stated 1:9   0.22 1:1   1.38 diff  +1.16 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.35 [+0.07, +0.83] -> FAIL
+RESULT control_positive corpus=hypercube condition=U rule=validation_te model=lightgbm stated_gap_1to9=0.22 stated_gap_1to1=1.38 stated_diff=1.16 stated_verdict=FAIL boot_diff=0.35 boot_lo=0.07 boot_hi=0.83 boot_verdict=FAIL verdict=FAIL
+  U   validation_te  xgboost   stated 1:9   0.17 1:1   1.24 diff  +1.07 -> PASS       (secondary) | bootstrap (deciding) diff  +0.93 [+0.31, +1.41] -> FAIL
+RESULT control_positive corpus=hypercube condition=U rule=validation_te model=xgboost stated_gap_1to9=0.17 stated_gap_1to1=1.24 stated_diff=1.07 stated_verdict=PASS boot_diff=0.93 boot_lo=0.31 boot_hi=1.41 boot_verdict=FAIL verdict=FAIL
+  U   validation     fptm      stated 1:9   9.37 1:1   0.11 diff  -9.26 -> not larger (secondary) | bootstrap (deciding) diff -11.44 [-12.95, -9.72] -> not larger
+RESULT control_positive corpus=hypercube condition=U rule=validation model=fptm stated_gap_1to9=9.37 stated_gap_1to1=0.11 stated_diff=-9.26 stated_verdict=not_larger boot_diff=-11.44 boot_lo=-12.95 boot_hi=-9.72 boot_verdict=not_larger verdict=not_larger
+  U   validation     lightgbm  stated 1:9   2.68 1:1   0.12 diff  -2.56 -> not larger (secondary) | bootstrap (deciding) diff  -2.29 [-2.96, -1.54] -> not larger
+RESULT control_positive corpus=hypercube condition=U rule=validation model=lightgbm stated_gap_1to9=2.68 stated_gap_1to1=0.12 stated_diff=-2.56 stated_verdict=not_larger boot_diff=-2.29 boot_lo=-2.96 boot_hi=-1.54 boot_verdict=not_larger verdict=not_larger
+  U   validation     xgboost   stated 1:9   3.07 1:1   0.11 diff  -2.97 -> not larger (secondary) | bootstrap (deciding) diff  -2.28 [-3.22, -1.54] -> not larger
+RESULT control_positive corpus=hypercube condition=U rule=validation model=xgboost stated_gap_1to9=3.07 stated_gap_1to1=0.11 stated_diff=-2.97 stated_verdict=not_larger boot_diff=-2.28 boot_lo=-3.22 boot_hi=-1.54 boot_verdict=not_larger verdict=not_larger
+  O   validation_te  fptm      stated 1:9   0.20 1:1   2.24 diff  +2.04 -> PASS       (secondary) | bootstrap (deciding) diff  +1.73 [+0.76, +2.60] -> PASS
+RESULT control_positive corpus=hypercube condition=O rule=validation_te model=fptm stated_gap_1to9=0.20 stated_gap_1to1=2.24 stated_diff=2.04 stated_verdict=PASS boot_diff=1.73 boot_lo=0.76 boot_hi=2.60 boot_verdict=PASS verdict=PASS
+  O   validation_te  lightgbm  stated 1:9   0.39 1:1   0.50 diff  +0.10 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.10 [-0.47, +0.70] -> FAIL
+RESULT control_positive corpus=hypercube condition=O rule=validation_te model=lightgbm stated_gap_1to9=0.39 stated_gap_1to1=0.50 stated_diff=0.10 stated_verdict=FAIL boot_diff=0.10 boot_lo=-0.47 boot_hi=0.70 boot_verdict=FAIL verdict=FAIL
+  O   validation_te  xgboost   stated 1:9   0.24 1:1   1.09 diff  +0.86 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.86 [+0.40, +1.32] -> FAIL
+RESULT control_positive corpus=hypercube condition=O rule=validation_te model=xgboost stated_gap_1to9=0.24 stated_gap_1to1=1.09 stated_diff=0.86 stated_verdict=FAIL boot_diff=0.86 boot_lo=0.40 boot_hi=1.32 boot_verdict=FAIL verdict=FAIL
+  O   validation     fptm      stated 1:9   7.37 1:1   0.11 diff  -7.25 -> not larger (secondary) | bootstrap (deciding) diff -10.26 [-11.89, -8.90] -> not larger
+RESULT control_positive corpus=hypercube condition=O rule=validation model=fptm stated_gap_1to9=7.37 stated_gap_1to1=0.11 stated_diff=-7.25 stated_verdict=not_larger boot_diff=-10.26 boot_lo=-11.89 boot_hi=-8.90 boot_verdict=not_larger verdict=not_larger
+  O   validation     lightgbm  stated 1:9   2.13 1:1   0.06 diff  -2.07 -> not larger (secondary) | bootstrap (deciding) diff  -2.07 [-2.88, -1.26] -> not larger
+RESULT control_positive corpus=hypercube condition=O rule=validation model=lightgbm stated_gap_1to9=2.13 stated_gap_1to1=0.06 stated_diff=-2.07 stated_verdict=not_larger boot_diff=-2.07 boot_lo=-2.88 boot_hi=-1.26 boot_verdict=not_larger verdict=not_larger
+  O   validation     xgboost   stated 1:9   2.58 1:1   0.08 diff  -2.50 -> not larger (secondary) | bootstrap (deciding) diff  -2.50 [-3.35, -1.76] -> not larger
+RESULT control_positive corpus=hypercube condition=O rule=validation model=xgboost stated_gap_1to9=2.58 stated_gap_1to1=0.08 stated_diff=-2.50 stated_verdict=not_larger boot_diff=-2.50 boot_lo=-3.35 boot_hi=-1.76 boot_verdict=not_larger verdict=not_larger
+  positive control passed (validation_te): 3 of 9 by the bootstrap criterion (deciding); stated (secondary) 4 of 9
+RESULT control_positive_summary corpus=hypercube passed=3 boot_passed=3 stated_passed=4 of=9
+
+EXPLORATORY (no pass/fail): EM prior correction (Saerens, Latinne, Decaestecker, Neural Computation 14(1), 2002). pi = estimated test prior; F1 of the corrected probabilities p' at 0.5 and at t_val, the validation F1-optimal threshold chosen in p-space at pi_train, applied unchanged to p'.
+  B0  fptm      iid       true share 0.100  pi_hat 0.098 (   5 it)  F1@0.5  91.00  F1@t_val  91.38  (t_val 0.3659)
+RESULT exploratory_em corpus=hypercube condition=B0 model=fptm period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0985 iterations=5 f1_at_0.5=91.00 f1_at_t_val=91.38 t_val=0.365909
+  B0  fptm      2022      true share 0.100  pi_hat 0.064 (   8 it)  F1@0.5  67.51  F1@t_val  68.23  (t_val 0.3659)
+RESULT exploratory_em corpus=hypercube condition=B0 model=fptm period=2022 pi_train=0.1 true_share=0.1000 pi_hat=0.0635 iterations=8 f1_at_0.5=67.51 f1_at_t_val=68.23 t_val=0.365909
+  B0  fptm      2023      true share 0.100  pi_hat 0.036 (   8 it)  F1@0.5  44.63  F1@t_val  46.40  (t_val 0.3659)
+RESULT exploratory_em corpus=hypercube condition=B0 model=fptm period=2023 pi_train=0.1 true_share=0.1000 pi_hat=0.0357 iterations=8 f1_at_0.5=44.63 f1_at_t_val=46.40 t_val=0.365909
+  B0  fptm      iid_1to1  true share 0.500  pi_hat 0.500 (   9 it)  F1@0.5  93.88  F1@t_val  94.25  (t_val 0.3659)
+RESULT exploratory_em corpus=hypercube condition=B0 model=fptm period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.4995 iterations=9 f1_at_0.5=93.88 f1_at_t_val=94.25 t_val=0.365909
+  B0  lightgbm  iid       true share 0.100  pi_hat 0.096 (   4 it)  F1@0.5  95.36  F1@t_val  95.15  (t_val 0.2357)
+RESULT exploratory_em corpus=hypercube condition=B0 model=lightgbm period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0958 iterations=4 f1_at_0.5=95.36 f1_at_t_val=95.15 t_val=0.235727
+  B0  lightgbm  2022      true share 0.100  pi_hat 0.056 (   6 it)  F1@0.5  73.19  F1@t_val  73.54  (t_val 0.2357)
+RESULT exploratory_em corpus=hypercube condition=B0 model=lightgbm period=2022 pi_train=0.1 true_share=0.1000 pi_hat=0.0564 iterations=6 f1_at_0.5=73.19 f1_at_t_val=73.54 t_val=0.235727
+  B0  lightgbm  2023      true share 0.100  pi_hat 0.033 (   5 it)  F1@0.5  47.16  F1@t_val  47.87  (t_val 0.2357)
+RESULT exploratory_em corpus=hypercube condition=B0 model=lightgbm period=2023 pi_train=0.1 true_share=0.1000 pi_hat=0.0328 iterations=5 f1_at_0.5=47.16 f1_at_t_val=47.87 t_val=0.235727
+  B0  lightgbm  iid_1to1  true share 0.500  pi_hat 0.475 (   5 it)  F1@0.5  97.06  F1@t_val  97.20  (t_val 0.2357)
+RESULT exploratory_em corpus=hypercube condition=B0 model=lightgbm period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.4750 iterations=5 f1_at_0.5=97.06 f1_at_t_val=97.20 t_val=0.235727
+  B0  xgboost   iid       true share 0.100  pi_hat 0.098 (   5 it)  F1@0.5  94.90  F1@t_val  94.90  (t_val 0.4011)
+RESULT exploratory_em corpus=hypercube condition=B0 model=xgboost period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0978 iterations=5 f1_at_0.5=94.90 f1_at_t_val=94.90 t_val=0.401136
+  B0  xgboost   2022      true share 0.100  pi_hat 0.062 (   7 it)  F1@0.5  73.60  F1@t_val  74.24  (t_val 0.4011)
+RESULT exploratory_em corpus=hypercube condition=B0 model=xgboost period=2022 pi_train=0.1 true_share=0.1000 pi_hat=0.0622 iterations=7 f1_at_0.5=73.60 f1_at_t_val=74.24 t_val=0.401136
+  B0  xgboost   2023      true share 0.100  pi_hat 0.034 (   8 it)  F1@0.5  44.87  F1@t_val  46.88  (t_val 0.4011)
+RESULT exploratory_em corpus=hypercube condition=B0 model=xgboost period=2023 pi_train=0.1 true_share=0.1000 pi_hat=0.0336 iterations=8 f1_at_0.5=44.87 f1_at_t_val=46.88 t_val=0.401136
+  B0  xgboost   iid_1to1  true share 0.500  pi_hat 0.501 (   7 it)  F1@0.5  97.25  F1@t_val  96.91  (t_val 0.4011)
+RESULT exploratory_em corpus=hypercube condition=B0 model=xgboost period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.5005 iterations=7 f1_at_0.5=97.25 f1_at_t_val=96.91 t_val=0.401136
+  U   fptm      iid       true share 0.100  pi_hat 0.101 (   9 it)  F1@0.5  89.41  F1@t_val  89.05  (t_val 0.3779)
+RESULT exploratory_em corpus=hypercube condition=U model=fptm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1010 iterations=9 f1_at_0.5=89.41 f1_at_t_val=89.05 t_val=0.3779
+  U   fptm      2022      true share 0.100  pi_hat 0.062 (  10 it)  F1@0.5  67.52  F1@t_val  68.80  (t_val 0.3779)
+RESULT exploratory_em corpus=hypercube condition=U model=fptm period=2022 pi_train=0.5 true_share=0.1000 pi_hat=0.0617 iterations=10 f1_at_0.5=67.52 f1_at_t_val=68.80 t_val=0.3779
+  U   fptm      2023      true share 0.100  pi_hat 0.034 (  11 it)  F1@0.5  46.30  F1@t_val  47.49  (t_val 0.3779)
+RESULT exploratory_em corpus=hypercube condition=U model=fptm period=2023 pi_train=0.5 true_share=0.1000 pi_hat=0.0336 iterations=11 f1_at_0.5=46.30 f1_at_t_val=47.49 t_val=0.3779
+  U   fptm      iid_1to1  true share 0.500  pi_hat 0.502 (   5 it)  F1@0.5  94.36  F1@t_val  94.36  (t_val 0.3779)
+RESULT exploratory_em corpus=hypercube condition=U model=fptm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.5021 iterations=5 f1_at_0.5=94.36 f1_at_t_val=94.36 t_val=0.3779
+  U   lightgbm  iid       true share 0.100  pi_hat 0.101 (   6 it)  F1@0.5  95.06  F1@t_val  95.41  (t_val 0.5909)
+RESULT exploratory_em corpus=hypercube condition=U model=lightgbm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1007 iterations=6 f1_at_0.5=95.06 f1_at_t_val=95.41 t_val=0.590902
+  U   lightgbm  2022      true share 0.100  pi_hat 0.065 (   6 it)  F1@0.5  74.15  F1@t_val  73.77  (t_val 0.5909)
+RESULT exploratory_em corpus=hypercube condition=U model=lightgbm period=2022 pi_train=0.5 true_share=0.1000 pi_hat=0.0655 iterations=6 f1_at_0.5=74.15 f1_at_t_val=73.77 t_val=0.590902
+  U   lightgbm  2023      true share 0.100  pi_hat 0.037 (   6 it)  F1@0.5  49.29  F1@t_val  48.98  (t_val 0.5909)
+RESULT exploratory_em corpus=hypercube condition=U model=lightgbm period=2023 pi_train=0.5 true_share=0.1000 pi_hat=0.0374 iterations=6 f1_at_0.5=49.29 f1_at_t_val=48.98 t_val=0.590902
+  U   lightgbm  iid_1to1  true share 0.500  pi_hat 0.491 (   4 it)  F1@0.5  97.31  F1@t_val  97.46  (t_val 0.5909)
+RESULT exploratory_em corpus=hypercube condition=U model=lightgbm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4909 iterations=4 f1_at_0.5=97.31 f1_at_t_val=97.46 t_val=0.590902
+  U   xgboost   iid       true share 0.100  pi_hat 0.098 (   7 it)  F1@0.5  94.48  F1@t_val  93.84  (t_val 0.6096)
+RESULT exploratory_em corpus=hypercube condition=U model=xgboost period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0981 iterations=7 f1_at_0.5=94.48 f1_at_t_val=93.84 t_val=0.609575
+  U   xgboost   2022      true share 0.100  pi_hat 0.062 (   9 it)  F1@0.5  70.09  F1@t_val  68.73  (t_val 0.6096)
+RESULT exploratory_em corpus=hypercube condition=U model=xgboost period=2022 pi_train=0.5 true_share=0.1000 pi_hat=0.0622 iterations=9 f1_at_0.5=70.09 f1_at_t_val=68.73 t_val=0.609575
+  U   xgboost   2023      true share 0.100  pi_hat 0.034 (   9 it)  F1@0.5  45.17  F1@t_val  43.44  (t_val 0.6096)
+RESULT exploratory_em corpus=hypercube condition=U model=xgboost period=2023 pi_train=0.5 true_share=0.1000 pi_hat=0.0338 iterations=9 f1_at_0.5=45.17 f1_at_t_val=43.44 t_val=0.609575
+  U   xgboost   iid_1to1  true share 0.500  pi_hat 0.502 (   5 it)  F1@0.5  97.11  F1@t_val  97.30  (t_val 0.6096)
+RESULT exploratory_em corpus=hypercube condition=U model=xgboost period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.5023 iterations=5 f1_at_0.5=97.11 f1_at_t_val=97.30 t_val=0.609575
+  O   fptm      iid       true share 0.100  pi_hat 0.098 (   8 it)  F1@0.5  90.86  F1@t_val  90.33  (t_val 0.3212)
+RESULT exploratory_em corpus=hypercube condition=O model=fptm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0978 iterations=8 f1_at_0.5=90.86 f1_at_t_val=90.33 t_val=0.32115
+  O   fptm      2022      true share 0.100  pi_hat 0.060 (   9 it)  F1@0.5  67.73  F1@t_val  68.93  (t_val 0.3212)
+RESULT exploratory_em corpus=hypercube condition=O model=fptm period=2022 pi_train=0.5 true_share=0.1000 pi_hat=0.0596 iterations=9 f1_at_0.5=67.73 f1_at_t_val=68.93 t_val=0.32115
+  O   fptm      2023      true share 0.100  pi_hat 0.032 (  10 it)  F1@0.5  45.13  F1@t_val  47.24  (t_val 0.3212)
+RESULT exploratory_em corpus=hypercube condition=O model=fptm period=2023 pi_train=0.5 true_share=0.1000 pi_hat=0.0318 iterations=10 f1_at_0.5=45.13 f1_at_t_val=47.24 t_val=0.32115
+  O   fptm      iid_1to1  true share 0.500  pi_hat 0.497 (   5 it)  F1@0.5  95.57  F1@t_val  95.33  (t_val 0.3212)
+RESULT exploratory_em corpus=hypercube condition=O model=fptm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4968 iterations=5 f1_at_0.5=95.57 f1_at_t_val=95.33 t_val=0.32115
+  O   lightgbm  iid       true share 0.100  pi_hat 0.095 (   5 it)  F1@0.5  95.48  F1@t_val  94.38  (t_val 0.0037)
+RESULT exploratory_em corpus=hypercube condition=O model=lightgbm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0955 iterations=5 f1_at_0.5=95.48 f1_at_t_val=94.38 t_val=0.0037437
+  O   lightgbm  2022      true share 0.100  pi_hat 0.056 (   6 it)  F1@0.5  72.70  F1@t_val  75.53  (t_val 0.0037)
+RESULT exploratory_em corpus=hypercube condition=O model=lightgbm period=2022 pi_train=0.5 true_share=0.1000 pi_hat=0.0555 iterations=6 f1_at_0.5=72.70 f1_at_t_val=75.53 t_val=0.0037437
+  O   lightgbm  2023      true share 0.100  pi_hat 0.032 (   5 it)  F1@0.5  46.78  F1@t_val  51.43  (t_val 0.0037)
+RESULT exploratory_em corpus=hypercube condition=O model=lightgbm period=2023 pi_train=0.5 true_share=0.1000 pi_hat=0.0320 iterations=5 f1_at_0.5=46.78 f1_at_t_val=51.43 t_val=0.0037437
+  O   lightgbm  iid_1to1  true share 0.500  pi_hat 0.474 (   4 it)  F1@0.5  96.93  F1@t_val  97.42  (t_val 0.0037)
+RESULT exploratory_em corpus=hypercube condition=O model=lightgbm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4736 iterations=4 f1_at_0.5=96.93 f1_at_t_val=97.42 t_val=0.0037437
+  O   xgboost   iid       true share 0.100  pi_hat 0.092 (   6 it)  F1@0.5  94.31  F1@t_val  95.05  (t_val 0.3098)
+RESULT exploratory_em corpus=hypercube condition=O model=xgboost period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0925 iterations=6 f1_at_0.5=94.31 f1_at_t_val=95.05 t_val=0.309782
+  O   xgboost   2022      true share 0.100  pi_hat 0.053 (   8 it)  F1@0.5  69.42  F1@t_val  70.56  (t_val 0.3098)
+RESULT exploratory_em corpus=hypercube condition=O model=xgboost period=2022 pi_train=0.5 true_share=0.1000 pi_hat=0.0525 iterations=8 f1_at_0.5=69.42 f1_at_t_val=70.56 t_val=0.309782
+  O   xgboost   2023      true share 0.100  pi_hat 0.028 (   7 it)  F1@0.5  42.94  F1@t_val  44.55  (t_val 0.3098)
+RESULT exploratory_em corpus=hypercube condition=O model=xgboost period=2023 pi_train=0.5 true_share=0.1000 pi_hat=0.0284 iterations=7 f1_at_0.5=42.94 f1_at_t_val=44.55 t_val=0.309782
+  O   xgboost   iid_1to1  true share 0.500  pi_hat 0.482 (   5 it)  F1@0.5  96.98  F1@t_val  97.30  (t_val 0.3098)
+RESULT exploratory_em corpus=hypercube condition=O model=xgboost period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4824 iterations=5 f1_at_0.5=96.98 f1_at_t_val=97.30 t_val=0.309782

@@ -1,0 +1,287 @@
+PASS/FAIL -- androzoo, test share 0.10. Stated criterion: |difference| > 1.0 F1 and > the seed/draw range of each side. Bootstrap criterion: |difference| > 1.0 F1 and its 95% interval (2000 paired resamples of the shared test rows, seed-mean scores) excludes zero. The bootstrap criterion decides every verdict (decided 2026-11-13 before any full result was read); the stated criterion is secondary. 'Small' in-distribution gap <= 2.0.
+
+Reading (1): oracle gap small in distribution, larger on later years
+  B0  validation     fptm      stated: iid   0.03 later   6.52 diff  +6.49 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.24 later   8.27 diff  +8.03 [+7.15, +9.23] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=B0 rule=validation model=fptm stated_iid_gap=0.03 stated_later_gap=6.52 stated_diff=6.49 stated_verdict=SURVIVES boot_iid_gap=0.24 boot_later_gap=8.27 boot_diff=8.03 boot_lo=7.15 boot_hi=9.23 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation     lightgbm  stated: iid   0.79 later  24.57 diff +23.79 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.79 later  24.57 diff +23.79 [+22.23, +25.55] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=B0 rule=validation model=lightgbm stated_iid_gap=0.79 stated_later_gap=24.57 stated_diff=23.79 stated_verdict=SURVIVES boot_iid_gap=0.79 boot_later_gap=24.57 boot_diff=23.79 boot_lo=22.23 boot_hi=25.55 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation     xgboost   stated: iid   0.50 later  16.20 diff +15.70 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.50 later  16.20 diff +15.70 [+14.44, +17.30] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=B0 rule=validation model=xgboost stated_iid_gap=0.50 stated_later_gap=16.20 stated_diff=15.70 stated_verdict=SURVIVES boot_iid_gap=0.50 boot_later_gap=16.20 boot_diff=15.70 boot_lo=14.44 boot_hi=17.30 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  fptm      stated: iid   0.03 later   6.52 diff  +6.49 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.24 later   8.27 diff  +8.03 [+7.15, +9.23] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=B0 rule=validation_te model=fptm stated_iid_gap=0.03 stated_later_gap=6.52 stated_diff=6.49 stated_verdict=SURVIVES boot_iid_gap=0.24 boot_later_gap=8.27 boot_diff=8.03 boot_lo=7.15 boot_hi=9.23 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  lightgbm  stated: iid   0.79 later  24.57 diff +23.79 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.79 later  24.57 diff +23.79 [+22.23, +25.55] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=B0 rule=validation_te model=lightgbm stated_iid_gap=0.79 stated_later_gap=24.57 stated_diff=23.79 stated_verdict=SURVIVES boot_iid_gap=0.79 boot_later_gap=24.57 boot_diff=23.79 boot_lo=22.23 boot_hi=25.55 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  xgboost   stated: iid   0.50 later  16.20 diff +15.70 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.50 later  16.20 diff +15.70 [+14.44, +17.30] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=B0 rule=validation_te model=xgboost stated_iid_gap=0.50 stated_later_gap=16.20 stated_diff=15.70 stated_verdict=SURVIVES boot_iid_gap=0.50 boot_later_gap=16.20 boot_diff=15.70 boot_lo=14.44 boot_hi=17.30 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation     fptm      stated: iid   8.49 later   4.21 diff  -4.28 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   9.18 later   4.97 diff  -4.21 [-6.40, -2.09] -> UNRESOLVED
+RESULT reading1 corpus=androzoo condition=U rule=validation model=fptm stated_iid_gap=8.49 stated_later_gap=4.21 stated_diff=-4.28 stated_verdict=UNRESOLVED boot_iid_gap=9.18 boot_later_gap=4.97 boot_diff=-4.21 boot_lo=-6.40 boot_hi=-2.09 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation     lightgbm  stated: iid   5.67 later   6.44 diff  +0.77 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   5.41 later   1.85 diff  -3.56 [-5.01, -2.28] -> UNRESOLVED
+RESULT reading1 corpus=androzoo condition=U rule=validation model=lightgbm stated_iid_gap=5.67 stated_later_gap=6.44 stated_diff=0.77 stated_verdict=UNRESOLVED boot_iid_gap=5.41 boot_later_gap=1.85 boot_diff=-3.56 boot_lo=-5.01 boot_hi=-2.28 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation     xgboost   stated: iid   6.31 later   3.27 diff  -3.04 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   6.87 later   2.03 diff  -4.84 [-6.58, -3.26] -> UNRESOLVED
+RESULT reading1 corpus=androzoo condition=U rule=validation model=xgboost stated_iid_gap=6.31 stated_later_gap=3.27 stated_diff=-3.04 stated_verdict=UNRESOLVED boot_iid_gap=6.87 boot_later_gap=2.03 boot_diff=-4.84 boot_lo=-6.58 boot_hi=-3.26 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation_te  fptm      stated: iid   0.77 later   4.51 diff  +3.73 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.41 later   9.10 diff  +8.69 [+7.75, +9.69] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=U rule=validation_te model=fptm stated_iid_gap=0.77 stated_later_gap=4.51 stated_diff=3.73 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.41 boot_later_gap=9.10 boot_diff=8.69 boot_lo=7.75 boot_hi=9.69 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation_te  lightgbm  stated: iid   0.27 later  25.83 diff +25.56 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.76 later  19.89 diff +19.13 [+17.53, +20.52] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=U rule=validation_te model=lightgbm stated_iid_gap=0.27 stated_later_gap=25.83 stated_diff=25.56 stated_verdict=SURVIVES boot_iid_gap=0.76 boot_later_gap=19.89 boot_diff=19.13 boot_lo=17.53 boot_hi=20.52 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation_te  xgboost   stated: iid   0.23 later  20.30 diff +20.07 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.88 later  14.19 diff +13.32 [+11.92, +14.59] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=U rule=validation_te model=xgboost stated_iid_gap=0.23 stated_later_gap=20.30 stated_diff=20.07 stated_verdict=SURVIVES boot_iid_gap=0.88 boot_later_gap=14.19 boot_diff=13.32 boot_lo=11.92 boot_hi=14.59 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation     fptm      stated: iid   5.25 later   3.67 diff  -1.58 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   7.10 later   5.10 diff  -2.00 [-4.04, -0.34] -> UNRESOLVED
+RESULT reading1 corpus=androzoo condition=O rule=validation model=fptm stated_iid_gap=5.25 stated_later_gap=3.67 stated_diff=-1.58 stated_verdict=UNRESOLVED boot_iid_gap=7.10 boot_later_gap=5.10 boot_diff=-2.00 boot_lo=-4.04 boot_hi=-0.34 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation     lightgbm  stated: iid   4.80 later   4.14 diff  -0.66 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   4.80 later   4.14 diff  -0.66 [-2.31, +0.84] -> UNRESOLVED
+RESULT reading1 corpus=androzoo condition=O rule=validation model=lightgbm stated_iid_gap=4.80 stated_later_gap=4.14 stated_diff=-0.66 stated_verdict=UNRESOLVED boot_iid_gap=4.80 boot_later_gap=4.14 boot_diff=-0.66 boot_lo=-2.31 boot_hi=0.84 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation     xgboost   stated: iid   1.18 later   1.70 diff  +0.52 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   1.18 later   1.70 diff  +0.52 [-0.76, +1.70] -> NOT SUPPORTED
+RESULT reading1 corpus=androzoo condition=O rule=validation model=xgboost stated_iid_gap=1.18 stated_later_gap=1.70 stated_diff=0.52 stated_verdict=NOT_SUPPORTED boot_iid_gap=1.18 boot_later_gap=1.70 boot_diff=0.52 boot_lo=-0.76 boot_hi=1.70 boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  O   validation_te  fptm      stated: iid   0.22 later   4.79 diff  +4.57 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.11 later   6.71 diff  +6.59 [+5.52, +7.28] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=O rule=validation_te model=fptm stated_iid_gap=0.22 stated_later_gap=4.79 stated_diff=4.57 stated_verdict=SURVIVES boot_iid_gap=0.11 boot_later_gap=6.71 boot_diff=6.59 boot_lo=5.52 boot_hi=7.28 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation_te  lightgbm  stated: iid   0.57 later  25.13 diff +24.55 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.57 later  25.13 diff +24.55 [+22.94, +26.16] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=O rule=validation_te model=lightgbm stated_iid_gap=0.57 stated_later_gap=25.13 stated_diff=24.55 stated_verdict=SURVIVES boot_iid_gap=0.57 boot_later_gap=25.13 boot_diff=24.55 boot_lo=22.94 boot_hi=26.16 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation_te  xgboost   stated: iid   0.12 later  17.24 diff +17.13 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.12 later  17.24 diff +17.13 [+15.58, +18.67] -> SURVIVES
+RESULT reading1 corpus=androzoo condition=O rule=validation_te model=xgboost stated_iid_gap=0.12 stated_later_gap=17.24 stated_diff=17.13 stated_verdict=SURVIVES boot_iid_gap=0.12 boot_later_gap=17.24 boot_diff=17.13 boot_lo=15.58 boot_hi=18.67 boot_verdict=SURVIVES verdict=SURVIVES
+
+Reading (1b): AndroZoo, oracle gap in 2021 larger than in 2020 (all three models)
+  B0  validation     fptm      stated diff  -9.20 counts True | bootstrap diff -14.88 [-16.47, -12.66] counts True
+  B0  validation     lightgbm  stated diff  -5.91 counts True | bootstrap diff  -5.91 [-8.77, -2.65] counts True
+  B0  validation     xgboost   stated diff  +0.74 counts False | bootstrap diff  +0.75 [-1.54, +3.76] counts False
+  B0  validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1b corpus=androzoo condition=B0 rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  B0  validation_te  fptm      stated diff  -9.20 counts True | bootstrap diff -14.88 [-16.47, -12.66] counts True
+  B0  validation_te  lightgbm  stated diff  -5.91 counts True | bootstrap diff  -5.91 [-8.77, -2.65] counts True
+  B0  validation_te  xgboost   stated diff  +0.74 counts False | bootstrap diff  +0.75 [-1.54, +3.76] counts False
+  B0  validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1b corpus=androzoo condition=B0 rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  U   validation     fptm      stated diff  +1.02 counts False | bootstrap diff  +0.70 [-1.01, +2.67] counts False
+  U   validation     lightgbm  stated diff  +3.36 counts False | bootstrap diff  -3.57 [-4.15, -2.92] counts True
+  U   validation     xgboost   stated diff  -0.39 counts False | bootstrap diff  +3.93 [+3.04, +5.15] counts True
+  U   validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1b corpus=androzoo condition=U rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  U   validation_te  fptm      stated diff  -5.45 counts False | bootstrap diff -16.98 [-18.61, -15.04] counts True
+  U   validation_te  lightgbm  stated diff  -4.74 counts False | bootstrap diff  +5.29 [+2.60, +7.89] counts True
+  U   validation_te  xgboost   stated diff  +8.61 counts False | bootstrap diff  +7.98 [+5.76, +10.49] counts True
+  U   validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1b corpus=androzoo condition=U rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  O   validation     fptm      stated diff  +1.85 counts False | bootstrap diff  +3.71 [+1.81, +5.56] counts True
+  O   validation     lightgbm  stated diff  -2.81 counts True | bootstrap diff  -2.81 [-4.06, -1.43] counts True
+  O   validation     xgboost   stated diff  -1.10 counts True | bootstrap diff  -1.10 [-2.35, +0.65] counts False
+  O   validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1b corpus=androzoo condition=O rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  O   validation_te  fptm      stated diff  -8.20 counts False | bootstrap diff -12.23 [-13.74, -10.75] counts True
+  O   validation_te  lightgbm  stated diff  -2.15 counts True | bootstrap diff  -2.15 [-5.08, +0.99] counts False
+  O   validation_te  xgboost   stated diff  +3.80 counts True | bootstrap diff  +3.80 [+1.18, +6.92] counts True
+  O   validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1b corpus=androzoo condition=O rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+
+Reading (1c): each booster's mean later-year oracle gap larger than FPTM's (both boosters)
+  B0  validation     lightgbm  minus fptm: stated +18.05 counts True | bootstrap +16.30 [+14.79, +17.69] counts True
+  B0  validation     xgboost   minus fptm: stated  +9.68 counts True | bootstrap  +7.93 [+6.68, +9.35] counts True
+  B0  validation     -> SURVIVES (bootstrap, deciding) | stated (secondary) SURVIVES
+RESULT reading1c corpus=androzoo condition=B0 rule=validation stated_verdict=SURVIVES boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  lightgbm  minus fptm: stated +18.05 counts True | bootstrap +16.30 [+14.79, +17.69] counts True
+  B0  validation_te  xgboost   minus fptm: stated  +9.68 counts True | bootstrap  +7.93 [+6.68, +9.35] counts True
+  B0  validation_te  -> SURVIVES (bootstrap, deciding) | stated (secondary) SURVIVES
+RESULT reading1c corpus=androzoo condition=B0 rule=validation_te stated_verdict=SURVIVES boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation     lightgbm  minus fptm: stated  +2.23 counts False | bootstrap  -3.12 [-4.12, -2.17] counts True
+  U   validation     xgboost   minus fptm: stated  -0.94 counts False | bootstrap  -2.94 [-3.85, -1.98] counts True
+  U   validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=androzoo condition=U rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  U   validation_te  lightgbm  minus fptm: stated +21.32 counts True | bootstrap +10.79 [+9.23, +12.17] counts True
+  U   validation_te  xgboost   minus fptm: stated +15.79 counts True | bootstrap  +5.09 [+3.80, +6.48] counts True
+  U   validation_te  -> SURVIVES (bootstrap, deciding) | stated (secondary) SURVIVES
+RESULT reading1c corpus=androzoo condition=U rule=validation_te stated_verdict=SURVIVES boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation     lightgbm  minus fptm: stated  +0.47 counts False | bootstrap  -0.95 [-2.24, +0.30] counts False
+  O   validation     xgboost   minus fptm: stated  -1.97 counts False | bootstrap  -3.40 [-4.53, -2.09] counts True
+  O   validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=androzoo condition=O rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  O   validation_te  lightgbm  minus fptm: stated +20.33 counts True | bootstrap +18.42 [+16.92, +19.86] counts True
+  O   validation_te  xgboost   minus fptm: stated +12.45 counts True | bootstrap +10.54 [+9.29, +11.98] counts True
+  O   validation_te  -> SURVIVES (bootstrap, deciding) | stated (secondary) SURVIVES
+RESULT reading1c corpus=androzoo condition=O rule=validation_te stated_verdict=SURVIVES boot_verdict=SURVIVES verdict=SURVIVES
+
+Reading (2): the condition moves default minus validation, not oracle F1, AP or oracle minus validation
+  validation     fptm      -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 2, bootstrap 6: iid B0-U +1.64; iid U-O -1.61; 2020 B0-U -1.37; 2020 B0-O +1.74; 2020 U-O +3.12; 2021 U-O -1.37
+      AP                     counted: stated 1, bootstrap 4: 2020 B0-U -4.34; 2020 B0-O -3.30; 2020 U-O +1.05; 2021 B0-U -1.68
+      oracle-validation      counted: stated 3, bootstrap 9: iid B0-U -8.94; iid B0-O -6.86; iid U-O +2.08; 2020 B0-U +11.10; 2020 B0-O +12.47; 2020 U-O +1.37 ...
+      default-validation     counted: stated 0, bootstrap 7: iid B0-U -4.34; iid B0-O -5.33; 2020 B0-U -2.06; 2020 B0-O -3.18; 2020 U-O -1.12; 2021 B0-U -2.27 ...
+RESULT reading2 corpus=androzoo rule=validation model=fptm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=2 oracle_F1_counted_boot=6 AP_counted_stated=1 AP_counted_boot=4 oracle-validation_counted_stated=3 oracle-validation_counted_boot=9 default-validation_counted_stated=0 default-validation_counted_boot=7
+  validation     lightgbm  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 4, bootstrap 4: 2020 B0-U -1.52; 2020 B0-O +1.71; 2020 U-O +3.23; 2021 B0-O -1.35
+      AP                     counted: stated 1, bootstrap 5: 2020 B0-U -1.49; 2020 U-O +1.10; 2021 B0-U -1.54; 2021 B0-O -2.73; 2021 U-O -1.18
+      oracle-validation      counted: stated 4, bootstrap 8: iid B0-U -4.62; iid B0-O -4.02; 2020 B0-U +23.89; 2020 B0-O +21.98; 2020 U-O -1.92; 2021 B0-U +21.56 ...
+      default-validation     counted: stated 4, bootstrap 6: iid B0-O -3.23; iid U-O -3.24; 2020 B0-O +20.56; 2020 U-O +21.25; 2021 B0-O +20.46; 2021 U-O +20.85
+RESULT reading2 corpus=androzoo rule=validation model=lightgbm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=4 oracle_F1_counted_boot=4 AP_counted_stated=1 AP_counted_boot=5 oracle-validation_counted_stated=4 oracle-validation_counted_boot=8 default-validation_counted_stated=4 default-validation_counted_boot=6
+  validation     xgboost   -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 6, bootstrap 6: 2020 B0-U -5.66; 2020 B0-O +2.12; 2020 U-O +7.79; 2021 B0-U -6.00; 2021 B0-O -2.88; 2021 U-O +3.12
+      AP                     counted: stated 3, bootstrap 5: 2020 B0-U -4.65; 2020 U-O +5.12; 2021 B0-U -5.35; 2021 B0-O -3.46; 2021 U-O +1.89
+      oracle-validation      counted: stated 6, bootstrap 8: iid B0-U -6.37; iid U-O +5.68; 2020 B0-U +15.76; 2020 B0-O +13.58; 2020 U-O -2.18; 2021 B0-U +12.58 ...
+      default-validation     counted: stated 4, bootstrap 7: iid B0-U -1.71; 2020 B0-U -1.76; 2020 B0-O +8.00; 2020 U-O +9.75; 2021 B0-U -4.30; 2021 B0-O +16.52 ...
+RESULT reading2 corpus=androzoo rule=validation model=xgboost stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=6 oracle_F1_counted_boot=6 AP_counted_stated=3 AP_counted_boot=5 oracle-validation_counted_stated=6 oracle-validation_counted_boot=8 default-validation_counted_stated=4 default-validation_counted_boot=7
+  validation_te  fptm      -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 2, bootstrap 6: iid B0-U +1.64; iid U-O -1.61; 2020 B0-U -1.37; 2020 B0-O +1.74; 2020 U-O +3.12; 2021 U-O -1.37
+      AP                     counted: stated 1, bootstrap 4: 2020 B0-U -4.34; 2020 B0-O -3.30; 2020 U-O +1.05; 2021 B0-U -1.68
+      oracle-validation_te   counted: stated 0, bootstrap 3: 2020 B0-U -1.88; 2020 B0-O +2.90; 2020 U-O +4.77
+      default-validation_te  counted: stated 2, bootstrap 8: iid B0-U +4.43; iid B0-O +1.65; iid U-O -2.78; 2020 B0-U -15.03; 2020 B0-O -12.76; 2020 U-O +2.27 ...
+RESULT reading2 corpus=androzoo rule=validation_te model=fptm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=2 oracle_F1_counted_boot=6 AP_counted_stated=1 AP_counted_boot=4 oracle-validation_te_counted_stated=0 oracle-validation_te_counted_boot=3 default-validation_te_counted_stated=2 default-validation_te_counted_boot=8
+  validation_te  lightgbm  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 4, bootstrap 4: 2020 B0-U -1.52; 2020 B0-O +1.71; 2020 U-O +3.23; 2021 B0-O -1.35
+      AP                     counted: stated 1, bootstrap 5: 2020 B0-U -1.49; 2020 U-O +1.10; 2021 B0-U -1.54; 2021 B0-O -2.73; 2021 U-O -1.18
+      oracle-validation_te   counted: stated 2, bootstrap 5: 2020 B0-U +10.28; 2020 B0-O +1.32; 2020 U-O -8.96; 2021 B0-O -2.43; 2021 U-O -1.51
+      default-validation_te  counted: stated 6, bootstrap 6: iid B0-U +4.65; iid U-O -3.66; 2020 B0-U -14.30; 2020 U-O +14.21; 2021 B0-U -22.86; 2021 U-O +22.01
+RESULT reading2 corpus=androzoo rule=validation_te model=lightgbm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=4 oracle_F1_counted_boot=4 AP_counted_stated=1 AP_counted_boot=5 oracle-validation_te_counted_stated=2 oracle-validation_te_counted_boot=5 default-validation_te_counted_stated=6 default-validation_te_counted_boot=6
+  validation_te  xgboost   -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 6, bootstrap 6: 2020 B0-U -5.66; 2020 B0-O +2.12; 2020 U-O +7.79; 2021 B0-U -6.00; 2021 B0-O -2.88; 2021 U-O +3.12
+      AP                     counted: stated 3, bootstrap 5: 2020 B0-U -4.65; 2020 U-O +5.12; 2021 B0-U -5.35; 2021 B0-O -3.46; 2021 U-O +1.89
+      oracle-validation_te   counted: stated 2, bootstrap 3: 2020 B0-U +5.62; 2020 U-O -5.14; 2021 B0-O -2.57
+      default-validation_te  counted: stated 7, bootstrap 8: iid B0-U +4.28; iid U-O -3.92; 2020 B0-U -11.89; 2020 B0-O -5.10; 2020 U-O +6.79; 2021 B0-U -18.49 ...
+RESULT reading2 corpus=androzoo rule=validation_te model=xgboost stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=6 oracle_F1_counted_boot=6 AP_counted_stated=3 AP_counted_boot=5 oracle-validation_te_counted_stated=2 oracle-validation_te_counted_boot=3 default-validation_te_counted_stated=7 default-validation_te_counted_boot=8
+
+Negative control: oracle gap on the 1:9 iid set at most 2.0 (stated: mean; bootstrap: upper 95% bound)
+  B0  validation_te  fptm      stated   0.03 -> PASS (secondary) | bootstrap (deciding)   0.24 (upper   0.63) -> PASS
+RESULT control_negative corpus=androzoo condition=B0 rule=validation_te model=fptm stated_gap=0.03 stated_verdict=PASS boot_gap=0.24 boot_hi=0.63 boot_verdict=PASS verdict=PASS
+  B0  validation_te  lightgbm  stated   0.79 -> PASS (secondary) | bootstrap (deciding)   0.79 (upper   1.35) -> PASS
+RESULT control_negative corpus=androzoo condition=B0 rule=validation_te model=lightgbm stated_gap=0.79 stated_verdict=PASS boot_gap=0.79 boot_hi=1.35 boot_verdict=PASS verdict=PASS
+  B0  validation_te  xgboost   stated   0.50 -> PASS (secondary) | bootstrap (deciding)   0.50 (upper   1.10) -> PASS
+RESULT control_negative corpus=androzoo condition=B0 rule=validation_te model=xgboost stated_gap=0.50 stated_verdict=PASS boot_gap=0.50 boot_hi=1.10 boot_verdict=PASS verdict=PASS
+  B0  validation     fptm      stated   0.03 -> PASS (secondary) | bootstrap (deciding)   0.24 (upper   0.63) -> PASS
+RESULT control_negative corpus=androzoo condition=B0 rule=validation model=fptm stated_gap=0.03 stated_verdict=PASS boot_gap=0.24 boot_hi=0.63 boot_verdict=PASS verdict=PASS
+  B0  validation     lightgbm  stated   0.79 -> PASS (secondary) | bootstrap (deciding)   0.79 (upper   1.35) -> PASS
+RESULT control_negative corpus=androzoo condition=B0 rule=validation model=lightgbm stated_gap=0.79 stated_verdict=PASS boot_gap=0.79 boot_hi=1.35 boot_verdict=PASS verdict=PASS
+  B0  validation     xgboost   stated   0.50 -> PASS (secondary) | bootstrap (deciding)   0.50 (upper   1.10) -> PASS
+RESULT control_negative corpus=androzoo condition=B0 rule=validation model=xgboost stated_gap=0.50 stated_verdict=PASS boot_gap=0.50 boot_hi=1.10 boot_verdict=PASS verdict=PASS
+  U   validation_te  fptm      stated   0.77 -> PASS (secondary) | bootstrap (deciding)   0.41 (upper   0.87) -> PASS
+RESULT control_negative corpus=androzoo condition=U rule=validation_te model=fptm stated_gap=0.77 stated_verdict=PASS boot_gap=0.41 boot_hi=0.87 boot_verdict=PASS verdict=PASS
+  U   validation_te  lightgbm  stated   0.27 -> PASS (secondary) | bootstrap (deciding)   0.76 (upper   1.48) -> PASS
+RESULT control_negative corpus=androzoo condition=U rule=validation_te model=lightgbm stated_gap=0.27 stated_verdict=PASS boot_gap=0.76 boot_hi=1.48 boot_verdict=PASS verdict=PASS
+  U   validation_te  xgboost   stated   0.23 -> PASS (secondary) | bootstrap (deciding)   0.88 (upper   1.79) -> PASS
+RESULT control_negative corpus=androzoo condition=U rule=validation_te model=xgboost stated_gap=0.23 stated_verdict=PASS boot_gap=0.88 boot_hi=1.79 boot_verdict=PASS verdict=PASS
+  U   validation     fptm      stated   8.49 -> FAIL (secondary) | bootstrap (deciding)   9.18 (upper  11.19) -> FAIL
+RESULT control_negative corpus=androzoo condition=U rule=validation model=fptm stated_gap=8.49 stated_verdict=FAIL boot_gap=9.18 boot_hi=11.19 boot_verdict=FAIL verdict=FAIL
+  U   validation     lightgbm  stated   5.67 -> FAIL (secondary) | bootstrap (deciding)   5.41 (upper   6.87) -> FAIL
+RESULT control_negative corpus=androzoo condition=U rule=validation model=lightgbm stated_gap=5.67 stated_verdict=FAIL boot_gap=5.41 boot_hi=6.87 boot_verdict=FAIL verdict=FAIL
+  U   validation     xgboost   stated   6.31 -> FAIL (secondary) | bootstrap (deciding)   6.87 (upper   8.57) -> FAIL
+RESULT control_negative corpus=androzoo condition=U rule=validation model=xgboost stated_gap=6.31 stated_verdict=FAIL boot_gap=6.87 boot_hi=8.57 boot_verdict=FAIL verdict=FAIL
+  O   validation_te  fptm      stated   0.22 -> PASS (secondary) | bootstrap (deciding)   0.11 (upper   0.79) -> PASS
+RESULT control_negative corpus=androzoo condition=O rule=validation_te model=fptm stated_gap=0.22 stated_verdict=PASS boot_gap=0.11 boot_hi=0.79 boot_verdict=PASS verdict=PASS
+  O   validation_te  lightgbm  stated   0.57 -> PASS (secondary) | bootstrap (deciding)   0.57 (upper   1.10) -> PASS
+RESULT control_negative corpus=androzoo condition=O rule=validation_te model=lightgbm stated_gap=0.57 stated_verdict=PASS boot_gap=0.57 boot_hi=1.10 boot_verdict=PASS verdict=PASS
+  O   validation_te  xgboost   stated   0.12 -> PASS (secondary) | bootstrap (deciding)   0.12 (upper   0.86) -> PASS
+RESULT control_negative corpus=androzoo condition=O rule=validation_te model=xgboost stated_gap=0.12 stated_verdict=PASS boot_gap=0.12 boot_hi=0.86 boot_verdict=PASS verdict=PASS
+  O   validation     fptm      stated   5.25 -> FAIL (secondary) | bootstrap (deciding)   7.10 (upper   8.99) -> FAIL
+RESULT control_negative corpus=androzoo condition=O rule=validation model=fptm stated_gap=5.25 stated_verdict=FAIL boot_gap=7.10 boot_hi=8.99 boot_verdict=FAIL verdict=FAIL
+  O   validation     lightgbm  stated   4.80 -> FAIL (secondary) | bootstrap (deciding)   4.80 (upper   6.30) -> FAIL
+RESULT control_negative corpus=androzoo condition=O rule=validation model=lightgbm stated_gap=4.80 stated_verdict=FAIL boot_gap=4.80 boot_hi=6.30 boot_verdict=FAIL verdict=FAIL
+  O   validation     xgboost   stated   1.18 -> PASS (secondary) | bootstrap (deciding)   1.18 (upper   2.32) -> FAIL
+RESULT control_negative corpus=androzoo condition=O rule=validation model=xgboost stated_gap=1.18 stated_verdict=PASS boot_gap=1.18 boot_hi=2.32 boot_verdict=FAIL verdict=FAIL
+
+Positive control: oracle gap on the 1:1 cut of the iid set larger than on the 1:9 iid set by a difference that counts (criterion rule: validation_te; validation reported beside it)
+  B0  validation_te  fptm      stated 1:9   0.03 1:1   1.15 diff  +1.12 -> PASS       (secondary) | bootstrap (deciding) diff  +1.44 [+0.69, +2.28] -> PASS
+RESULT control_positive corpus=androzoo condition=B0 rule=validation_te model=fptm stated_gap_1to9=0.03 stated_gap_1to1=1.15 stated_diff=1.12 stated_verdict=PASS boot_diff=1.44 boot_lo=0.69 boot_hi=2.28 boot_verdict=PASS verdict=PASS
+  B0  validation_te  lightgbm  stated 1:9   0.79 1:1   0.54 diff  -0.25 -> FAIL       (secondary) | bootstrap (deciding) diff  -0.25 [-0.91, +0.66] -> FAIL
+RESULT control_positive corpus=androzoo condition=B0 rule=validation_te model=lightgbm stated_gap_1to9=0.79 stated_gap_1to1=0.54 stated_diff=-0.25 stated_verdict=FAIL boot_diff=-0.25 boot_lo=-0.91 boot_hi=0.66 boot_verdict=FAIL verdict=FAIL
+  B0  validation_te  xgboost   stated 1:9   0.50 1:1   0.08 diff  -0.42 -> FAIL       (secondary) | bootstrap (deciding) diff  -0.42 [-0.87, +0.20] -> FAIL
+RESULT control_positive corpus=androzoo condition=B0 rule=validation_te model=xgboost stated_gap_1to9=0.50 stated_gap_1to1=0.08 stated_diff=-0.42 stated_verdict=FAIL boot_diff=-0.42 boot_lo=-0.87 boot_hi=0.20 boot_verdict=FAIL verdict=FAIL
+  B0  validation     fptm      stated 1:9   0.03 1:1   1.15 diff  +1.12 -> larger     (secondary) | bootstrap (deciding) diff  +1.44 [+0.69, +2.28] -> larger
+RESULT control_positive corpus=androzoo condition=B0 rule=validation model=fptm stated_gap_1to9=0.03 stated_gap_1to1=1.15 stated_diff=1.12 stated_verdict=larger boot_diff=1.44 boot_lo=0.69 boot_hi=2.28 boot_verdict=larger verdict=larger
+  B0  validation     lightgbm  stated 1:9   0.79 1:1   0.54 diff  -0.25 -> not larger (secondary) | bootstrap (deciding) diff  -0.25 [-0.91, +0.66] -> not larger
+RESULT control_positive corpus=androzoo condition=B0 rule=validation model=lightgbm stated_gap_1to9=0.79 stated_gap_1to1=0.54 stated_diff=-0.25 stated_verdict=not_larger boot_diff=-0.25 boot_lo=-0.91 boot_hi=0.66 boot_verdict=not_larger verdict=not_larger
+  B0  validation     xgboost   stated 1:9   0.50 1:1   0.08 diff  -0.42 -> not larger (secondary) | bootstrap (deciding) diff  -0.42 [-0.87, +0.20] -> not larger
+RESULT control_positive corpus=androzoo condition=B0 rule=validation model=xgboost stated_gap_1to9=0.50 stated_gap_1to1=0.08 stated_diff=-0.42 stated_verdict=not_larger boot_diff=-0.42 boot_lo=-0.87 boot_hi=0.20 boot_verdict=not_larger verdict=not_larger
+  U   validation_te  fptm      stated 1:9   0.77 1:1   1.34 diff  +0.57 -> FAIL       (secondary) | bootstrap (deciding) diff  +1.09 [+0.10, +2.32] -> PASS
+RESULT control_positive corpus=androzoo condition=U rule=validation_te model=fptm stated_gap_1to9=0.77 stated_gap_1to1=1.34 stated_diff=0.57 stated_verdict=FAIL boot_diff=1.09 boot_lo=0.10 boot_hi=2.32 boot_verdict=PASS verdict=PASS
+  U   validation_te  lightgbm  stated 1:9   0.27 1:1   1.22 diff  +0.95 -> FAIL       (secondary) | bootstrap (deciding) diff  -0.75 [-1.41, +0.06] -> FAIL
+RESULT control_positive corpus=androzoo condition=U rule=validation_te model=lightgbm stated_gap_1to9=0.27 stated_gap_1to1=1.22 stated_diff=0.95 stated_verdict=FAIL boot_diff=-0.75 boot_lo=-1.41 boot_hi=0.06 boot_verdict=FAIL verdict=FAIL
+  U   validation_te  xgboost   stated 1:9   0.23 1:1   0.79 diff  +0.56 -> FAIL       (secondary) | bootstrap (deciding) diff  -0.34 [-1.38, +0.47] -> FAIL
+RESULT control_positive corpus=androzoo condition=U rule=validation_te model=xgboost stated_gap_1to9=0.23 stated_gap_1to1=0.79 stated_diff=0.56 stated_verdict=FAIL boot_diff=-0.34 boot_lo=-1.38 boot_hi=0.47 boot_verdict=FAIL verdict=FAIL
+  U   validation     fptm      stated 1:9   8.49 1:1   0.18 diff  -8.31 -> not larger (secondary) | bootstrap (deciding) diff  -9.14 [-10.94, -7.22] -> not larger
+RESULT control_positive corpus=androzoo condition=U rule=validation model=fptm stated_gap_1to9=8.49 stated_gap_1to1=0.18 stated_diff=-8.31 stated_verdict=not_larger boot_diff=-9.14 boot_lo=-10.94 boot_hi=-7.22 boot_verdict=not_larger verdict=not_larger
+  U   validation     lightgbm  stated 1:9   5.67 1:1   0.51 diff  -5.16 -> not larger (secondary) | bootstrap (deciding) diff  -5.12 [-6.35, -3.85] -> not larger
+RESULT control_positive corpus=androzoo condition=U rule=validation model=lightgbm stated_gap_1to9=5.67 stated_gap_1to1=0.51 stated_diff=-5.16 stated_verdict=not_larger boot_diff=-5.12 boot_lo=-6.35 boot_hi=-3.85 boot_verdict=not_larger verdict=not_larger
+  U   validation     xgboost   stated 1:9   6.31 1:1   0.43 diff  -5.88 -> not larger (secondary) | bootstrap (deciding) diff  -6.37 [-7.95, -5.04] -> not larger
+RESULT control_positive corpus=androzoo condition=U rule=validation model=xgboost stated_gap_1to9=6.31 stated_gap_1to1=0.43 stated_diff=-5.88 stated_verdict=not_larger boot_diff=-6.37 boot_lo=-7.95 boot_hi=-5.04 boot_verdict=not_larger verdict=not_larger
+  O   validation_te  fptm      stated 1:9   0.22 1:1   1.44 diff  +1.22 -> FAIL       (secondary) | bootstrap (deciding) diff  +1.22 [+0.28, +1.93] -> PASS
+RESULT control_positive corpus=androzoo condition=O rule=validation_te model=fptm stated_gap_1to9=0.22 stated_gap_1to1=1.44 stated_diff=1.22 stated_verdict=FAIL boot_diff=1.22 boot_lo=0.28 boot_hi=1.93 boot_verdict=PASS verdict=PASS
+  O   validation_te  lightgbm  stated 1:9   0.57 1:1   0.42 diff  -0.15 -> FAIL       (secondary) | bootstrap (deciding) diff  -0.15 [-0.77, +0.73] -> FAIL
+RESULT control_positive corpus=androzoo condition=O rule=validation_te model=lightgbm stated_gap_1to9=0.57 stated_gap_1to1=0.42 stated_diff=-0.15 stated_verdict=FAIL boot_diff=-0.15 boot_lo=-0.77 boot_hi=0.73 boot_verdict=FAIL verdict=FAIL
+  O   validation_te  xgboost   stated 1:9   0.12 1:1   0.54 diff  +0.42 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.42 [-0.43, +0.97] -> FAIL
+RESULT control_positive corpus=androzoo condition=O rule=validation_te model=xgboost stated_gap_1to9=0.12 stated_gap_1to1=0.54 stated_diff=0.42 stated_verdict=FAIL boot_diff=0.42 boot_lo=-0.43 boot_hi=0.97 boot_verdict=FAIL verdict=FAIL
+  O   validation     fptm      stated 1:9   5.25 1:1   0.15 diff  -5.10 -> not larger (secondary) | bootstrap (deciding) diff  -6.82 [-8.60, -5.40] -> not larger
+RESULT control_positive corpus=androzoo condition=O rule=validation model=fptm stated_gap_1to9=5.25 stated_gap_1to1=0.15 stated_diff=-5.10 stated_verdict=not_larger boot_diff=-6.82 boot_lo=-8.60 boot_hi=-5.40 boot_verdict=not_larger verdict=not_larger
+  O   validation     lightgbm  stated 1:9   4.80 1:1   0.15 diff  -4.65 -> not larger (secondary) | bootstrap (deciding) diff  -4.65 [-5.98, -3.23] -> not larger
+RESULT control_positive corpus=androzoo condition=O rule=validation model=lightgbm stated_gap_1to9=4.80 stated_gap_1to1=0.15 stated_diff=-4.65 stated_verdict=not_larger boot_diff=-4.65 boot_lo=-5.98 boot_hi=-3.23 boot_verdict=not_larger verdict=not_larger
+  O   validation     xgboost   stated 1:9   1.18 1:1   0.07 diff  -1.11 -> not larger (secondary) | bootstrap (deciding) diff  -1.11 [-2.23, -0.35] -> not larger
+RESULT control_positive corpus=androzoo condition=O rule=validation model=xgboost stated_gap_1to9=1.18 stated_gap_1to1=0.07 stated_diff=-1.11 stated_verdict=not_larger boot_diff=-1.11 boot_lo=-2.23 boot_hi=-0.35 boot_verdict=not_larger verdict=not_larger
+  positive control passed (validation_te): 3 of 9 by the bootstrap criterion (deciding); stated (secondary) 1 of 9
+RESULT control_positive_summary corpus=androzoo passed=3 boot_passed=3 stated_passed=1 of=9
+
+EXPLORATORY (no pass/fail): EM prior correction (Saerens, Latinne, Decaestecker, Neural Computation 14(1), 2002). pi = estimated test prior; F1 of the corrected probabilities p' at 0.5 and at t_val, the validation F1-optimal threshold chosen in p-space at pi_train, applied unchanged to p'.
+  B0  fptm      iid       true share 0.100  pi_hat 0.101 (   4 it)  F1@0.5  94.31  F1@t_val  94.90  (t_val 0.6396)
+RESULT exploratory_em corpus=androzoo condition=B0 model=fptm period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.1006 iterations=4 f1_at_0.5=94.31 f1_at_t_val=94.90 t_val=0.639578
+  B0  fptm      2020      true share 0.100  pi_hat 0.051 (   8 it)  F1@0.5  57.25  F1@t_val  56.12  (t_val 0.6396)
+RESULT exploratory_em corpus=androzoo condition=B0 model=fptm period=2020 pi_train=0.1 true_share=0.1000 pi_hat=0.0509 iterations=8 f1_at_0.5=57.25 f1_at_t_val=56.12 t_val=0.639578
+  B0  fptm      2021      true share 0.100  pi_hat 0.044 (   9 it)  F1@0.5  46.03  F1@t_val  44.75  (t_val 0.6396)
+RESULT exploratory_em corpus=androzoo condition=B0 model=fptm period=2021 pi_train=0.1 true_share=0.1000 pi_hat=0.0439 iterations=9 f1_at_0.5=46.03 f1_at_t_val=44.75 t_val=0.639578
+  B0  fptm      iid_1to1  true share 0.500  pi_hat 0.500 (   7 it)  F1@0.5  96.89  F1@t_val  97.01  (t_val 0.6396)
+RESULT exploratory_em corpus=androzoo condition=B0 model=fptm period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.5002 iterations=7 f1_at_0.5=96.89 f1_at_t_val=97.01 t_val=0.639578
+  B0  lightgbm  iid       true share 0.100  pi_hat 0.096 (   3 it)  F1@0.5  97.08  F1@t_val  96.52  (t_val 0.1383)
+RESULT exploratory_em corpus=androzoo condition=B0 model=lightgbm period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0962 iterations=3 f1_at_0.5=97.08 f1_at_t_val=96.52 t_val=0.138297
+  B0  lightgbm  2020      true share 0.100  pi_hat 0.045 (   5 it)  F1@0.5  59.69  F1@t_val  60.21  (t_val 0.1383)
+RESULT exploratory_em corpus=androzoo condition=B0 model=lightgbm period=2020 pi_train=0.1 true_share=0.1000 pi_hat=0.0448 iterations=5 f1_at_0.5=59.69 f1_at_t_val=60.21 t_val=0.138297
+  B0  lightgbm  2021      true share 0.100  pi_hat 0.036 (   5 it)  F1@0.5  49.57  F1@t_val  50.40  (t_val 0.1383)
+RESULT exploratory_em corpus=androzoo condition=B0 model=lightgbm period=2021 pi_train=0.1 true_share=0.1000 pi_hat=0.0360 iterations=5 f1_at_0.5=49.57 f1_at_t_val=50.40 t_val=0.138297
+  B0  lightgbm  iid_1to1  true share 0.500  pi_hat 0.480 (   4 it)  F1@0.5  97.53  F1@t_val  97.99  (t_val 0.1383)
+RESULT exploratory_em corpus=androzoo condition=B0 model=lightgbm period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.4798 iterations=4 f1_at_0.5=97.53 f1_at_t_val=97.99 t_val=0.138297
+  B0  xgboost   iid       true share 0.100  pi_hat 0.097 (   4 it)  F1@0.5  96.77  F1@t_val  96.85  (t_val 0.2058)
+RESULT exploratory_em corpus=androzoo condition=B0 model=xgboost period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0966 iterations=4 f1_at_0.5=96.77 f1_at_t_val=96.85 t_val=0.205836
+  B0  xgboost   2020      true share 0.100  pi_hat 0.048 (   6 it)  F1@0.5  61.29  F1@t_val  65.33  (t_val 0.2058)
+RESULT exploratory_em corpus=androzoo condition=B0 model=xgboost period=2020 pi_train=0.1 true_share=0.1000 pi_hat=0.0475 iterations=6 f1_at_0.5=61.29 f1_at_t_val=65.33 t_val=0.205836
+  B0  xgboost   2021      true share 0.100  pi_hat 0.037 (   6 it)  F1@0.5  50.07  F1@t_val  50.97  (t_val 0.2058)
+RESULT exploratory_em corpus=androzoo condition=B0 model=xgboost period=2021 pi_train=0.1 true_share=0.1000 pi_hat=0.0373 iterations=6 f1_at_0.5=50.07 f1_at_t_val=50.97 t_val=0.205836
+  B0  xgboost   iid_1to1  true share 0.500  pi_hat 0.487 (   5 it)  F1@0.5  98.29  F1@t_val  98.23  (t_val 0.2058)
+RESULT exploratory_em corpus=androzoo condition=B0 model=xgboost period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.4871 iterations=5 f1_at_0.5=98.29 f1_at_t_val=98.23 t_val=0.205836
+  U   fptm      iid       true share 0.100  pi_hat 0.108 (   7 it)  F1@0.5  91.69  F1@t_val  91.69  (t_val 0.4962)
+RESULT exploratory_em corpus=androzoo condition=U model=fptm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1082 iterations=7 f1_at_0.5=91.69 f1_at_t_val=91.69 t_val=0.496151
+  U   fptm      2020      true share 0.100  pi_hat 0.063 (  10 it)  F1@0.5  57.27  F1@t_val  59.48  (t_val 0.4962)
+RESULT exploratory_em corpus=androzoo condition=U model=fptm period=2020 pi_train=0.5 true_share=0.1000 pi_hat=0.0631 iterations=10 f1_at_0.5=57.27 f1_at_t_val=59.48 t_val=0.496151
+  U   fptm      2021      true share 0.100  pi_hat 0.055 (  12 it)  F1@0.5  45.41  F1@t_val  45.41  (t_val 0.4962)
+RESULT exploratory_em corpus=androzoo condition=U model=fptm period=2021 pi_train=0.5 true_share=0.1000 pi_hat=0.0549 iterations=12 f1_at_0.5=45.41 f1_at_t_val=45.41 t_val=0.496151
+  U   fptm      iid_1to1  true share 0.500  pi_hat 0.507 (   5 it)  F1@0.5  96.56  F1@t_val  96.56  (t_val 0.4962)
+RESULT exploratory_em corpus=androzoo condition=U model=fptm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.5075 iterations=5 f1_at_0.5=96.56 f1_at_t_val=96.56 t_val=0.496151
+  U   lightgbm  iid       true share 0.100  pi_hat 0.103 (   5 it)  F1@0.5  96.34  F1@t_val  96.20  (t_val 0.4573)
+RESULT exploratory_em corpus=androzoo condition=U model=lightgbm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1026 iterations=5 f1_at_0.5=96.34 f1_at_t_val=96.20 t_val=0.457256
+  U   lightgbm  2020      true share 0.100  pi_hat 0.063 (   8 it)  F1@0.5  67.38  F1@t_val  67.38  (t_val 0.4573)
+RESULT exploratory_em corpus=androzoo condition=U model=lightgbm period=2020 pi_train=0.5 true_share=0.1000 pi_hat=0.0629 iterations=8 f1_at_0.5=67.38 f1_at_t_val=67.38 t_val=0.457256
+  U   lightgbm  2021      true share 0.100  pi_hat 0.042 (   7 it)  F1@0.5  50.05  F1@t_val  49.98  (t_val 0.4573)
+RESULT exploratory_em corpus=androzoo condition=U model=lightgbm period=2021 pi_train=0.5 true_share=0.1000 pi_hat=0.0422 iterations=7 f1_at_0.5=50.05 f1_at_t_val=49.98 t_val=0.457256
+  U   lightgbm  iid_1to1  true share 0.500  pi_hat 0.497 (   4 it)  F1@0.5  98.16  F1@t_val  98.02  (t_val 0.4573)
+RESULT exploratory_em corpus=androzoo condition=U model=lightgbm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4969 iterations=4 f1_at_0.5=98.16 f1_at_t_val=98.02 t_val=0.457256
+  U   xgboost   iid       true share 0.100  pi_hat 0.102 (   6 it)  F1@0.5  95.79  F1@t_val  95.54  (t_val 0.3784)
+RESULT exploratory_em corpus=androzoo condition=U model=xgboost period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1019 iterations=6 f1_at_0.5=95.79 f1_at_t_val=95.54 t_val=0.37838
+  U   xgboost   2020      true share 0.100  pi_hat 0.065 (   8 it)  F1@0.5  72.52  F1@t_val  72.95  (t_val 0.3784)
+RESULT exploratory_em corpus=androzoo condition=U model=xgboost period=2020 pi_train=0.5 true_share=0.1000 pi_hat=0.0648 iterations=8 f1_at_0.5=72.52 f1_at_t_val=72.95 t_val=0.37838
+  U   xgboost   2021      true share 0.100  pi_hat 0.044 (   9 it)  F1@0.5  48.54  F1@t_val  53.86  (t_val 0.3784)
+RESULT exploratory_em corpus=androzoo condition=U model=xgboost period=2021 pi_train=0.5 true_share=0.1000 pi_hat=0.0436 iterations=9 f1_at_0.5=48.54 f1_at_t_val=53.86 t_val=0.37838
+  U   xgboost   iid_1to1  true share 0.500  pi_hat 0.501 (   4 it)  F1@0.5  97.88  F1@t_val  97.81  (t_val 0.3784)
+RESULT exploratory_em corpus=androzoo condition=U model=xgboost period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.5008 iterations=4 f1_at_0.5=97.88 f1_at_t_val=97.81 t_val=0.37838
+  O   fptm      iid       true share 0.100  pi_hat 0.101 (   7 it)  F1@0.5  95.04  F1@t_val  94.38  (t_val 0.3493)
+RESULT exploratory_em corpus=androzoo condition=O model=fptm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1009 iterations=7 f1_at_0.5=95.04 f1_at_t_val=94.38 t_val=0.349326
+  O   fptm      2020      true share 0.100  pi_hat 0.054 (   9 it)  F1@0.5  58.28  F1@t_val  58.59  (t_val 0.3493)
+RESULT exploratory_em corpus=androzoo condition=O model=fptm period=2020 pi_train=0.5 true_share=0.1000 pi_hat=0.0536 iterations=9 f1_at_0.5=58.28 f1_at_t_val=58.59 t_val=0.349326
+  O   fptm      2021      true share 0.100  pi_hat 0.043 (  10 it)  F1@0.5  46.23  F1@t_val  46.94  (t_val 0.3493)
+RESULT exploratory_em corpus=androzoo condition=O model=fptm period=2021 pi_train=0.5 true_share=0.1000 pi_hat=0.0430 iterations=10 f1_at_0.5=46.23 f1_at_t_val=46.94 t_val=0.349326
+  O   fptm      iid_1to1  true share 0.500  pi_hat 0.499 (   4 it)  F1@0.5  97.78  F1@t_val  97.65  (t_val 0.3493)
+RESULT exploratory_em corpus=androzoo condition=O model=fptm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4989 iterations=4 f1_at_0.5=97.78 f1_at_t_val=97.65 t_val=0.349326
+  O   lightgbm  iid       true share 0.100  pi_hat 0.096 (   4 it)  F1@0.5  97.00  F1@t_val  92.75  (t_val 0.0008)
+RESULT exploratory_em corpus=androzoo condition=O model=lightgbm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0957 iterations=4 f1_at_0.5=97.00 f1_at_t_val=92.75 t_val=0.0008486
+  O   lightgbm  2020      true share 0.100  pi_hat 0.044 (   5 it)  F1@0.5  59.04  F1@t_val  77.49  (t_val 0.0008)
+RESULT exploratory_em corpus=androzoo condition=O model=lightgbm period=2020 pi_train=0.5 true_share=0.1000 pi_hat=0.0438 iterations=5 f1_at_0.5=59.04 f1_at_t_val=77.49 t_val=0.0008486
+  O   lightgbm  2021      true share 0.100  pi_hat 0.034 (   5 it)  F1@0.5  48.20  F1@t_val  51.62  (t_val 0.0008)
+RESULT exploratory_em corpus=androzoo condition=O model=lightgbm period=2021 pi_train=0.5 true_share=0.1000 pi_hat=0.0343 iterations=5 f1_at_0.5=48.20 f1_at_t_val=51.62 t_val=0.0008486
+  O   lightgbm  iid_1to1  true share 0.500  pi_hat 0.477 (   4 it)  F1@0.5  97.37  F1@t_val  97.72  (t_val 0.0008)
+RESULT exploratory_em corpus=androzoo condition=O model=lightgbm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4773 iterations=4 f1_at_0.5=97.37 f1_at_t_val=97.72 t_val=0.0008486
+  O   xgboost   iid       true share 0.100  pi_hat 0.095 (   5 it)  F1@0.5  96.76  F1@t_val  96.05  (t_val 0.0556)
+RESULT exploratory_em corpus=androzoo condition=O model=xgboost period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0951 iterations=5 f1_at_0.5=96.76 f1_at_t_val=96.05 t_val=0.0555596
+  O   xgboost   2020      true share 0.100  pi_hat 0.044 (   6 it)  F1@0.5  59.75  F1@t_val  64.77  (t_val 0.0556)
+RESULT exploratory_em corpus=androzoo condition=O model=xgboost period=2020 pi_train=0.5 true_share=0.1000 pi_hat=0.0441 iterations=6 f1_at_0.5=59.75 f1_at_t_val=64.77 t_val=0.0555596
+  O   xgboost   2021      true share 0.100  pi_hat 0.034 (   6 it)  F1@0.5  47.38  F1@t_val  51.69  (t_val 0.0556)
+RESULT exploratory_em corpus=androzoo condition=O model=xgboost period=2021 pi_train=0.5 true_share=0.1000 pi_hat=0.0338 iterations=6 f1_at_0.5=47.38 f1_at_t_val=51.69 t_val=0.0555596
+  O   xgboost   iid_1to1  true share 0.500  pi_hat 0.481 (   4 it)  F1@0.5  97.83  F1@t_val  98.37  (t_val 0.0556)
+RESULT exploratory_em corpus=androzoo condition=O model=xgboost period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4807 iterations=4 f1_at_0.5=97.83 f1_at_t_val=98.37 t_val=0.0555596

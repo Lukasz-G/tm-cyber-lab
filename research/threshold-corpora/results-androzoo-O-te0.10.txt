@@ -1,0 +1,279 @@
+THRESHOLD RULES -- androzoo, condition=O, test share 0.10
+FPTM clauses=20 T=10 S=372 L=64 LF=10 epochs=30; width=16978 s=round(width/S)=46; width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+pool 45489 rows at 9.98% malware; regions (malware, goodware): training [3179, 28663], validation [681, 6142], in-distribution [682, 6142]
+sets (every 10% set exactly 1:9, asserted):
+  B0 train            3179 malware    28611 goodware (1:9)
+  B0 val = val_te      681 malware     6129 goodware (1:9)
+  iid                  682 malware     6138 goodware (1:9)
+  2020                2500 malware    22500 goodware (1:9)
+  2021                1553 malware    13977 goodware (1:9)
+  seed 1 train    28611 malware    28611 goodware (31790 unique rows); val 6129 malware 6129 goodware
+  seed 2 train    28611 malware    28611 goodware (31790 unique rows); val 6129 malware 6129 goodware
+  seed 3 train    28611 malware    28611 goodware (31790 unique rows); val 6129 malware 6129 goodware
+  seed 4 train    28611 malware    28611 goodware (31790 unique rows); val 6129 malware 6129 goodware
+  seed 5 train    28611 malware    28611 goodware (31790 unique rows); val 6129 malware 6129 goodware
+  iid 1:1 control      682 malware      682 goodware (1:1, same rows)
+FPTM seeds (seed, train rows, unique, train s, Julia peak RSS MB): 1, 57222, 31790, 26.9, 680; 2, 57222, 31790, 28.3, 666; 3, 57222, 31790, 28.4, 663; 4, 57222, 31790, 29.2, 672; 5, 57222, 31790, 29.8, 683
+boosters: lightgbm seed once: 57222 rows (31790 unique); xgboost seed once: 57222 rows (31790 unique) (O: trained once, deterministic, identical rows for every seed)
+LightGBM {"n_estimators": 5000, "learning_rate": 0.02, "num_leaves": 256, "subsample": 1.0, "subsample_freq": 0, "colsample_bytree": 1.0, "n_jobs": 13, "verbose": -1, "random_state": "s"}
+XGBoost {"n_estimators": 5000, "learning_rate": 0.02, "max_leaves": 256, "max_depth": 6, "grow_policy": "depthwise", "subsample": 1.0, "colsample_bytree": 1.0, "tree_method": "hist", "n_jobs": 13, "random_state": "s", "eval_metric": "logloss"} (depthwise, max_depth 6, at most 64 leaves)
+versions: lightgbm 4.7.0, xgboost 3.1.1, scikit-learn 1.7.2, numpy 2.2.6; threads: booster n_jobs=13 (-1 = all) on 128 logical cores
+determinism (two runs on the same rows, bit-identical probabilities): not checked in a full run
+F1 points; mean over seeds, range across seeds in brackets. Later years: 2020, 2021.
+
+oracle-validation
+  model                 iid            2020            2021   mean later yrs
+  fptm         5.25 ( 4.30)    2.74 ( 5.86)    4.60 ( 2.10)             3.67
+  lightgbm     4.80 ( 0.00)    5.55 ( 0.00)    2.74 ( 0.00)             4.14
+  xgboost      1.18 ( 0.00)    2.25 ( 0.00)    1.15 ( 0.00)             1.70
+
+oracle-validation_te
+  model                 iid            2020            2021   mean later yrs
+  fptm         0.22 ( 0.52)    8.89 ( 8.83)    0.70 ( 1.46)             4.79
+  lightgbm     0.57 ( 0.00)   26.20 ( 0.00)   24.05 ( 0.00)            25.13
+  xgboost      0.12 ( 0.00)   15.34 ( 0.00)   19.14 ( 0.00)            17.24
+
+oracle-rate
+  model                 iid            2020            2021   mean later yrs
+  fptm        62.76 ( 2.28)   39.94 ( 6.05)   21.45 ( 7.85)            30.70
+  lightgbm    63.83 ( 0.00)   53.13 ( 0.00)   40.80 ( 0.00)            46.96
+  xgboost     63.34 ( 0.00)   46.64 ( 0.00)   38.18 ( 0.00)            42.41
+
+oracle-rate_te
+  model                 iid            2020            2021   mean later yrs
+  fptm         0.26 ( 0.55)    2.85 ( 2.90)    5.12 ( 3.74)             3.98
+  lightgbm     0.51 ( 0.00)    3.21 ( 0.00)    0.83 ( 0.00)             2.02
+  xgboost      0.57 ( 0.00)    3.10 ( 0.00)    0.48 ( 0.00)             1.79
+
+default-validation
+  model                 iid            2020            2021   mean later yrs
+  fptm         2.69 ( 5.64)    0.09 ( 8.81)    1.70 ( 3.01)             0.89
+  lightgbm     3.80 ( 0.00)  -20.97 ( 0.00)  -21.12 ( 0.00)           -21.05
+  xgboost      0.64 ( 0.00)  -12.90 ( 0.00)  -17.63 ( 0.00)           -15.26
+
+default-validation_te
+  model                 iid            2020            2021   mean later yrs
+  fptm        -2.34 ( 1.74)    6.24 ( 5.51)   -2.20 ( 1.76)             2.02
+  lightgbm    -0.43 ( 0.00)   -0.32 ( 0.00)    0.19 ( 0.00)            -0.07
+  xgboost     -0.43 ( 0.00)    0.20 ( 0.00)    0.37 ( 0.00)             0.28
+
+positive control (planted prior shift, no covariate drift): oracle gap on the iid set cut to 1:1 against the 1:9 iid set; expected larger by more than the seed/draw range of either side under validation_te (the criterion); validation reported beside it
+  validation_te  fptm      1:9   0.22 (0.52)  1:1   1.44 (1.44)  diff  +1.22 -> FAIL
+  validation_te  lightgbm  1:9   0.57 (0.00)  1:1   0.42 (0.00)  diff  -0.15 -> FAIL
+  validation_te  xgboost   1:9   0.12 (0.00)  1:1   0.54 (0.00)  diff  +0.42 -> PASS
+  validation     fptm      1:9   5.25 (4.30)  1:1   0.15 (0.46)  diff  -5.10 -> not larger
+  validation     lightgbm  1:9   4.80 (0.00)  1:1   0.15 (0.00)  diff  -4.65 -> not larger
+  validation     xgboost   1:9   1.18 (0.00)  1:1   0.07 (0.00)  diff  -1.11 -> not larger
+
+absolute F1 by rule, and AP (threshold-free), mean over seeds; columns iid, 2020, 2021
+  fptm      validation        89.83    68.43    42.36
+  fptm      oracle            95.08    71.17    46.96
+  fptm      default           92.52    68.51    44.06
+  fptm      rate              32.32    31.23    25.51
+  fptm      validation_te     94.86    62.28    46.26
+  fptm      rate_te           94.82    68.33    41.84
+  fptm      AP                97.91    77.48    47.36
+  lightgbm  validation        92.28    80.78    71.19
+  lightgbm  oracle            97.08    86.33    73.93
+  lightgbm  default           96.08    59.80    50.07
+  lightgbm  rate              33.25    33.20    33.13
+  lightgbm  validation_te     96.51    60.13    49.88
+  lightgbm  rate_te           96.57    83.12    73.10
+  lightgbm  AP                98.66    91.32    76.32
+  xgboost   validation        95.68    77.86    70.01
+  xgboost   oracle            96.87    80.11    71.16
+  xgboost   default           96.32    64.97    52.39
+  xgboost   rate              33.53    33.47    32.98
+  xgboost   validation_te     96.75    64.77    52.02
+  xgboost   rate_te           96.29    77.01    70.68
+  xgboost   AP                98.96    87.84    76.33
+
+timing (s): load 1, lightgbm_seedonce_fit 962, lightgbm_seedonce_predict 4, xgboost_seedonce_fit 1275, xgboost_seedonce_predict 2, total 2245; FPTM train per seed 26.9, 28.3, 28.4, 29.2, 29.8; Python peak RAM 9480 MB
+
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=iid rule=validation f1=87.71 threshold=-5 pred_share=0.1220 ap=98.11 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=iid rule=oracle f1=95.39 threshold=7 pred_share=0.0971 ap=98.11 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=iid rule=default f1=93.35 threshold=0 pred_share=0.1051 ap=98.11 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=iid rule=rate f1=32.11 threshold=-24 pred_share=0.5210 ap=98.11 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=iid rule=validation_te f1=95.19 threshold=6 pred_share=0.0981 ap=98.11 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=iid rule=rate_te f1=95.19 threshold=6 pred_share=0.0981 ap=98.11 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2020 rule=validation f1=68.97 threshold=-5 pred_share=0.1091 ap=80.11 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2020 rule=oracle f1=75.04 threshold=3 pred_share=0.0723 ap=80.11 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2020 rule=default f1=73.11 threshold=0 pred_share=0.0789 ap=80.11 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2020 rule=rate f1=31.37 threshold=-20 pred_share=0.5261 ap=80.11 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2020 rule=validation_te f1=66.91 threshold=6 pred_share=0.0566 ap=80.11 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2020 rule=rate_te f1=70.76 threshold=-4 pred_share=0.1032 ap=80.11 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2021 rule=validation f1=43.82 threshold=-5 pred_share=0.1122 ap=48.39 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2021 rule=oracle f1=49.34 threshold=5 pred_share=0.0425 ap=48.39 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2021 rule=default f1=46.62 threshold=0 pred_share=0.0563 ap=48.39 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2021 rule=rate f1=26.58 threshold=-19 pred_share=0.5483 ap=48.39 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2021 rule=validation_te f1=48.40 threshold=6 pred_share=0.0408 ap=48.39 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=1 period=2021 rule=rate_te f1=45.45 threshold=-4 pred_share=0.1009 ap=48.39 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=iid rule=validation f1=88.21 threshold=-5 pred_share=0.1201 ap=97.80 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=iid rule=oracle f1=94.51 threshold=12 pred_share=0.0924 ap=97.80 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=iid rule=default f1=92.69 threshold=0 pred_share=0.1025 ap=97.80 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=iid rule=rate f1=30.72 threshold=-24 pred_share=0.5491 ap=97.80 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=iid rule=validation_te f1=94.45 threshold=11 pred_share=0.0928 ap=97.80 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=iid rule=rate_te f1=94.47 threshold=10 pred_share=0.0934 ap=97.80 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2020 rule=validation f1=68.15 threshold=-5 pred_share=0.1032 ap=73.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2020 rule=oracle f1=68.35 threshold=-3 pred_share=0.0911 ap=73.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2020 rule=default f1=63.47 threshold=0 pred_share=0.0660 ap=73.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2020 rule=rate f1=29.66 threshold=-22 pred_share=0.5423 ap=73.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2020 rule=validation_te f1=56.94 threshold=11 pred_share=0.0443 ap=73.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2020 rule=rate_te f1=66.98 threshold=-4 pred_share=0.0955 ap=73.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2021 rule=validation f1=40.35 threshold=-5 pred_share=0.1005 ap=46.47 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2021 rule=oracle f1=45.84 threshold=7 pred_share=0.0478 ap=46.47 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2021 rule=default f1=43.36 threshold=0 pred_share=0.0702 ap=46.47 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2021 rule=rate f1=27.75 threshold=-20 pred_share=0.5274 ap=46.47 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2021 rule=validation_te f1=44.38 threshold=11 pred_share=0.0370 ap=46.47 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=2 period=2021 rule=rate_te f1=41.29 threshold=-4 pred_share=0.0943 ap=46.47 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=iid rule=validation f1=91.06 threshold=-2 pred_share=0.1116 ap=97.94 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=iid rule=oracle f1=95.16 threshold=5 pred_share=0.1000 ap=97.94 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=iid rule=default f1=93.50 threshold=0 pred_share=0.1054 ap=97.94 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=iid rule=rate f1=32.42 threshold=-24 pred_share=0.5169 ap=97.94 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=iid rule=validation_te f1=95.13 threshold=7 pred_share=0.0985 ap=97.94 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=iid rule=rate_te f1=95.16 threshold=5 pred_share=0.1000 ap=97.94 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2020 rule=validation f1=66.69 threshold=-2 pred_share=0.0888 ap=76.23 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2020 rule=oracle f1=69.38 threshold=1 pred_share=0.0747 ap=76.23 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2020 rule=default f1=69.38 threshold=0 pred_share=0.0747 ap=76.23 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2020 rule=rate f1=31.04 threshold=-22 pred_share=0.5314 ap=76.23 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2020 rule=validation_te f1=65.42 threshold=7 pred_share=0.0581 ap=76.23 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2020 rule=rate_te f1=65.20 threshold=-5 pred_share=0.1024 ap=76.23 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2021 rule=validation f1=43.99 threshold=-2 pred_share=0.0809 ap=46.54 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2021 rule=oracle f1=48.10 threshold=6 pred_share=0.0440 ap=46.54 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2021 rule=default f1=44.98 threshold=0 pred_share=0.0618 ap=46.54 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2021 rule=rate f1=22.79 threshold=-20 pred_share=0.5035 ap=46.54 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2021 rule=validation_te f1=47.67 threshold=7 pred_share=0.0421 ap=46.54 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=3 period=2021 rule=rate_te f1=40.46 threshold=-5 pred_share=0.1002 ap=46.54 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=iid rule=validation f1=91.78 threshold=1 pred_share=0.1106 ap=97.93 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=iid rule=oracle f1=95.15 threshold=12 pred_share=0.0935 ap=97.93 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=iid rule=default f1=91.78 threshold=0 pred_share=0.1106 ap=97.93 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=iid rule=rate f1=32.67 threshold=-23 pred_share=0.5104 ap=97.93 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=iid rule=validation_te f1=94.90 threshold=10 pred_share=0.0956 ap=97.93 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=iid rule=rate_te f1=94.64 threshold=9 pred_share=0.0971 ap=97.93 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2020 rule=validation f1=66.33 threshold=1 pred_share=0.0818 ap=76.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2020 rule=oracle f1=69.65 threshold=-2 pred_share=0.1040 ap=76.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2020 rule=default f1=66.33 threshold=0 pred_share=0.0818 ap=76.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2020 rule=rate f1=32.02 threshold=-19 pred_share=0.5193 ap=76.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2020 rule=validation_te f1=56.85 threshold=10 pred_share=0.0451 ap=76.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2020 rule=rate_te f1=67.98 threshold=-1 pred_share=0.0970 ap=76.73 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2021 rule=validation f1=41.12 threshold=1 pred_share=0.0791 ap=44.77 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2021 rule=oracle f1=44.55 threshold=8 pred_share=0.0411 ap=44.77 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2021 rule=default f1=41.12 threshold=0 pred_share=0.0791 ap=44.77 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2021 rule=rate f1=20.90 threshold=-16 pred_share=0.5175 ap=44.77 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2021 rule=validation_te f1=43.90 threshold=10 pred_share=0.0373 ap=44.77 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=4 period=2021 rule=rate_te f1=40.03 threshold=-2 pred_share=0.1014 ap=44.77 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=iid rule=validation f1=90.39 threshold=-1 pred_share=0.1122 ap=97.78 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=iid rule=oracle f1=95.20 threshold=8 pred_share=0.0953 ap=97.78 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=iid rule=default f1=91.28 threshold=0 pred_share=0.1085 ap=97.78 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=iid rule=rate f1=33.68 threshold=-23 pred_share=0.4921 ap=97.78 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=iid rule=validation_te f1=94.64 threshold=9 pred_share=0.0943 ap=97.78 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=iid rule=rate_te f1=94.64 threshold=8.15154 pred_share=0.0943 ap=97.78 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2020 rule=validation f1=72.00 threshold=-1 pred_share=0.0831 ap=80.60 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2020 rule=oracle f1=73.44 threshold=-5 pred_share=0.1154 ap=80.60 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2020 rule=default f1=70.29 threshold=0 pred_share=0.0731 ap=80.60 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2020 rule=rate f1=32.06 threshold=-21 pred_share=0.5110 ap=80.60 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2020 rule=validation_te f1=65.28 threshold=9 pred_share=0.0518 ap=80.60 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2020 rule=rate_te f1=70.71 threshold=-3 pred_share=0.0960 ap=80.60 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2021 rule=validation f1=42.53 threshold=-1 pred_share=0.0753 ap=50.64 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2021 rule=oracle f1=46.97 threshold=9 pred_share=0.0360 ap=50.64 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2021 rule=default f1=44.22 threshold=0 pred_share=0.0648 ap=50.64 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2021 rule=rate f1=29.51 threshold=-21 pred_share=0.5180 ap=50.64 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2021 rule=validation_te f1=46.97 threshold=9 pred_share=0.0360 ap=50.64 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=fptm seed=5 period=2021 rule=rate_te f1=41.97 threshold=-4 pred_share=0.0964 ap=50.64 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=iid rule=validation f1=92.28 threshold=0.0008486 pred_share=0.1107 ap=98.66 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=iid rule=oracle f1=97.08 threshold=0.751978 pred_share=0.0957 ap=98.66 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=iid rule=default f1=96.08 threshold=0.5 pred_share=0.0981 ap=98.66 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=iid rule=rate f1=33.25 threshold=1.82363e-08 pred_share=0.5015 ap=98.66 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=iid rule=validation_te f1=96.51 threshold=0.571511 pred_share=0.0972 ap=98.66 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=iid rule=rate_te f1=96.57 threshold=0.719956 pred_share=0.0968 ap=98.66 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2020 rule=validation f1=80.78 threshold=0.0008486 pred_share=0.0890 ap=91.32 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2020 rule=oracle f1=86.33 threshold=0.000115581 pred_share=0.1109 ap=91.32 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2020 rule=default f1=59.80 threshold=0.5 pred_share=0.0473 ap=91.32 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2020 rule=rate f1=33.20 threshold=2.8772e-08 pred_share=0.5005 ap=91.32 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2020 rule=validation_te f1=60.13 threshold=0.571511 pred_share=0.0464 ap=91.32 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2020 rule=rate_te f1=83.12 threshold=0.000304164 pred_share=0.0966 ap=91.32 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2021 rule=validation f1=71.19 threshold=0.0008486 pred_share=0.0784 ap=76.32 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2021 rule=oracle f1=73.93 threshold=0.000260888 pred_share=0.0902 ap=76.32 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2021 rule=default f1=50.07 threshold=0.5 pred_share=0.0384 ap=76.32 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2021 rule=rate f1=33.13 threshold=4.48709e-08 pred_share=0.5005 ap=76.32 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2021 rule=validation_te f1=49.88 threshold=0.571511 pred_share=0.0373 ap=76.32 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=lightgbm seed=once period=2021 rule=rate_te f1=73.10 threshold=0.000115184 pred_share=0.0968 ap=76.32 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=iid rule=validation f1=95.68 threshold=0.0555596 pred_share=0.1038 ap=98.96 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=iid rule=oracle f1=96.87 threshold=0.749425 pred_share=0.0965 ap=98.96 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=iid rule=default f1=96.32 threshold=0.5 pred_share=0.0994 ap=98.96 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=iid rule=rate f1=33.53 threshold=4.05943e-06 pred_share=0.4956 ap=98.96 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=iid rule=validation_te f1=96.75 threshold=0.570855 pred_share=0.0985 ap=98.96 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=iid rule=rate_te f1=96.29 threshold=0.714962 pred_share=0.0977 ap=98.96 n=6820 n_malware=682 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2020 rule=validation f1=77.86 threshold=0.0555596 pred_share=0.0820 ap=87.84 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2020 rule=oracle f1=80.11 threshold=0.00296642 pred_share=0.1301 ap=87.84 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2020 rule=default f1=64.97 threshold=0.5 pred_share=0.0538 ap=87.84 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2020 rule=rate f1=33.47 threshold=7.81324e-06 pred_share=0.4956 ap=87.84 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2020 rule=validation_te f1=64.77 threshold=0.570855 pred_share=0.0518 ap=87.84 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2020 rule=rate_te f1=77.01 threshold=0.0139639 pred_share=0.0977 ap=87.84 n=25000 n_malware=2500 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2021 rule=validation f1=70.01 threshold=0.0555596 pred_share=0.0782 ap=76.33 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2021 rule=oracle f1=71.16 threshold=0.166768 pred_share=0.0699 ap=76.33 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2021 rule=default f1=52.39 threshold=0.5 pred_share=0.0416 ap=76.33 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2021 rule=rate f1=32.98 threshold=1.0183e-05 pred_share=0.4958 ap=76.33 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2021 rule=validation_te f1=52.02 threshold=0.570855 pred_share=0.0401 ap=76.33 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo condition=O test_share=0.10 model=xgboost seed=once period=2021 rule=rate_te f1=70.68 threshold=0.0155309 pred_share=0.0977 ap=76.33 n=15530 n_malware=1553 width=16978 S=372 s=46 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT gap corpus=androzoo condition=O model=fptm period=iid gap=oracle-validation mean=5.25 range=4.30 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2020 gap=oracle-validation mean=2.74 range=5.86 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2021 gap=oracle-validation mean=4.60 range=2.10 seeds=5
+RESULT gap corpus=androzoo condition=O model=lightgbm period=iid gap=oracle-validation mean=4.80 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2020 gap=oracle-validation mean=5.55 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2021 gap=oracle-validation mean=2.74 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=iid gap=oracle-validation mean=1.18 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2020 gap=oracle-validation mean=2.25 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2021 gap=oracle-validation mean=1.15 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=fptm period=iid gap=oracle-validation_te mean=0.22 range=0.52 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2020 gap=oracle-validation_te mean=8.89 range=8.83 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2021 gap=oracle-validation_te mean=0.70 range=1.46 seeds=5
+RESULT gap corpus=androzoo condition=O model=lightgbm period=iid gap=oracle-validation_te mean=0.57 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2020 gap=oracle-validation_te mean=26.20 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2021 gap=oracle-validation_te mean=24.05 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=iid gap=oracle-validation_te mean=0.12 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2020 gap=oracle-validation_te mean=15.34 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2021 gap=oracle-validation_te mean=19.14 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=fptm period=iid gap=oracle-rate mean=62.76 range=2.28 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2020 gap=oracle-rate mean=39.94 range=6.05 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2021 gap=oracle-rate mean=21.45 range=7.85 seeds=5
+RESULT gap corpus=androzoo condition=O model=lightgbm period=iid gap=oracle-rate mean=63.83 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2020 gap=oracle-rate mean=53.13 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2021 gap=oracle-rate mean=40.80 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=iid gap=oracle-rate mean=63.34 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2020 gap=oracle-rate mean=46.64 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2021 gap=oracle-rate mean=38.18 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=fptm period=iid gap=oracle-rate_te mean=0.26 range=0.55 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2020 gap=oracle-rate_te mean=2.85 range=2.90 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2021 gap=oracle-rate_te mean=5.12 range=3.74 seeds=5
+RESULT gap corpus=androzoo condition=O model=lightgbm period=iid gap=oracle-rate_te mean=0.51 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2020 gap=oracle-rate_te mean=3.21 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2021 gap=oracle-rate_te mean=0.83 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=iid gap=oracle-rate_te mean=0.57 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2020 gap=oracle-rate_te mean=3.10 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2021 gap=oracle-rate_te mean=0.48 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=fptm period=iid gap=default-validation mean=2.69 range=5.64 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2020 gap=default-validation mean=0.09 range=8.81 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2021 gap=default-validation mean=1.70 range=3.01 seeds=5
+RESULT gap corpus=androzoo condition=O model=lightgbm period=iid gap=default-validation mean=3.80 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2020 gap=default-validation mean=-20.97 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2021 gap=default-validation mean=-21.12 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=iid gap=default-validation mean=0.64 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2020 gap=default-validation mean=-12.90 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2021 gap=default-validation mean=-17.63 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=fptm period=iid gap=default-validation_te mean=-2.34 range=1.74 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2020 gap=default-validation_te mean=6.24 range=5.51 seeds=5
+RESULT gap corpus=androzoo condition=O model=fptm period=2021 gap=default-validation_te mean=-2.20 range=1.76 seeds=5
+RESULT gap corpus=androzoo condition=O model=lightgbm period=iid gap=default-validation_te mean=-0.43 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2020 gap=default-validation_te mean=-0.32 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=lightgbm period=2021 gap=default-validation_te mean=0.19 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=iid gap=default-validation_te mean=-0.43 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2020 gap=default-validation_te mean=0.20 range=0.00 seeds=1
+RESULT gap corpus=androzoo condition=O model=xgboost period=2021 gap=default-validation_te mean=0.37 range=0.00 seeds=1
+RESULT control_positive corpus=androzoo condition=O rule=validation_te model=fptm gap_1to9=0.22 range_1to9=0.52 gap_1to1=1.44 range_1to1=1.44 diff=1.22 verdict=FAIL
+RESULT control_positive corpus=androzoo condition=O rule=validation_te model=lightgbm gap_1to9=0.57 range_1to9=0.00 gap_1to1=0.42 range_1to1=0.00 diff=-0.15 verdict=FAIL
+RESULT control_positive corpus=androzoo condition=O rule=validation_te model=xgboost gap_1to9=0.12 range_1to9=0.00 gap_1to1=0.54 range_1to1=0.00 diff=0.42 verdict=PASS
+RESULT control_positive corpus=androzoo condition=O rule=validation model=fptm gap_1to9=5.25 range_1to9=4.30 gap_1to1=0.15 range_1to1=0.46 diff=-5.10 verdict=not larger
+RESULT control_positive corpus=androzoo condition=O rule=validation model=lightgbm gap_1to9=4.80 range_1to9=0.00 gap_1to1=0.15 range_1to1=0.00 diff=-4.65 verdict=not larger
+RESULT control_positive corpus=androzoo condition=O rule=validation model=xgboost gap_1to9=1.18 range_1to9=0.00 gap_1to1=0.07 range_1to1=0.00 diff=-1.11 verdict=not larger
+RESULT timing corpus=androzoo condition=O trees=5000 load=1.1 lightgbm_seedonce_fit=962.4 lightgbm_seedonce_predict=3.9 xgboost_seedonce_fit=1275.1 xgboost_seedonce_predict=1.6 total=2245.0 python_peak_mb=9480 julia_peak_mb=680/666/663/672/683

@@ -1,0 +1,327 @@
+PASS/FAIL -- apigraph, test share 0.10. Stated criterion: |difference| > 1.0 F1 and > the seed/draw range of each side. Bootstrap criterion: |difference| > 1.0 F1 and its 95% interval (2000 paired resamples of the shared test rows, seed-mean scores) excludes zero. The bootstrap criterion decides every verdict (decided 2026-11-13 before any full result was read); the stated criterion is secondary. 'Small' in-distribution gap <= 2.0.
+
+Reading (1): oracle gap small in distribution, larger on later years
+  B0  validation     fptm      stated: iid   0.24 later   5.65 diff  +5.41 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.95 later  13.31 diff +12.37 [+10.88, +13.26] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=B0 rule=validation model=fptm stated_iid_gap=0.24 stated_later_gap=5.65 stated_diff=5.41 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.95 boot_later_gap=13.31 boot_diff=12.37 boot_lo=10.88 boot_hi=13.26 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation     lightgbm  stated: iid   0.29 later   6.94 diff  +6.65 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.29 later   6.94 diff  +6.65 [+5.75, +7.26] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=B0 rule=validation model=lightgbm stated_iid_gap=0.29 stated_later_gap=6.94 stated_diff=6.65 stated_verdict=SURVIVES boot_iid_gap=0.29 boot_later_gap=6.94 boot_diff=6.65 boot_lo=5.75 boot_hi=7.26 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation     xgboost   stated: iid   0.35 later   5.97 diff  +5.62 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.35 later   5.97 diff  +5.62 [+4.79, +6.23] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=B0 rule=validation model=xgboost stated_iid_gap=0.35 stated_later_gap=5.97 stated_diff=5.62 stated_verdict=SURVIVES boot_iid_gap=0.35 boot_later_gap=5.97 boot_diff=5.62 boot_lo=4.79 boot_hi=6.23 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  fptm      stated: iid   0.24 later   5.65 diff  +5.41 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.95 later  13.31 diff +12.37 [+10.88, +13.26] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=B0 rule=validation_te model=fptm stated_iid_gap=0.24 stated_later_gap=5.65 stated_diff=5.41 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.95 boot_later_gap=13.31 boot_diff=12.37 boot_lo=10.88 boot_hi=13.26 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  lightgbm  stated: iid   0.29 later   6.94 diff  +6.65 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.29 later   6.94 diff  +6.65 [+5.75, +7.26] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=B0 rule=validation_te model=lightgbm stated_iid_gap=0.29 stated_later_gap=6.94 stated_diff=6.65 stated_verdict=SURVIVES boot_iid_gap=0.29 boot_later_gap=6.94 boot_diff=6.65 boot_lo=5.75 boot_hi=7.26 boot_verdict=SURVIVES verdict=SURVIVES
+  B0  validation_te  xgboost   stated: iid   0.35 later   5.97 diff  +5.62 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.35 later   5.97 diff  +5.62 [+4.79, +6.23] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=B0 rule=validation_te model=xgboost stated_iid_gap=0.35 stated_later_gap=5.97 stated_diff=5.62 stated_verdict=SURVIVES boot_iid_gap=0.35 boot_later_gap=5.97 boot_diff=5.62 boot_lo=4.79 boot_hi=6.23 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation     fptm      stated: iid   5.21 later   3.06 diff  -2.16 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   4.47 later   1.36 diff  -3.10 [-4.86, -1.69] -> UNRESOLVED
+RESULT reading1 corpus=apigraph condition=U rule=validation model=fptm stated_iid_gap=5.21 stated_later_gap=3.06 stated_diff=-2.16 stated_verdict=UNRESOLVED boot_iid_gap=4.47 boot_later_gap=1.36 boot_diff=-3.10 boot_lo=-4.86 boot_hi=-1.69 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation     lightgbm  stated: iid   5.05 later   1.73 diff  -3.33 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   4.35 later   1.21 diff  -3.14 [-5.27, -1.60] -> UNRESOLVED
+RESULT reading1 corpus=apigraph condition=U rule=validation model=lightgbm stated_iid_gap=5.05 stated_later_gap=1.73 stated_diff=-3.33 stated_verdict=UNRESOLVED boot_iid_gap=4.35 boot_later_gap=1.21 boot_diff=-3.14 boot_lo=-5.27 boot_hi=-1.60 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation     xgboost   stated: iid   3.99 later   1.50 diff  -2.49 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   6.96 later   2.93 diff  -4.03 [-6.27, -2.24] -> UNRESOLVED
+RESULT reading1 corpus=apigraph condition=U rule=validation model=xgboost stated_iid_gap=3.99 stated_later_gap=1.50 stated_diff=-2.49 stated_verdict=UNRESOLVED boot_iid_gap=6.96 boot_later_gap=2.93 boot_diff=-4.03 boot_lo=-6.27 boot_hi=-2.24 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  U   validation_te  fptm      stated: iid   0.09 later   9.78 diff  +9.70 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.46 later   7.96 diff  +7.50 [+6.47, +8.27] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=U rule=validation_te model=fptm stated_iid_gap=0.09 stated_later_gap=9.78 stated_diff=9.70 stated_verdict=SURVIVES boot_iid_gap=0.46 boot_later_gap=7.96 boot_diff=7.50 boot_lo=6.47 boot_hi=8.27 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation_te  lightgbm  stated: iid   0.57 later   7.46 diff  +6.89 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.19 later   7.09 diff  +6.90 [+5.84, +7.40] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=U rule=validation_te model=lightgbm stated_iid_gap=0.57 stated_later_gap=7.46 stated_diff=6.89 stated_verdict=SURVIVES boot_iid_gap=0.19 boot_later_gap=7.09 boot_diff=6.90 boot_lo=5.84 boot_hi=7.40 boot_verdict=SURVIVES verdict=SURVIVES
+  U   validation_te  xgboost   stated: iid   0.72 later   8.65 diff  +7.92 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.88 later  14.02 diff +13.14 [+11.57, +14.19] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=U rule=validation_te model=xgboost stated_iid_gap=0.72 stated_later_gap=8.65 stated_diff=7.92 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.88 boot_later_gap=14.02 boot_diff=13.14 boot_lo=11.57 boot_hi=14.19 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation     fptm      stated: iid   6.41 later   3.37 diff  -3.04 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   7.84 later   3.48 diff  -4.36 [-6.59, -2.44] -> UNRESOLVED
+RESULT reading1 corpus=apigraph condition=O rule=validation model=fptm stated_iid_gap=6.41 stated_later_gap=3.37 stated_diff=-3.04 stated_verdict=UNRESOLVED boot_iid_gap=7.84 boot_later_gap=3.48 boot_diff=-4.36 boot_lo=-6.59 boot_hi=-2.44 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation     lightgbm  stated: iid   3.45 later   2.93 diff  -0.52 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   3.45 later   2.93 diff  -0.52 [-2.13, +0.99] -> UNRESOLVED
+RESULT reading1 corpus=apigraph condition=O rule=validation model=lightgbm stated_iid_gap=3.45 stated_later_gap=2.93 stated_diff=-0.52 stated_verdict=UNRESOLVED boot_iid_gap=3.45 boot_later_gap=2.93 boot_diff=-0.52 boot_lo=-2.13 boot_hi=0.99 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation     xgboost   stated: iid   4.64 later   3.73 diff  -0.91 -> UNRESOLVED    (secondary) | bootstrap (deciding): iid   4.64 later   3.73 diff  -0.91 [-2.66, +0.50] -> UNRESOLVED
+RESULT reading1 corpus=apigraph condition=O rule=validation model=xgboost stated_iid_gap=4.64 stated_later_gap=3.73 stated_diff=-0.91 stated_verdict=UNRESOLVED boot_iid_gap=4.64 boot_later_gap=3.73 boot_diff=-0.91 boot_lo=-2.66 boot_hi=0.50 boot_verdict=UNRESOLVED verdict=UNRESOLVED
+  O   validation_te  fptm      stated: iid   0.24 later  14.06 diff +13.82 -> NOT SUPPORTED (secondary) | bootstrap (deciding): iid   0.79 later  11.90 diff +11.10 [+9.82, +12.13] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=O rule=validation_te model=fptm stated_iid_gap=0.24 stated_later_gap=14.06 stated_diff=13.82 stated_verdict=NOT_SUPPORTED boot_iid_gap=0.79 boot_later_gap=11.90 boot_diff=11.10 boot_lo=9.82 boot_hi=12.13 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation_te  lightgbm  stated: iid   0.00 later  12.06 diff +12.06 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.00 later  12.06 diff +12.06 [+11.40, +12.71] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=O rule=validation_te model=lightgbm stated_iid_gap=0.00 stated_later_gap=12.06 stated_diff=12.06 stated_verdict=SURVIVES boot_iid_gap=0.00 boot_later_gap=12.06 boot_diff=12.06 boot_lo=11.40 boot_hi=12.71 boot_verdict=SURVIVES verdict=SURVIVES
+  O   validation_te  xgboost   stated: iid   0.18 later   8.86 diff  +8.68 -> SURVIVES      (secondary) | bootstrap (deciding): iid   0.18 later   8.86 diff  +8.68 [+7.65, +9.29] -> SURVIVES
+RESULT reading1 corpus=apigraph condition=O rule=validation_te model=xgboost stated_iid_gap=0.18 stated_later_gap=8.86 stated_diff=8.68 stated_verdict=SURVIVES boot_iid_gap=0.18 boot_later_gap=8.86 boot_diff=8.68 boot_lo=7.65 boot_hi=9.29 boot_verdict=SURVIVES verdict=SURVIVES
+
+Reading (1c): each booster's mean later-year oracle gap larger than FPTM's (both boosters)
+  B0  validation     lightgbm  minus fptm: stated  +1.29 counts False | bootstrap  -6.37 [-7.12, -5.66] counts True
+  B0  validation     xgboost   minus fptm: stated  +0.32 counts False | bootstrap  -7.34 [-8.01, -6.67] counts True
+  B0  validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=apigraph condition=B0 rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  B0  validation_te  lightgbm  minus fptm: stated  +1.29 counts False | bootstrap  -6.37 [-7.12, -5.66] counts True
+  B0  validation_te  xgboost   minus fptm: stated  +0.32 counts False | bootstrap  -7.34 [-8.01, -6.67] counts True
+  B0  validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=apigraph condition=B0 rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  U   validation     lightgbm  minus fptm: stated  -1.33 counts False | bootstrap  -0.15 [-0.45, +0.19] counts False
+  U   validation     xgboost   minus fptm: stated  -1.55 counts False | bootstrap  +1.57 [+1.26, +1.95] counts True
+  U   validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=apigraph condition=U rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  U   validation_te  lightgbm  minus fptm: stated  -2.33 counts False | bootstrap  -0.86 [-1.48, -0.26] counts False
+  U   validation_te  xgboost   minus fptm: stated  -1.14 counts False | bootstrap  +6.07 [+5.40, +6.78] counts True
+  U   validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=apigraph condition=U rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  O   validation     lightgbm  minus fptm: stated  -0.44 counts False | bootstrap  -0.55 [-0.95, -0.16] counts False
+  O   validation     xgboost   minus fptm: stated  +0.36 counts False | bootstrap  +0.25 [-0.17, +0.68] counts False
+  O   validation     -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=apigraph condition=O rule=validation stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+  O   validation_te  lightgbm  minus fptm: stated  -1.99 counts False | bootstrap  +0.17 [-0.60, +0.88] counts False
+  O   validation_te  xgboost   minus fptm: stated  -5.20 counts False | bootstrap  -3.04 [-3.64, -2.41] counts True
+  O   validation_te  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+RESULT reading1c corpus=apigraph condition=O rule=validation_te stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED
+
+Reading (2): the condition moves default minus validation, not oracle F1, AP or oracle minus validation
+  validation     fptm      -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 2, bootstrap 14: iid B0-U +1.63; iid U-O -1.68; 2013 B0-U +1.51; 2013 B0-O +1.53; 2014 B0-U -1.78; 2014 U-O +1.10 ...
+      AP                     counted: stated 0, bootstrap 14: 2013 B0-U +1.06; 2014 B0-O +1.03; 2014 U-O +2.02; 2015 B0-U +1.64; 2015 B0-O +1.72; 2016 B0-U +1.06 ...
+      oracle-validation      counted: stated 0, bootstrap 19: iid B0-U -3.52; iid B0-O -6.89; iid U-O -3.38; 2013 B0-U +6.90; 2013 B0-O +4.83; 2013 U-O -2.07 ...
+      default-validation     counted: stated 0, bootstrap 16: iid B0-O -3.95; iid U-O -4.87; 2013 B0-U +3.06; 2013 U-O -4.11; 2014 B0-U +6.30; 2014 B0-O +1.55 ...
+RESULT reading2 corpus=apigraph rule=validation model=fptm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=2 oracle_F1_counted_boot=14 AP_counted_stated=0 AP_counted_boot=14 oracle-validation_counted_stated=0 oracle-validation_counted_boot=19 default-validation_counted_stated=0 default-validation_counted_boot=16
+  validation     lightgbm  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 5, bootstrap 10: iid B0-U +1.34; 2013 U-O +1.12; 2014 B0-O +2.37; 2014 U-O +2.89; 2015 B0-O -1.81; 2016 U-O +1.07 ...
+      AP                     counted: stated 4, bootstrap 13: 2014 B0-U -1.16; 2014 B0-O +1.99; 2014 U-O +3.14; 2015 B0-U -2.88; 2015 U-O +2.20; 2016 B0-U -2.16 ...
+      oracle-validation      counted: stated 15, bootstrap 16: iid B0-U -4.06; iid B0-O -3.16; 2013 B0-O -2.60; 2013 U-O -3.17; 2014 B0-U +8.54; 2014 B0-O +5.06 ...
+      default-validation     counted: stated 17, bootstrap 19: iid B0-O -2.95; iid U-O -2.94; 2013 B0-U -1.20; 2013 B0-O -2.49; 2013 U-O -1.30; 2014 B0-U -4.04 ...
+RESULT reading2 corpus=apigraph rule=validation model=lightgbm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=5 oracle_F1_counted_boot=10 AP_counted_stated=4 AP_counted_boot=13 oracle-validation_counted_stated=15 oracle-validation_counted_boot=16 default-validation_counted_stated=17 default-validation_counted_boot=19
+  validation     xgboost   -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 11, bootstrap 16: iid B0-U +1.67; iid U-O -1.93; 2013 B0-U +1.47; 2013 B0-O -1.48; 2013 U-O -2.94; 2014 B0-U -1.59 ...
+      AP                     counted: stated 8, bootstrap 16: 2013 B0-U +1.02; 2013 U-O -1.14; 2014 B0-U -1.67; 2014 U-O +1.31; 2015 B0-U -2.97; 2015 B0-O -5.01 ...
+      oracle-validation      counted: stated 13, bootstrap 12: iid B0-U -6.61; iid B0-O -4.29; iid U-O +2.32; 2013 B0-O -4.49; 2013 U-O -3.12; 2014 B0-U +4.73 ...
+      default-validation     counted: stated 13, bootstrap 19: iid B0-U -2.06; iid B0-O -4.32; iid U-O -2.26; 2013 B0-U -2.20; 2013 B0-O -8.01; 2013 U-O -5.81 ...
+RESULT reading2 corpus=apigraph rule=validation model=xgboost stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=11 oracle_F1_counted_boot=16 AP_counted_stated=8 AP_counted_boot=16 oracle-validation_counted_stated=13 oracle-validation_counted_boot=12 default-validation_counted_stated=13 default-validation_counted_boot=19
+  validation_te  fptm      -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 2, bootstrap 14: iid B0-U +1.63; iid U-O -1.68; 2013 B0-U +1.51; 2013 B0-O +1.53; 2014 B0-U -1.78; 2014 U-O +1.10 ...
+      AP                     counted: stated 0, bootstrap 14: 2013 B0-U +1.06; 2014 B0-O +1.03; 2014 U-O +2.02; 2015 B0-U +1.64; 2015 B0-O +1.72; 2016 B0-U +1.06 ...
+      oracle-validation_te   counted: stated 0, bootstrap 15: 2013 B0-U +6.88; 2013 B0-O +4.22; 2013 U-O -2.66; 2014 B0-U +9.84; 2014 B0-O +2.01; 2014 U-O -7.82 ...
+      default-validation_te  counted: stated 4, bootstrap 21: iid B0-U +4.94; iid B0-O +3.10; iid U-O -1.83; 2013 B0-U +3.04; 2013 B0-O -1.66; 2013 U-O -4.70 ...
+RESULT reading2 corpus=apigraph rule=validation_te model=fptm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=2 oracle_F1_counted_boot=14 AP_counted_stated=0 AP_counted_boot=14 oracle-validation_te_counted_stated=0 oracle-validation_te_counted_boot=15 default-validation_te_counted_stated=4 default-validation_te_counted_boot=21
+  validation_te  lightgbm  -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 5, bootstrap 10: iid B0-U +1.34; 2013 U-O +1.12; 2014 B0-O +2.37; 2014 U-O +2.89; 2015 B0-O -1.81; 2016 U-O +1.07 ...
+      AP                     counted: stated 4, bootstrap 13: 2014 B0-U -1.16; 2014 B0-O +1.99; 2014 U-O +3.14; 2015 B0-U -2.88; 2015 U-O +2.20; 2016 B0-U -2.16 ...
+      oracle-validation_te   counted: stated 7, bootstrap 16: 2013 B0-U -2.54; 2013 B0-O -1.10; 2013 U-O +1.44; 2014 B0-O -4.26; 2014 U-O -3.08; 2015 B0-U -3.06 ...
+      default-validation_te  counted: stated 13, bootstrap 19: iid B0-U +4.14; iid U-O -3.65; 2013 B0-U -4.31; 2013 U-O +3.31; 2014 B0-U -13.76; 2014 B0-O -5.67 ...
+RESULT reading2 corpus=apigraph rule=validation_te model=lightgbm stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=5 oracle_F1_counted_boot=10 AP_counted_stated=4 AP_counted_boot=13 oracle-validation_te_counted_stated=7 oracle-validation_te_counted_boot=16 default-validation_te_counted_stated=13 default-validation_te_counted_boot=19
+  validation_te  xgboost   -> NOT SUPPORTED (bootstrap, deciding) | stated (secondary) NOT SUPPORTED
+      oracle F1              counted: stated 11, bootstrap 16: iid B0-U +1.67; iid U-O -1.93; 2013 B0-U +1.47; 2013 B0-O -1.48; 2013 U-O -2.94; 2014 B0-U -1.59 ...
+      AP                     counted: stated 8, bootstrap 16: 2013 B0-U +1.02; 2013 U-O -1.14; 2014 B0-U -1.67; 2014 U-O +1.31; 2015 B0-U -2.97; 2015 B0-O -5.01 ...
+      oracle-validation_te   counted: stated 6, bootstrap 16: 2013 B0-U -2.00; 2013 B0-O -1.82; 2014 B0-U -7.76; 2014 B0-O -2.81; 2014 U-O +4.96; 2015 B0-U -10.46 ...
+      default-validation_te  counted: stated 8, bootstrap 20: iid B0-U +4.03; iid U-O -3.88; 2013 B0-U -2.83; 2013 B0-O -5.34; 2013 U-O -2.50; 2014 B0-U -15.32 ...
+RESULT reading2 corpus=apigraph rule=validation_te model=xgboost stated_verdict=NOT_SUPPORTED boot_verdict=NOT_SUPPORTED verdict=NOT_SUPPORTED oracle_F1_counted_stated=11 oracle_F1_counted_boot=16 AP_counted_stated=8 AP_counted_boot=16 oracle-validation_te_counted_stated=6 oracle-validation_te_counted_boot=16 default-validation_te_counted_stated=8 default-validation_te_counted_boot=20
+
+Negative control: oracle gap on the 1:9 iid set at most 2.0 (stated: mean; bootstrap: upper 95% bound)
+  B0  validation_te  fptm      stated   0.24 -> PASS (secondary) | bootstrap (deciding)   0.95 (upper   2.42) -> FAIL
+RESULT control_negative corpus=apigraph condition=B0 rule=validation_te model=fptm stated_gap=0.24 stated_verdict=PASS boot_gap=0.95 boot_hi=2.42 boot_verdict=FAIL verdict=FAIL
+  B0  validation_te  lightgbm  stated   0.29 -> PASS (secondary) | bootstrap (deciding)   0.29 (upper   1.11) -> PASS
+RESULT control_negative corpus=apigraph condition=B0 rule=validation_te model=lightgbm stated_gap=0.29 stated_verdict=PASS boot_gap=0.29 boot_hi=1.11 boot_verdict=PASS verdict=PASS
+  B0  validation_te  xgboost   stated   0.35 -> PASS (secondary) | bootstrap (deciding)   0.35 (upper   1.02) -> PASS
+RESULT control_negative corpus=apigraph condition=B0 rule=validation_te model=xgboost stated_gap=0.35 stated_verdict=PASS boot_gap=0.35 boot_hi=1.02 boot_verdict=PASS verdict=PASS
+  B0  validation     fptm      stated   0.24 -> PASS (secondary) | bootstrap (deciding)   0.95 (upper   2.42) -> FAIL
+RESULT control_negative corpus=apigraph condition=B0 rule=validation model=fptm stated_gap=0.24 stated_verdict=PASS boot_gap=0.95 boot_hi=2.42 boot_verdict=FAIL verdict=FAIL
+  B0  validation     lightgbm  stated   0.29 -> PASS (secondary) | bootstrap (deciding)   0.29 (upper   1.11) -> PASS
+RESULT control_negative corpus=apigraph condition=B0 rule=validation model=lightgbm stated_gap=0.29 stated_verdict=PASS boot_gap=0.29 boot_hi=1.11 boot_verdict=PASS verdict=PASS
+  B0  validation     xgboost   stated   0.35 -> PASS (secondary) | bootstrap (deciding)   0.35 (upper   1.02) -> PASS
+RESULT control_negative corpus=apigraph condition=B0 rule=validation model=xgboost stated_gap=0.35 stated_verdict=PASS boot_gap=0.35 boot_hi=1.02 boot_verdict=PASS verdict=PASS
+  U   validation_te  fptm      stated   0.09 -> PASS (secondary) | bootstrap (deciding)   0.46 (upper   1.41) -> PASS
+RESULT control_negative corpus=apigraph condition=U rule=validation_te model=fptm stated_gap=0.09 stated_verdict=PASS boot_gap=0.46 boot_hi=1.41 boot_verdict=PASS verdict=PASS
+  U   validation_te  lightgbm  stated   0.57 -> PASS (secondary) | bootstrap (deciding)   0.19 (upper   1.14) -> PASS
+RESULT control_negative corpus=apigraph condition=U rule=validation_te model=lightgbm stated_gap=0.57 stated_verdict=PASS boot_gap=0.19 boot_hi=1.14 boot_verdict=PASS verdict=PASS
+  U   validation_te  xgboost   stated   0.72 -> PASS (secondary) | bootstrap (deciding)   0.88 (upper   2.42) -> FAIL
+RESULT control_negative corpus=apigraph condition=U rule=validation_te model=xgboost stated_gap=0.72 stated_verdict=PASS boot_gap=0.88 boot_hi=2.42 boot_verdict=FAIL verdict=FAIL
+  U   validation     fptm      stated   5.21 -> FAIL (secondary) | bootstrap (deciding)   4.47 (upper   6.28) -> FAIL
+RESULT control_negative corpus=apigraph condition=U rule=validation model=fptm stated_gap=5.21 stated_verdict=FAIL boot_gap=4.47 boot_hi=6.28 boot_verdict=FAIL verdict=FAIL
+  U   validation     lightgbm  stated   5.05 -> FAIL (secondary) | bootstrap (deciding)   4.35 (upper   6.53) -> FAIL
+RESULT control_negative corpus=apigraph condition=U rule=validation model=lightgbm stated_gap=5.05 stated_verdict=FAIL boot_gap=4.35 boot_hi=6.53 boot_verdict=FAIL verdict=FAIL
+  U   validation     xgboost   stated   3.99 -> FAIL (secondary) | bootstrap (deciding)   6.96 (upper   9.30) -> FAIL
+RESULT control_negative corpus=apigraph condition=U rule=validation model=xgboost stated_gap=3.99 stated_verdict=FAIL boot_gap=6.96 boot_hi=9.30 boot_verdict=FAIL verdict=FAIL
+  O   validation_te  fptm      stated   0.24 -> PASS (secondary) | bootstrap (deciding)   0.79 (upper   1.96) -> PASS
+RESULT control_negative corpus=apigraph condition=O rule=validation_te model=fptm stated_gap=0.24 stated_verdict=PASS boot_gap=0.79 boot_hi=1.96 boot_verdict=PASS verdict=PASS
+  O   validation_te  lightgbm  stated   0.00 -> PASS (secondary) | bootstrap (deciding)   0.00 (upper   0.33) -> PASS
+RESULT control_negative corpus=apigraph condition=O rule=validation_te model=lightgbm stated_gap=0.00 stated_verdict=PASS boot_gap=0.00 boot_hi=0.33 boot_verdict=PASS verdict=PASS
+  O   validation_te  xgboost   stated   0.18 -> PASS (secondary) | bootstrap (deciding)   0.18 (upper   1.14) -> PASS
+RESULT control_negative corpus=apigraph condition=O rule=validation_te model=xgboost stated_gap=0.18 stated_verdict=PASS boot_gap=0.18 boot_hi=1.14 boot_verdict=PASS verdict=PASS
+  O   validation     fptm      stated   6.41 -> FAIL (secondary) | bootstrap (deciding)   7.84 (upper  10.04) -> FAIL
+RESULT control_negative corpus=apigraph condition=O rule=validation model=fptm stated_gap=6.41 stated_verdict=FAIL boot_gap=7.84 boot_hi=10.04 boot_verdict=FAIL verdict=FAIL
+  O   validation     lightgbm  stated   3.45 -> FAIL (secondary) | bootstrap (deciding)   3.45 (upper   5.08) -> FAIL
+RESULT control_negative corpus=apigraph condition=O rule=validation model=lightgbm stated_gap=3.45 stated_verdict=FAIL boot_gap=3.45 boot_hi=5.08 boot_verdict=FAIL verdict=FAIL
+  O   validation     xgboost   stated   4.64 -> FAIL (secondary) | bootstrap (deciding)   4.64 (upper   6.40) -> FAIL
+RESULT control_negative corpus=apigraph condition=O rule=validation model=xgboost stated_gap=4.64 stated_verdict=FAIL boot_gap=4.64 boot_hi=6.40 boot_verdict=FAIL verdict=FAIL
+
+Positive control: oracle gap on the 1:1 cut of the iid set larger than on the 1:9 iid set by a difference that counts (criterion rule: validation_te; validation reported beside it)
+  B0  validation_te  fptm      stated 1:9   0.24 1:1   1.73 diff  +1.49 -> PASS       (secondary) | bootstrap (deciding) diff  +2.00 [+0.94, +2.67] -> PASS
+RESULT control_positive corpus=apigraph condition=B0 rule=validation_te model=fptm stated_gap_1to9=0.24 stated_gap_1to1=1.73 stated_diff=1.49 stated_verdict=PASS boot_diff=2.00 boot_lo=0.94 boot_hi=2.67 boot_verdict=PASS verdict=PASS
+  B0  validation_te  lightgbm  stated 1:9   0.29 1:1   0.61 diff  +0.32 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.32 [-0.76, +1.32] -> FAIL
+RESULT control_positive corpus=apigraph condition=B0 rule=validation_te model=lightgbm stated_gap_1to9=0.29 stated_gap_1to1=0.61 stated_diff=0.32 stated_verdict=FAIL boot_diff=0.32 boot_lo=-0.76 boot_hi=1.32 boot_verdict=FAIL verdict=FAIL
+  B0  validation_te  xgboost   stated 1:9   0.35 1:1   1.27 diff  +0.92 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.92 [+0.15, +1.66] -> FAIL
+RESULT control_positive corpus=apigraph condition=B0 rule=validation_te model=xgboost stated_gap_1to9=0.35 stated_gap_1to1=1.27 stated_diff=0.92 stated_verdict=FAIL boot_diff=0.92 boot_lo=0.15 boot_hi=1.66 boot_verdict=FAIL verdict=FAIL
+  B0  validation     fptm      stated 1:9   0.24 1:1   1.73 diff  +1.49 -> larger     (secondary) | bootstrap (deciding) diff  +2.00 [+0.94, +2.67] -> larger
+RESULT control_positive corpus=apigraph condition=B0 rule=validation model=fptm stated_gap_1to9=0.24 stated_gap_1to1=1.73 stated_diff=1.49 stated_verdict=larger boot_diff=2.00 boot_lo=0.94 boot_hi=2.67 boot_verdict=larger verdict=larger
+  B0  validation     lightgbm  stated 1:9   0.29 1:1   0.61 diff  +0.32 -> not larger (secondary) | bootstrap (deciding) diff  +0.32 [-0.76, +1.32] -> not larger
+RESULT control_positive corpus=apigraph condition=B0 rule=validation model=lightgbm stated_gap_1to9=0.29 stated_gap_1to1=0.61 stated_diff=0.32 stated_verdict=not_larger boot_diff=0.32 boot_lo=-0.76 boot_hi=1.32 boot_verdict=not_larger verdict=not_larger
+  B0  validation     xgboost   stated 1:9   0.35 1:1   1.27 diff  +0.92 -> not larger (secondary) | bootstrap (deciding) diff  +0.92 [+0.15, +1.66] -> not larger
+RESULT control_positive corpus=apigraph condition=B0 rule=validation model=xgboost stated_gap_1to9=0.35 stated_gap_1to1=1.27 stated_diff=0.92 stated_verdict=not_larger boot_diff=0.92 boot_lo=0.15 boot_hi=1.66 boot_verdict=not_larger verdict=not_larger
+  U   validation_te  fptm      stated 1:9   0.09 1:1   2.08 diff  +1.99 -> PASS       (secondary) | bootstrap (deciding) diff  +1.22 [+0.42, +2.34] -> PASS
+RESULT control_positive corpus=apigraph condition=U rule=validation_te model=fptm stated_gap_1to9=0.09 stated_gap_1to1=2.08 stated_diff=1.99 stated_verdict=PASS boot_diff=1.22 boot_lo=0.42 boot_hi=2.34 boot_verdict=PASS verdict=PASS
+  U   validation_te  lightgbm  stated 1:9   0.57 1:1   1.26 diff  +0.69 -> FAIL       (secondary) | bootstrap (deciding) diff  +1.22 [-0.14, +2.05] -> FAIL
+RESULT control_positive corpus=apigraph condition=U rule=validation_te model=lightgbm stated_gap_1to9=0.57 stated_gap_1to1=1.26 stated_diff=0.69 stated_verdict=FAIL boot_diff=1.22 boot_lo=-0.14 boot_hi=2.05 boot_verdict=FAIL verdict=FAIL
+  U   validation_te  xgboost   stated 1:9   0.72 1:1   2.77 diff  +2.04 -> FAIL       (secondary) | bootstrap (deciding) diff  +2.59 [+1.40, +3.62] -> PASS
+RESULT control_positive corpus=apigraph condition=U rule=validation_te model=xgboost stated_gap_1to9=0.72 stated_gap_1to1=2.77 stated_diff=2.04 stated_verdict=FAIL boot_diff=2.59 boot_lo=1.40 boot_hi=3.62 boot_verdict=PASS verdict=PASS
+  U   validation     fptm      stated 1:9   5.21 1:1   0.32 diff  -4.89 -> not larger (secondary) | bootstrap (deciding) diff  -4.23 [-5.78, -2.61] -> not larger
+RESULT control_positive corpus=apigraph condition=U rule=validation model=fptm stated_gap_1to9=5.21 stated_gap_1to1=0.32 stated_diff=-4.89 stated_verdict=not_larger boot_diff=-4.23 boot_lo=-5.78 boot_hi=-2.61 boot_verdict=not_larger verdict=not_larger
+  U   validation     lightgbm  stated 1:9   5.05 1:1   0.33 diff  -4.72 -> not larger (secondary) | bootstrap (deciding) diff  -4.14 [-6.19, -2.70] -> not larger
+RESULT control_positive corpus=apigraph condition=U rule=validation model=lightgbm stated_gap_1to9=5.05 stated_gap_1to1=0.33 stated_diff=-4.72 stated_verdict=not_larger boot_diff=-4.14 boot_lo=-6.19 boot_hi=-2.70 boot_verdict=not_larger verdict=not_larger
+  U   validation     xgboost   stated 1:9   3.99 1:1   0.12 diff  -3.87 -> not larger (secondary) | bootstrap (deciding) diff  -6.12 [-8.13, -4.53] -> not larger
+RESULT control_positive corpus=apigraph condition=U rule=validation model=xgboost stated_gap_1to9=3.99 stated_gap_1to1=0.12 stated_diff=-3.87 stated_verdict=not_larger boot_diff=-6.12 boot_lo=-8.13 boot_hi=-4.53 boot_verdict=not_larger verdict=not_larger
+  O   validation_te  fptm      stated 1:9   0.24 1:1   2.18 diff  +1.94 -> PASS       (secondary) | bootstrap (deciding) diff  +1.22 [+0.53, +2.33] -> PASS
+RESULT control_positive corpus=apigraph condition=O rule=validation_te model=fptm stated_gap_1to9=0.24 stated_gap_1to1=2.18 stated_diff=1.94 stated_verdict=PASS boot_diff=1.22 boot_lo=0.53 boot_hi=2.33 boot_verdict=PASS verdict=PASS
+  O   validation_te  lightgbm  stated 1:9   0.00 1:1   0.61 diff  +0.61 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.61 [-0.00, +1.74] -> FAIL
+RESULT control_positive corpus=apigraph condition=O rule=validation_te model=lightgbm stated_gap_1to9=0.00 stated_gap_1to1=0.61 stated_diff=0.61 stated_verdict=FAIL boot_diff=0.61 boot_lo=-0.00 boot_hi=1.74 boot_verdict=FAIL verdict=FAIL
+  O   validation_te  xgboost   stated 1:9   0.18 1:1   1.16 diff  +0.98 -> FAIL       (secondary) | bootstrap (deciding) diff  +0.98 [+0.35, +1.53] -> FAIL
+RESULT control_positive corpus=apigraph condition=O rule=validation_te model=xgboost stated_gap_1to9=0.18 stated_gap_1to1=1.16 stated_diff=0.98 stated_verdict=FAIL boot_diff=0.98 boot_lo=0.35 boot_hi=1.53 boot_verdict=FAIL verdict=FAIL
+  O   validation     fptm      stated 1:9   6.41 1:1   0.23 diff  -6.18 -> not larger (secondary) | bootstrap (deciding) diff  -7.63 [-9.50, -5.78] -> not larger
+RESULT control_positive corpus=apigraph condition=O rule=validation model=fptm stated_gap_1to9=6.41 stated_gap_1to1=0.23 stated_diff=-6.18 stated_verdict=not_larger boot_diff=-7.63 boot_lo=-9.50 boot_hi=-5.78 boot_verdict=not_larger verdict=not_larger
+  O   validation     lightgbm  stated 1:9   3.45 1:1   0.11 diff  -3.34 -> not larger (secondary) | bootstrap (deciding) diff  -3.34 [-4.73, -1.70] -> not larger
+RESULT control_positive corpus=apigraph condition=O rule=validation model=lightgbm stated_gap_1to9=3.45 stated_gap_1to1=0.11 stated_diff=-3.34 stated_verdict=not_larger boot_diff=-3.34 boot_lo=-4.73 boot_hi=-1.70 boot_verdict=not_larger verdict=not_larger
+  O   validation     xgboost   stated 1:9   4.64 1:1   1.05 diff  -3.59 -> not larger (secondary) | bootstrap (deciding) diff  -3.59 [-4.99, -2.49] -> not larger
+RESULT control_positive corpus=apigraph condition=O rule=validation model=xgboost stated_gap_1to9=4.64 stated_gap_1to1=1.05 stated_diff=-3.59 stated_verdict=not_larger boot_diff=-3.59 boot_lo=-4.99 boot_hi=-2.49 boot_verdict=not_larger verdict=not_larger
+  positive control passed (validation_te): 4 of 9 by the bootstrap criterion (deciding); stated (secondary) 3 of 9
+RESULT control_positive_summary corpus=apigraph passed=4 boot_passed=4 stated_passed=3 of=9
+
+EXPLORATORY (no pass/fail): EM prior correction (Saerens, Latinne, Decaestecker, Neural Computation 14(1), 2002). pi = estimated test prior; F1 of the corrected probabilities p' at 0.5 and at t_val, the validation F1-optimal threshold chosen in p-space at pi_train, applied unchanged to p'.
+  B0  fptm      iid       true share 0.100  pi_hat 0.099 (   4 it)  F1@0.5  95.28  F1@t_val  94.62  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0989 iterations=4 f1_at_0.5=95.28 f1_at_t_val=94.62 t_val=0.75318
+  B0  fptm      2013      true share 0.100  pi_hat 0.083 (   7 it)  F1@0.5  84.67  F1@t_val  78.42  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=2013 pi_train=0.1 true_share=0.1000 pi_hat=0.0827 iterations=7 f1_at_0.5=84.67 f1_at_t_val=78.42 t_val=0.75318
+  B0  fptm      2014      true share 0.100  pi_hat 0.066 (  10 it)  F1@0.5  67.28  F1@t_val  57.12  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=2014 pi_train=0.1 true_share=0.1000 pi_hat=0.0656 iterations=10 f1_at_0.5=67.28 f1_at_t_val=57.12 t_val=0.75318
+  B0  fptm      2015      true share 0.100  pi_hat 0.060 (  10 it)  F1@0.5  64.60  F1@t_val  55.22  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=2015 pi_train=0.1 true_share=0.1000 pi_hat=0.0602 iterations=10 f1_at_0.5=64.60 f1_at_t_val=55.22 t_val=0.75318
+  B0  fptm      2016      true share 0.100  pi_hat 0.066 (  11 it)  F1@0.5  61.66  F1@t_val  52.86  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=2016 pi_train=0.1 true_share=0.1000 pi_hat=0.0664 iterations=11 f1_at_0.5=61.66 f1_at_t_val=52.86 t_val=0.75318
+  B0  fptm      2017      true share 0.100  pi_hat 0.075 (  10 it)  F1@0.5  65.74  F1@t_val  54.04  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=2017 pi_train=0.1 true_share=0.1000 pi_hat=0.0755 iterations=10 f1_at_0.5=65.74 f1_at_t_val=54.04 t_val=0.75318
+  B0  fptm      2018      true share 0.100  pi_hat 0.071 (  11 it)  F1@0.5  68.58  F1@t_val  60.02  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=2018 pi_train=0.1 true_share=0.1000 pi_hat=0.0706 iterations=11 f1_at_0.5=68.58 f1_at_t_val=60.02 t_val=0.75318
+  B0  fptm      iid_1to1  true share 0.500  pi_hat 0.501 (   7 it)  F1@0.5  97.90  F1@t_val  97.20  (t_val 0.7532)
+RESULT exploratory_em corpus=apigraph condition=B0 model=fptm period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.5007 iterations=7 f1_at_0.5=97.90 f1_at_t_val=97.20 t_val=0.75318
+  B0  lightgbm  iid       true share 0.100  pi_hat 0.096 (   4 it)  F1@0.5  96.54  F1@t_val  96.46  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0957 iterations=4 f1_at_0.5=96.54 f1_at_t_val=96.46 t_val=0.162185
+  B0  lightgbm  2013      true share 0.100  pi_hat 0.074 (   5 it)  F1@0.5  83.87  F1@t_val  84.83  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=2013 pi_train=0.1 true_share=0.1000 pi_hat=0.0745 iterations=5 f1_at_0.5=83.87 f1_at_t_val=84.83 t_val=0.162185
+  B0  lightgbm  2014      true share 0.100  pi_hat 0.047 (   6 it)  F1@0.5  60.81  F1@t_val  67.29  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=2014 pi_train=0.1 true_share=0.1000 pi_hat=0.0466 iterations=6 f1_at_0.5=60.81 f1_at_t_val=67.29 t_val=0.162185
+  B0  lightgbm  2015      true share 0.100  pi_hat 0.042 (   6 it)  F1@0.5  58.34  F1@t_val  63.62  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=2015 pi_train=0.1 true_share=0.1000 pi_hat=0.0420 iterations=6 f1_at_0.5=58.34 f1_at_t_val=63.62 t_val=0.162185
+  B0  lightgbm  2016      true share 0.100  pi_hat 0.039 (   7 it)  F1@0.5  50.65  F1@t_val  63.51  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=2016 pi_train=0.1 true_share=0.1000 pi_hat=0.0392 iterations=7 f1_at_0.5=50.65 f1_at_t_val=63.51 t_val=0.162185
+  B0  lightgbm  2017      true share 0.100  pi_hat 0.054 (   7 it)  F1@0.5  64.76  F1@t_val  69.21  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=2017 pi_train=0.1 true_share=0.1000 pi_hat=0.0537 iterations=7 f1_at_0.5=64.76 f1_at_t_val=69.21 t_val=0.162185
+  B0  lightgbm  2018      true share 0.100  pi_hat 0.044 (   7 it)  F1@0.5  54.98  F1@t_val  60.85  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=2018 pi_train=0.1 true_share=0.1000 pi_hat=0.0441 iterations=7 f1_at_0.5=54.98 f1_at_t_val=60.85 t_val=0.162185
+  B0  lightgbm  iid_1to1  true share 0.500  pi_hat 0.481 (   5 it)  F1@0.5  97.32  F1@t_val  97.57  (t_val 0.1622)
+RESULT exploratory_em corpus=apigraph condition=B0 model=lightgbm period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.4809 iterations=5 f1_at_0.5=97.32 f1_at_t_val=97.57 t_val=0.162185
+  B0  xgboost   iid       true share 0.100  pi_hat 0.097 (   4 it)  F1@0.5  96.07  F1@t_val  96.10  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=iid pi_train=0.1 true_share=0.1000 pi_hat=0.0969 iterations=4 f1_at_0.5=96.07 f1_at_t_val=96.10 t_val=0.43464
+  B0  xgboost   2013      true share 0.100  pi_hat 0.077 (   6 it)  F1@0.5  81.80  F1@t_val  82.82  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=2013 pi_train=0.1 true_share=0.1000 pi_hat=0.0771 iterations=6 f1_at_0.5=81.80 f1_at_t_val=82.82 t_val=0.43464
+  B0  xgboost   2014      true share 0.100  pi_hat 0.054 (   8 it)  F1@0.5  62.26  F1@t_val  63.57  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=2014 pi_train=0.1 true_share=0.1000 pi_hat=0.0543 iterations=8 f1_at_0.5=62.26 f1_at_t_val=63.57 t_val=0.43464
+  B0  xgboost   2015      true share 0.100  pi_hat 0.051 (   8 it)  F1@0.5  61.61  F1@t_val  62.82  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=2015 pi_train=0.1 true_share=0.1000 pi_hat=0.0510 iterations=8 f1_at_0.5=61.61 f1_at_t_val=62.82 t_val=0.43464
+  B0  xgboost   2016      true share 0.100  pi_hat 0.057 (   9 it)  F1@0.5  52.51  F1@t_val  53.11  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=2016 pi_train=0.1 true_share=0.1000 pi_hat=0.0568 iterations=9 f1_at_0.5=52.51 f1_at_t_val=53.11 t_val=0.43464
+  B0  xgboost   2017      true share 0.100  pi_hat 0.075 (   8 it)  F1@0.5  69.13  F1@t_val  69.67  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=2017 pi_train=0.1 true_share=0.1000 pi_hat=0.0745 iterations=8 f1_at_0.5=69.13 f1_at_t_val=69.67 t_val=0.43464
+  B0  xgboost   2018      true share 0.100  pi_hat 0.072 (   8 it)  F1@0.5  68.21  F1@t_val  68.73  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=2018 pi_train=0.1 true_share=0.1000 pi_hat=0.0717 iterations=8 f1_at_0.5=68.21 f1_at_t_val=68.73 t_val=0.43464
+  B0  xgboost   iid_1to1  true share 0.500  pi_hat 0.495 (   6 it)  F1@0.5  98.12  F1@t_val  98.02  (t_val 0.4346)
+RESULT exploratory_em corpus=apigraph condition=B0 model=xgboost period=iid_1to1 pi_train=0.1 true_share=0.5000 pi_hat=0.4954 iterations=6 f1_at_0.5=98.12 f1_at_t_val=98.02 t_val=0.43464
+  U   fptm      iid       true share 0.100  pi_hat 0.099 (   7 it)  F1@0.5  93.42  F1@t_val  93.32  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0985 iterations=7 f1_at_0.5=93.42 f1_at_t_val=93.32 t_val=0.470925
+  U   fptm      2013      true share 0.100  pi_hat 0.084 (   8 it)  F1@0.5  84.22  F1@t_val  84.44  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=2013 pi_train=0.5 true_share=0.1000 pi_hat=0.0837 iterations=8 f1_at_0.5=84.22 f1_at_t_val=84.44 t_val=0.470925
+  U   fptm      2014      true share 0.100  pi_hat 0.065 (  11 it)  F1@0.5  67.22  F1@t_val  68.66  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=2014 pi_train=0.5 true_share=0.1000 pi_hat=0.0647 iterations=11 f1_at_0.5=67.22 f1_at_t_val=68.66 t_val=0.470925
+  U   fptm      2015      true share 0.100  pi_hat 0.054 (  11 it)  F1@0.5  61.31  F1@t_val  61.97  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=2015 pi_train=0.5 true_share=0.1000 pi_hat=0.0540 iterations=11 f1_at_0.5=61.31 f1_at_t_val=61.97 t_val=0.470925
+  U   fptm      2016      true share 0.100  pi_hat 0.054 (  13 it)  F1@0.5  53.66  F1@t_val  55.10  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=2016 pi_train=0.5 true_share=0.1000 pi_hat=0.0545 iterations=13 f1_at_0.5=53.66 f1_at_t_val=55.10 t_val=0.470925
+  U   fptm      2017      true share 0.100  pi_hat 0.061 (  12 it)  F1@0.5  55.85  F1@t_val  56.61  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=2017 pi_train=0.5 true_share=0.1000 pi_hat=0.0608 iterations=12 f1_at_0.5=55.85 f1_at_t_val=56.61 t_val=0.470925
+  U   fptm      2018      true share 0.100  pi_hat 0.034 (  19 it)  F1@0.5  21.28  F1@t_val  25.83  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=2018 pi_train=0.5 true_share=0.1000 pi_hat=0.0339 iterations=19 f1_at_0.5=21.28 f1_at_t_val=25.83 t_val=0.470925
+  U   fptm      iid_1to1  true share 0.500  pi_hat 0.499 (   4 it)  F1@0.5  97.25  F1@t_val  97.25  (t_val 0.4709)
+RESULT exploratory_em corpus=apigraph condition=U model=fptm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4993 iterations=4 f1_at_0.5=97.25 f1_at_t_val=97.25 t_val=0.470925
+  U   lightgbm  iid       true share 0.100  pi_hat 0.104 (   6 it)  F1@0.5  94.69  F1@t_val  94.69  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1044 iterations=6 f1_at_0.5=94.69 f1_at_t_val=94.69 t_val=0.495994
+  U   lightgbm  2013      true share 0.100  pi_hat 0.091 (   7 it)  F1@0.5  86.16  F1@t_val  86.13  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=2013 pi_train=0.5 true_share=0.1000 pi_hat=0.0914 iterations=7 f1_at_0.5=86.16 f1_at_t_val=86.13 t_val=0.495994
+  U   lightgbm  2014      true share 0.100  pi_hat 0.070 (   8 it)  F1@0.5  71.62  F1@t_val  71.67  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=2014 pi_train=0.5 true_share=0.1000 pi_hat=0.0702 iterations=8 f1_at_0.5=71.62 f1_at_t_val=71.67 t_val=0.495994
+  U   lightgbm  2015      true share 0.100  pi_hat 0.061 (   7 it)  F1@0.5  69.24  F1@t_val  69.33  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=2015 pi_train=0.5 true_share=0.1000 pi_hat=0.0610 iterations=7 f1_at_0.5=69.24 f1_at_t_val=69.33 t_val=0.495994
+  U   lightgbm  2016      true share 0.100  pi_hat 0.070 (   8 it)  F1@0.5  68.88  F1@t_val  68.84  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=2016 pi_train=0.5 true_share=0.1000 pi_hat=0.0702 iterations=8 f1_at_0.5=68.88 f1_at_t_val=68.84 t_val=0.495994
+  U   lightgbm  2017      true share 0.100  pi_hat 0.083 (   7 it)  F1@0.5  73.94  F1@t_val  74.08  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=2017 pi_train=0.5 true_share=0.1000 pi_hat=0.0834 iterations=7 f1_at_0.5=73.94 f1_at_t_val=74.08 t_val=0.495994
+  U   lightgbm  2018      true share 0.100  pi_hat 0.077 (   7 it)  F1@0.5  75.12  F1@t_val  74.99  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=2018 pi_train=0.5 true_share=0.1000 pi_hat=0.0774 iterations=7 f1_at_0.5=75.12 f1_at_t_val=74.99 t_val=0.495994
+  U   lightgbm  iid_1to1  true share 0.500  pi_hat 0.502 (   4 it)  F1@0.5  97.92  F1@t_val  97.92  (t_val 0.4960)
+RESULT exploratory_em corpus=apigraph condition=U model=lightgbm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.5018 iterations=4 f1_at_0.5=97.92 f1_at_t_val=97.92 t_val=0.495994
+  U   xgboost   iid       true share 0.100  pi_hat 0.102 (   7 it)  F1@0.5  94.27  F1@t_val  94.34  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.1019 iterations=7 f1_at_0.5=94.27 f1_at_t_val=94.34 t_val=0.412556
+  U   xgboost   2013      true share 0.100  pi_hat 0.085 (   8 it)  F1@0.5  82.92  F1@t_val  83.82  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=2013 pi_train=0.5 true_share=0.1000 pi_hat=0.0852 iterations=8 f1_at_0.5=82.92 f1_at_t_val=83.82 t_val=0.412556
+  U   xgboost   2014      true share 0.100  pi_hat 0.062 (  10 it)  F1@0.5  67.36  F1@t_val  68.43  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=2014 pi_train=0.5 true_share=0.1000 pi_hat=0.0624 iterations=10 f1_at_0.5=67.36 f1_at_t_val=68.43 t_val=0.412556
+  U   xgboost   2015      true share 0.100  pi_hat 0.055 (   9 it)  F1@0.5  63.22  F1@t_val  65.01  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=2015 pi_train=0.5 true_share=0.1000 pi_hat=0.0545 iterations=9 f1_at_0.5=63.22 f1_at_t_val=65.01 t_val=0.412556
+  U   xgboost   2016      true share 0.100  pi_hat 0.070 (  10 it)  F1@0.5  64.88  F1@t_val  66.09  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=2016 pi_train=0.5 true_share=0.1000 pi_hat=0.0704 iterations=10 f1_at_0.5=64.88 f1_at_t_val=66.09 t_val=0.412556
+  U   xgboost   2017      true share 0.100  pi_hat 0.081 (  10 it)  F1@0.5  69.83  F1@t_val  71.67  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=2017 pi_train=0.5 true_share=0.1000 pi_hat=0.0812 iterations=10 f1_at_0.5=69.83 f1_at_t_val=71.67 t_val=0.412556
+  U   xgboost   2018      true share 0.100  pi_hat 0.070 (  11 it)  F1@0.5  66.84  F1@t_val  66.88  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=2018 pi_train=0.5 true_share=0.1000 pi_hat=0.0704 iterations=11 f1_at_0.5=66.84 f1_at_t_val=66.88 t_val=0.412556
+  U   xgboost   iid_1to1  true share 0.500  pi_hat 0.506 (   5 it)  F1@0.5  97.49  F1@t_val  96.96  (t_val 0.4126)
+RESULT exploratory_em corpus=apigraph condition=U model=xgboost period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.5058 iterations=5 f1_at_0.5=97.49 f1_at_t_val=96.96 t_val=0.412556
+  O   fptm      iid       true share 0.100  pi_hat 0.100 (   7 it)  F1@0.5  95.01  F1@t_val  95.11  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0995 iterations=7 f1_at_0.5=95.01 f1_at_t_val=95.11 t_val=0.318549
+  O   fptm      2013      true share 0.100  pi_hat 0.082 (   8 it)  F1@0.5  83.77  F1@t_val  85.76  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=2013 pi_train=0.5 true_share=0.1000 pi_hat=0.0819 iterations=8 f1_at_0.5=83.77 f1_at_t_val=85.76 t_val=0.318549
+  O   fptm      2014      true share 0.100  pi_hat 0.059 (  11 it)  F1@0.5  62.34  F1@t_val  69.57  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=2014 pi_train=0.5 true_share=0.1000 pi_hat=0.0593 iterations=11 f1_at_0.5=62.34 f1_at_t_val=69.57 t_val=0.318549
+  O   fptm      2015      true share 0.100  pi_hat 0.050 (  12 it)  F1@0.5  57.18  F1@t_val  64.33  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=2015 pi_train=0.5 true_share=0.1000 pi_hat=0.0500 iterations=12 f1_at_0.5=57.18 f1_at_t_val=64.33 t_val=0.318549
+  O   fptm      2016      true share 0.100  pi_hat 0.055 (  13 it)  F1@0.5  53.91  F1@t_val  60.39  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=2016 pi_train=0.5 true_share=0.1000 pi_hat=0.0554 iterations=13 f1_at_0.5=53.91 f1_at_t_val=60.39 t_val=0.318549
+  O   fptm      2017      true share 0.100  pi_hat 0.062 (  13 it)  F1@0.5  55.16  F1@t_val  69.16  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=2017 pi_train=0.5 true_share=0.1000 pi_hat=0.0622 iterations=13 f1_at_0.5=55.16 f1_at_t_val=69.16 t_val=0.318549
+  O   fptm      2018      true share 0.100  pi_hat 0.056 (  15 it)  F1@0.5  59.27  F1@t_val  63.51  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=2018 pi_train=0.5 true_share=0.1000 pi_hat=0.0563 iterations=15 f1_at_0.5=59.27 f1_at_t_val=63.51 t_val=0.318549
+  O   fptm      iid_1to1  true share 0.500  pi_hat 0.501 (   4 it)  F1@0.5  97.81  F1@t_val  97.71  (t_val 0.3185)
+RESULT exploratory_em corpus=apigraph condition=O model=fptm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.5010 iterations=4 f1_at_0.5=97.81 f1_at_t_val=97.71 t_val=0.318549
+  O   lightgbm  iid       true share 0.100  pi_hat 0.094 (   5 it)  F1@0.5  96.05  F1@t_val  94.26  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0943 iterations=5 f1_at_0.5=96.05 f1_at_t_val=94.26 t_val=0.00193892
+  O   lightgbm  2013      true share 0.100  pi_hat 0.071 (   5 it)  F1@0.5  81.29  F1@t_val  85.83  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=2013 pi_train=0.5 true_share=0.1000 pi_hat=0.0710 iterations=5 f1_at_0.5=81.29 f1_at_t_val=85.83 t_val=0.00193892
+  O   lightgbm  2014      true share 0.100  pi_hat 0.039 (   7 it)  F1@0.5  53.65  F1@t_val  69.23  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=2014 pi_train=0.5 true_share=0.1000 pi_hat=0.0387 iterations=7 f1_at_0.5=53.65 f1_at_t_val=69.23 t_val=0.00193892
+  O   lightgbm  2015      true share 0.100  pi_hat 0.035 (   7 it)  F1@0.5  52.73  F1@t_val  70.73  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=2015 pi_train=0.5 true_share=0.1000 pi_hat=0.0353 iterations=7 f1_at_0.5=52.73 f1_at_t_val=70.73 t_val=0.00193892
+  O   lightgbm  2016      true share 0.100  pi_hat 0.032 (   8 it)  F1@0.5  45.90  F1@t_val  72.30  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=2016 pi_train=0.5 true_share=0.1000 pi_hat=0.0323 iterations=8 f1_at_0.5=45.90 f1_at_t_val=72.30 t_val=0.00193892
+  O   lightgbm  2017      true share 0.100  pi_hat 0.045 (   8 it)  F1@0.5  54.88  F1@t_val  74.02  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=2017 pi_train=0.5 true_share=0.1000 pi_hat=0.0445 iterations=8 f1_at_0.5=54.88 f1_at_t_val=74.02 t_val=0.00193892
+  O   lightgbm  2018      true share 0.100  pi_hat 0.030 (  10 it)  F1@0.5  48.22  F1@t_val  67.31  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=2018 pi_train=0.5 true_share=0.1000 pi_hat=0.0298 iterations=10 f1_at_0.5=48.22 f1_at_t_val=67.31 t_val=0.00193892
+  O   lightgbm  iid_1to1  true share 0.500  pi_hat 0.477 (   4 it)  F1@0.5  97.09  F1@t_val  97.59  (t_val 0.0019)
+RESULT exploratory_em corpus=apigraph condition=O model=lightgbm period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4770 iterations=4 f1_at_0.5=97.09 f1_at_t_val=97.59 t_val=0.00193892
+  O   xgboost   iid       true share 0.100  pi_hat 0.093 (   5 it)  F1@0.5  95.95  F1@t_val  96.36  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=iid pi_train=0.5 true_share=0.1000 pi_hat=0.0935 iterations=5 f1_at_0.5=95.95 f1_at_t_val=96.36 t_val=0.089094
+  O   xgboost   2013      true share 0.100  pi_hat 0.070 (   7 it)  F1@0.5  79.96  F1@t_val  87.59  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=2013 pi_train=0.5 true_share=0.1000 pi_hat=0.0704 iterations=7 f1_at_0.5=79.96 f1_at_t_val=87.59 t_val=0.089094
+  O   xgboost   2014      true share 0.100  pi_hat 0.042 (   9 it)  F1@0.5  55.94  F1@t_val  69.61  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=2014 pi_train=0.5 true_share=0.1000 pi_hat=0.0419 iterations=9 f1_at_0.5=55.94 f1_at_t_val=69.61 t_val=0.089094
+  O   xgboost   2015      true share 0.100  pi_hat 0.037 (   9 it)  F1@0.5  50.06  F1@t_val  65.26  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=2015 pi_train=0.5 true_share=0.1000 pi_hat=0.0368 iterations=9 f1_at_0.5=50.06 f1_at_t_val=65.26 t_val=0.089094
+  O   xgboost   2016      true share 0.100  pi_hat 0.042 (  10 it)  F1@0.5  50.41  F1@t_val  68.12  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=2016 pi_train=0.5 true_share=0.1000 pi_hat=0.0417 iterations=10 f1_at_0.5=50.41 f1_at_t_val=68.12 t_val=0.089094
+  O   xgboost   2017      true share 0.100  pi_hat 0.055 (   9 it)  F1@0.5  61.50  F1@t_val  72.68  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=2017 pi_train=0.5 true_share=0.1000 pi_hat=0.0553 iterations=9 f1_at_0.5=61.50 f1_at_t_val=72.68 t_val=0.089094
+  O   xgboost   2018      true share 0.100  pi_hat 0.050 (   9 it)  F1@0.5  64.89  F1@t_val  71.91  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=2018 pi_train=0.5 true_share=0.1000 pi_hat=0.0496 iterations=9 f1_at_0.5=64.89 f1_at_t_val=71.91 t_val=0.089094
+  O   xgboost   iid_1to1  true share 0.500  pi_hat 0.482 (   4 it)  F1@0.5  97.43  F1@t_val  97.07  (t_val 0.0891)
+RESULT exploratory_em corpus=apigraph condition=O model=xgboost period=iid_1to1 pi_train=0.5 true_share=0.5000 pi_hat=0.4823 iterations=4 f1_at_0.5=97.43 f1_at_t_val=97.07 t_val=0.089094

@@ -1,0 +1,51 @@
+{
+  "note": "Peak RAM in MB per job class (language, corpus, condition), measured by the full-size timing runs of 2026-11-13 (one FPTM seed; boosters at 500 trees). Julia: Sys.maxrss of run.jl. Python: psutil peak working set of run.py. The free-memory gate requires 1.25 x these values. default applies to a class not yet measured. AndroZoo: Julia 709 MB measured at full size (U seed 1), used for B0 as well (its timing seed was killed externally), 756 MB measured for O; Python B0 10063 MB measured (XGBoost at 31,790 rows); U 4181 MB measured; O 16000 MB is an ESTIMATE, not a measurement: linear in training rows through the two measured AndroZoo XGBoost peaks (6,358 rows -> 4,181 MB under U; 31,790 rows -> 10,063 MB under B0) gives 2,710 + 0.2313 MB per row, 15,945 MB at O's 57,222 rows; it exceeds the ~10 GB free on the local machine and is to be measured on the rented box.",
+  "default": {
+    "julia": 2000,
+    "python": 12000
+  },
+  "julia": {
+    "apigraph": {
+      "B0": 512,
+      "U": 518,
+      "O": 529
+    },
+    "hypercube": {
+      "B0": 584,
+      "U": 572,
+      "O": 584
+    },
+    "lamda": {
+      "B0": 933,
+      "U": 1005,
+      "O": 973
+    },
+    "androzoo": {
+      "B0": 709,
+      "U": 709,
+      "O": 756
+    }
+  },
+  "python": {
+    "apigraph": {
+      "B0": 796,
+      "U": 656,
+      "O": 892
+    },
+    "hypercube": {
+      "B0": 2813,
+      "U": 1569,
+      "O": 3844
+    },
+    "lamda": {
+      "B0": 4489,
+      "U": 2852,
+      "O": 6301
+    },
+    "androzoo": {
+      "B0": 10063,
+      "U": 4181,
+      "O": 16000
+    }
+  }
+}

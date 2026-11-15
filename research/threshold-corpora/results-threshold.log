@@ -1,0 +1,134 @@
+2026-11-13 12:58:44 threshold-corpora full run: CORES=40 PY_SLOTS=3 THREADS=13
+RESULT unit corpus=androzoo condition=O model=fptm seed=1 exit=0 verified=yes seconds=46 time=2026-11-13T12:59:30
+RESULT unit corpus=androzoo condition=O model=fptm seed=2 exit=0 verified=yes seconds=51 time=2026-11-13T12:59:40
+RESULT unit corpus=androzoo condition=O model=fptm seed=3 exit=0 verified=yes seconds=51 time=2026-11-13T12:59:45
+RESULT unit corpus=androzoo condition=O model=fptm seed=4 exit=0 verified=yes seconds=51 time=2026-11-13T12:59:50
+RESULT unit corpus=androzoo condition=O model=fptm seed=5 exit=0 verified=yes seconds=51 time=2026-11-13T12:59:55
+RESULT unit corpus=androzoo condition=B0 model=fptm seed=1 exit=0 verified=yes seconds=35 time=2026-11-13T13:00:10
+RESULT unit corpus=androzoo condition=B0 model=fptm seed=2 exit=0 verified=yes seconds=35 time=2026-11-13T13:00:15
+RESULT unit corpus=androzoo condition=B0 model=fptm seed=3 exit=0 verified=yes seconds=35 time=2026-11-13T13:00:20
+RESULT unit corpus=androzoo condition=B0 model=fptm seed=4 exit=0 verified=yes seconds=36 time=2026-11-13T13:00:26
+RESULT unit corpus=androzoo condition=B0 model=fptm seed=5 exit=0 verified=yes seconds=36 time=2026-11-13T13:00:31
+RESULT unit corpus=lamda condition=O model=fptm seed=1 exit=0 verified=yes seconds=133 time=2026-11-13T13:01:22
+RESULT unit corpus=lamda condition=B0 model=fptm seed=1 exit=0 verified=yes seconds=87 time=2026-11-13T13:01:27
+RESULT unit corpus=lamda condition=O model=fptm seed=3 exit=0 verified=yes seconds=132 time=2026-11-13T13:01:32
+RESULT unit corpus=hypercube condition=O model=fptm seed=1 exit=0 verified=yes seconds=66 time=2026-11-13T13:01:32
+RESULT unit corpus=lamda condition=B0 model=fptm seed=2 exit=0 verified=yes seconds=87 time=2026-11-13T13:01:32
+RESULT unit corpus=lamda condition=O model=fptm seed=2 exit=0 verified=yes seconds=138 time=2026-11-13T13:01:32
+RESULT unit corpus=lamda condition=B0 model=fptm seed=3 exit=0 verified=yes seconds=87 time=2026-11-13T13:01:37
+RESULT unit corpus=lamda condition=O model=fptm seed=4 exit=0 verified=yes seconds=132 time=2026-11-13T13:01:37
+RESULT unit corpus=hypercube condition=O model=fptm seed=2 exit=0 verified=yes seconds=66 time=2026-11-13T13:01:37
+RESULT unit corpus=hypercube condition=O model=fptm seed=4 exit=0 verified=yes seconds=61 time=2026-11-13T13:01:42
+RESULT unit corpus=hypercube condition=O model=fptm seed=3 exit=0 verified=yes seconds=66 time=2026-11-13T13:01:42
+RESULT unit corpus=androzoo condition=U model=fptm seed=1 exit=0 verified=yes seconds=25 time=2026-11-13T13:01:42
+RESULT unit corpus=lamda condition=B0 model=fptm seed=4 exit=0 verified=yes seconds=87 time=2026-11-13T13:01:42
+RESULT unit corpus=androzoo condition=U model=fptm seed=2 exit=0 verified=yes seconds=25 time=2026-11-13T13:01:47
+RESULT unit corpus=lamda condition=B0 model=fptm seed=5 exit=0 verified=yes seconds=86 time=2026-11-13T13:01:47
+RESULT unit corpus=lamda condition=O model=fptm seed=5 exit=0 verified=yes seconds=137 time=2026-11-13T13:01:47
+RESULT unit corpus=hypercube condition=O model=fptm seed=5 exit=0 verified=yes seconds=66 time=2026-11-13T13:01:52
+RESULT unit corpus=androzoo condition=U model=fptm seed=3 exit=0 verified=yes seconds=25 time=2026-11-13T13:01:52
+RESULT unit corpus=androzoo condition=U model=fptm seed=4 exit=0 verified=yes seconds=26 time=2026-11-13T13:01:58
+RESULT unit corpus=androzoo condition=U model=fptm seed=5 exit=0 verified=yes seconds=26 time=2026-11-13T13:02:03
+RESULT unit corpus=lamda condition=U model=fptm seed=1 exit=0 verified=yes seconds=77 time=2026-11-13T13:02:08
+RESULT unit corpus=lamda condition=U model=fptm seed=2 exit=0 verified=yes seconds=77 time=2026-11-13T13:02:13
+RESULT unit corpus=hypercube condition=U model=fptm seed=1 exit=0 verified=yes seconds=36 time=2026-11-13T13:02:18
+RESULT unit corpus=lamda condition=U model=fptm seed=3 exit=0 verified=yes seconds=77 time=2026-11-13T13:02:18
+RESULT unit corpus=hypercube condition=U model=fptm seed=2 exit=0 verified=yes seconds=36 time=2026-11-13T13:02:23
+RESULT unit corpus=lamda condition=U model=fptm seed=4 exit=0 verified=yes seconds=77 time=2026-11-13T13:02:23
+RESULT unit corpus=hypercube condition=U model=fptm seed=4 exit=0 verified=yes seconds=30 time=2026-11-13T13:02:28
+RESULT unit corpus=hypercube condition=U model=fptm seed=3 exit=0 verified=yes seconds=35 time=2026-11-13T13:02:28
+RESULT unit corpus=lamda condition=U model=fptm seed=5 exit=0 verified=yes seconds=77 time=2026-11-13T13:02:28
+RESULT unit corpus=hypercube condition=U model=fptm seed=5 exit=0 verified=yes seconds=35 time=2026-11-13T13:02:38
+RESULT unit corpus=hypercube condition=B0 model=fptm seed=1 exit=0 verified=yes seconds=40 time=2026-11-13T13:02:48
+RESULT unit corpus=hypercube condition=B0 model=fptm seed=3 exit=0 verified=yes seconds=35 time=2026-11-13T13:02:53
+RESULT unit corpus=hypercube condition=B0 model=fptm seed=2 exit=0 verified=yes seconds=40 time=2026-11-13T13:02:53
+RESULT unit corpus=apigraph condition=O model=fptm seed=1 exit=0 verified=yes seconds=31 time=2026-11-13T13:03:04
+RESULT unit corpus=hypercube condition=B0 model=fptm seed=4 exit=0 verified=yes seconds=41 time=2026-11-13T13:03:04
+RESULT unit corpus=hypercube condition=B0 model=fptm seed=5 exit=0 verified=yes seconds=36 time=2026-11-13T13:03:04
+RESULT unit corpus=apigraph condition=O model=fptm seed=2 exit=0 verified=yes seconds=31 time=2026-11-13T13:03:09
+RESULT unit corpus=apigraph condition=O model=fptm seed=3 exit=0 verified=yes seconds=31 time=2026-11-13T13:03:14
+RESULT unit corpus=apigraph condition=O model=fptm seed=4 exit=0 verified=yes seconds=31 time=2026-11-13T13:03:19
+RESULT unit corpus=apigraph condition=O model=fptm seed=5 exit=0 verified=yes seconds=30 time=2026-11-13T13:03:24
+RESULT unit corpus=apigraph condition=B0 model=fptm seed=1 exit=0 verified=yes seconds=30 time=2026-11-13T13:03:29
+RESULT unit corpus=apigraph condition=B0 model=fptm seed=2 exit=0 verified=yes seconds=25 time=2026-11-13T13:03:29
+RESULT unit corpus=apigraph condition=B0 model=fptm seed=4 exit=0 verified=yes seconds=25 time=2026-11-13T13:03:39
+RESULT unit corpus=apigraph condition=B0 model=fptm seed=3 exit=0 verified=yes seconds=30 time=2026-11-13T13:03:39
+RESULT unit corpus=apigraph condition=B0 model=fptm seed=5 exit=0 verified=yes seconds=30 time=2026-11-13T13:03:49
+RESULT unit corpus=apigraph condition=U model=fptm seed=1 exit=0 verified=yes seconds=35 time=2026-11-13T13:03:59
+RESULT unit corpus=apigraph condition=U model=fptm seed=3 exit=0 verified=yes seconds=25 time=2026-11-13T13:03:59
+RESULT unit corpus=apigraph condition=U model=fptm seed=2 exit=0 verified=yes seconds=30 time=2026-11-13T13:03:59
+RESULT unit corpus=apigraph condition=U model=fptm seed=5 exit=0 verified=yes seconds=25 time=2026-11-13T13:04:09
+RESULT unit corpus=apigraph condition=U model=fptm seed=4 exit=0 verified=yes seconds=30 time=2026-11-13T13:04:09
+RESULT unit corpus=androzoo condition=B0 model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:29:46
+RESULT unit corpus=androzoo condition=B0 model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:29:46
+RESULT job run.py corpus=androzoo condition=B0 exit=0 seconds=1517 time=2026-11-13T13:29:46
+RESULT unit corpus=androzoo condition=O model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:41:52
+RESULT unit corpus=androzoo condition=O model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:41:52
+RESULT job run.py corpus=androzoo condition=O exit=0 seconds=2253 time=2026-11-13T13:41:52
+RESULT unit corpus=lamda condition=U model=lightgbm seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=lightgbm seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=lightgbm seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=lightgbm seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=lightgbm seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=xgboost seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=xgboost seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=xgboost seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=xgboost seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT unit corpus=lamda condition=U model=xgboost seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:17
+RESULT job run.py corpus=lamda condition=U exit=0 seconds=751 time=2026-11-13T13:42:17
+RESULT unit corpus=androzoo condition=U model=lightgbm seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=lightgbm seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=lightgbm seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=lightgbm seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=lightgbm seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=xgboost seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=xgboost seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=xgboost seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=xgboost seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT unit corpus=androzoo condition=U model=xgboost seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:42:42
+RESULT job run.py corpus=androzoo condition=U exit=0 seconds=2298 time=2026-11-13T13:42:42
+RESULT unit corpus=lamda condition=B0 model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:48:18
+RESULT unit corpus=lamda condition=B0 model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:48:18
+RESULT job run.py corpus=lamda condition=B0 exit=0 seconds=386 time=2026-11-13T13:48:18
+RESULT unit corpus=hypercube condition=U model=lightgbm seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=lightgbm seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=lightgbm seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=lightgbm seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=lightgbm seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=xgboost seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=xgboost seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=xgboost seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=xgboost seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT unit corpus=hypercube condition=U model=xgboost seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:51:33
+RESULT job run.py corpus=hypercube condition=U exit=0 seconds=556 time=2026-11-13T13:51:33
+RESULT unit corpus=lamda condition=O model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:51:58
+RESULT unit corpus=lamda condition=O model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:51:58
+RESULT job run.py corpus=lamda condition=O exit=0 seconds=556 time=2026-11-13T13:51:58
+RESULT unit corpus=apigraph condition=U model=lightgbm seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=lightgbm seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=lightgbm seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=lightgbm seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=lightgbm seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=xgboost seed=1 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=xgboost seed=2 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=xgboost seed=3 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=xgboost seed=4 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT unit corpus=apigraph condition=U model=xgboost seed=5 trees=5000 threads=13 verified=yes time=2026-11-13T13:54:43
+RESULT job run.py corpus=apigraph condition=U exit=0 seconds=165 time=2026-11-13T13:54:43
+RESULT unit corpus=hypercube condition=O model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:55:08
+RESULT unit corpus=hypercube condition=O model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:55:08
+RESULT job run.py corpus=hypercube condition=O exit=0 seconds=410 time=2026-11-13T13:55:08
+RESULT unit corpus=apigraph condition=B0 model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:55:43
+RESULT unit corpus=apigraph condition=B0 model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:55:43
+RESULT job run.py corpus=apigraph condition=B0 exit=0 seconds=60 time=2026-11-13T13:55:44
+RESULT unit corpus=hypercube condition=B0 model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:56:04
+RESULT unit corpus=hypercube condition=B0 model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:56:04
+RESULT job run.py corpus=hypercube condition=B0 exit=0 seconds=271 time=2026-11-13T13:56:04
+RESULT unit corpus=apigraph condition=O model=lightgbm seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:56:24
+RESULT unit corpus=apigraph condition=O model=xgboost seed=once trees=5000 threads=13 verified=yes time=2026-11-13T13:56:24
+RESULT job run.py corpus=apigraph condition=O exit=0 seconds=76 time=2026-11-13T13:56:24
+RESULT evaluate corpus=androzoo exit=0 verified=yes seconds=30 time=2026-11-13T13:57:09
+RESULT evaluate corpus=hypercube exit=0 verified=yes seconds=30 time=2026-11-13T13:57:14
+RESULT evaluate corpus=lamda exit=0 verified=yes seconds=80 time=2026-11-13T13:57:54
+RESULT evaluate corpus=apigraph exit=0 verified=yes seconds=65 time=2026-11-13T13:58:14
+FANOUT_DONE failures=0 time=2026-11-13T13:58:24
