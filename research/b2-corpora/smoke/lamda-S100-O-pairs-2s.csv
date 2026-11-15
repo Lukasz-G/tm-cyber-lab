@@ -1,0 +1,5 @@
+corpus,cfg,S,matched,condition,share,repeat,N_a,N_b,arm,pool_seed,refit_seed,k,from,to,anchor,jaccard,kendall,inter,m_a,m_b,m_ab,E,c,guard_ok,support_ok,tm_lab,ceiling,parallel
+lamda,S100,100,true,O,0.5000,9,54000,54000,2s,101,,100,2016-02,2016-03,2016-03,0.913043,0.689571,16,553,556,228,7.415406,0.092722,true,true,43dba5f,LiteralCapped,none
+lamda,S100,100,true,O,0.5000,9,54000,54000,2s,101,,1000,2016-02,2016-03,2016-03,0.472116,0.499323,691,553,556,228,741.540583,-0.195546,true,false,43dba5f,LiteralCapped,none
+lamda,S100,100,true,O,0.5000,9,54000,54000,2s,102,,100,2016-02,2016-03,2016-03,0.888889,0.677697,20,541,542,221,7.536952,0.134790,true,true,43dba5f,LiteralCapped,none
+lamda,S100,100,true,O,0.5000,9,54000,54000,2s,102,,1000,2016-02,2016-03,2016-03,0.465081,0.483456,697,541,542,221,753.695152,-0.230183,true,false,43dba5f,LiteralCapped,none

@@ -1,0 +1,358 @@
+b2-corpora  corpus androzoo  width 16978  months 2020-01..2020-03 (3 calendar, 3 usable)
+configurations S372, S100 (matched S=372, integer s=round(width/S)=46)  pool seeds 2  refit seeds 3
+training conditions B0, U, O  tm-lab checkout 43dba5fc6a88a6ec06d7fd30ad78a8caa9cbd7c9
+model: clauses=20 T=10 L=64 LF=10 epochs=30  tm_lab=43dba5f ceiling=LiteralCapped parallel=none  attribution threads=16
+memory: class julia-androzoo peak 1054 MB, 12693 MB available at start
+skips: base 0, 2r 0, 1n/3n 0 of 3 months; arm-4 months 2020-01, 2020-02, 2020-03; planted control at 2020-01
+
+pool: 3000 malware, 27000 goodware; pool units to compute 12 of 12
+  S372 B0 pool seed 101: computed, 3000 malware + 27000 goodware rows (repeat 1), 32.0s
+  S372 B0 pool seed 102: computed, 3000 malware + 27000 goodware rows (repeat 1), 29.3s
+  S372 U  pool seed 101: computed, 3000 malware + 3000 goodware rows (repeat 1), 10.3s
+  S372 U  pool seed 102: computed, 3000 malware + 3000 goodware rows (repeat 1), 10.5s
+  S372 O  pool seed 101: computed, 27000 malware + 27000 goodware rows (repeat 9), 87.7s
+  S372 O  pool seed 102: computed, 27000 malware + 27000 goodware rows (repeat 9), 90.2s
+  S100 B0 pool seed 101: computed, 3000 malware + 27000 goodware rows (repeat 1), 35.8s
+  S100 B0 pool seed 102: computed, 3000 malware + 27000 goodware rows (repeat 1), 36.6s
+  S100 U  pool seed 101: computed, 3000 malware + 3000 goodware rows (repeat 1), 13.3s
+  S100 U  pool seed 102: computed, 3000 malware + 3000 goodware rows (repeat 1), 13.2s
+  S100 O  pool seed 101: computed, 27000 malware + 27000 goodware rows (repeat 9), 101.6s
+  S100 O  pool seed 102: computed, 27000 malware + 27000 goodware rows (repeat 9), 101.5s
+
+  2020-01  halves 166/1492 + 167/1493  B0 refit 165/1485  units computed 6, loaded 0  376.0s
+  2020-02  halves 203/1848 + 203/1849  B0 refit 203/1827  units computed 6, loaded 0  392.4s
+  2020-03  halves 183/1650 + 183/1651  B0 refit 183/1647  units computed 6, loaded 0  329.7s
+
+--------------------------------------------------------------------------------------------------------------
+cfg    cnd arm  pool       k   jaccard         c     n  N range, malware share, repeat
+--------------------------------------------------------------------------------------------------------------
+S100   B0  1    -        100     0.974     0.041     9  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.9737 c=0.0411 n=9 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  1    -       1000     0.930     0.029     9  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=1000 jaccard=0.9299 c=0.0291 n=9 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  1n   -        100     0.981     0.028     9  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.9809 c=0.0283 n=9 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  1n   -       1000     0.946     0.018     9  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=1000 jaccard=0.9457 c=0.0185 n=9 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    101      100     0.361     0.760     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.3605 c=0.7600 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    101     1000     0.060     0.813     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0601 c=0.8132 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    102      100     0.296     0.810     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2964 c=0.8097 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    102     1000     0.065     0.829     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0647 c=0.8286 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   101      100     0.183     0.887     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.1830 c=0.8873 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   101     1000     0.074     0.769     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=1000 jaccard=0.0737 c=0.7690 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   102      100     0.170     0.899     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.1697 c=0.8985 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   102     1000     0.074     0.801     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=1000 jaccard=0.0739 c=0.8005 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3    -        100     0.986     0.018     6  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.9865 c=0.0179 n=6 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3    -       1000     0.944     0.019     6  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=1000 jaccard=0.9437 c=0.0186 n=6 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3n   -        100     0.992     0.009     6  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.9916 c=0.0089 n=6 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3n   -       1000     0.953     0.011     6  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=3n pool_seed=- refit_seeds=11;12;13 k=1000 jaccard=0.9534 c=0.0113 n=6 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    101      100     0.326     0.787     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.3261 c=0.7873 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    101     1000     0.051     0.843     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0507 c=0.8433 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    102      100     0.339     0.777     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.3388 c=0.7771 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    102     1000     0.051     0.867     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0507 c=0.8670 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  P    101      100     0.077     0.956     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.0769 c=0.9564 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  P    101     1000     0.002     0.994     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=B0 arm=P pool_seed=101 refit_seeds=- k=1000 jaccard=0.0020 c=0.9940 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1    -        100     0.975     0.037     9  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.9748 c=0.0366 n=9 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1    -       1000     0.919     0.026     9  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=1000 jaccard=0.9187 c=0.0260 n=9 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1n   -        100     0.985     0.019     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.9847 c=0.0192 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1n   -       1000     0.930     0.023     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=1000 jaccard=0.9301 c=0.0231 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    101      100     0.374     0.748     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.3739 c=0.7484 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    101     1000     0.053     0.804     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0530 c=0.8038 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    102      100     0.228     0.858     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2279 c=0.8579 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    102     1000     0.074     0.745     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0737 c=0.7452 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   101      100     0.233     0.850     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2331 c=0.8505 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   101     1000     0.072     0.729     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2r pool_seed=101 refit_seeds=- k=1000 jaccard=0.0725 c=0.7289 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   102      100     0.192     0.883     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.1916 c=0.8834 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   102     1000     0.080     0.724     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=2r pool_seed=102 refit_seeds=- k=1000 jaccard=0.0798 c=0.7243 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3    -        100     0.986     0.018     6  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.9855 c=0.0181 n=6 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3    -       1000     0.936     0.018     6  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=1000 jaccard=0.9358 c=0.0183 n=6 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3n   -        100     0.991     0.010     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.9907 c=0.0097 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3n   -       1000     0.948     0.012     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=1000 jaccard=0.9483 c=0.0117 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    101      100     0.419     0.710     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.4188 c=0.7101 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    101     1000     0.048     0.825     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=5 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0478 c=0.8252 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    102      100     0.181     0.891     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.1812 c=0.8907 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    102     1000     0.064     0.782     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=5 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0638 c=0.7816 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   P    101      100     0.148     0.912     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.1481 c=0.9125 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   P    101     1000     0.006     0.979     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S100 condition=O arm=P pool_seed=101 refit_seeds=- k=1000 jaccard=0.0060 c=0.9786 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1    -        100     0.987     0.018     9  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.9869 c=0.0184 n=9 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1    -       1000     0.955     0.014     9  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=1000 jaccard=0.9552 c=0.0139 n=9 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1n   -        100     0.996     0.002     9  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.9955 c=0.0024 n=9 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1n   -       1000     0.964     0.005     9  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=1000 jaccard=0.9642 c=0.0049 n=9 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    101      100     0.289     0.816     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2886 c=0.8156 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    101     1000     0.163     0.592     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2 pool_seed=101 refit_seeds=- k=1000 jaccard=0.1632 c=0.5920 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    102      100     0.283     0.821     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2830 c=0.8205 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    102     1000     0.080     0.784     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0796 c=0.7841 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   101      100     0.219     0.866     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2186 c=0.8662 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   101     1000     0.117     0.714     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2r pool_seed=101 refit_seeds=- k=1000 jaccard=0.1169 c=0.7142 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   102      100     0.187     0.888     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.1871 c=0.8876 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   102     1000     0.073     0.802     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=2r pool_seed=102 refit_seeds=- k=1000 jaccard=0.0730 c=0.8023 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3    -        100     0.994     0.005     6  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.9941 c=0.0049 n=6 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3    -       1000     0.962     0.006     6  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=1000 jaccard=0.9619 c=0.0059 n=6 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3n   -        100     0.996     0.002     6  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.9958 c=0.0016 n=6 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3n   -       1000     0.965     0.001     6  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=3n pool_seed=- refit_seeds=11;12;13 k=1000 jaccard=0.9649 c=0.0008 n=6 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    101      100     0.326     0.788     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.3263 c=0.7885 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    101     1000     0.083     0.801     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=5 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0832 c=0.8006 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    102      100     0.283     0.821     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2832 c=0.8205 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    102     1000     0.095     0.740     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=5 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0952 c=0.7399 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   P    101      100     0.095     0.946     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.0952 c=0.9458 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   P    101     1000     0.018     0.959     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S100 condition=U arm=P pool_seed=101 refit_seeds=- k=1000 jaccard=0.0178 c=0.9587 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  1    -        100     0.975     0.041     9  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.9749 c=0.0408 n=9 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  1    -       1000     0.941     0.028     7  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=1000 jaccard=0.9410 c=0.0281 n=7 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  1n   -        100     0.993     0.007     9  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.9927 c=0.0072 n=9 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2    101      100     0.245     0.848     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2455 c=0.8482 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2    101     1000     0.015     0.966     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0149 c=0.9663 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2    102      100     0.365     0.756     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.3651 c=0.7563 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2    102     1000     0.124     0.715     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=1000 jaccard=0.1238 c=0.7155 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2r   101      100     0.209     0.873     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2088 c=0.8735 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2r   101     1000     0.084     0.788     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=1000 jaccard=0.0840 c=0.7881 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2r   102      100     0.213     0.870     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2130 c=0.8700 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  2r   102     1000     0.095     0.784     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=1000 jaccard=0.0946 c=0.7841 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  3    -        100     0.995     0.002     6  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.9949 c=0.0024 n=6 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  3    -       1000     0.946     0.026     5  N 1650-2030 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=1000 jaccard=0.9458 c=0.0255 n=5 N=1650-2030 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  3n   -        100     0.993     0.006     6  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.9933 c=0.0063 n=6 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  3n   -       1000     0.956     0.025     2  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=3n pool_seed=- refit_seeds=12 k=1000 jaccard=0.9559 c=0.0254 n=2 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  5    101      100     0.197     0.881     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.1969 c=0.8807 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  5    101     1000     0.011     0.975     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0109 c=0.9753 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  5    102      100     0.425     0.708     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.4251 c=0.7075 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  5    102     1000     0.092     0.791     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0921 c=0.7909 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  P    101      100     0.058     0.967     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.0583 c=0.9675 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   B0  P    101     1000     0.000     1.000     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=B0 arm=P pool_seed=101 refit_seeds=- k=1000 jaccard=0.0000 c=1.0000 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   1    -        100     0.986     0.017     9  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.9858 c=0.0174 n=9 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   1    -       1000     0.924     0.040     9  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=1000 jaccard=0.9238 c=0.0398 n=9 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   1n   -        100     0.984     0.023     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.9835 c=0.0228 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   1n   -       1000     0.935     0.028     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=1000 jaccard=0.9350 c=0.0285 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2    101      100     0.312     0.798     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.3122 c=0.7975 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2    101     1000     0.054     0.795     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0544 c=0.7948 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2    102      100     0.425     0.705     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.4248 c=0.7045 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2    102     1000     0.059     0.778     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0591 c=0.7777 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2r   101      100     0.234     0.854     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2342 c=0.8541 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2r   101     1000     0.060     0.773     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2r pool_seed=101 refit_seeds=- k=1000 jaccard=0.0600 c=0.7728 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2r   102      100     0.313     0.796     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.3129 c=0.7957 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   2r   102     1000     0.067     0.747     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=2r pool_seed=102 refit_seeds=- k=1000 jaccard=0.0669 c=0.7473 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   3    -        100     0.992     0.007     6  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.9915 c=0.0073 n=6 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   3    -       1000     0.935     0.030     6  N 2970-3654 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=1000 jaccard=0.9351 c=0.0302 n=6 N=2970-3654 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   3n   -        100     0.996     0.000     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.9958 c=0.0000 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   3n   -       1000     0.946     0.020     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=1000 jaccard=0.9464 c=0.0202 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   5    101      100     0.291     0.814     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2906 c=0.8139 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   5    101     1000     0.056     0.787     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=5 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0563 c=0.7875 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   5    102      100     0.454     0.677     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.4545 c=0.6771 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   5    102     1000     0.053     0.803     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=5 pool_seed=102 refit_seeds=- k=1000 jaccard=0.0526 c=0.8032 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   P    101      100     0.113     0.934     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.1132 c=0.9343 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   O   P    101     1000     0.008     0.971     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=androzoo cfg=S372 condition=O arm=P pool_seed=101 refit_seeds=- k=1000 jaccard=0.0080 c=0.9707 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   1    -        100     0.969     0.052     9  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.9695 c=0.0521 n=9 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   1    -       1000     0.949     0.040     9  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=1000 jaccard=0.9485 c=0.0402 n=9 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   1n   -        100     1.000    -0.006     1  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=1n pool_seed=- refit_seeds=11-13 k=100 jaccard=1.0000 c=-0.0060 n=1 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   1n   -       1000     0.965     0.008     1  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=1n pool_seed=- refit_seeds=11-13 k=1000 jaccard=0.9653 c=0.0077 n=1 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2    101      100     0.283     0.821     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2832 c=0.8214 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2    101     1000     0.119     0.735     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2 pool_seed=101 refit_seeds=- k=1000 jaccard=0.1193 c=0.7349 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2    102      100     0.367     0.755     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.3671 c=0.7554 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2    102     1000     0.112     0.703     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2 pool_seed=102 refit_seeds=- k=1000 jaccard=0.1121 c=0.7025 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2r   101      100     0.211     0.870     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2109 c=0.8701 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2r   101     1000     0.066     0.857     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2r pool_seed=101 refit_seeds=- k=1000 jaccard=0.0662 c=0.8565 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2r   102      100     0.302     0.804     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.3020 c=0.8043 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   2r   102     1000     0.084     0.780     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=2r pool_seed=102 refit_seeds=- k=1000 jaccard=0.0838 c=0.7800 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   3    -        100     0.991     0.011     6  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.9915 c=0.0105 n=6 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   3    -       1000     0.959     0.018     6  N 330-406 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=1000 jaccard=0.9592 c=0.0175 n=6 N=330-406 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   3n   -        100     0.985     0.024     2  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=3n pool_seed=- refit_seeds=11;13 k=100 jaccard=0.9847 c=0.0242 n=2 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   3n   -       1000     0.957     0.024     2  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=3n pool_seed=- refit_seeds=11;13 k=1000 jaccard=0.9568 c=0.0245 n=2 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   5    101      100     0.290     0.816     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2905 c=0.8160 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   5    101     1000     0.094     0.793     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=5 pool_seed=101 refit_seeds=- k=1000 jaccard=0.0943 c=0.7934 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   5    102      100     0.361     0.762     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.3607 c=0.7622 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   5    102     1000     0.103     0.782     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=5 pool_seed=102 refit_seeds=- k=1000 jaccard=0.1031 c=0.7818 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   P    101      100     0.113     0.935     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.1132 c=0.9351 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S372   U   P    101     1000     0.004     0.992     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=androzoo cfg=S372 condition=U arm=P pool_seed=101 refit_seeds=- k=1000 jaccard=0.0040 c=0.9917 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+
+seconds per model-month (wall clock, 16 threads; loaded units carry their recorded times):
+  attr_2             B0     1.133 s  (n=12)
+RESULT corpus=androzoo timing=attr_2 condition=B0 mean_s=1.1327 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2             O      0.894 s  (n=12)
+RESULT corpus=androzoo timing=attr_2 condition=O mean_s=0.8945 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2             U      0.839 s  (n=12)
+RESULT corpus=androzoo timing=attr_2 condition=U mean_s=0.8388 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     B0     4.366 s  (n=12)
+RESULT corpus=androzoo timing=attr_2_1thread condition=B0 mean_s=4.3658 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     O      5.104 s  (n=12)
+RESULT corpus=androzoo timing=attr_2_1thread condition=O mean_s=5.1038 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     U      4.580 s  (n=12)
+RESULT corpus=androzoo timing=attr_2_1thread condition=U mean_s=4.5798 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            B0     0.917 s  (n=12)
+RESULT corpus=androzoo timing=attr_2r condition=B0 mean_s=0.9172 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            O      0.882 s  (n=12)
+RESULT corpus=androzoo timing=attr_2r condition=O mean_s=0.8818 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            U      0.799 s  (n=12)
+RESULT corpus=androzoo timing=attr_2r condition=U mean_s=0.7992 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             B0     1.129 s  (n=18)
+RESULT corpus=androzoo timing=attr_3 condition=B0 mean_s=1.1288 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             O      0.998 s  (n=18)
+RESULT corpus=androzoo timing=attr_3 condition=O mean_s=0.9984 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             U      3.921 s  (n=18)
+RESULT corpus=androzoo timing=attr_3 condition=U mean_s=3.9212 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            B0     2.464 s  (n=18)
+RESULT corpus=androzoo timing=attr_3n condition=B0 mean_s=2.4642 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            O      1.068 s  (n=18)
+RESULT corpus=androzoo timing=attr_3n condition=O mean_s=1.0677 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            U      4.475 s  (n=18)
+RESULT corpus=androzoo timing=attr_3n condition=U mean_s=4.4746 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             B0    14.834 s  (n=12)
+RESULT corpus=androzoo timing=attr_5 condition=B0 mean_s=14.8343 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             O     14.575 s  (n=12)
+RESULT corpus=androzoo timing=attr_5 condition=O mean_s=14.5750 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             U     13.422 s  (n=12)
+RESULT corpus=androzoo timing=attr_5 condition=U mean_s=13.4220 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       B0     1.646 s  (n=2)
+RESULT corpus=androzoo timing=attr_planted condition=B0 mean_s=1.6455 n=2 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       O      1.075 s  (n=2)
+RESULT corpus=androzoo timing=attr_planted condition=O mean_s=1.0750 n=2 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       U      0.947 s  (n=2)
+RESULT corpus=androzoo timing=attr_planted condition=U mean_s=0.9465 n=2 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         B0    33.423 s  (n=4)
+RESULT corpus=androzoo timing=train_pool condition=B0 mean_s=33.4225 n=4 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         O     95.266 s  (n=4)
+RESULT corpus=androzoo timing=train_pool condition=O mean_s=95.2658 n=4 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         U     11.821 s  (n=4)
+RESULT corpus=androzoo timing=train_pool condition=U mean_s=11.8208 n=4 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        B0     5.008 s  (n=18)
+RESULT corpus=androzoo timing=train_refit condition=B0 mean_s=5.0076 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        O      7.464 s  (n=18)
+RESULT corpus=androzoo timing=train_refit condition=O mean_s=7.4637 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        U      1.416 s  (n=18)
+RESULT corpus=androzoo timing=train_refit condition=U mean_s=1.4159 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   B0     3.163 s  (n=18)
+RESULT corpus=androzoo timing=train_refit_1000 condition=B0 mean_s=3.1633 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   O      4.862 s  (n=18)
+RESULT corpus=androzoo timing=train_refit_1000 condition=O mean_s=4.8617 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   U      1.020 s  (n=18)
+RESULT corpus=androzoo timing=train_refit_1000 condition=U mean_s=1.0203 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+units: pool computed 12, pool loaded 0, month computed 18, month loaded 0
+RESULT corpus=androzoo units_pool_computed=12 units_pool_loaded=0 units_month_computed=18 units_month_loaded=0 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=androzoo peak_rss_mb=1242 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+
+means above are over pairs with guard and support both satisfied; intervals, the positive
+control and the conditions F1-F3 and P1-P3 are computed by decide.py

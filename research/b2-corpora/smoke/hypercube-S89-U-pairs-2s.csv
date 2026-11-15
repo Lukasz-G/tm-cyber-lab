@@ -1,0 +1,5 @@
+corpus,cfg,S,matched,condition,share,repeat,N_a,N_b,arm,pool_seed,refit_seed,k,from,to,anchor,jaccard,kendall,inter,m_a,m_b,m_ab,E,c,guard_ok,support_ok,tm_lab,ceiling,parallel
+hypercube,S89,89,true,U,0.5000,1,6000,6000,2s,101,,100,2022-01,2022-02,2022-02,0.952880,0.737486,9,709,709,249,4.953440,0.042575,true,true,43dba5f,LiteralCapped,none
+hypercube,S89,89,true,U,0.5000,1,6000,6000,2s,101,,1000,2022-01,2022-02,2022-02,0.564250,0.606782,607,709,709,249,495.343966,0.221252,true,false,43dba5f,LiteralCapped,none
+hypercube,S89,89,true,U,0.5000,1,6000,6000,2s,102,,100,2022-01,2022-02,2022-02,0.947368,0.730819,10,693,717,238,4.789879,0.054722,true,true,43dba5f,LiteralCapped,none
+hypercube,S89,89,true,U,0.5000,1,6000,6000,2s,102,,1000,2022-01,2022-02,2022-02,0.571429,0.601972,600,693,717,238,478.987927,0.232263,true,false,43dba5f,LiteralCapped,none

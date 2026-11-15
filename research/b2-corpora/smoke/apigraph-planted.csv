@@ -1,0 +1,7 @@
+corpus,cfg,S,matched,condition,pool_seed,month,max_abs_phi_planted,support_planted,support_unplanted,planted_features,tm_lab,ceiling,parallel
+apigraph,S25,25,true,B0,101,2013-01,0,311,341,17;13;12;36;41;44;51;60;27;40;8;45;18;38;240;132;50;174;54;70,43dba5f,LiteralCapped,none
+apigraph,S25,25,true,U,101,2013-01,0,316,338,17;13;6;21;8;48;27;51;12;132;174;54;36;2;240;40;18;88;123;19,43dba5f,LiteralCapped,none
+apigraph,S25,25,true,O,101,2013-01,0,295,315,13;51;17;54;21;53;18;48;38;8;64;14;132;27;40;12;60;88;45;50,43dba5f,LiteralCapped,none
+apigraph,S100,100,false,B0,101,2013-01,0,317,350,13;8;45;17;6;21;44;40;51;12;36;5;48;27;132;18;80;38;198;88,43dba5f,LiteralCapped,none
+apigraph,S100,100,false,U,101,2013-01,0,332,370,13;12;17;8;21;18;48;5;6;51;41;27;19;14;57;240;2;49;395;132,43dba5f,LiteralCapped,none
+apigraph,S100,100,false,O,101,2013-01,0,312,332,13;17;12;45;51;18;44;54;60;21;14;48;19;80;40;88;240;36;70;57,43dba5f,LiteralCapped,none

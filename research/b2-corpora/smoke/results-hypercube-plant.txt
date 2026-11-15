@@ -1,0 +1,229 @@
+b2-corpora  corpus hypercube  width 4087  months 2022-01..2022-03 (3 calendar, 3 usable)
+configurations S89, S100 (matched S=89, integer s=round(width/S)=46)  pool seeds 2  refit seeds 3
+training conditions B0, U, O  tm-lab checkout 43dba5fc6a88a6ec06d7fd30ad78a8caa9cbd7c9
+model: clauses=20 T=10 L=64 LF=10 epochs=30  tm_lab=43dba5f ceiling=LiteralCapped parallel=none  attribution threads=8
+memory: class julia-hypercube peak 898 MB, 7638 MB available at start
+skips: base 0, 2r 0, 1n/3n 0 of 3 months; arm-4 months 2022-01, 2022-02, 2022-03; planted control at 2022-01
+
+pool: 3000 malware, 27000 goodware; pool units to compute 0 of 12
+  S89 B0 pool seed 101: loaded (verified)
+  S89 B0 pool seed 102: loaded (verified)
+  S89 U  pool seed 101: loaded (verified)
+  S89 U  pool seed 102: loaded (verified)
+  S89 O  pool seed 101: loaded (verified)
+  S89 O  pool seed 102: loaded (verified)
+  S100 B0 pool seed 101: loaded (verified)
+  S100 B0 pool seed 102: loaded (verified)
+  S100 U  pool seed 101: loaded (verified)
+  S100 U  pool seed 102: loaded (verified)
+  S100 O  pool seed 101: loaded (verified)
+  S100 O  pool seed 102: loaded (verified)
+
+  2022-01  halves 333/2995 + 333/2995  B0 refit 332/2988  units computed 0, loaded 6  1.5s
+  2022-02  halves 229/2060 + 229/2061  B0 refit 228/2052  units computed 0, loaded 6  1.0s
+  2022-03  halves 253/2279 + 253/2280  B0 refit 253/2277  units computed 0, loaded 6  0.9s
+positive control P at 2022-01: 6 units computed, 0 loaded; max |phi| of planted features 0.0
+
+--------------------------------------------------------------------------------------------------------------
+cfg    cnd arm  pool       k   jaccard         c     n  N range, malware share, repeat
+--------------------------------------------------------------------------------------------------------------
+S100   B0  1    -        100     0.752     0.349     9  N 2280-3320 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.7525 c=0.3493 n=9 N=2280-3320 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  1n   -        100     0.811     0.268     9  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.8106 c=0.2679 n=9 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    101      100     0.230     0.851     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2295 c=0.8513 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    102      100     0.230     0.851     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2299 c=0.8515 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   101      100     0.165     0.897     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.1650 c=0.8971 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   102      100     0.159     0.901     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.1595 c=0.9008 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3    -        100     0.823     0.258     6  N 2280-3320 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.8228 c=0.2576 n=6 N=2280-3320 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3n   -        100     0.815     0.270     6  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.8151 c=0.2702 n=6 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    101      100     0.131     0.922     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.1308 c=0.9217 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    102      100     0.214     0.866     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2141 c=0.8661 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  P    101      100     0.425     0.683     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=B0 arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.4252 c=0.6827 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1    -        100     0.683     0.436     9  N 4104-5976 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.6827 c=0.4358 n=9 N=4104-5976 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1n   -        100     0.724     0.387     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.7241 c=0.3873 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    101      100     0.190     0.878     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.1897 c=0.8783 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    102      100     0.275     0.813     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2747 c=0.8135 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   101      100     0.193     0.876     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.1925 c=0.8763 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   102      100     0.225     0.852     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2248 c=0.8521 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3    -        100     0.752     0.352     6  N 4104-5976 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.7524 c=0.3516 n=6 N=4104-5976 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3n   -        100     0.791     0.303     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.7905 c=0.3030 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    101      100     0.165     0.897     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.1645 c=0.8972 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    102      100     0.198     0.874     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.1982 c=0.8738 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   P    101      100     0.462     0.645     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S100 condition=O arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.4615 c=0.6452 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1    -        100     0.772     0.329     9  N 456-664 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.7717 c=0.3287 n=9 N=456-664 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1n   -        100     0.787     0.306     9  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.7866 c=0.3062 n=9 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    101      100     0.245     0.840     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2451 c=0.8398 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    102      100     0.219     0.857     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2194 c=0.8574 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   101      100     0.208     0.866     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2082 c=0.8663 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   102      100     0.203     0.871     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2030 c=0.8707 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3    -        100     0.805     0.285     6  N 456-664 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.8055 c=0.2853 n=6 N=456-664 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3n   -        100     0.834     0.243     6  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.8343 c=0.2428 n=6 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    101      100     0.139     0.916     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.1392 c=0.9160 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    102      100     0.196     0.877     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.1959 c=0.8772 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   P    101      100     0.462     0.648     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S100 condition=U arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.4615 c=0.6476 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  1    -        100     0.749     0.350     9  N 2280-3320 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.7487 c=0.3505 n=9 N=2280-3320 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  1n   -        100     0.773     0.324     9  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.7729 c=0.3235 n=9 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  2    101      100     0.276     0.817     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2757 c=0.8166 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  2    102      100     0.206     0.868     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2060 c=0.8685 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  2r   101      100     0.214     0.862     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2140 c=0.8621 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  2r   102      100     0.182     0.885     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.1815 c=0.8855 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  3    -        100     0.789     0.305     6  N 2280-3320 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.7887 c=0.3053 n=6 N=2280-3320 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  3n   -        100     0.800     0.293     6  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.7998 c=0.2926 n=6 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  5    101      100     0.173     0.893     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.1735 c=0.8935 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  5    102      100     0.139     0.916     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.1395 c=0.9164 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    B0  P    101      100     0.450     0.657     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=B0 arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.4496 c=0.6572 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   1    -        100     0.648     0.477     9  N 4104-5976 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.6480 c=0.4769 n=9 N=4104-5976 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   1n   -        100     0.708     0.407     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.7080 c=0.4072 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   2    101      100     0.216     0.854     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2163 c=0.8540 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   2    102      100     0.221     0.854     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2213 c=0.8539 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   2r   101      100     0.170     0.891     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.1697 c=0.8910 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   2r   102      100     0.187     0.879     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.1867 c=0.8789 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   3    -        100     0.732     0.378     6  N 4104-5976 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.7316 c=0.3776 n=6 N=4104-5976 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   3n   -        100     0.786     0.311     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.7861 c=0.3105 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   5    101      100     0.138     0.914     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.1376 c=0.9138 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   5    102      100     0.165     0.897     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.1651 c=0.8965 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    O   P    101      100     0.485     0.619     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=hypercube cfg=S89 condition=O arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.4848 c=0.6186 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   1    -        100     0.758     0.347     9  N 456-664 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.7583 c=0.3475 n=9 N=456-664 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   1n   -        100     0.785     0.311     9  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.7850 c=0.3107 n=9 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   2    101      100     0.290     0.806     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2901 c=0.8055 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   2    102      100     0.275     0.817     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2753 c=0.8170 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   2r   101      100     0.228     0.851     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2282 c=0.8511 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   2r   102      100     0.197     0.874     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.1966 c=0.8743 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   3    -        100     0.790     0.311     6  N 456-664 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.7899 c=0.3109 n=6 N=456-664 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   3n   -        100     0.838     0.236     6  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.8378 c=0.2363 n=6 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   5    101      100     0.222     0.860     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2219 c=0.8598 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   5    102      100     0.198     0.877     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.1981 c=0.8767 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S89    U   P    101      100     0.507     0.601     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=hypercube cfg=S89 condition=U arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.5075 c=0.6010 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+
+seconds per model-month (wall clock, 8 threads; loaded units carry their recorded times):
+  attr_2             B0     0.904 s  (n=12)
+RESULT corpus=hypercube timing=attr_2 condition=B0 mean_s=0.9038 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2             O      0.672 s  (n=12)
+RESULT corpus=hypercube timing=attr_2 condition=O mean_s=0.6717 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2             U      0.648 s  (n=12)
+RESULT corpus=hypercube timing=attr_2 condition=U mean_s=0.6479 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     B0     4.174 s  (n=12)
+RESULT corpus=hypercube timing=attr_2_1thread condition=B0 mean_s=4.1740 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     O      4.162 s  (n=12)
+RESULT corpus=hypercube timing=attr_2_1thread condition=O mean_s=4.1618 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     U      4.330 s  (n=12)
+RESULT corpus=hypercube timing=attr_2_1thread condition=U mean_s=4.3299 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            B0     0.608 s  (n=12)
+RESULT corpus=hypercube timing=attr_2r condition=B0 mean_s=0.6082 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            O      0.676 s  (n=12)
+RESULT corpus=hypercube timing=attr_2r condition=O mean_s=0.6758 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            U      0.649 s  (n=12)
+RESULT corpus=hypercube timing=attr_2r condition=U mean_s=0.6492 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             B0     0.592 s  (n=18)
+RESULT corpus=hypercube timing=attr_3 condition=B0 mean_s=0.5918 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             O      0.629 s  (n=18)
+RESULT corpus=hypercube timing=attr_3 condition=O mean_s=0.6294 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             U      0.582 s  (n=18)
+RESULT corpus=hypercube timing=attr_3 condition=U mean_s=0.5817 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            B0     0.572 s  (n=18)
+RESULT corpus=hypercube timing=attr_3n condition=B0 mean_s=0.5725 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            O      0.584 s  (n=18)
+RESULT corpus=hypercube timing=attr_3n condition=O mean_s=0.5837 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            U      0.568 s  (n=18)
+RESULT corpus=hypercube timing=attr_3n condition=U mean_s=0.5677 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             B0    16.280 s  (n=12)
+RESULT corpus=hypercube timing=attr_5 condition=B0 mean_s=16.2797 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             O     18.203 s  (n=12)
+RESULT corpus=hypercube timing=attr_5 condition=O mean_s=18.2026 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             U     17.677 s  (n=12)
+RESULT corpus=hypercube timing=attr_5 condition=U mean_s=17.6771 n=12 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       B0     1.045 s  (n=4)
+RESULT corpus=hypercube timing=attr_planted condition=B0 mean_s=1.0452 n=4 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       O      0.485 s  (n=4)
+RESULT corpus=hypercube timing=attr_planted condition=O mean_s=0.4852 n=4 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       U      0.538 s  (n=4)
+RESULT corpus=hypercube timing=attr_planted condition=U mean_s=0.5377 n=4 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         B0    11.299 s  (n=4)
+RESULT corpus=hypercube timing=train_pool condition=B0 mean_s=11.2992 n=4 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         O     47.379 s  (n=4)
+RESULT corpus=hypercube timing=train_pool condition=O mean_s=47.3787 n=4 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         U      5.457 s  (n=4)
+RESULT corpus=hypercube timing=train_pool condition=U mean_s=5.4572 n=4 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        B0     1.604 s  (n=18)
+RESULT corpus=hypercube timing=train_refit condition=B0 mean_s=1.6036 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        O      3.664 s  (n=18)
+RESULT corpus=hypercube timing=train_refit condition=O mean_s=3.6641 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        U      0.639 s  (n=18)
+RESULT corpus=hypercube timing=train_refit condition=U mean_s=0.6392 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   B0     0.598 s  (n=18)
+RESULT corpus=hypercube timing=train_refit_1000 condition=B0 mean_s=0.5982 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   O      1.321 s  (n=18)
+RESULT corpus=hypercube timing=train_refit_1000 condition=O mean_s=1.3211 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   U      0.209 s  (n=18)
+RESULT corpus=hypercube timing=train_refit_1000 condition=U mean_s=0.2090 n=18 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+units: pool computed 0, pool loaded 12, month computed 0, month loaded 18
+RESULT corpus=hypercube units_pool_computed=0 units_pool_loaded=12 units_month_computed=0 units_month_loaded=18 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=hypercube peak_rss_mb=764 threads=8 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+
+means above are over pairs with guard and support both satisfied; intervals, the positive
+control and the conditions F1-F3 and P1-P3 are computed by decide.py

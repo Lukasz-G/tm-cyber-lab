@@ -1,0 +1,228 @@
+b2-corpora  corpus apigraph  width 1159  months 2013-01..2013-03 (3 calendar, 3 usable)
+configurations S25, S100 (matched S=25, integer s=round(width/S)=46)  pool seeds 2  refit seeds 3
+training conditions B0, U, O  tm-lab checkout 43dba5fc6a88a6ec06d7fd30ad78a8caa9cbd7c9
+model: clauses=20 T=10 L=64 LF=10 epochs=30  tm_lab=43dba5f ceiling=LiteralCapped parallel=none  attribution threads=16
+memory: class julia-apigraph peak 793 MB, 4379 MB available at start
+skips: base 0, 2r 0, 1n/3n 0 of 3 months; arm-4 months 2013-01, 2013-02, 2013-03; planted control at 2013-01
+
+pool: 3000 malware, 27000 goodware; pool units to compute 0 of 12
+  S25 B0 pool seed 101: loaded (verified)
+  S25 B0 pool seed 102: loaded (verified)
+  S25 U  pool seed 101: loaded (verified)
+  S25 U  pool seed 102: loaded (verified)
+  S25 O  pool seed 101: loaded (verified)
+  S25 O  pool seed 102: loaded (verified)
+  S100 B0 pool seed 101: loaded (verified)
+  S100 B0 pool seed 102: loaded (verified)
+  S100 U  pool seed 101: loaded (verified)
+  S100 U  pool seed 102: loaded (verified)
+  S100 O  pool seed 101: loaded (verified)
+  S100 O  pool seed 102: loaded (verified)
+
+  2013-01  halves 250/2245 + 250/2246  B0 refit 249/2241  units computed 1, loaded 5  24.3s
+  2013-02  halves 160/1432 + 160/1433  B0 refit 159/1431  units computed 4, loaded 2  50.9s
+  2013-03  halves 168/1514 + 169/1514  B0 refit 168/1512  units computed 6, loaded 0  82.1s
+
+--------------------------------------------------------------------------------------------------------------
+cfg    cnd arm  pool       k   jaccard         c     n  N range, malware share, repeat
+--------------------------------------------------------------------------------------------------------------
+S100   B0  1    -        100     0.355     0.732     9  N 1590-2490 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.3552 c=0.7316 n=9 N=1590-2490 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  1n   -        100     0.396     0.697     9  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.3961 c=0.6967 n=9 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    101      100     0.312     0.762     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.3120 c=0.7620 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2    102      100     0.283     0.786     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2830 c=0.7861 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   101      100     0.265     0.802     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2654 c=0.8024 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  2r   102      100     0.261     0.804     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2605 c=0.8042 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3    -        100     0.494     0.614     6  N 1590-2490 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.4941 c=0.6136 n=6 N=1590-2490 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  3n   -        100     0.539     0.568     6  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.5395 c=0.5683 n=6 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    101      100     0.305     0.781     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.3046 c=0.7810 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  5    102      100     0.252     0.822     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2516 c=0.8222 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   B0  P    101      100     0.095     0.930     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=B0 arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.0952 c=0.9301 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1    -        100     0.332     0.753     9  N 2862-4482 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.3324 c=0.7529 n=9 N=2862-4482 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   1n   -        100     0.356     0.734     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.3557 c=0.7344 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    101      100     0.319     0.747     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.3192 c=0.7473 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2    102      100     0.290     0.776     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2905 c=0.7757 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   101      100     0.281     0.783     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2806 c=0.7827 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   2r   102      100     0.255     0.806     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2554 c=0.8061 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3    -        100     0.488     0.621     6  N 2862-4482 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.4884 c=0.6208 n=6 N=2862-4482 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   3n   -        100     0.497     0.613     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.4973 c=0.6126 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    101      100     0.275     0.798     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2747 c=0.7984 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   5    102      100     0.283     0.792     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2832 c=0.7921 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   O   P    101      100     0.148     0.886     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S100 condition=O arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.1481 c=0.8855 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1    -        100     0.463     0.632     9  N 318-498 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.4633 c=0.6318 n=9 N=318-498 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   1n   -        100     0.485     0.609     9  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.4848 c=0.6091 n=9 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    101      100     0.276     0.798     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2757 c=0.7975 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2    102      100     0.298     0.780     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2978 c=0.7804 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   101      100     0.230     0.835     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2297 c=0.8345 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   2r   102      100     0.224     0.841     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2237 c=0.8412 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3    -        100     0.533     0.575     6  N 318-498 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.5330 c=0.5746 n=6 N=318-498 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   3n   -        100     0.552     0.557     6  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.5522 c=0.5568 n=6 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    101      100     0.238     0.837     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2376 c=0.8369 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   5    102      100     0.227     0.845     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2266 c=0.8451 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S100   U   P    101      100     0.113     0.918     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S100 condition=U arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.1132 c=0.9178 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  1    -        100     0.337     0.748     9  N 1590-2490 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.3370 c=0.7481 n=9 N=1590-2490 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  1n   -        100     0.357     0.734     9  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.3569 c=0.7337 n=9 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  2    101      100     0.305     0.766     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.3050 c=0.7657 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  2    102      100     0.298     0.772     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2976 c=0.7719 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  2r   101      100     0.240     0.822     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2404 c=0.8216 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  2r   102      100     0.251     0.811     3  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2506 c=0.8109 n=3 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  3    -        100     0.479     0.631     6  N 1590-2490 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.4787 c=0.6307 n=6 N=1590-2490 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  3n   -        100     0.496     0.614     6  N 1000-1000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.4959 c=0.6139 n=6 N=1000-1000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  5    101      100     0.259     0.817     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2588 c=0.8169 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  5    102      100     0.245     0.826     2  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2455 c=0.8263 n=2 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    B0  P    101      100     0.131     0.901     1  N 30000-30000 share 0.100-0.100 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=B0 arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.1308 c=0.9010 n=1 N=30000-30000 share=0.100-0.100 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   1    -        100     0.303     0.777     9  N 2862-4482 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.3030 c=0.7770 n=9 N=2862-4482 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   1n   -        100     0.294     0.788     9  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.2935 c=0.7880 n=9 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   2    101      100     0.354     0.707     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.3539 c=0.7070 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   2    102      100     0.276     0.779     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.2757 c=0.7795 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   2r   101      100     0.285     0.772     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2845 c=0.7719 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   2r   102      100     0.244     0.807     3  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2445 c=0.8065 n=3 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   3    -        100     0.460     0.643     6  N 2862-4482 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.4603 c=0.6434 n=6 N=2862-4482 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   3n   -        100     0.440     0.666     6  N 1800-1800 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.4404 c=0.6665 n=6 N=1800-1800 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   5    101      100     0.245     0.819     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2455 c=0.8194 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   5    102      100     0.253     0.810     2  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2532 c=0.8105 n=2 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    O   P    101      100     0.165     0.868     1  N 54000-54000 share 0.500-0.500 repeat 9-9
+RESULT corpus=apigraph cfg=S25 condition=O arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.1651 c=0.8681 n=1 N=54000-54000 share=0.500-0.500 repeat=9-9 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   1    -        100     0.442     0.653     9  N 318-498 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=1 pool_seed=- refit_seeds=1-2;1-3;2-3 k=100 jaccard=0.4422 c=0.6528 n=9 N=318-498 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   1n   -        100     0.414     0.683     9  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=1n pool_seed=- refit_seeds=11-12;11-13;12-13 k=100 jaccard=0.4140 c=0.6828 n=9 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   2    101      100     0.276     0.792     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=2 pool_seed=101 refit_seeds=- k=100 jaccard=0.2757 c=0.7918 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   2    102      100     0.326     0.748     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=2 pool_seed=102 refit_seeds=- k=100 jaccard=0.3261 c=0.7477 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   2r   101      100     0.240     0.821     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=2r pool_seed=101 refit_seeds=- k=100 jaccard=0.2396 c=0.8211 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   2r   102      100     0.261     0.805     3  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=2r pool_seed=102 refit_seeds=- k=100 jaccard=0.2608 c=0.8054 n=3 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   3    -        100     0.520     0.590     6  N 318-498 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=3 pool_seed=- refit_seeds=1;2;3 k=100 jaccard=0.5199 c=0.5899 n=6 N=318-498 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   3n   -        100     0.505     0.607     6  N 200-200 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=3n pool_seed=- refit_seeds=11;12;13 k=100 jaccard=0.5052 c=0.6071 n=6 N=200-200 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   5    101      100     0.261     0.815     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=5 pool_seed=101 refit_seeds=- k=100 jaccard=0.2607 c=0.8145 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   5    102      100     0.259     0.815     2  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=5 pool_seed=102 refit_seeds=- k=100 jaccard=0.2588 c=0.8150 n=2 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+S25    U   P    101      100     0.077     0.943     1  N 6000-6000 share 0.500-0.500 repeat 1-1
+RESULT corpus=apigraph cfg=S25 condition=U arm=P pool_seed=101 refit_seeds=- k=100 jaccard=0.0769 c=0.9432 n=1 N=6000-6000 share=0.500-0.500 repeat=1-1 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+
+seconds per model-month (wall clock, 16 threads; loaded units carry their recorded times):
+  attr_2             B0     0.532 s  (n=12)
+RESULT corpus=apigraph timing=attr_2 condition=B0 mean_s=0.5318 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2             O      0.241 s  (n=12)
+RESULT corpus=apigraph timing=attr_2 condition=O mean_s=0.2415 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2             U      0.278 s  (n=12)
+RESULT corpus=apigraph timing=attr_2 condition=U mean_s=0.2775 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     B0     1.237 s  (n=12)
+RESULT corpus=apigraph timing=attr_2_1thread condition=B0 mean_s=1.2368 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     O      1.251 s  (n=12)
+RESULT corpus=apigraph timing=attr_2_1thread condition=O mean_s=1.2510 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2_1thread     U      1.269 s  (n=12)
+RESULT corpus=apigraph timing=attr_2_1thread condition=U mean_s=1.2688 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            B0     0.252 s  (n=12)
+RESULT corpus=apigraph timing=attr_2r condition=B0 mean_s=0.2523 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            O      0.228 s  (n=12)
+RESULT corpus=apigraph timing=attr_2r condition=O mean_s=0.2283 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_2r            U      0.275 s  (n=12)
+RESULT corpus=apigraph timing=attr_2r condition=U mean_s=0.2755 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             B0     0.241 s  (n=18)
+RESULT corpus=apigraph timing=attr_3 condition=B0 mean_s=0.2408 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             O      0.235 s  (n=18)
+RESULT corpus=apigraph timing=attr_3 condition=O mean_s=0.2355 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3             U      0.214 s  (n=18)
+RESULT corpus=apigraph timing=attr_3 condition=U mean_s=0.2141 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            B0     0.235 s  (n=18)
+RESULT corpus=apigraph timing=attr_3n condition=B0 mean_s=0.2352 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            O      0.235 s  (n=18)
+RESULT corpus=apigraph timing=attr_3n condition=O mean_s=0.2346 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_3n            U      0.195 s  (n=18)
+RESULT corpus=apigraph timing=attr_3n condition=U mean_s=0.1952 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             B0     4.563 s  (n=12)
+RESULT corpus=apigraph timing=attr_5 condition=B0 mean_s=4.5628 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             O      4.218 s  (n=12)
+RESULT corpus=apigraph timing=attr_5 condition=O mean_s=4.2180 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_5             U      4.922 s  (n=12)
+RESULT corpus=apigraph timing=attr_5 condition=U mean_s=4.9224 n=12 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       B0     0.858 s  (n=2)
+RESULT corpus=apigraph timing=attr_planted condition=B0 mean_s=0.8580 n=2 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       O      0.220 s  (n=2)
+RESULT corpus=apigraph timing=attr_planted condition=O mean_s=0.2195 n=2 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  attr_planted       U      0.332 s  (n=2)
+RESULT corpus=apigraph timing=attr_planted condition=U mean_s=0.3315 n=2 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         B0     6.505 s  (n=4)
+RESULT corpus=apigraph timing=train_pool condition=B0 mean_s=6.5053 n=4 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         O     20.261 s  (n=4)
+RESULT corpus=apigraph timing=train_pool condition=O mean_s=20.2605 n=4 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_pool         U      2.577 s  (n=4)
+RESULT corpus=apigraph timing=train_pool condition=U mean_s=2.5773 n=4 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        B0     0.302 s  (n=18)
+RESULT corpus=apigraph timing=train_refit condition=B0 mean_s=0.3018 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        O      0.616 s  (n=18)
+RESULT corpus=apigraph timing=train_refit condition=O mean_s=0.6161 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit        U      0.129 s  (n=18)
+RESULT corpus=apigraph timing=train_refit condition=U mean_s=0.1289 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   B0     0.153 s  (n=18)
+RESULT corpus=apigraph timing=train_refit_1000 condition=B0 mean_s=0.1525 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   O      0.371 s  (n=18)
+RESULT corpus=apigraph timing=train_refit_1000 condition=O mean_s=0.3711 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+  train_refit_1000   U      0.074 s  (n=18)
+RESULT corpus=apigraph timing=train_refit_1000 condition=U mean_s=0.0742 n=18 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+units: pool computed 0, pool loaded 12, month computed 11, month loaded 7
+RESULT corpus=apigraph units_pool_computed=0 units_pool_loaded=12 units_month_computed=11 units_month_loaded=7 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+RESULT corpus=apigraph peak_rss_mb=826 threads=16 tm_lab=43dba5f ceiling=LiteralCapped parallel=none
+
+means above are over pairs with guard and support both satisfied; intervals, the positive
+control and the conditions F1-F3 and P1-P3 are computed by decide.py

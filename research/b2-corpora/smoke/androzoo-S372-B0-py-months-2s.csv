@@ -1,0 +1,5 @@
+corpus,arm,cfg,S,condition,N,share,repeat,pool_seed,run,month,auc,guard_ok,m,m_exact,M_eff,nsamples,l1_reg,warnings,rows_out_of_range,seconds,seconds_train,threads,seconds_exact,threads_exact,seconds_exact_1thread,peak_rss_mb,shap,tm_lab,ceiling,parallel
+androzoo,2s,S372,372,B0,30000,0.1000,1,101,,2020-01,0.995863,true,927,1284,16978.0,100,num_features(10),63,1,112.555,,1,2.5819997787475586,16,5.522000074386597,624,0.49.1,43dba5f,LiteralCapped,none
+androzoo,2s,S372,372,B0,30000,0.1000,1,101,,2020-02,0.704564,true,934,1286,16978.0,100,num_features(10),48,2,113.153,,1,1.5260000228881836,16,6.4730000495910645,625,0.49.1,43dba5f,LiteralCapped,none
+androzoo,2s,S372,372,B0,30000,0.1000,1,102,,2020-01,0.994718,true,940,1283,16978.0,100,num_features(10),39,1,113.875,,1,0.8979997634887695,16,4.437999963760376,625,0.49.1,43dba5f,LiteralCapped,none
+androzoo,2s,S372,372,B0,30000,0.1000,1,102,,2020-02,0.972533,true,933,1302,16978.0,100,num_features(10),127,1,113.895,,1,1.2760000228881836,16,5.082000017166138,625,0.49.1,43dba5f,LiteralCapped,none

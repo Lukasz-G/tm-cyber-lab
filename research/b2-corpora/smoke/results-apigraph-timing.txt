@@ -1,0 +1,9 @@
+b2-corpora python arms  corpus apigraph  cfg S25  conditions ['B0', 'U', 'O']  arms ['timing']  months 2  arm-4 months ['2013-01']  pools [1, 2]  arm-0 runs 3  jobs 1
+shap 0.49.1  l1_reg num_features(10)  numpy 2.2.6  tm-lab 43dba5f  one thread per worker
+memory: 13454 MB available; peaks used py-2s 280 MB
+timing S25 B0 pool 101 2013-01: KernelExplainer at 100 27.98s, exact 2.060s on one thread
+timing S25 B0 pool 102 2013-01: KernelExplainer at 100 26.59s, exact 1.423s on one thread
+timing S25 U pool 101 2013-01: KernelExplainer at 100 17.08s, exact 1.460s on one thread
+timing S25 U pool 102 2013-01: KernelExplainer at 100 27.08s, exact 1.571s on one thread
+timing S25 O pool 101 2013-01: KernelExplainer at 100 25.83s, exact 1.543s on one thread
+timing S25 O pool 102 2013-01: KernelExplainer at 100 25.83s, exact 1.440s on one thread

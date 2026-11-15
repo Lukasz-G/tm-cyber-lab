@@ -1,0 +1,5 @@
+corpus,cfg,S,matched,condition,share,repeat,N_a,N_b,arm,pool_seed,refit_seed,k,from,to,anchor,jaccard,kendall,inter,m_a,m_b,m_ab,E,c,guard_ok,support_ok,tm_lab,ceiling,parallel
+androzoo,S372,372,true,U,0.5000,1,6000,6000,2s,101,,100,2020-01,2020-02,2020-02,1.000000,0.820700,0,933,919,45,0.524826,-0.005276,true,true,43dba5f,LiteralCapped,none
+androzoo,S372,372,true,U,0.5000,1,6000,6000,2s,101,,1000,2020-01,2020-02,2020-02,0.938429,0.796471,116,933,919,45,52.482602,0.067036,true,false,43dba5f,LiteralCapped,none
+androzoo,S372,372,true,U,0.5000,1,6000,6000,2s,102,,100,2020-01,2020-02,2020-02,1.000000,0.824887,0,931,927,55,0.637284,-0.006414,true,true,43dba5f,LiteralCapped,none
+androzoo,S372,372,true,U,0.5000,1,6000,6000,2s,102,,1000,2020-01,2020-02,2020-02,0.928763,0.793210,133,931,927,55,63.728438,0.073987,true,false,43dba5f,LiteralCapped,none

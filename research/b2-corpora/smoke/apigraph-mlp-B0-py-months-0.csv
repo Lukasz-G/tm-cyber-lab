@@ -1,0 +1,7 @@
+corpus,arm,cfg,S,condition,N,share,repeat,pool_seed,run,month,auc,guard_ok,m,m_exact,M_eff,nsamples,l1_reg,warnings,rows_out_of_range,seconds,seconds_train,threads,seconds_exact,threads_exact,seconds_exact_1thread,peak_rss_mb,shap,tm_lab,ceiling,parallel
+apigraph,0,mlp,0,B0,2490,0.1000,1,,0,2013-01,0.995650,true,374,,419.9,100,num_features(10),106,1,76.199,65.024,1,,,,874,0.49.1,na,na,na
+apigraph,0,mlp,0,B0,2490,0.1000,1,,1,2013-01,0.995512,true,377,,419.9,100,num_features(10),138,1,122.955,42.377,1,,,,874,0.49.1,na,na,na
+apigraph,0,mlp,0,B0,2490,0.1000,1,,2,2013-01,0.995741,true,380,,419.9,100,num_features(10),206,2,118.049,33.270,1,,,,875,0.49.1,na,na,na
+apigraph,0,mlp,0,B0,1590,0.1000,1,,0,2013-02,0.985773,true,394,,457.1,100,num_features(10),108,0,121.703,33.146,1,,,,873,0.49.1,na,na,na
+apigraph,0,mlp,0,B0,1590,0.1000,1,,1,2013-02,0.989051,true,393,,457.1,100,num_features(10),103,0,104.869,23.117,1,,,,874,0.49.1,na,na,na
+apigraph,0,mlp,0,B0,1590,0.1000,1,,2,2013-02,0.986521,true,405,,457.1,100,num_features(10),105,0,97.086,36.101,1,,,,872,0.49.1,na,na,na

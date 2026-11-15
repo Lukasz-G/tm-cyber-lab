@@ -1,0 +1,5 @@
+corpus,cfg,S,matched,condition,share,repeat,N_a,N_b,arm,pool_seed,refit_seed,k,from,to,anchor,jaccard,kendall,inter,m_a,m_b,m_ab,E,c,guard_ok,support_ok,tm_lab,ceiling,parallel
+apigraph,S25,25,true,O,0.5000,9,54000,54000,2s,101,,100,2013-01,2013-02,2013-02,0.773006,0.566009,37,359,395,222,15.655301,0.253065,true,true,43dba5f,LiteralCapped,none
+apigraph,S25,25,true,O,0.5000,9,54000,54000,2s,101,,1000,2013-01,2013-02,2013-02,0.027613,0.333872,986,359,395,222,1565.530129,nan,true,false,43dba5f,LiteralCapped,none
+apigraph,S25,25,true,O,0.5000,9,54000,54000,2s,102,,100,2013-01,2013-02,2013-02,0.773006,0.544123,37,368,396,222,15.233860,0.256779,true,true,43dba5f,LiteralCapped,none
+apigraph,S25,25,true,O,0.5000,9,54000,54000,2s,102,,1000,2013-01,2013-02,2013-02,0.023715,0.345776,988,368,396,222,1523.386034,nan,true,false,43dba5f,LiteralCapped,none

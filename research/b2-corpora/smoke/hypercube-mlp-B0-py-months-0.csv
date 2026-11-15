@@ -1,0 +1,7 @@
+corpus,arm,cfg,S,condition,N,share,repeat,pool_seed,run,month,auc,guard_ok,m,m_exact,M_eff,nsamples,l1_reg,warnings,rows_out_of_range,seconds,seconds_train,threads,seconds_exact,threads_exact,seconds_exact_1thread,peak_rss_mb,shap,tm_lab,ceiling,parallel
+hypercube,0,mlp,0,B0,3320,0.1000,1,,0,2022-01,0.958868,true,653,,1498.2,100,num_features(10),487,4,232.768,90.256,1,,,,1099,0.49.1,na,na,na
+hypercube,0,mlp,0,B0,3320,0.1000,1,,1,2022-01,0.958329,true,648,,1498.2,100,num_features(10),272,0,230.570,89.982,1,,,,1427,0.49.1,na,na,na
+hypercube,0,mlp,0,B0,3320,0.1000,1,,2,2022-01,0.959320,true,623,,1498.2,100,num_features(10),344,1,234.475,94.476,1,,,,1432,0.49.1,na,na,na
+hypercube,0,mlp,0,B0,2280,0.1000,1,,0,2022-02,0.954567,true,619,,1570.9,100,num_features(10),521,1,229.748,73.870,1,,,,1064,0.49.1,na,na,na
+hypercube,0,mlp,0,B0,2280,0.1000,1,,1,2022-02,0.953927,true,615,,1570.9,100,num_features(10),627,0,237.710,74.390,1,,,,1065,0.49.1,na,na,na
+hypercube,0,mlp,0,B0,2280,0.1000,1,,2,2022-02,0.949435,true,633,,1570.9,100,num_features(10),655,2,238.112,90.761,1,,,,1384,0.49.1,na,na,na

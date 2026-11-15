@@ -1,0 +1,3 @@
+corpus,cfg,condition,pool_seed,month,seconds_kernel_100,seconds_exact,threads_exact,seconds_exact_1thread,M_eff,peak_rss_mb,shap
+apigraph,S25,B0,101,2013-01,27.979,2.9000000953674316,16,2.059999942779541,419.9,266,0.49.1
+apigraph,S25,B0,102,2013-01,26.594,0.36299991607666016,16,1.4229998588562012,419.9,266,0.49.1

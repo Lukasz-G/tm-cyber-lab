@@ -1,0 +1,347 @@
+b2-corpora decision  corpus androzoo  k=100  pairs 540 julia + 12 python  c recomputed: 0 disagree
+input files read only when their .sha256 verifies; unverified and skipped: none
+configurations ['S100', 'S372'] (matched S372)  pool seeds ['101', '102']  training conditions ['B0', 'U', 'O']
+tm-lab 43dba5f  ceiling LiteralCapped  training parallel :none  every condition reported
+
+==== training condition B0 ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.361   0.361   0.361   0.760   0.760   0.760    2
+  S100   2    101    1000   0.060   0.060   0.060   0.813   0.813   0.813    2
+  S100   2    102     100   0.296   0.296   0.296   0.810   0.810   0.810    2
+  S100   2    102    1000   0.065   0.065   0.065   0.829   0.829   0.829    2
+  S100   2r   101     100   0.183   0.183   0.183   0.887   0.887   0.887    3
+  S100   2r   101    1000   0.074   0.074   0.074   0.769   0.769   0.769    3
+  S100   2r   102     100   0.170   0.170   0.170   0.899   0.899   0.899    3
+  S100   2r   102    1000   0.074   0.074   0.074   0.801   0.801   0.801    3
+  S100   P    101     100   0.361   0.361   0.361   0.760   0.760   0.760    1
+  S100   P    101    1000   0.051   0.051   0.051   0.843   0.843   0.843    1
+  S100   5    101     100   0.326   0.326   0.326   0.787   0.787   0.787    2
+  S100   5    101    1000   0.051   0.051   0.051   0.843   0.843   0.843    2
+  S100   5    102     100   0.339   0.339   0.339   0.777   0.777   0.777    2
+  S100   5    102    1000   0.051   0.051   0.051   0.867   0.867   0.867    2
+  S100   3    -       100   0.986   0.986   0.986   0.018   0.018   0.018    2
+  S100   3    -      1000   0.944   0.944   0.944   0.019   0.019   0.019    2
+  S100   1    -       100   0.974   0.974   0.974   0.041   0.041   0.041    3
+  S100   1    -      1000   0.930   0.930   0.930   0.029   0.029   0.029    3
+  S100   3n   -       100   0.992   0.992   0.992   0.009   0.009   0.009    2
+  S100   3n   -      1000   0.953   0.953   0.953   0.011   0.011   0.011    2
+  S100   1n   -       100   0.981   0.981   0.981   0.028   0.028   0.028    3
+  S100   1n   -      1000   0.946   0.946   0.946   0.018   0.018   0.018    3
+  S372   2    101     100   0.245   0.245   0.245   0.848   0.848   0.848    2
+  S372   2    101    1000   0.015   0.015   0.015   0.966   0.966   0.966    2
+  S372   2    102     100   0.365   0.365   0.365   0.756   0.756   0.756    2
+  S372   2    102    1000   0.124   0.124   0.124   0.715   0.715   0.715    2
+  S372   2r   101     100   0.209   0.209   0.209   0.873   0.873   0.873    3
+  S372   2r   101    1000   0.084   0.084   0.084   0.788   0.788   0.788    3
+  S372   2r   102     100   0.213   0.213   0.213   0.870   0.870   0.870    3
+  S372   2r   102    1000   0.095   0.095   0.095   0.784   0.784   0.784    3
+  S372   P    101     100   0.374   0.374   0.374   0.751   0.751   0.751    1
+  S372   P    101    1000   0.039   0.039   0.039   0.910   0.910   0.910    1
+  S372   5    101     100   0.197   0.197   0.197   0.881   0.881   0.881    2
+  S372   5    101    1000   0.011   0.011   0.011   0.975   0.975   0.975    2
+  S372   5    102     100   0.425   0.425   0.425   0.708   0.708   0.708    2
+  S372   5    102    1000   0.092   0.092   0.092   0.791   0.791   0.791    2
+  S372   3    -       100   0.995   0.995   0.995   0.002   0.002   0.002    2
+  S372   3    -      1000   0.946   0.946   0.946   0.024   0.024   0.024    2
+  S372   1    -       100   0.975   0.975   0.975   0.041   0.041   0.041    3
+  S372   1    -      1000   0.942   0.942   0.942   0.025   0.025   0.025    3
+  S372   3n   -       100   0.993   0.993   0.993   0.006   0.006   0.006    2
+  S372   3n   -      1000   0.956   0.956   0.956   0.025   0.025   0.025    2
+  S372   1n   -       100   0.993   0.993   0.993   0.007   0.007   0.007    3
+  S372   2s   101     100   1.000   1.000   1.000  -0.006  -0.006  -0.006    1
+  S372   2s   102     100   1.000   1.000   1.000  -0.006  -0.006  -0.006    1
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.245 n=2; refitting 3-2 +0.749 [+0.749, +0.749] n=2; estimator 2s-2 +0.770 [+0.770, +0.770] n=1; protocol 0-2s +nan [+nan, +nan] n=0
+  pool 102: data (2) 0.365 n=2; refitting 3-2 +0.630 [+0.630, +0.630] n=2; estimator 2s-2 +0.695 [+0.695, +0.695] n=1; protocol 0-2s +nan [+nan, +nan] n=0
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S100 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S100 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S100 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S100 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S100 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S372 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S372 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 101  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2020: 1 anchors, does not decide
+  S372 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S372 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S372 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 102  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2020: 1 anchors, does not decide
+  S372 pool 101  F2: no deciding year (0 months)   F3: no deciding year (0 months)
+  S372 pool 102  F2: no deciding year (0 months)   F3: no deciding year (0 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2020-01: (a) max |phi| 0 -> holds; (b) planted support 1179, J(P) 0.361 -> holds; J(P) - arm 2r floor +0.178 (arm 2r 0.183 [0.183, 0.183], 3 months)
+  S372 2020-01: (a) max |phi| 0 -> holds; (b) planted support 1264, J(P) 0.374 -> holds; J(P) - arm 2r floor +0.165 (arm 2r 0.209 [0.209, 0.209], 3 months)
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 1.431 s (n=6)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 113.370 s (n=4)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 5 of 400
+
+==== training condition U ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.289   0.289   0.289   0.816   0.816   0.816    2
+  S100   2    101    1000   0.163   0.163   0.163   0.592   0.592   0.592    2
+  S100   2    102     100   0.283   0.283   0.283   0.821   0.821   0.821    2
+  S100   2    102    1000   0.080   0.080   0.080   0.784   0.784   0.784    2
+  S100   2r   101     100   0.219   0.219   0.219   0.866   0.866   0.866    3
+  S100   2r   101    1000   0.117   0.117   0.117   0.714   0.714   0.714    3
+  S100   2r   102     100   0.187   0.187   0.187   0.888   0.888   0.888    3
+  S100   2r   102    1000   0.073   0.073   0.073   0.802   0.802   0.802    3
+  S100   P    101     100   0.462   0.462   0.462   0.675   0.675   0.675    1
+  S100   P    101    1000   0.045   0.045   0.045   0.895   0.895   0.895    1
+  S100   5    101     100   0.326   0.326   0.326   0.788   0.788   0.788    2
+  S100   5    101    1000   0.083   0.083   0.083   0.801   0.801   0.801    2
+  S100   5    102     100   0.283   0.283   0.283   0.821   0.821   0.821    2
+  S100   5    102    1000   0.095   0.095   0.095   0.740   0.740   0.740    2
+  S100   3    -       100   0.994   0.994   0.994   0.005   0.005   0.005    2
+  S100   3    -      1000   0.962   0.962   0.962   0.006   0.006   0.006    2
+  S100   1    -       100   0.987   0.987   0.987   0.018   0.018   0.018    3
+  S100   1    -      1000   0.955   0.955   0.955   0.014   0.014   0.014    3
+  S100   3n   -       100   0.996   0.996   0.996   0.002   0.002   0.002    2
+  S100   3n   -      1000   0.965   0.965   0.965   0.001   0.001   0.001    2
+  S100   1n   -       100   0.996   0.996   0.996   0.002   0.002   0.002    3
+  S100   1n   -      1000   0.964   0.964   0.964   0.005   0.005   0.005    3
+  S372   2    101     100   0.283   0.283   0.283   0.821   0.821   0.821    2
+  S372   2    101    1000   0.119   0.119   0.119   0.735   0.735   0.735    2
+  S372   2    102     100   0.367   0.367   0.367   0.755   0.755   0.755    2
+  S372   2    102    1000   0.112   0.112   0.112   0.703   0.703   0.703    2
+  S372   2r   101     100   0.211   0.211   0.211   0.870   0.870   0.870    3
+  S372   2r   101    1000   0.066   0.066   0.066   0.857   0.857   0.857    3
+  S372   2r   102     100   0.302   0.302   0.302   0.804   0.804   0.804    3
+  S372   2r   102    1000   0.084   0.084   0.084   0.780   0.780   0.780    3
+  S372   P    101     100   0.496   0.496   0.496   0.643   0.643   0.643    1
+  S372   P    101    1000   0.043   0.043   0.043   0.908   0.908   0.908    1
+  S372   5    101     100   0.290   0.290   0.290   0.816   0.816   0.816    2
+  S372   5    101    1000   0.094   0.094   0.094   0.793   0.793   0.793    2
+  S372   5    102     100   0.361   0.361   0.361   0.762   0.762   0.762    2
+  S372   5    102    1000   0.103   0.103   0.103   0.782   0.782   0.782    2
+  S372   3    -       100   0.991   0.991   0.991   0.011   0.011   0.011    2
+  S372   3    -      1000   0.959   0.959   0.959   0.018   0.018   0.018    2
+  S372   1    -       100   0.969   0.969   0.969   0.052   0.052   0.052    3
+  S372   1    -      1000   0.949   0.949   0.949   0.040   0.040   0.040    3
+  S372   3n   -       100   0.985   0.985   0.985   0.024   0.024   0.024    2
+  S372   3n   -      1000   0.957   0.957   0.957   0.024   0.024   0.024    2
+  S372   1n   -       100   1.000   1.000   1.000  -0.006  -0.006  -0.006    1
+  S372   1n   -      1000   0.965   0.965   0.965   0.008   0.008   0.008    1
+  S372   2s   101     100   1.000   1.000   1.000  -0.005  -0.005  -0.005    1
+  S372   2s   102     100   1.000   1.000   1.000  -0.006  -0.006  -0.006    1
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.283 n=2; refitting 3-2 +0.708 [+0.708, +0.708] n=2; estimator 2s-2 +0.709 [+0.709, +0.709] n=1; protocol 0-2s +nan [+nan, +nan] n=0
+  pool 102: data (2) 0.367 n=2; refitting 3-2 +0.624 [+0.624, +0.624] n=2; estimator 2s-2 +0.653 [+0.653, +0.653] n=1; protocol 0-2s +nan [+nan, +nan] n=0
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S100 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S100 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S100 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S100 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S100 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S372 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S372 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 101  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2020: 1 anchors, does not decide
+  S372 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S372 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S372 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 102  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2020: 1 anchors, does not decide
+  S372 pool 101  F2: no deciding year (0 months)   F3: no deciding year (0 months)
+  S372 pool 102  F2: no deciding year (0 months)   F3: no deciding year (0 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2020-01: (a) max |phi| 0 -> holds; (b) planted support 1259, J(P) 0.462 -> holds; J(P) - arm 2r floor +0.243 (arm 2r 0.219 [0.219, 0.219], 3 months)
+  S372 2020-01: (a) max |phi| 0 -> holds; (b) planted support 1295, J(P) 0.496 -> holds; J(P) - arm 2r floor +0.285 (arm 2r 0.211 [0.211, 0.211], 3 months)
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 0.948 s (n=6)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 118.913 s (n=4)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 2 of 400
+
+==== training condition O ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.374   0.374   0.374   0.748   0.748   0.748    2
+  S100   2    101    1000   0.053   0.053   0.053   0.804   0.804   0.804    2
+  S100   2    102     100   0.228   0.228   0.228   0.858   0.858   0.858    2
+  S100   2    102    1000   0.074   0.074   0.074   0.745   0.745   0.745    2
+  S100   2r   101     100   0.233   0.233   0.233   0.850   0.850   0.850    3
+  S100   2r   101    1000   0.072   0.072   0.072   0.729   0.729   0.729    3
+  S100   2r   102     100   0.192   0.192   0.192   0.883   0.883   0.883    3
+  S100   2r   102    1000   0.080   0.080   0.080   0.724   0.724   0.724    3
+  S100   P    101     100   0.649   0.649   0.649   0.475   0.475   0.475    1
+  S100   P    101    1000   0.062   0.062   0.062   0.772   0.772   0.772    1
+  S100   5    101     100   0.419   0.419   0.419   0.710   0.710   0.710    2
+  S100   5    101    1000   0.048   0.048   0.048   0.825   0.825   0.825    2
+  S100   5    102     100   0.181   0.181   0.181   0.891   0.891   0.891    2
+  S100   5    102    1000   0.064   0.064   0.064   0.782   0.782   0.782    2
+  S100   3    -       100   0.986   0.986   0.986   0.018   0.018   0.018    2
+  S100   3    -      1000   0.936   0.936   0.936   0.018   0.018   0.018    2
+  S100   1    -       100   0.975   0.975   0.975   0.037   0.037   0.037    3
+  S100   1    -      1000   0.919   0.919   0.919   0.026   0.026   0.026    3
+  S100   3n   -       100   0.991   0.991   0.991   0.010   0.010   0.010    2
+  S100   3n   -      1000   0.948   0.948   0.948   0.012   0.012   0.012    2
+  S100   1n   -       100   0.985   0.985   0.985   0.019   0.019   0.019    3
+  S100   1n   -      1000   0.930   0.930   0.930   0.023   0.023   0.023    3
+  S372   2    101     100   0.312   0.312   0.312   0.798   0.798   0.798    2
+  S372   2    101    1000   0.054   0.054   0.054   0.795   0.795   0.795    2
+  S372   2    102     100   0.425   0.425   0.425   0.705   0.705   0.705    2
+  S372   2    102    1000   0.059   0.059   0.059   0.778   0.778   0.778    2
+  S372   2r   101     100   0.234   0.234   0.234   0.854   0.854   0.854    3
+  S372   2r   101    1000   0.060   0.060   0.060   0.773   0.773   0.773    3
+  S372   2r   102     100   0.313   0.313   0.313   0.796   0.796   0.796    3
+  S372   2r   102    1000   0.067   0.067   0.067   0.747   0.747   0.747    3
+  S372   P    101     100   0.333   0.333   0.333   0.781   0.781   0.781    1
+  S372   P    101    1000   0.043   0.043   0.043   0.839   0.839   0.839    1
+  S372   5    101     100   0.291   0.291   0.291   0.814   0.814   0.814    2
+  S372   5    101    1000   0.056   0.056   0.056   0.787   0.787   0.787    2
+  S372   5    102     100   0.454   0.454   0.454   0.677   0.677   0.677    2
+  S372   5    102    1000   0.053   0.053   0.053   0.803   0.803   0.803    2
+  S372   3    -       100   0.992   0.992   0.992   0.007   0.007   0.007    2
+  S372   3    -      1000   0.935   0.935   0.935   0.030   0.030   0.030    2
+  S372   1    -       100   0.986   0.986   0.986   0.017   0.017   0.017    3
+  S372   1    -      1000   0.924   0.924   0.924   0.040   0.040   0.040    3
+  S372   3n   -       100   0.996   0.996   0.996   0.000   0.000   0.000    2
+  S372   3n   -      1000   0.946   0.946   0.946   0.020   0.020   0.020    2
+  S372   1n   -       100   0.984   0.984   0.984   0.023   0.023   0.023    3
+  S372   1n   -      1000   0.935   0.935   0.935   0.028   0.028   0.028    3
+  S372   2s   101     100   1.000   1.000   1.000  -0.005  -0.005  -0.005    1
+  S372   2s   102     100   0.995   0.995   0.995   0.005   0.005   0.005    1
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.312 n=2; refitting 3-2 +0.679 [+0.679, +0.679] n=2; estimator 2s-2 +0.681 [+0.681, +0.681] n=1; protocol 0-2s +nan [+nan, +nan] n=0
+  pool 102: data (2) 0.425 n=2; refitting 3-2 +0.567 [+0.567, +0.567] n=2; estimator 2s-2 +0.595 [+0.595, +0.595] n=1; protocol 0-2s +nan [+nan, +nan] n=0
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S100 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S100 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S100 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S100 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S100 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S372 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S372 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 101  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2020: 1 anchors, does not decide
+  S372 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2020: 2 anchors, does not decide
+  S372 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2020: 2 anchors, does not decide
+  S372 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2020: 2 anchors, does not decide
+  S372 pool 102  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2020: 1 anchors, does not decide
+  S372 pool 101  F2: no deciding year (0 months)   F3: no deciding year (0 months)
+  S372 pool 102  F2: no deciding year (0 months)   F3: no deciding year (0 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2020-01: (a) max |phi| 0 -> holds; (b) planted support 1143, J(P) 0.649 -> holds; J(P) - arm 2r floor +0.416 (arm 2r 0.233 [0.233, 0.233], 3 months)
+  S372 2020-01: (a) max |phi| 0 -> holds; (b) planted support 1138, J(P) 0.333 -> holds; J(P) - arm 2r floor +0.099 (arm 2r 0.234 [0.234, 0.234], 3 months)
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 0.950 s (n=6)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 116.876 s (n=4)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 0 of 400
+
+EXPLORATORY (no pass/fail): drift against lag, J and c at k=100 between months t and t+L, with the arm-2r same-month floor; pairs may span calendar gaps (missing = months absent in between)
+  cfg    cnd arm pool   L    n missing      J   J lo   J hi      c   c lo   c hi |   2r J  2r lo  2r hi
+  S100   B0  2   101    1    2       0  0.361  0.361  0.361  0.760  0.760  0.760 |  0.183  0.183  0.183
+  S100   B0  2   101    2    1       0  0.165  0.165  0.165  0.902  0.902  0.902 |  0.183  0.183  0.183
+  S100   B0  2   102    1    2       0  0.296  0.296  0.296  0.810  0.810  0.810 |  0.170  0.170  0.170
+  S100   B0  2   102    2    1       0  0.214  0.214  0.214  0.870  0.870  0.870 |  0.170  0.170  0.170
+  S372   B0  2   101    1    2       0  0.245  0.245  0.245  0.848  0.848  0.848 |  0.209  0.209  0.209
+  S372   B0  2   101    2    1       0  0.214  0.214  0.214  0.870  0.870  0.870 |  0.209  0.209  0.209
+  S372   B0  2s  101    1    1       0  1.000  1.000  1.000 -0.006 -0.006 -0.006 |  0.209  0.209  0.209
+  S372   B0  2   102    1    2       0  0.365  0.365  0.365  0.756  0.756  0.756 |  0.213  0.213  0.213
+  S372   B0  2   102    2    1       0  0.276  0.276  0.276  0.827  0.827  0.827 |  0.213  0.213  0.213
+  S372   B0  2s  102    1    1       0  1.000  1.000  1.000 -0.006 -0.006 -0.006 |  0.213  0.213  0.213
+  S100   U   2   101    1    2       0  0.289  0.289  0.289  0.816  0.816  0.816 |  0.219  0.219  0.219
+  S100   U   2   101    2    1       0  0.261  0.261  0.261  0.837  0.837  0.837 |  0.219  0.219  0.219
+  S100   U   2   102    1    2       0  0.283  0.283  0.283  0.821  0.821  0.821 |  0.187  0.187  0.187
+  S100   U   2   102    2    1       0  0.214  0.214  0.214  0.869  0.869  0.869 |  0.187  0.187  0.187
+  S372   U   2   101    1    2       0  0.283  0.283  0.283  0.821  0.821  0.821 |  0.211  0.211  0.211
+  S372   U   2   101    2    1       0  0.305  0.305  0.305  0.805  0.805  0.805 |  0.211  0.211  0.211
+  S372   U   2s  101    1    1       0  1.000  1.000  1.000 -0.005 -0.005 -0.005 |  0.211  0.211  0.211
+  S372   U   2   102    1    2       0  0.367  0.367  0.367  0.755  0.755  0.755 |  0.302  0.302  0.302
+  S372   U   2   102    2    1       0  0.246  0.246  0.246  0.848  0.848  0.848 |  0.302  0.302  0.302
+  S372   U   2s  102    1    1       0  1.000  1.000  1.000 -0.006 -0.006 -0.006 |  0.302  0.302  0.302
+  S100   O   2   101    1    2       0  0.374  0.374  0.374  0.748  0.748  0.748 |  0.233  0.233  0.233
+  S100   O   2   101    2    1       0  0.165  0.165  0.165  0.902  0.902  0.902 |  0.233  0.233  0.233
+  S100   O   2   102    1    2       0  0.228  0.228  0.228  0.858  0.858  0.858 |  0.192  0.192  0.192
+  S100   O   2   102    2    1       0  0.230  0.230  0.230  0.858  0.858  0.858 |  0.192  0.192  0.192
+  S372   O   2   101    1    2       0  0.312  0.312  0.312  0.798  0.798  0.798 |  0.234  0.234  0.234
+  S372   O   2   101    2    1       0  0.182  0.182  0.182  0.891  0.891  0.891 |  0.234  0.234  0.234
+  S372   O   2s  101    1    1       0  1.000  1.000  1.000 -0.005 -0.005 -0.005 |  0.234  0.234  0.234
+  S372   O   2   102    1    2       0  0.425  0.425  0.425  0.705  0.705  0.705 |  0.313  0.313  0.313
+  S372   O   2   102    2    1       0  0.276  0.276  0.276  0.825  0.825  0.825 |  0.313  0.313  0.313
+  S372   O   2s  102    1    1       0  0.995  0.995  0.995  0.005  0.005  0.005 |  0.313  0.313  0.313
+
+Corpus verdicts, per training condition
+  androzoo B0 S100 F1: no deciding year
+  androzoo B0 S100 P3: no deciding year
+  androzoo B0 S100 Unresolved: no deciding year
+  androzoo B0 S100 positive control: HOLDS
+  androzoo B0 S372 F1: no deciding year
+  androzoo B0 S372 F2: no deciding year
+  androzoo B0 S372 F3: no deciding year
+  androzoo B0 S372 P1: no deciding year
+  androzoo B0 S372 P2: no deciding year
+  androzoo B0 S372 P3: no deciding year
+  androzoo B0 S372 Unresolved: no deciding year
+  androzoo B0 S372 positive control: HOLDS
+  androzoo O S100 F1: no deciding year
+  androzoo O S100 P3: no deciding year
+  androzoo O S100 Unresolved: no deciding year
+  androzoo O S100 positive control: HOLDS
+  androzoo O S372 F1: no deciding year
+  androzoo O S372 F2: no deciding year
+  androzoo O S372 F3: no deciding year
+  androzoo O S372 P1: no deciding year
+  androzoo O S372 P2: no deciding year
+  androzoo O S372 P3: no deciding year
+  androzoo O S372 Unresolved: no deciding year
+  androzoo O S372 positive control: HOLDS
+  androzoo U S100 F1: no deciding year
+  androzoo U S100 P3: no deciding year
+  androzoo U S100 Unresolved: no deciding year
+  androzoo U S100 positive control: HOLDS
+  androzoo U S372 F1: no deciding year
+  androzoo U S372 F2: no deciding year
+  androzoo U S372 F3: no deciding year
+  androzoo U S372 P1: no deciding year
+  androzoo U S372 P2: no deciding year
+  androzoo U S372 P3: no deciding year
+  androzoo U S372 Unresolved: no deciding year
+  androzoo U S372 positive control: HOLDS

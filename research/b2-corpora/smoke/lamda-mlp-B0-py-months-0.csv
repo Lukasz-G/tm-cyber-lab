@@ -1,0 +1,7 @@
+corpus,arm,cfg,S,condition,N,share,repeat,pool_seed,run,month,auc,guard_ok,m,m_exact,M_eff,nsamples,l1_reg,warnings,rows_out_of_range,seconds,seconds_train,threads,seconds_exact,threads_exact,seconds_exact_1thread,peak_rss_mb,shap,tm_lab,ceiling,parallel
+lamda,0,mlp,0,B0,4360,0.1000,1,,0,2016-02,0.938467,true,541,,816.5,100,num_features(10),142,1,286.879,160.783,1,,,,1073,0.49.1,na,na,na
+lamda,0,mlp,0,B0,2480,0.1000,1,,1,2016-03,0.929443,true,553,,771.3,100,num_features(10),29,1,395.019,91.767,1,,,,1095,0.49.1,na,na,na
+lamda,0,mlp,0,B0,4360,0.1000,1,,1,2016-02,0.943260,true,544,,816.5,100,num_features(10),288,3,348.772,144.943,1,,,,1075,0.49.1,na,na,na
+lamda,0,mlp,0,B0,2480,0.1000,1,,2,2016-03,0.934386,true,547,,771.3,100,num_features(10),169,0,348.334,104.683,1,,,,1094,0.49.1,na,na,na
+lamda,0,mlp,0,B0,2480,0.1000,1,,0,2016-03,0.936902,true,544,,771.3,100,num_features(10),130,0,348.456,172.351,1,,,,1096,0.49.1,na,na,na
+lamda,0,mlp,0,B0,4360,0.1000,1,,2,2016-02,0.942974,true,548,,816.5,100,num_features(10),158,2,316.159,225.436,1,,,,1075,0.49.1,na,na,na

@@ -1,0 +1,5 @@
+corpus,arm,cfg,S,condition,N,share,repeat,pool_seed,run,month,auc,guard_ok,m,m_exact,M_eff,nsamples,l1_reg,warnings,rows_out_of_range,seconds,seconds_train,threads,seconds_exact,threads_exact,seconds_exact_1thread,peak_rss_mb,shap,tm_lab,ceiling,parallel
+lamda,2s,S100,100,B0,30000,0.1000,1,101,,2016-02,0.915618,true,551,396,816.5,100,num_features(10),10,1,129.828,,1,2.751000165939331,16,2.931999921798706,336,0.49.1,43dba5f,LiteralCapped,none
+lamda,2s,S100,100,B0,30000,0.1000,1,101,,2016-03,0.948146,true,542,423,771.3,100,num_features(10),16,0,124.008,,1,0.5809998512268066,16,2.4200000762939453,336,0.49.1,43dba5f,LiteralCapped,none
+lamda,2s,S100,100,B0,30000,0.1000,1,102,,2016-02,0.910179,true,566,392,816.5,100,num_features(10),5,1,108.807,,1,0.5780000686645508,16,2.631999969482422,336,0.49.1,43dba5f,LiteralCapped,none
+lamda,2s,S100,100,B0,30000,0.1000,1,102,,2016-03,0.951113,true,538,430,771.3,100,num_features(10),9,0,147.097,,1,0.37199997901916504,16,2.072000026702881,336,0.49.1,43dba5f,LiteralCapped,none

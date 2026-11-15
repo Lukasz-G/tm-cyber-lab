@@ -1,0 +1,9 @@
+b2-corpora python arms  corpus lamda  cfg S100  conditions ['B0', 'U', 'O']  arms ['timing']  months 2  arm-4 months ['2016-02']  pools [1, 2]  arm-0 runs 3  jobs 1
+shap 0.49.1  l1_reg num_features(10)  numpy 2.2.6  tm-lab 43dba5f  one thread per worker
+memory: 16705 MB available; peaks used py-2s 600 MB
+timing S100 B0 pool 101 2016-02: KernelExplainer at 100 34.18s, exact 2.932s on one thread
+timing S100 B0 pool 102 2016-02: KernelExplainer at 100 33.47s, exact 2.632s on one thread
+timing S100 U pool 101 2016-02: KernelExplainer at 100 31.48s, exact 2.630s on one thread
+timing S100 U pool 102 2016-02: KernelExplainer at 100 31.81s, exact 2.144s on one thread
+timing S100 O pool 101 2016-02: KernelExplainer at 100 37.81s, exact 2.564s on one thread
+timing S100 O pool 102 2016-02: KernelExplainer at 100 39.86s, exact 2.106s on one thread

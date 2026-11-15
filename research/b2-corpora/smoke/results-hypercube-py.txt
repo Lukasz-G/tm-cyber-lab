@@ -1,0 +1,48 @@
+b2-corpora python arms  corpus hypercube  cfg S89  conditions ['B0', 'U', 'O']  arms ['0', '2s', '4']  months 2  arm-4 months ['2022-01']  pools [1, 2]  arm-0 runs 3  jobs 8
+shap 0.49.1  l1_reg num_features(10)  numpy 2.2.6  tm-lab 43dba5f  one thread per worker
+memory: 12909 MB available; peaks used py-0 1200 MB, py-2s 600 MB, py-4a 600 MB, py-4c 1500 MB, py-4f 600 MB
+arm 2s:
+  units: 12 loaded (verified), 0 to compute
+arm 2s B0: 4 model-months, 136.6s each (one thread per worker, 8 workers), peak 327 MB; rows out of range 8 of 400
+arm 2s U: 4 model-months, 139.8s each (one thread per worker, 8 workers), peak 327 MB; rows out of range 1 of 400
+arm 2s O: 4 model-months, 93.2s each (one thread per worker, 8 workers), peak 377 MB; rows out of range 3 of 400
+arm 4:
+  units: 8 loaded (verified), 28 to compute
+arm 4 B0 4a: 4 runs, 99.2s each, peak 377 MB
+arm 4 B0 4f: 4 runs, 124.1s each, peak 378 MB
+arm 4 B0 4c: 4 runs, 749.9s each, peak 1094 MB
+arm 4 U 4a: 4 runs, 93.0s each, peak 379 MB
+arm 4 U 4f: 4 runs, 130.6s each, peak 381 MB
+arm 4 U 4c: 4 runs, 756.1s each, peak 1095 MB
+arm 4 O 4a: 4 runs, 104.6s each, peak 1045 MB
+arm 4 O 4f: 4 runs, 129.7s each, peak 1045 MB
+arm 4 O 4c: 4 runs, 579.9s each, peak 1045 MB
+arm 0:
+  units: 0 loaded (verified), 18 to compute
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 1838 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 2601 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2718 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 1597 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 1560 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 1651 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 1517 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 494 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 2664 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 2644 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 2415 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2791 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 2259 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2860 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2702 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 1200 MB reserved, 2483 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2722 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 3326 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2881 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2924 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2976 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 2890 MB available; waiting
+  memory: py-0 needs 1200 MB x 1.25 + 2400 MB reserved, 3162 MB available; waiting
+arm 0 B0: 6 MLP runs, train 85.6s, explain 233.9s each (one thread per worker), peak 1432 MB; rows out of range 8 of 600
+arm 0 U: 6 MLP runs, train 24.3s, explain 232.0s each (one thread per worker), peak 1432 MB; rows out of range 12 of 600
+arm 0 O: 6 MLP runs, train 165.1s, explain 203.5s each (one thread per worker), peak 1427 MB; rows out of range 9 of 600
+peak RSS per job class (MB): py-0 1432, py-4a 1045, py-4c 1045, py-4f 1045

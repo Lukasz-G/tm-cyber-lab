@@ -1,0 +1,231 @@
+b2-corpora decision  corpus lamda  k=100  pairs 162 julia + 66 python  c recomputed: 0 disagree
+input files read only when their .sha256 verifies; unverified and skipped: none
+configurations ['S100'] (matched S100)  pool seeds ['101', '102']  training conditions ['B0', 'U', 'O']
+tm-lab 43dba5f  ceiling LiteralCapped  training parallel :none  every condition reported
+
+==== training condition B0 ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.387   0.387   0.387   0.705   0.705   0.705    1
+  S100   2    102     100   0.425   0.425   0.425   0.671   0.671   0.671    1
+  S100   2r   101     100   0.198   0.198   0.198   0.861   0.861   0.861    2
+  S100   2r   102     100   0.197   0.197   0.197   0.863   0.863   0.863    2
+  S100   P    101     100   0.425   0.425   0.425   0.639   0.639   0.639    1
+  S100   5    101     100   0.413   0.413   0.413   0.694   0.694   0.694    1
+  S100   5    102     100   0.387   0.387   0.387   0.720   0.720   0.720    1
+  S100   3    -       100   0.636   0.636   0.636   0.472   0.472   0.472    1
+  S100   1    -       100   0.490   0.490   0.490   0.614   0.614   0.614    2
+  S100   3n   -       100   0.637   0.637   0.637   0.478   0.478   0.478    1
+  S100   1n   -       100   0.535   0.535   0.535   0.569   0.569   0.569    2
+  S100   2s   101     100   0.895   0.895   0.895   0.122   0.122   0.122    1
+  S100   2s   102     100   0.889   0.889   0.889   0.135   0.135   0.135    1
+  mlp    0    -       100   0.942   0.942   0.942   0.044   0.044   0.044    1
+  mlp    0w   -       100   0.911   0.911   0.911   0.046   0.046   0.046    2
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.387 n=1; refitting 3-2 +0.249 [+0.249, +0.249] n=1; estimator 2s-2 +0.508 [+0.508, +0.508] n=1; protocol 0-2s +0.047 [+0.047, +0.047] n=1
+  pool 102: data (2) 0.425 n=1; refitting 3-2 +0.211 [+0.211, +0.211] n=1; estimator 2s-2 +0.464 [+0.464, +0.464] n=1; protocol 0-2s +0.053 [+0.053, +0.053] n=1
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 1 anchors, does not decide
+  S100 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 1 anchors, does not decide
+  S100 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 101  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 1 anchors, does not decide
+  S100 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 1 anchors, does not decide
+  S100 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 102  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 101 2016-02 bias_share 4a: 0.676 [0.640, 0.710]
+  S100 pool 101 2016-02 rows_out_of_range 4a: 0.000
+  S100 pool 101 2016-02 bias_share 4f: 0.436 [0.348, 0.526]
+  S100 pool 101 2016-02 rows_out_of_range 4f: 30.500
+  S100 pool 101 2016-02 bias_share 4c: 0.796 [0.772, 0.821]
+  S100 pool 101 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2016-02 budget_difference_c 4c-4a: 0.412 [0.352, 0.495]
+  S100 pool 101  F2: HOLDS (1 months)   F3: does not hold (1 months)
+  S100 pool 102 2016-02 bias_share 4a: 0.663 [0.629, 0.696]
+  S100 pool 102 2016-02 rows_out_of_range 4a: 0.500
+  S100 pool 102 2016-02 bias_share 4f: 0.360 [0.274, 0.448]
+  S100 pool 102 2016-02 rows_out_of_range 4f: 34.000
+  S100 pool 102 2016-02 bias_share 4c: 0.796 [0.771, 0.820]
+  S100 pool 102 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2016-02 budget_difference_c 4c-4a: 0.409 [0.335, 0.465]
+  S100 pool 102  F2: HOLDS (1 months)   F3: does not hold (1 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2016-02: (a) max |phi| 0 -> holds; (b) planted support 376, J(P) 0.425 -> holds; J(P) - arm 2r floor +0.227 (arm 2r 0.198 [0.198, 0.198], 2 months)
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 1.071 s (n=4)
+  arm-4 months, one process each: exact on 1 thread 2.782 s, KernelExplainer at nsamples=100 33.825 s (n=2)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 127.435 s (n=4)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 2 of 400
+
+==== training condition U ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.400   0.400   0.400   0.697   0.697   0.697    1
+  S100   2    102     100   0.450   0.450   0.450   0.641   0.641   0.641    1
+  S100   2r   101     100   0.165   0.165   0.165   0.888   0.888   0.888    2
+  S100   2r   102     100   0.214   0.214   0.214   0.850   0.850   0.850    2
+  S100   P    101     100   0.519   0.519   0.519   0.541   0.541   0.541    1
+  S100   5    101     100   0.387   0.387   0.387   0.721   0.721   0.721    1
+  S100   5    102     100   0.413   0.413   0.413   0.692   0.692   0.692    1
+  S100   3    -       100   0.623   0.623   0.623   0.497   0.497   0.497    1
+  S100   1    -       100   0.530   0.530   0.530   0.582   0.582   0.582    2
+  S100   3n   -       100   0.660   0.660   0.660   0.455   0.455   0.455    1
+  S100   1n   -       100   0.542   0.542   0.542   0.570   0.570   0.570    2
+  S100   2s   101     100   0.901   0.901   0.901   0.115   0.115   0.115    1
+  S100   2s   102     100   0.919   0.919   0.919   0.082   0.082   0.082    1
+  mlp    0    -       100   0.963   0.963   0.963  -0.001  -0.001  -0.001    1
+  mlp    0w   -       100   0.909   0.909   0.909   0.053   0.053   0.053    2
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.400 n=1; refitting 3-2 +0.223 [+0.223, +0.223] n=1; estimator 2s-2 +0.501 [+0.501, +0.501] n=1; protocol 0-2s +0.062 [+0.062, +0.062] n=1
+  pool 102: data (2) 0.450 n=1; refitting 3-2 +0.174 [+0.174, +0.174] n=1; estimator 2s-2 +0.469 [+0.469, +0.469] n=1; protocol 0-2s +0.045 [+0.045, +0.045] n=1
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 1 anchors, does not decide
+  S100 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 1 anchors, does not decide
+  S100 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 101  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 1 anchors, does not decide
+  S100 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 1 anchors, does not decide
+  S100 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 102  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 101 2016-02 bias_share 4a: 0.600 [0.559, 0.641]
+  S100 pool 101 2016-02 rows_out_of_range 4a: 0.000
+  S100 pool 101 2016-02 bias_share 4f: 0.431 [0.342, 0.519]
+  S100 pool 101 2016-02 rows_out_of_range 4f: 31.000
+  S100 pool 101 2016-02 bias_share 4c: 0.767 [0.735, 0.795]
+  S100 pool 101 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2016-02 budget_difference_c 4c-4a: 0.357 [0.272, 0.402]
+  S100 pool 101  F2: HOLDS (1 months)   F3: does not hold (1 months)
+  S100 pool 102 2016-02 bias_share 4a: 0.586 [0.543, 0.630]
+  S100 pool 102 2016-02 rows_out_of_range 4a: 0.500
+  S100 pool 102 2016-02 bias_share 4f: 0.356 [0.272, 0.448]
+  S100 pool 102 2016-02 rows_out_of_range 4f: 34.000
+  S100 pool 102 2016-02 bias_share 4c: 0.783 [0.756, 0.811]
+  S100 pool 102 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2016-02 budget_difference_c 4c-4a: 0.308 [0.237, 0.372]
+  S100 pool 102  F2: HOLDS (1 months)   F3: does not hold (1 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2016-02: (a) max |phi| 0 -> holds; (b) planted support 401, J(P) 0.519 -> holds; J(P) - arm 2r floor +0.354 (arm 2r 0.165 [0.165, 0.165], 2 months)
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 0.410 s (n=4)
+  arm-4 months, one process each: exact on 1 thread 2.387 s, KernelExplainer at nsamples=100 31.643 s (n=2)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 136.522 s (n=4)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 2 of 400
+
+==== training condition O ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.438   0.438   0.438   0.659   0.659   0.659    1
+  S100   2    102     100   0.438   0.438   0.438   0.652   0.652   0.652    1
+  S100   2r   101     100   0.190   0.190   0.190   0.870   0.870   0.870    2
+  S100   2r   102     100   0.198   0.198   0.198   0.860   0.860   0.860    2
+  S100   P    101     100   0.540   0.540   0.540   0.519   0.519   0.519    1
+  S100   5    101     100   0.387   0.387   0.387   0.717   0.717   0.717    1
+  S100   5    102     100   0.400   0.400   0.400   0.700   0.700   0.700    1
+  S100   3    -       100   0.588   0.588   0.588   0.534   0.534   0.534    1
+  S100   1    -       100   0.382   0.382   0.382   0.722   0.722   0.722    2
+  S100   3n   -       100   0.626   0.626   0.626   0.493   0.493   0.493    1
+  S100   1n   -       100   0.429   0.429   0.429   0.680   0.680   0.680    2
+  S100   2s   101     100   0.913   0.913   0.913   0.093   0.093   0.093    1
+  S100   2s   102     100   0.889   0.889   0.889   0.135   0.135   0.135    1
+  mlp    0    -       100   0.949   0.949   0.949   0.029   0.029   0.029    1
+  mlp    0w   -       100   0.923   0.923   0.923   0.023   0.023   0.023    2
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.438 n=1; refitting 3-2 +0.151 [+0.151, +0.151] n=1; estimator 2s-2 +0.476 [+0.476, +0.476] n=1; protocol 0-2s +0.036 [+0.036, +0.036] n=1
+  pool 102: data (2) 0.438 n=1; refitting 3-2 +0.151 [+0.151, +0.151] n=1; estimator 2s-2 +0.451 [+0.451, +0.451] n=1; protocol 0-2s +0.060 [+0.060, +0.060] n=1
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 1 anchors, does not decide
+  S100 pool 101  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 1 anchors, does not decide
+  S100 pool 101  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 101  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 102  F1: no deciding year (0 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 1 anchors, does not decide
+  S100 pool 102  Unresolved: no deciding year (0 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 1 anchors, does not decide
+  S100 pool 102  P3 c(2)-c(3) > 0: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 102  P2 J(2s)-J(2) >= 0.30: no deciding year (0 deciding years)
+      2016: 1 anchors, does not decide
+  S100 pool 101 2016-02 bias_share 4a: 0.596 [0.553, 0.639]
+  S100 pool 101 2016-02 rows_out_of_range 4a: 1.500
+  S100 pool 101 2016-02 bias_share 4f: 0.428 [0.341, 0.513]
+  S100 pool 101 2016-02 rows_out_of_range 4f: 30.500
+  S100 pool 101 2016-02 bias_share 4c: 0.805 [0.782, 0.827]
+  S100 pool 101 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2016-02 budget_difference_c 4c-4a: 0.350 [0.290, 0.419]
+  S100 pool 101  F2: HOLDS (1 months)   F3: does not hold (1 months)
+  S100 pool 102 2016-02 bias_share 4a: 0.590 [0.551, 0.625]
+  S100 pool 102 2016-02 rows_out_of_range 4a: 0.000
+  S100 pool 102 2016-02 bias_share 4f: 0.352 [0.268, 0.435]
+  S100 pool 102 2016-02 rows_out_of_range 4f: 34.000
+  S100 pool 102 2016-02 bias_share 4c: 0.769 [0.742, 0.796]
+  S100 pool 102 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2016-02 budget_difference_c 4c-4a: 0.439 [0.317, 0.446]
+  S100 pool 102  F2: HOLDS (1 months)   F3: does not hold (1 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2016-02: (a) max |phi| 0 -> holds; (b) planted support 414, J(P) 0.540 -> holds; J(P) - arm 2r floor +0.350 (arm 2r 0.190 [0.190, 0.190], 2 months)
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 0.443 s (n=4)
+  arm-4 months, one process each: exact on 1 thread 2.335 s, KernelExplainer at nsamples=100 38.837 s (n=2)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 120.026 s (n=4)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 3 of 400
+
+EXPLORATORY (no pass/fail): drift against lag, J and c at k=100 between months t and t+L, with the arm-2r same-month floor; pairs may span calendar gaps (missing = months absent in between)
+  cfg    cnd arm pool   L    n missing      J   J lo   J hi      c   c lo   c hi |   2r J  2r lo  2r hi
+  S100   B0  2   101    1    1       0  0.387  0.387  0.387  0.705  0.705  0.705 |  0.198  0.198  0.198
+  S100   B0  2s  101    1    1       0  0.895  0.895  0.895  0.122  0.122  0.122 |  0.198  0.198  0.198
+  S100   B0  2   102    1    1       0  0.425  0.425  0.425  0.671  0.671  0.671 |  0.197  0.197  0.197
+  S100   B0  2s  102    1    1       0  0.889  0.889  0.889  0.135  0.135  0.135 |  0.197  0.197  0.197
+  S100   U   2   101    1    1       0  0.400  0.400  0.400  0.697  0.697  0.697 |  0.165  0.165  0.165
+  S100   U   2s  101    1    1       0  0.901  0.901  0.901  0.115  0.115  0.115 |  0.165  0.165  0.165
+  S100   U   2   102    1    1       0  0.450  0.450  0.450  0.641  0.641  0.641 |  0.214  0.214  0.214
+  S100   U   2s  102    1    1       0  0.919  0.919  0.919  0.082  0.082  0.082 |  0.214  0.214  0.214
+  S100   O   2   101    1    1       0  0.438  0.438  0.438  0.659  0.659  0.659 |  0.190  0.190  0.190
+  S100   O   2s  101    1    1       0  0.913  0.913  0.913  0.093  0.093  0.093 |  0.190  0.190  0.190
+  S100   O   2   102    1    1       0  0.438  0.438  0.438  0.652  0.652  0.652 |  0.198  0.198  0.198
+  S100   O   2s  102    1    1       0  0.889  0.889  0.889  0.135  0.135  0.135 |  0.198  0.198  0.198
+
+Corpus verdicts, per training condition
+  lamda B0 S100 F1: no deciding year
+  lamda B0 S100 F2: HOLDS
+  lamda B0 S100 F3: does not hold
+  lamda B0 S100 P1: does not hold
+  lamda B0 S100 P2: no deciding year
+  lamda B0 S100 P3: no deciding year
+  lamda B0 S100 Unresolved: no deciding year
+  lamda B0 S100 positive control: HOLDS
+  lamda O S100 F1: no deciding year
+  lamda O S100 F2: HOLDS
+  lamda O S100 F3: does not hold
+  lamda O S100 P1: does not hold
+  lamda O S100 P2: no deciding year
+  lamda O S100 P3: no deciding year
+  lamda O S100 Unresolved: no deciding year
+  lamda O S100 positive control: HOLDS
+  lamda U S100 F1: no deciding year
+  lamda U S100 F2: HOLDS
+  lamda U S100 F3: does not hold
+  lamda U S100 P1: does not hold
+  lamda U S100 P2: no deciding year
+  lamda U S100 P3: no deciding year
+  lamda U S100 Unresolved: no deciding year
+  lamda U S100 positive control: HOLDS

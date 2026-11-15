@@ -1,0 +1,34 @@
+b2-corpora python arms  corpus androzoo  cfg S372  conditions ['B0', 'U', 'O']  arms ['0', '2s', '4']  months 2  arm-4 months ['2020-01']  pools [1, 2]  arm-0 runs 3  jobs 4
+shap 0.49.1  l1_reg num_features(10)  numpy 2.2.6  tm-lab 43dba5f  one thread per worker
+memory: 15620 MB available; peaks used py-0 2000 MB, py-2s 2000 MB, py-4a 2000 MB, py-4c 5000 MB, py-4f 2000 MB
+arm 2s:
+  units: 4 loaded (verified), 8 to compute
+arm 2s B0: 4 model-months, 113.4s each (one thread per worker, 4 workers), peak 625 MB; rows out of range 5 of 400
+arm 2s U: 4 model-months, 118.9s each (one thread per worker, 4 workers), peak 625 MB; rows out of range 2 of 400
+arm 2s O: 4 model-months, 116.9s each (one thread per worker, 4 workers), peak 834 MB; rows out of range 0 of 400
+arm 4:
+  units: 0 loaded (verified), 36 to compute
+  memory: py-4c needs 5000 MB x 1.25 + 10000 MB reserved, 14053 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 10000 MB reserved, 9787 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 9454 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 6791 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 10426 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 8401 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 7317 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 7846 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 8059 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 7985 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 7572 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 7053 MB available; waiting
+  memory: py-4c needs 5000 MB x 1.25 + 5000 MB reserved, 7529 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 2000 MB reserved, 3824 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 2000 MB reserved, 3581 MB available; waiting
+  memory: py-4a needs 2000 MB x 1.25 + 2000 MB reserved, 2357 MB available; waiting
+  memory: py-4a needs 2000 MB x 1.25 + 0 MB reserved, 2385 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 0 MB reserved, 2479 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 0 MB reserved, 2392 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 0 MB reserved, 2237 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 0 MB reserved, 2287 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 0 MB reserved, 2146 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 0 MB reserved, 1148 MB available; waiting
+  memory: py-4f needs 2000 MB x 1.25 + 0 MB reserved, 1801 MB available; waiting

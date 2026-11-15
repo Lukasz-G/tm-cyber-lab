@@ -1,0 +1,3 @@
+corpus,cfg,condition,pool_seed,month,seconds_kernel_100,seconds_exact,threads_exact,seconds_exact_1thread,M_eff,peak_rss_mb,shap
+lamda,S100,B0,101,2016-02,34.178,2.751000165939331,16,2.931999921798706,816.5,339,0.49.1
+lamda,S100,B0,102,2016-02,33.473,0.5780000686645508,16,2.631999969482422,816.5,340,0.49.1

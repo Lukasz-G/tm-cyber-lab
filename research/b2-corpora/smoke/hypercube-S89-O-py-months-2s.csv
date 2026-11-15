@@ -1,0 +1,5 @@
+corpus,arm,cfg,S,condition,N,share,repeat,pool_seed,run,month,auc,guard_ok,m,m_exact,M_eff,nsamples,l1_reg,warnings,rows_out_of_range,seconds,seconds_train,threads,seconds_exact,threads_exact,seconds_exact_1thread,peak_rss_mb,shap,tm_lab,ceiling,parallel
+hypercube,2s,S89,89,O,54000,0.5000,9,101,,2022-01,0.981585,true,711,621,1498.2,100,num_features(10),21,1,95.081,,1,0.6630001068115234,16,5.706000089645386,375,0.49.1,43dba5f,LiteralCapped,none
+hypercube,2s,S89,89,O,54000,0.5000,9,101,,2022-02,0.973475,true,737,630,1570.9,100,num_features(10),18,1,92.756,,1,0.5279998779296875,16,4.791999816894531,375,0.49.1,43dba5f,LiteralCapped,none
+hypercube,2s,S89,89,O,54000,0.5000,9,102,,2022-01,0.984468,true,717,609,1498.2,100,num_features(10),22,0,90.248,,1,0.9330000877380371,16,3.4570000171661377,376,0.49.1,43dba5f,LiteralCapped,none
+hypercube,2s,S89,89,O,54000,0.5000,9,102,,2022-02,0.974188,true,702,628,1570.9,100,num_features(10),21,1,94.549,,1,0.7680001258850098,16,2.5920000076293945,377,0.49.1,43dba5f,LiteralCapped,none

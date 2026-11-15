@@ -1,0 +1,503 @@
+b2-corpora decision  corpus lamda  k=100  pairs 6444 julia + 3162 python  c recomputed: 0 disagree
+input files read only when their .sha256 verifies; unverified and skipped: none
+configurations ['S100'] (matched S100)  pool seeds ['101', '102']  training conditions ['B0', 'U', 'O']
+tm-lab 43dba5f  ceiling LiteralCapped  training parallel :none  every condition reported
+
+==== training condition B0 ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.189   0.165   0.211   0.860   0.842   0.878   51
+  S100   2    102     100   0.208   0.182   0.230   0.845   0.828   0.865   52
+  S100   2r   101     100   0.148   0.139   0.156   0.892   0.886   0.900   55
+  S100   2r   102     100   0.174   0.165   0.186   0.872   0.864   0.879   58
+  S100   P    101     100   0.425   0.425   0.425   0.639   0.639   0.639    1
+  S100   5    101     100   0.157   0.131   0.181   0.894   0.875   0.914   51
+  S100   5    102     100   0.183   0.154   0.210   0.875   0.855   0.898   52
+  S100   3    -       100   0.712   0.687   0.737   0.392   0.366   0.420   64
+  S100   1    -       100   0.623   0.596   0.650   0.485   0.459   0.513   69
+  S100   3n   -       100   0.723   0.705   0.741   0.381   0.360   0.402   42
+  S100   1n   -       100   0.655   0.629   0.681   0.452   0.424   0.481   52
+  S100   2s   101     100   0.911   0.904   0.919   0.113   0.100   0.124   51
+  S100   2s   102     100   0.907   0.901   0.913   0.119   0.111   0.127   52
+  mlp    0    -       100   0.958   0.951   0.964   0.018   0.012   0.024   64
+  mlp    0w   -       100   0.937   0.928   0.945   0.027   0.019   0.035   69
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.189 n=51; refitting 3-2 +0.544 [+0.520, +0.573] n=51; estimator 2s-2 +0.722 [+0.700, +0.747] n=51; protocol 0-2s +0.053 [+0.046, +0.060] n=51
+  pool 102: data (2) 0.208 n=52; refitting 3-2 +0.522 [+0.495, +0.559] n=52; estimator 2s-2 +0.699 [+0.677, +0.724] n=52; protocol 0-2s +0.056 [+0.051, +0.062] n=52
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: does not hold (4 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 2 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.834 [+0.781, +0.876]; +0.058 [+0.018, +0.116]  -> no
+      2020: 12 anchors  +0.844 [+0.802, +0.857]; +0.044 [+0.021, +0.089]  -> no
+      2021: 12 anchors  +0.887 [+0.878, +0.891]; -0.002 [-0.011, +0.002]  -> no
+      2022: 12 anchors  +0.883 [+0.866, +0.897]; +0.009 [-0.008, +0.025]  -> no
+  S100 pool 101  Unresolved: does not hold (4 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 2 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  -0.350 [-0.391, -0.285]; +0.104 [+0.075, +0.139]  -> no
+      2020: 12 anchors  -0.365 [-0.393, -0.314]; +0.115 [+0.093, +0.143]  -> no
+      2021: 12 anchors  -0.422 [-0.438, -0.390]; +0.076 [+0.065, +0.087]  -> no
+      2022: 12 anchors  -0.488 [-0.503, -0.466]; +0.073 [+0.056, +0.102]  -> no
+  S100 pool 101  P3 c(2)-c(3) > 0: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.454 [+0.419, +0.474]  -> holds
+      2020: 12 anchors  +0.480 [+0.446, +0.496]  -> holds
+      2021: 12 anchors  +0.498 [+0.474, +0.507]  -> holds
+      2022: 12 anchors  +0.561 [+0.550, +0.576]  -> holds
+  S100 pool 101  P2 J(2s)-J(2) >= 0.30: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.680 [+0.627, +0.728]  -> holds
+      2020: 12 anchors  +0.700 [+0.657, +0.715]  -> holds
+      2021: 12 anchors  +0.765 [+0.751, +0.776]  -> holds
+      2022: 12 anchors  +0.759 [+0.739, +0.777]  -> holds
+  S100 pool 102  F1: does not hold (4 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.804 [+0.765, +0.843]; +0.052 [+0.004, +0.104]  -> no
+      2020: 12 anchors  +0.837 [+0.796, +0.851]; +0.033 [+0.019, +0.085]  -> no
+      2021: 12 anchors  +0.883 [+0.865, +0.905]; +0.001 [-0.021, +0.014]  -> no
+      2022: 12 anchors  +0.874 [+0.870, +0.883]; +0.003 [-0.012, +0.011]  -> no
+  S100 pool 102  Unresolved: does not hold (4 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  -0.320 [-0.364, -0.264]; +0.104 [+0.076, +0.138]  -> no
+      2020: 12 anchors  -0.358 [-0.382, -0.303]; +0.115 [+0.093, +0.141]  -> no
+      2021: 12 anchors  -0.417 [-0.451, -0.379]; +0.076 [+0.066, +0.087]  -> no
+      2022: 12 anchors  -0.479 [-0.503, -0.445]; +0.073 [+0.056, +0.105]  -> no
+  S100 pool 102  P3 c(2)-c(3) > 0: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.423 [+0.392, +0.456]  -> holds
+      2020: 12 anchors  +0.473 [+0.432, +0.490]  -> holds
+      2021: 12 anchors  +0.493 [+0.462, +0.524]  -> holds
+      2022: 12 anchors  +0.552 [+0.542, +0.567]  -> holds
+  S100 pool 102  P2 J(2s)-J(2) >= 0.30: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.653 [+0.608, +0.695]  -> holds
+      2020: 12 anchors  +0.686 [+0.638, +0.700]  -> holds
+      2021: 12 anchors  +0.744 [+0.731, +0.763]  -> holds
+      2022: 12 anchors  +0.741 [+0.729, +0.752]  -> holds
+  S100 pool 101 2016-02 bias_share 4a: 0.676 [0.645, 0.704]
+  S100 pool 101 2016-02 rows_out_of_range 4a: 0.000
+  S100 pool 101 2016-02 bias_share 4f: 0.173 [0.109, 0.245]
+  S100 pool 101 2016-02 rows_out_of_range 4f: 27.400
+  S100 pool 101 2016-02 bias_share 4c: 0.789 [0.768, 0.809]
+  S100 pool 101 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2016-02 budget_difference_c 4c-4a: 0.431 [0.375, 0.480]
+  S100 pool 101 2020-02 bias_share 4a: 0.645 [0.611, 0.679]
+  S100 pool 101 2020-02 rows_out_of_range 4a: 0.200
+  S100 pool 101 2020-02 bias_share 4f: 0.537 [0.446, 0.625]
+  S100 pool 101 2020-02 rows_out_of_range 4f: 9.600
+  S100 pool 101 2020-02 bias_share 4c: 0.800 [0.779, 0.822]
+  S100 pool 101 2020-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2020-02 budget_difference_c 4c-4a: 0.564 [0.448, 0.544]
+  S100 pool 101 2022-12 bias_share 4a: 0.670 [0.633, 0.704]
+  S100 pool 101 2022-12 rows_out_of_range 4a: 0.400
+  S100 pool 101 2022-12 bias_share 4f: 0.623 [0.537, 0.706]
+  S100 pool 101 2022-12 rows_out_of_range 4f: 8.000
+  S100 pool 101 2022-12 bias_share 4c: 0.787 [0.767, 0.808]
+  S100 pool 101 2022-12 rows_out_of_range 4c: 0.000
+  S100 pool 101 2022-12 budget_difference_c 4c-4a: 0.530 [0.442, 0.535]
+  S100 pool 101  F2: HOLDS (3 months)   F3: does not hold (3 months)
+  S100 pool 102 2016-02 bias_share 4a: 0.627 [0.583, 0.668]
+  S100 pool 102 2016-02 rows_out_of_range 4a: 1.200
+  S100 pool 102 2016-02 bias_share 4f: 0.191 [0.120, 0.264]
+  S100 pool 102 2016-02 rows_out_of_range 4f: 25.600
+  S100 pool 102 2016-02 bias_share 4c: 0.799 [0.779, 0.818]
+  S100 pool 102 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2016-02 budget_difference_c 4c-4a: 0.402 [0.356, 0.456]
+  S100 pool 102 2020-02 bias_share 4a: 0.627 [0.587, 0.664]
+  S100 pool 102 2020-02 rows_out_of_range 4a: 0.800
+  S100 pool 102 2020-02 bias_share 4f: 0.483 [0.392, 0.573]
+  S100 pool 102 2020-02 rows_out_of_range 4f: 12.800
+  S100 pool 102 2020-02 bias_share 4c: 0.795 [0.773, 0.816]
+  S100 pool 102 2020-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2020-02 budget_difference_c 4c-4a: 0.523 [0.424, 0.518]
+  S100 pool 102 2022-12 bias_share 4a: 0.690 [0.656, 0.721]
+  S100 pool 102 2022-12 rows_out_of_range 4a: 0.400
+  S100 pool 102 2022-12 bias_share 4f: 0.658 [0.573, 0.739]
+  S100 pool 102 2022-12 rows_out_of_range 4f: 7.600
+  S100 pool 102 2022-12 bias_share 4c: 0.800 [0.777, 0.822]
+  S100 pool 102 2022-12 rows_out_of_range 4c: 0.000
+  S100 pool 102 2022-12 budget_difference_c 4c-4a: 0.495 [0.408, 0.509]
+  S100 pool 102  F2: HOLDS (3 months)   F3: does not hold (3 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2016-02: (a) max |phi| 0 -> holds; (b) planted support 376, J(P) 0.425 -> holds; J(P) - arm 2r floor +0.277 (arm 2r 0.148 [0.138, 0.156], 55 months)
+KernelExplainer rows failed (LinAlgError; NaN, every quantity from the remaining rows): 2s 0, 0 0, 4a 0, 4f 0, 4c 0
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 0.332 s (n=138)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 99.204 s (n=138)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 69 of 13800
+
+==== training condition U ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.203   0.181   0.226   0.854   0.836   0.871   52
+  S100   2    102     100   0.183   0.155   0.210   0.865   0.845   0.887   52
+  S100   2r   101     100   0.163   0.154   0.171   0.885   0.878   0.892   58
+  S100   2r   102     100   0.155   0.144   0.166   0.887   0.880   0.896   58
+  S100   P    101     100   0.519   0.519   0.519   0.541   0.541   0.541    1
+  S100   5    101     100   0.169   0.144   0.190   0.889   0.873   0.906   52
+  S100   5    102     100   0.159   0.131   0.183   0.892   0.873   0.913   52
+  S100   3    -       100   0.717   0.690   0.741   0.387   0.362   0.418   64
+  S100   1    -       100   0.658   0.630   0.685   0.448   0.420   0.478   69
+  S100   3n   -       100   0.732   0.712   0.750   0.373   0.353   0.396   42
+  S100   1n   -       100   0.687   0.663   0.710   0.421   0.396   0.447   52
+  S100   2s   101     100   0.905   0.900   0.912   0.122   0.113   0.132   52
+  S100   2s   102     100   0.916   0.910   0.923   0.102   0.093   0.113   52
+  mlp    0    -       100   0.962   0.955   0.968   0.011   0.005   0.016   64
+  mlp    0w   -       100   0.940   0.932   0.947   0.023   0.015   0.030   69
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.203 n=52; refitting 3-2 +0.530 [+0.502, +0.557] n=52; estimator 2s-2 +0.702 [+0.679, +0.724] n=52; protocol 0-2s +0.062 [+0.056, +0.068] n=52
+  pool 102: data (2) 0.183 n=52; refitting 3-2 +0.550 [+0.516, +0.584] n=52; estimator 2s-2 +0.733 [+0.708, +0.761] n=52; protocol 0-2s +0.051 [+0.045, +0.058] n=52
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: does not hold (4 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.828 [+0.784, +0.868]; +0.054 [+0.013, +0.102]  -> no
+      2020: 12 anchors  +0.840 [+0.799, +0.867]; +0.042 [+0.009, +0.084]  -> no
+      2021: 12 anchors  +0.882 [+0.878, +0.886]; -0.002 [-0.019, +0.015]  -> no
+      2022: 12 anchors  +0.875 [+0.864, +0.883]; +0.021 [+0.006, +0.040]  -> no
+  S100 pool 101  Unresolved: does not hold (4 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  -0.383 [-0.421, -0.335]; +0.072 [+0.041, +0.102]  -> no
+      2020: 12 anchors  -0.412 [-0.439, -0.354]; +0.058 [+0.033, +0.099]  -> no
+      2021: 12 anchors  -0.439 [-0.452, -0.409]; +0.059 [+0.051, +0.079]  -> no
+      2022: 12 anchors  -0.517 [-0.541, -0.486]; +0.043 [+0.021, +0.053]  -> no
+  S100 pool 101  P3 c(2)-c(3) > 0: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.454 [+0.435, +0.469]  -> holds
+      2020: 12 anchors  +0.470 [+0.448, +0.484]  -> holds
+      2021: 12 anchors  +0.498 [+0.480, +0.514]  -> holds
+      2022: 12 anchors  +0.559 [+0.516, +0.588]  -> holds
+  S100 pool 101  P2 J(2s)-J(2) >= 0.30: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.667 [+0.624, +0.710]  -> holds
+      2020: 12 anchors  +0.679 [+0.623, +0.711]  -> holds
+      2021: 12 anchors  +0.745 [+0.735, +0.752]  -> holds
+      2022: 12 anchors  +0.736 [+0.713, +0.753]  -> holds
+  S100 pool 102  F1: does not hold (4 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.831 [+0.786, +0.865]; +0.043 [-0.003, +0.097]  -> no
+      2020: 12 anchors  +0.855 [+0.807, +0.884]; +0.040 [+0.016, +0.089]  -> no
+      2021: 12 anchors  +0.900 [+0.889, +0.917]; -0.001 [-0.012, +0.010]  -> no
+      2022: 12 anchors  +0.903 [+0.895, +0.906]; -0.003 [-0.013, +0.006]  -> no
+  S100 pool 102  Unresolved: does not hold (4 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  -0.385 [-0.420, -0.324]; +0.072 [+0.041, +0.106]  -> no
+      2020: 12 anchors  -0.427 [-0.452, -0.372]; +0.058 [+0.033, +0.103]  -> no
+      2021: 12 anchors  -0.457 [-0.472, -0.430]; +0.059 [+0.051, +0.080]  -> no
+      2022: 12 anchors  -0.544 [-0.562, -0.518]; +0.043 [+0.021, +0.052]  -> no
+  S100 pool 102  P3 c(2)-c(3) > 0: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.457 [+0.424, +0.466]  -> holds
+      2020: 12 anchors  +0.485 [+0.467, +0.495]  -> holds
+      2021: 12 anchors  +0.516 [+0.495, +0.531]  -> holds
+      2022: 12 anchors  +0.587 [+0.547, +0.611]  -> holds
+  S100 pool 102  P2 J(2s)-J(2) >= 0.30: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.684 [+0.631, +0.718]  -> holds
+      2020: 12 anchors  +0.723 [+0.671, +0.751]  -> holds
+      2021: 12 anchors  +0.778 [+0.766, +0.797]  -> holds
+      2022: 12 anchors  +0.785 [+0.769, +0.789]  -> holds
+  S100 pool 101 2016-02 bias_share 4a: 0.599 [0.558, 0.636]
+  S100 pool 101 2016-02 rows_out_of_range 4a: 0.000
+  S100 pool 101 2016-02 bias_share 4f: 0.169 [0.105, 0.239]
+  S100 pool 101 2016-02 rows_out_of_range 4f: 27.400
+  S100 pool 101 2016-02 bias_share 4c: 0.756 [0.728, 0.782]
+  S100 pool 101 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2016-02 budget_difference_c 4c-4a: 0.369 [0.303, 0.403]
+  S100 pool 101 2020-02 bias_share 4a: 0.590 [0.541, 0.636]
+  S100 pool 101 2020-02 rows_out_of_range 4a: 0.800
+  S100 pool 101 2020-02 bias_share 4f: 0.538 [0.452, 0.623]
+  S100 pool 101 2020-02 rows_out_of_range 4f: 9.600
+  S100 pool 101 2020-02 bias_share 4c: 0.774 [0.746, 0.800]
+  S100 pool 101 2020-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2020-02 budget_difference_c 4c-4a: 0.457 [0.357, 0.451]
+  S100 pool 101 2022-12 bias_share 4a: 0.637 [0.591, 0.680]
+  S100 pool 101 2022-12 rows_out_of_range 4a: 1.200
+  S100 pool 101 2022-12 bias_share 4f: 0.625 [0.541, 0.708]
+  S100 pool 101 2022-12 rows_out_of_range 4f: 8.000
+  S100 pool 101 2022-12 bias_share 4c: 0.791 [0.769, 0.814]
+  S100 pool 101 2022-12 rows_out_of_range 4c: 0.000
+  S100 pool 101 2022-12 budget_difference_c 4c-4a: 0.451 [0.337, 0.436]
+  S100 pool 101  F2: HOLDS (3 months)   F3: does not hold (3 months)
+  S100 pool 102 2016-02 bias_share 4a: 0.583 [0.541, 0.623]
+  S100 pool 102 2016-02 rows_out_of_range 4a: 0.200
+  S100 pool 102 2016-02 bias_share 4f: 0.191 [0.120, 0.264]
+  S100 pool 102 2016-02 rows_out_of_range 4f: 25.800
+  S100 pool 102 2016-02 bias_share 4c: 0.770 [0.745, 0.794]
+  S100 pool 102 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2016-02 budget_difference_c 4c-4a: 0.313 [0.262, 0.364]
+  S100 pool 102 2020-02 bias_share 4a: 0.593 [0.549, 0.634]
+  S100 pool 102 2020-02 rows_out_of_range 4a: 0.600
+  S100 pool 102 2020-02 bias_share 4f: 0.487 [0.395, 0.571]
+  S100 pool 102 2020-02 rows_out_of_range 4f: 12.800
+  S100 pool 102 2020-02 bias_share 4c: 0.767 [0.739, 0.792]
+  S100 pool 102 2020-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2020-02 budget_difference_c 4c-4a: 0.459 [0.366, 0.471]
+  S100 pool 102 2022-12 bias_share 4a: 0.650 [0.607, 0.687]
+  S100 pool 102 2022-12 rows_out_of_range 4a: 0.400
+  S100 pool 102 2022-12 bias_share 4f: 0.655 [0.564, 0.735]
+  S100 pool 102 2022-12 rows_out_of_range 4f: 7.400
+  S100 pool 102 2022-12 bias_share 4c: 0.798 [0.776, 0.820]
+  S100 pool 102 2022-12 rows_out_of_range 4c: 0.000
+  S100 pool 102 2022-12 budget_difference_c 4c-4a: 0.502 [0.390, 0.496]
+  S100 pool 102  F2: HOLDS (3 months)   F3: does not hold (3 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2016-02: (a) max |phi| 0 -> holds; (b) planted support 401, J(P) 0.519 -> holds; J(P) - arm 2r floor +0.356 (arm 2r 0.163 [0.154, 0.171], 58 months)
+KernelExplainer rows failed (LinAlgError; NaN, every quantity from the remaining rows): 2s 0, 0 0, 4a 0, 4f 0, 4c 0
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 0.299 s (n=138)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 98.888 s (n=138)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 83 of 13800
+
+==== training condition O ====
+Arm means over the series (usable pairs; 95% moving-block interval, block 3, 2,000 resamples)
+  cfg    arm  pool      k       J    J lo    J hi       c    c lo    c hi    n
+  S100   2    101     100   0.200   0.171   0.227   0.847   0.825   0.870   52
+  S100   2    102     100   0.198   0.173   0.217   0.848   0.832   0.869   54
+  S100   2r   101     100   0.160   0.149   0.171   0.880   0.871   0.889   59
+  S100   2r   102     100   0.159   0.150   0.168   0.880   0.873   0.888   61
+  S100   P    101     100   0.540   0.540   0.540   0.519   0.519   0.519    1
+  S100   5    101     100   0.165   0.137   0.192   0.885   0.864   0.907   52
+  S100   5    102     100   0.162   0.132   0.189   0.886   0.867   0.909   54
+  S100   3    -       100   0.679   0.645   0.713   0.429   0.391   0.464   64
+  S100   1    -       100   0.564   0.527   0.600   0.549   0.514   0.583   69
+  S100   3n   -       100   0.709   0.675   0.740   0.396   0.360   0.434   42
+  S100   1n   -       100   0.608   0.571   0.646   0.505   0.467   0.542   52
+  S100   2s   101     100   0.907   0.900   0.914   0.118   0.109   0.130   52
+  S100   2s   102     100   0.908   0.903   0.915   0.116   0.105   0.123   54
+  mlp    0    -       100   0.960   0.954   0.966   0.013   0.008   0.019   64
+  mlp    0w   -       100   0.938   0.931   0.944   0.024   0.018   0.029   69
+Decomposition in Jaccard distance at k=100, matched configuration: each difference over the months both arms have (joint anchors), with its interval
+  pool 101: data (2) 0.200 n=52; refitting 3-2 +0.505 [+0.470, +0.544] n=52; estimator 2s-2 +0.707 [+0.681, +0.734] n=52; protocol 0-2s +0.058 [+0.052, +0.066] n=52
+  pool 102: data (2) 0.198 n=54; refitting 3-2 +0.501 [+0.471, +0.537] n=54; estimator 2s-2 +0.711 [+0.691, +0.737] n=54; protocol 0-2s +0.056 [+0.049, +0.062] n=54
+Conditions at k=100, per pool seed; a corpus verdict needs every pool seed
+  S100 pool 101  F1: does not hold (4 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.795 [+0.745, +0.835]; +0.061 [+0.021, +0.118]  -> no
+      2020: 12 anchors  +0.839 [+0.789, +0.867]; +0.051 [+0.011, +0.111]  -> no
+      2021: 12 anchors  +0.888 [+0.870, +0.903]; -0.006 [-0.014, +0.015]  -> no
+      2022: 12 anchors  +0.879 [+0.873, +0.884]; +0.012 [+0.001, +0.025]  -> no
+  S100 pool 101  Unresolved: does not hold (4 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  -0.252 [-0.286, -0.199]; +0.144 [+0.108, +0.193]  -> no
+      2020: 12 anchors  -0.293 [-0.319, -0.238]; +0.149 [+0.132, +0.174]  -> no
+      2021: 12 anchors  -0.358 [-0.376, -0.327]; +0.096 [+0.074, +0.117]  -> no
+      2022: 12 anchors  -0.472 [-0.499, -0.435]; +0.087 [+0.048, +0.120]  -> no
+  S100 pool 101  P3 c(2)-c(3) > 0: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.396 [+0.384, +0.407]  -> holds
+      2020: 12 anchors  +0.442 [+0.398, +0.467]  -> holds
+      2021: 12 anchors  +0.454 [+0.405, +0.480]  -> holds
+      2022: 12 anchors  +0.559 [+0.528, +0.577]  -> holds
+  S100 pool 101  P2 J(2s)-J(2) >= 0.30: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 1 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.642 [+0.595, +0.674]  -> holds
+      2020: 12 anchors  +0.692 [+0.643, +0.714]  -> holds
+      2021: 12 anchors  +0.760 [+0.737, +0.772]  -> holds
+      2022: 12 anchors  +0.757 [+0.748, +0.765]  -> holds
+  S100 pool 102  F1: does not hold (4 deciding years)   parts: c(2) <= 0.30 upper bound; c(2r)-c(2) >= 0.30 lower bound
+      2016: 2 anchors, does not decide
+      2017: 3 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.822 [+0.764, +0.873]; +0.042 [-0.017, +0.114]  -> no
+      2020: 12 anchors  +0.835 [+0.793, +0.850]; +0.047 [+0.021, +0.099]  -> no
+      2021: 12 anchors  +0.862 [+0.847, +0.875]; +0.003 [-0.004, +0.011]  -> no
+      2022: 12 anchors  +0.874 [+0.863, +0.892]; +0.020 [-0.002, +0.031]  -> no
+  S100 pool 102  Unresolved: does not hold (4 deciding years)   parts: c(1)-c(2); c(1)-c(3)
+      2016: 2 anchors, does not decide
+      2017: 3 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  -0.280 [-0.318, -0.220]; +0.144 [+0.109, +0.194]  -> no
+      2020: 12 anchors  -0.289 [-0.314, -0.242]; +0.149 [+0.133, +0.174]  -> no
+      2021: 12 anchors  -0.331 [-0.347, -0.306]; +0.096 [+0.072, +0.116]  -> no
+      2022: 12 anchors  -0.468 [-0.496, -0.443]; +0.087 [+0.048, +0.120]  -> no
+  S100 pool 102  P3 c(2)-c(3) > 0: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 3 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.423 [+0.406, +0.442]  -> holds
+      2020: 12 anchors  +0.438 [+0.398, +0.462]  -> holds
+      2021: 12 anchors  +0.427 [+0.398, +0.448]  -> holds
+      2022: 12 anchors  +0.555 [+0.541, +0.567]  -> holds
+  S100 pool 102  P2 J(2s)-J(2) >= 0.30: HOLDS (4 deciding years)
+      2016: 2 anchors, does not decide
+      2017: 3 anchors, does not decide
+      2018: 1 anchors, does not decide
+      2019: 12 anchors  +0.682 [+0.614, +0.742]  -> holds
+      2020: 12 anchors  +0.698 [+0.649, +0.720]  -> holds
+      2021: 12 anchors  +0.734 [+0.706, +0.756]  -> holds
+      2022: 12 anchors  +0.742 [+0.723, +0.766]  -> holds
+  S100 pool 101 2016-02 bias_share 4a: 0.615 [0.577, 0.648]
+  S100 pool 101 2016-02 rows_out_of_range 4a: 0.200
+  S100 pool 101 2016-02 bias_share 4f: 0.171 [0.103, 0.242]
+  S100 pool 101 2016-02 rows_out_of_range 4f: 27.400
+  S100 pool 101 2016-02 bias_share 4c: 0.799 [0.778, 0.820]
+  S100 pool 101 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2016-02 budget_difference_c 4c-4a: 0.369 [0.304, 0.404]
+  S100 pool 101 2020-02 bias_share 4a: 0.629 [0.584, 0.673]
+  S100 pool 101 2020-02 rows_out_of_range 4a: 1.200
+  S100 pool 101 2020-02 bias_share 4f: 0.544 [0.452, 0.631]
+  S100 pool 101 2020-02 rows_out_of_range 4f: 9.600
+  S100 pool 101 2020-02 bias_share 4c: 0.811 [0.789, 0.833]
+  S100 pool 101 2020-02 rows_out_of_range 4c: 0.000
+  S100 pool 101 2020-02 budget_difference_c 4c-4a: 0.434 [0.373, 0.467]
+  S100 pool 101 2022-12 bias_share 4a: 0.645 [0.605, 0.682]
+  S100 pool 101 2022-12 rows_out_of_range 4a: 1.000
+  S100 pool 101 2022-12 bias_share 4f: 0.630 [0.544, 0.708]
+  S100 pool 101 2022-12 rows_out_of_range 4f: 8.000
+  S100 pool 101 2022-12 bias_share 4c: 0.787 [0.768, 0.807]
+  S100 pool 101 2022-12 rows_out_of_range 4c: 0.000
+  S100 pool 101 2022-12 budget_difference_c 4c-4a: 0.476 [0.371, 0.469]
+  S100 pool 101  F2: HOLDS (3 months)   F3: does not hold (3 months)
+  S100 pool 102 2016-02 bias_share 4a: 0.575 [0.535, 0.614]
+  S100 pool 102 2016-02 rows_out_of_range 4a: 0.400
+  S100 pool 102 2016-02 bias_share 4f: 0.189 [0.119, 0.262]
+  S100 pool 102 2016-02 rows_out_of_range 4f: 25.600
+  S100 pool 102 2016-02 bias_share 4c: 0.769 [0.744, 0.792]
+  S100 pool 102 2016-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2016-02 budget_difference_c 4c-4a: 0.421 [0.326, 0.427]
+  S100 pool 102 2020-02 bias_share 4a: 0.620 [0.577, 0.658]
+  S100 pool 102 2020-02 rows_out_of_range 4a: 0.800
+  S100 pool 102 2020-02 bias_share 4f: 0.482 [0.391, 0.573]
+  S100 pool 102 2020-02 rows_out_of_range 4f: 12.800
+  S100 pool 102 2020-02 bias_share 4c: 0.781 [0.757, 0.803]
+  S100 pool 102 2020-02 rows_out_of_range 4c: 0.000
+  S100 pool 102 2020-02 budget_difference_c 4c-4a: 0.463 [0.385, 0.469]
+  S100 pool 102 2022-12 bias_share 4a: 0.672 [0.629, 0.708]
+  S100 pool 102 2022-12 rows_out_of_range 4a: 0.600
+  S100 pool 102 2022-12 bias_share 4f: 0.654 [0.575, 0.735]
+  S100 pool 102 2022-12 rows_out_of_range 4f: 7.600
+  S100 pool 102 2022-12 bias_share 4c: 0.799 [0.776, 0.821]
+  S100 pool 102 2022-12 rows_out_of_range 4c: 0.000
+  S100 pool 102 2022-12 budget_difference_c 4c-4a: 0.489 [0.394, 0.490]
+  S100 pool 102  F2: HOLDS (3 months)   F3: does not hold (3 months)
+Positive control P (top-20 exact features set to 0 in explained AND background rows, pool seed 101): (a) max |phi| of planted features = 0; (b) J(P) >= 1/3 when the planted support >= 100
+  S100 2016-02: (a) max |phi| 0 -> holds; (b) planted support 414, J(P) 0.540 -> holds; J(P) - arm 2r floor +0.380 (arm 2r 0.160 [0.149, 0.173], 59 months)
+KernelExplainer rows failed (LinAlgError; NaN, every quantity from the remaining rows): 2s 0, 0 0, 4a 0, 4f 0, 4c 0
+Seconds per model-month, fixed model, the same 100 explained rows and 100 background rows
+  exact, 8 threads, every month: 0.311 s (n=138)
+  KernelExplainer at nsamples=100 during the arm-2s run (parallel workers, one thread each): 98.543 s (n=138)
+  arm 2s rows with an attribution beyond the sum of clause ceilings: 94 of 13800
+
+EXPLORATORY (no pass/fail): drift against lag, J and c at k=100 between months t and t+L, with the arm-2r same-month floor; pairs may span calendar gaps (missing = months absent in between)
+  cfg    cnd arm pool   L    n missing      J   J lo   J hi      c   c lo   c hi |   2r J  2r lo  2r hi
+  S100   B0  2   101    1   51       0  0.189  0.165  0.212  0.860  0.842  0.878 |  0.148  0.138  0.156
+  S100   B0  2   101    2   50       1  0.197  0.176  0.214  0.853  0.839  0.870 |  0.148  0.138  0.156
+  S100   B0  2   101    3   48       1  0.196  0.179  0.216  0.855  0.839  0.867 |  0.148  0.138  0.156
+  S100   B0  2   101    6   44       0  0.209  0.190  0.233  0.843  0.824  0.859 |  0.148  0.138  0.156
+  S100   B0  2   101   12   39       2  0.232  0.213  0.253  0.825  0.809  0.840 |  0.148  0.138  0.156
+  S100   B0  2s  101    1   51       0  0.911  0.903  0.919  0.113  0.101  0.124 |  0.148  0.138  0.156
+  S100   B0  2s  101    2   50       1  0.910  0.901  0.918  0.114  0.102  0.127 |  0.148  0.138  0.156
+  S100   B0  2s  101    3   48       1  0.913  0.906  0.921  0.109  0.099  0.120 |  0.148  0.138  0.156
+  S100   B0  2s  101    6   44       0  0.916  0.910  0.922  0.105  0.096  0.116 |  0.148  0.138  0.156
+  S100   B0  2s  101   12   39       2  0.916  0.910  0.923  0.107  0.096  0.116 |  0.148  0.138  0.156
+  S100   B0  2   102    1   52       0  0.208  0.180  0.231  0.845  0.827  0.866 |  0.174  0.165  0.186
+  S100   B0  2   102    2   50       1  0.215  0.188  0.239  0.838  0.821  0.860 |  0.174  0.165  0.186
+  S100   B0  2   102    3   49       3  0.217  0.197  0.239  0.838  0.819  0.853 |  0.174  0.165  0.186
+  S100   B0  2   102    6   45       2  0.232  0.208  0.260  0.825  0.804  0.844 |  0.174  0.165  0.186
+  S100   B0  2   102   12   42      16  0.254  0.218  0.278  0.806  0.787  0.834 |  0.174  0.165  0.186
+  S100   B0  2s  102    1   52       0  0.907  0.902  0.913  0.119  0.111  0.127 |  0.174  0.165  0.186
+  S100   B0  2s  102    2   50       1  0.906  0.901  0.913  0.121  0.112  0.129 |  0.174  0.165  0.186
+  S100   B0  2s  102    3   49       3  0.910  0.904  0.916  0.115  0.106  0.124 |  0.174  0.165  0.186
+  S100   B0  2s  102    6   45       2  0.912  0.907  0.918  0.113  0.104  0.121 |  0.174  0.165  0.186
+  S100   B0  2s  102   12   42      16  0.911  0.905  0.917  0.116  0.107  0.125 |  0.174  0.165  0.186
+  S100   U   2   101    1   52       0  0.203  0.181  0.224  0.854  0.838  0.870 |  0.163  0.154  0.171
+  S100   U   2   101    2   50       1  0.208  0.189  0.223  0.850  0.839  0.865 |  0.163  0.154  0.171
+  S100   U   2   101    3   49       3  0.208  0.193  0.223  0.850  0.838  0.862 |  0.163  0.154  0.171
+  S100   U   2   101    6   45       2  0.219  0.198  0.240  0.842  0.824  0.858 |  0.163  0.154  0.171
+  S100   U   2   101   12   42      16  0.251  0.224  0.272  0.816  0.799  0.838 |  0.163  0.154  0.171
+  S100   U   2s  101    1   52       0  0.905  0.899  0.911  0.122  0.113  0.131 |  0.163  0.154  0.171
+  S100   U   2s  101    2   50       1  0.905  0.897  0.913  0.124  0.111  0.136 |  0.163  0.154  0.171
+  S100   U   2s  101    3   49       3  0.907  0.901  0.914  0.120  0.111  0.129 |  0.163  0.154  0.171
+  S100   U   2s  101    6   45       2  0.908  0.902  0.914  0.120  0.111  0.130 |  0.163  0.154  0.171
+  S100   U   2s  101   12   42      16  0.911  0.904  0.917  0.117  0.107  0.127 |  0.163  0.154  0.171
+  S100   U   2   102    1   52       0  0.183  0.155  0.209  0.865  0.845  0.888 |  0.155  0.145  0.167
+  S100   U   2   102    2   50       1  0.195  0.170  0.218  0.856  0.839  0.875 |  0.155  0.145  0.167
+  S100   U   2   102    3   49       3  0.192  0.169  0.215  0.858  0.842  0.875 |  0.155  0.145  0.167
+  S100   U   2   102    6   45       2  0.203  0.179  0.229  0.849  0.829  0.869 |  0.155  0.145  0.167
+  S100   U   2   102   12   42      16  0.231  0.203  0.256  0.827  0.805  0.851 |  0.155  0.145  0.167
+  S100   U   2s  102    1   52       0  0.916  0.910  0.923  0.102  0.093  0.113 |  0.155  0.145  0.167
+  S100   U   2s  102    2   50       1  0.913  0.908  0.918  0.110  0.102  0.117 |  0.155  0.145  0.167
+  S100   U   2s  102    3   49       3  0.915  0.910  0.923  0.105  0.094  0.114 |  0.155  0.145  0.167
+  S100   U   2s  102    6   45       2  0.916  0.910  0.923  0.106  0.096  0.115 |  0.155  0.145  0.167
+  S100   U   2s  102   12   42      16  0.919  0.914  0.924  0.103  0.094  0.110 |  0.155  0.145  0.167
+  S100   O   2   101    1   52       0  0.200  0.172  0.228  0.847  0.825  0.870 |  0.160  0.149  0.172
+  S100   O   2   101    2   51       1  0.204  0.178  0.227  0.843  0.825  0.862 |  0.160  0.149  0.172
+  S100   O   2   101    3   50       3  0.199  0.175  0.222  0.848  0.828  0.865 |  0.160  0.149  0.172
+  S100   O   2   101    6   45       2  0.219  0.194  0.246  0.830  0.808  0.849 |  0.160  0.149  0.172
+  S100   O   2   101   12   43      23  0.256  0.230  0.276  0.799  0.783  0.819 |  0.160  0.149  0.172
+  S100   O   2s  101    1   52       0  0.907  0.900  0.914  0.118  0.109  0.130 |  0.160  0.149  0.172
+  S100   O   2s  101    2   51       1  0.908  0.902  0.914  0.118  0.109  0.126 |  0.160  0.149  0.172
+  S100   O   2s  101    3   50       3  0.904  0.897  0.910  0.124  0.115  0.136 |  0.160  0.149  0.172
+  S100   O   2s  101    6   45       2  0.909  0.904  0.915  0.118  0.108  0.126 |  0.160  0.149  0.172
+  S100   O   2s  101   12   43      23  0.910  0.905  0.916  0.116  0.109  0.125 |  0.160  0.149  0.172
+  S100   O   2   102    1   54       0  0.198  0.173  0.219  0.848  0.830  0.868 |  0.159  0.150  0.169
+  S100   O   2   102    2   52       1  0.204  0.182  0.222  0.843  0.829  0.861 |  0.159  0.150  0.169
+  S100   O   2   102    3   51       3  0.205  0.190  0.221  0.843  0.830  0.854 |  0.159  0.150  0.169
+  S100   O   2   102    6   46       7  0.215  0.196  0.241  0.834  0.813  0.849 |  0.159  0.150  0.169
+  S100   O   2   102   12   44      30  0.250  0.226  0.267  0.804  0.789  0.824 |  0.159  0.150  0.169
+  S100   O   2s  102    1   54       0  0.908  0.904  0.915  0.116  0.105  0.123 |  0.159  0.150  0.169
+  S100   O   2s  102    2   52       1  0.907  0.900  0.914  0.120  0.109  0.129 |  0.159  0.150  0.169
+  S100   O   2s  102    3   51       3  0.907  0.900  0.914  0.119  0.108  0.127 |  0.159  0.150  0.169
+  S100   O   2s  102    6   46       7  0.912  0.906  0.919  0.113  0.102  0.121 |  0.159  0.150  0.169
+  S100   O   2s  102   12   44      30  0.910  0.902  0.918  0.117  0.106  0.129 |  0.159  0.150  0.169
+
+Corpus verdicts, per training condition
+  lamda B0 S100 F1: does not hold
+  lamda B0 S100 F2: HOLDS
+  lamda B0 S100 F3: does not hold
+  lamda B0 S100 P1: does not hold
+  lamda B0 S100 P2: HOLDS
+  lamda B0 S100 P3: HOLDS
+  lamda B0 S100 Unresolved: does not hold
+  lamda B0 S100 positive control: HOLDS
+  lamda O S100 F1: does not hold
+  lamda O S100 F2: HOLDS
+  lamda O S100 F3: does not hold
+  lamda O S100 P1: does not hold
+  lamda O S100 P2: HOLDS
+  lamda O S100 P3: HOLDS
+  lamda O S100 Unresolved: does not hold
+  lamda O S100 positive control: HOLDS
+  lamda U S100 F1: does not hold
+  lamda U S100 F2: HOLDS
+  lamda U S100 F3: does not hold
+  lamda U S100 P1: does not hold
+  lamda U S100 P2: HOLDS
+  lamda U S100 P3: HOLDS
+  lamda U S100 Unresolved: does not hold
+  lamda U S100 positive control: HOLDS
