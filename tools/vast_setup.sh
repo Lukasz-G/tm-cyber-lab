@@ -63,6 +63,10 @@ python3 -m venv "$WORK/venv" 2>/dev/null || true
 # shellcheck disable=SC1091
 . "$WORK/venv/bin/activate"
 pip install -q numpy pyarrow
+# The sampled-attribution arms (research/b2-corpora/arms.py) are defined at these versions and refuse
+# any other shap; torch comes from the CPU wheel index, since the box has no GPU.
+pip install -q "shap==0.49.1" "scipy==1.15.3" "scikit-learn==1.7.2" psutil
+pip install -q "torch==2.9.0" --index-url https://download.pytorch.org/whl/cpu
 FX="$WORK/boundary_fx"
 python test/boundary.py write "$FX"
 julia --project=. test/boundary.jl "$FX"

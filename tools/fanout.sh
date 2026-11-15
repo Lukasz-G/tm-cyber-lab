@@ -26,6 +26,10 @@
 #   * an arm already recorded in RESULTS is skipped, so a re-run resumes
 #   * a failed arm is recorded as ARM_FAILED and does not stop the others
 #   * FANOUT_DONE is the last line, so a watcher can block on it and wake a human once
+#   * an arm named "name@MB" starts only when MemAvailable (/proc/meminfo) covers 1.25 x MB plus the
+#     MB of every arm started in the last 60 s, which may not have reached its peak yet; otherwise the
+#     launcher waits and re-checks every 30 s. MB is the measured peak resident memory of that job class.
+#     Where /usr/bin/time exists, each arm's own peak is recorded in its ARM_DONE line as maxrss_mb.
 #
 # Reading the log: a retried arm leaves its old ARM_FAILED line in place above its ARM_DONE, on
 # purpose -- the history of what failed is worth keeping. Take the LAST record for each arm name.
@@ -60,16 +64,21 @@ say() {
     # Concurrent appends of one short line are atomic enough on Linux, but flock costs nothing
     # and this log is the only thing guaranteed to survive the box.
     if command -v flock >/dev/null 2>&1; then
-        flock "$RESULTS" -c "printf '%s\n' \"\$1\" >> \"$RESULTS\"" _ "$1"
+        # util-linux flock -c takes exactly one string, so pass the line through sh's own arguments
+        flock "$RESULTS" sh -c 'printf "%s\n" "$1" >> "$2"' _ "$1" "$RESULTS"
     else
         printf '%s\n' "$1" >> "$RESULTS"
     fi
 }
 
 run_arm() {
-    local name="$1" cmd="$2" log="$LOGDIR/$1.log" t0 rc
+    local name="$1" cmd="$2" log="$LOGDIR/$1.log" t0 rc rss=""
     t0=$(date +%s)
-    if bash -c "$cmd" > "$log" 2>&1; then
+    if [ -x /usr/bin/time ]; then
+        /usr/bin/time -f 'FANOUT_MAXRSS_KB %M' -o "$log.rss" bash -c "$cmd" > "$log" 2>&1
+        rc=$?
+        rss=$(awk '/^FANOUT_MAXRSS_KB/ {printf "maxrss_mb=%d", $2 / 1024}' "$log.rss" 2>/dev/null)
+    elif bash -c "$cmd" > "$log" 2>&1; then
         rc=0
     else
         rc=$?
@@ -80,10 +89,42 @@ run_arm() {
         # results log. Everything else stays in the per-arm log, which is expendable.
         local payload
         payload=$(grep -h '^RESULT' "$log" | tr '\n' ';' | sed 's/;$//')
-        say "ARM_DONE $name ${secs}s ${payload:-<no RESULT line>}"
+        say "ARM_DONE $name ${secs}s ${rss} ${payload:-<no RESULT line>}"
     else
-        say "ARM_FAILED $name ${secs}s rc=$rc (see $log)"
+        say "ARM_FAILED $name ${secs}s rc=$rc ${rss} (see $log)"
     fi
+}
+
+mem_available_mb() {
+    # MemAvailable where the kernel reports it, MemFree otherwise, -1 when neither can be read
+    if [ -r /proc/meminfo ]; then
+        awk '/^MemAvailable:/ {a = $2} /^MemFree:/ {f = $2}
+             END {if (a) printf "%d", a / 1024; else if (f) printf "%d", f / 1024; else printf "-1"}' /proc/meminfo
+    else
+        printf -- "-1"
+    fi
+}
+
+STARTS=()   # start time and peak MB of every arm launched, for the reservation of recent starts
+wait_for_memory() {
+    local name="$1" peak="$2" need avail recent i now
+    [ "$peak" -gt 0 ] 2>/dev/null || return 0
+    need=$(( (peak * 125 + 99) / 100 ))
+    while :; do
+        now=$(date +%s)
+        recent=0
+        for i in "${STARTS[@]}"; do
+            [ $(( now - ${i%% *} )) -lt 60 ] && recent=$(( recent + ${i##* } ))
+        done
+        avail=$(mem_available_mb)
+        if [ "$avail" -lt 0 ]; then
+            echo "memory: cannot read available memory; starting $name unchecked" >&2
+            return 0
+        fi
+        [ "$avail" -ge $(( need + recent )) ] && return 0
+        echo "memory: $name needs ${need} MB + ${recent} MB reserved, ${avail} MB available; waiting" >&2
+        sleep 30
+    done
 }
 
 say "FANOUT_START $(date -u +%FT%TZ) arms=$# parallelism=$P threads=$JULIA_NUM_THREADS host=$(hostname) cores=$(nproc)"
@@ -97,10 +138,17 @@ for spec in "$@"; do
         say "ARM_FAILED $name 0s rc=2 (spec has no | separator)"
         continue
     fi
+    peak=0
+    if [ "${name#*@}" != "$name" ]; then
+        peak="${name##*@}"
+        name="${name%@*}"
+    fi
     if grep -q "^ARM_DONE $name " "$RESULTS" 2>/dev/null; then
         echo "skip $name (already done)"
         continue
     fi
+    wait_for_memory "$name" "$peak"
+    STARTS+=("$(date +%s) $peak")
     run_arm "$name" "$cmd" &
     queued=$((queued + 1))
     running=$((running + 1))

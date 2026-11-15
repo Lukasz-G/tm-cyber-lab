@@ -14,8 +14,8 @@
 #     installs a requirements file as a unit, that one failure aborts everything else too -- install
 #     it separately if it breaks again.
 #
-# Pinned loosely on purpose: none of these is load-bearing for a result, and the
-# reproducibility that matters lives in the .tmx matrices and the pinned tm-lab commit.
+# Pinned loosely on purpose, except where a pin says why: the reproducibility that matters lives in
+# the .tmx matrices, the pinned tm-lab commit, and the sampled estimator's library version below.
 
 # data
 numpy>=1.26
@@ -26,17 +26,20 @@ huggingface_hub>=0.23      # LAMDA: IQSeC-Lab/LAMDA, DOI 10.57967/hf/5563
 # baselines -- all four are required, not optional. A gradient booster gives the honest performance
 # comparison, a rule learner the honest comparison for an INTERPRETABLE model, and the MLP is needed
 # because the published explanation-drift result this project tests is measured against an MLP.
-scikit-learn>=1.4          # SVM, MLP, decision tree, metrics
+scikit-learn==1.7.2        # SVM, MLP, decision tree, metrics; pinned with shap below (its LARS)
 lightgbm>=4.3              # published LAMDA baseline: 97.49 / 59.48 / 47.24 F1
 xgboost>=2.0               # published LAMDA baseline: 97.05 / 55.84 / 42.75 F1
 wittgenstein>=0.3.4        # RIPPER -- the honest comparison for an interpretable model
 
-# the foil for the explanation-drift contribution
-shap>=0.45                 # LAMDA Appendix I uses KernelExplainer, 100 background / 100 test
+# the foil for the explanation-drift contribution. Pinned, unlike the rest: KernelExplainer's l1_reg
+# default and the shape of its output both changed across versions, and research/b2-corpora defines its
+# sampled estimator at 0.49.1 (l1_reg = num_features(10), passed explicitly) and refuses other versions.
+shap==0.49.1               # LAMDA Appendix I uses KernelExplainer, 100 background / 100 test
+scipy==1.15.3
 
 # the reference explanation-drift pipeline trains a small MLP in PyTorch; replicating it is how the
 # noise floor gets measured. Already present system-wide here, hence --system-site-packages above.
-torch>=2.0
+torch==2.9.0
 
 # reporting
 matplotlib>=3.8
